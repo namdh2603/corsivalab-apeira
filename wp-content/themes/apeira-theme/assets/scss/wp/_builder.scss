@@ -442,7 +442,7 @@ section {
   .accordion-item {
     background-color: transparent;
     border: 0;
-    border-top: 1px solid var(--main-color) !important;
+    border-top: 1px solid rgba(var(--main-color), 0.2)!important;
     border-radius: 0 !important;
     .accordion-button {
       background-color: transparent;
@@ -454,15 +454,14 @@ section {
       @include padding-lr(0, 0);
       @include padding-tb(35, 35);
       &::after {
-        background-image: url('../images/icon-plus.png');
+        background-image: url("../images/icon-plus.png");
         width: toRem(25);
         height: toRem(25);
         background-size: contain;
         background-position: center;
       }
-      &:not(.collapsed)::after{
-        background-image: url('../images/icon-minus.png');
-
+      &:not(.collapsed)::after {
+        background-image: url("../images/icon-minus.png");
       }
     }
     .accordion-body {
@@ -472,7 +471,28 @@ section {
   }
 }
 
-
 #searchform {
   text-align: center;
+  .search-inner {
+    border-top: 1px solid rgba(var(--main-color), 0.2);
+    border-bottom: 1px solid rgba(var(--main-color), 0.2);
+    display: flex;
+    align-items: center;
+    input {
+      width: 80%;
+      margin: 0;
+      border: 0;
+      padding: 20px 0;
+    }
+
+    button {
+      width: 20%;
+      background: transparent;
+      text-align: right;
+      border: 0;
+      img {
+        max-width: 22px;
+      }
+    }
+  }
 }

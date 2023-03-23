@@ -302,7 +302,7 @@ function bbloomer_redirect_login_registration_if_logged_in()
 function wpdocs_my_search_form($form)
 {
     $form = '<form role="search" method="get" id="searchform" class="searchform" action="' . home_url('/') . '" >
-	<div>
+	<div class="search-inner">
 	<input type="text" value="' . get_search_query() . '" name="s" id="s" placeholder="What are you looking for…" />
     <button type="submit" value="Submit"><img src="' . get_stylesheet_directory_uri() . '/assets/images/icon-search-form.png" /></button>
 	</div>

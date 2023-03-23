@@ -12329,15 +12329,15 @@ form.wpcf7-form .wpcf7-not-valid-tip {
 form.wpcf7-form input.wpcf7-form-control,
 form.wpcf7-form select.wpcf7-form-control {
   border: 0;
-  background-color: rgba(234, 237, 242, 0.5);
-  color: rgba(var(--main-color), 0.7);
+  background-color: transparent;
+  color: var(--main-color);
   outline: none;
   padding: 1.5rem 2rem 1.5rem 2rem;
-  font-size: 1rem;
-  line-height: 1.4;
-  font-family: "Sofia Pro";
-  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 1.2;
   margin-bottom: 0.5rem;
+  width: 100%;
+  border-bottom: 1px solid rgba(var(--main-color), 0.2);
 }
 form.wpcf7-form textarea.wpcf7-form-control {
   min-height: 15rem;
@@ -13072,7 +13072,7 @@ section form.mc4wp-form p {
 #accordionFAQ .accordion-item {
   background-color: transparent;
   border: 0;
-  border-top: 1px solid var(--main-color) !important;
+  border-top: 1px solid rgba(var(--main-color), 0.2) !important;
   border-radius: 0 !important;
 }
 #accordionFAQ .accordion-item .accordion-button {
@@ -13107,4 +13107,25 @@ section form.mc4wp-form p {
 
 #searchform {
   text-align: center;
+}
+#searchform .search-inner {
+  border-top: 1px solid rgba(var(--main-color), 0.2);
+  border-bottom: 1px solid rgba(var(--main-color), 0.2);
+  display: flex;
+  align-items: center;
+}
+#searchform .search-inner input {
+  width: 80%;
+  margin: 0;
+  border: 0;
+  padding: 20px 0;
+}
+#searchform .search-inner button {
+  width: 20%;
+  background: transparent;
+  text-align: right;
+  border: 0;
+}
+#searchform .search-inner button img {
+  max-width: 22px;
 }

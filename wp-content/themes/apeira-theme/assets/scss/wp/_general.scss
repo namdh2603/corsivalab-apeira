@@ -92,14 +92,14 @@ form.wpcf7-form {
   input.wpcf7-form-control,
   select.wpcf7-form-control {
     border: 0;
-    background-color: rgba(#eaedf2, 0.5);
-    color: rgba(var(--main-color), 0.7);
+    background-color: transparent;
+    color: var(--main-color);
     outline: none;
     @include padding(15, 20, 15, 20);
-    @include font($d-fs, $d-fs + 4);
-    font-family: $primary-ff;
-    font-weight: 400;
+    @include font(18, 0);
     margin-bottom: toRem(5);
+    width: 100%;
+    border-bottom: 1px solid rgba(var(--main-color), 0.2);
   }
   textarea.wpcf7-form-control {
     min-height: toRem(150);
