@@ -1,0 +1,20 @@
+$w-design: 1920; // design width
+$container-gutter-width: 180; // spacing outside the container
+$desktop-gutter-width: 30; // default spacing width between 2 column
+$mobile-gutter-width: 20; // spacing width between 2 column mobile devices
+$tablet-gutter-width: 20; // spacing width between 2 column mobile devices
+$w-container: ($w-design) - ($container-gutter-width*2) + $desktop-gutter-width; // width without spacing
+
+$d-fs: 10;
+
+$c-51423C: #51423C;
+$c-F2EEE6: #F2EEE6;
+$c-CFBBA4: #CFBBA4;
+$c-ECE4DB: #ECE4DB;
+
+
+
+$re-sm: 575.98;
+$re-md: 767.98;
+$re-lg: 991.98;
+$re-xl: 1199.98;

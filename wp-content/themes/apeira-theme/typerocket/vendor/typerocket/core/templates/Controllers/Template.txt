@@ -1,0 +1,9 @@
+<?php
+namespace {{namespace}};
+
+use TypeRocket\Pro\Controllers\TemplateController;
+
+class {{controller}} extends TemplateController
+{
+
+}

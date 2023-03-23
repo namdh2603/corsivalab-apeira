@@ -1,0 +1,219 @@
+.row-eq-height {
+  flex-wrap: wrap;
+}
+.default-section {
+  position: relative;
+  @include padding(45, 0, 45, 0);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto;
+  @include responsive(mobi) {
+    @include padding(20, 0, 20, 0);
+  }
+}
+.main-title {
+  // @include font(35, 39);
+  @include font(40, 0, 500);
+  font-weight: 700;
+  font-family: $primary-ff;
+  color: var(--main-color);
+  z-index: 1;
+  position: relative;
+}
+.btn-basic {
+  text-decoration: underline;
+  color: var(--main-color);
+}
+.btn-wrap {
+  text-align: center;
+  //margin-bottom: (30 / $d-fs)+rem;
+  .btn-main {
+    border: 1px solid var(--bg-color);
+    border-radius: toRem(10);
+    @include padding(16, 40, 16, 40);
+    display: inline-block;
+    color: var(--main-color);
+    background: var(--bg-color);
+    @include font(16, 0, 700);
+    font-family: $primary-ff;
+    text-decoration: none;
+    cursor: pointer;
+    @include transition();
+    &.btn-outline {
+      background-color: transparent;
+      color: #fff;
+      border-color: #fff;
+      &:hover{
+        color: var(--main-color);
+        background: var(--bg-color);
+      }
+    }
+    &.btn-outline-v2 {
+      color: var(--main-color);
+      border-color: var(--main-color);
+      &:hover {
+        border-color: var(--bg-second-color);
+        background-color: var(--bg-second-color);
+      }
+    }
+    &.btn-ajax {
+      text-transform: uppercase;
+      @include padding(12, 45, 12, 45);
+    }
+  }
+  &.btn-center {
+    text-align: center;
+  }
+  &.btn-left {
+    text-align: left;
+  }
+}
+.opacity-half {
+  opacity: 0.5;
+}
+.font-custom {
+  font-family: $primary-ff;
+  font-weight: 400;
+}
+.button-burger img {
+  width: 22px;
+}
+form.wpcf7-form {
+  .wpcf7-form-control-wrap {
+    display: block;
+    margin-bottom: toRem(15);
+  }
+  .wpcf7-response-output {
+    margin: 0;
+  }
+  .wpcf7-not-valid-tip {
+    @include font($d-fs, $d-fs + 4);
+  }
+  input.wpcf7-form-control,
+  select.wpcf7-form-control {
+    border: 0;
+    background-color: rgba(#eaedf2, 0.5);
+    color: rgba(var(--main-color), 0.7);
+    outline: none;
+    @include padding(15, 20, 15, 20);
+    @include font($d-fs, $d-fs + 4);
+    font-family: $primary-ff;
+    font-weight: 400;
+    margin-bottom: toRem(5);
+  }
+  textarea.wpcf7-form-control {
+    min-height: toRem(150);
+    border: 0;
+    background-color: rgba(#eaedf2, 0.5);
+    outline: none;
+    @include padding(15, 20, 15, 20);
+    @include font($d-fs, $d-fs + 4);
+    font-family: $primary-ff;
+    font-weight: 400;
+  }
+  input.wpcf7-submit {
+    background: var(--main-color);
+    color: $white;
+    @include font($d-fs, $d-fs + 4);
+    font-weight: 400;
+    text-decoration: none;
+    font-family: $primary-ff;
+    border: 0;
+    text-align: center;
+    //margin: 0 auto;
+    display: block;
+    cursor: pointer;
+    @include padding(14, 50, 14, 50);
+    border-radius: 19px;
+    position: relative;
+  }
+}
+.title-page-section {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  padding: 0;
+  @include responsive(mobi) {
+    background-image: none !important;
+  }
+  .container {
+    min-height: toRem(400);
+    @include responsive(mobi) {
+      min-height: auto;
+      margin-top: toRem(20);
+    }
+    display: flex;
+    align-items: center;
+  }
+  h1 {
+    @include font(50, 60);
+    font-weight: 700;
+    color: var(--main-color);
+    margin-bottom: toRem(20);
+  }
+  .sub-title {
+    @include font(25, 30);
+  }
+}
+input.wpcf7-submit {
+  background-color: $black;
+  color: #fff;
+  @include padding(10, 40, 10, 40);
+  @include font($d-fs, 17);
+  font-family: $primary-ff;
+  display: inline-block;
+  width: auto;
+  border: 0;
+}
+input.clear-form {
+  background-color: #cacaca;
+  @include padding(10, 40, 10, 40);
+  @include font($d-fs, 17);
+  font-family: $primary-ff;
+  display: inline-block;
+  width: auto;
+  border: 0;
+}
+form.mc4wp-form {
+  max-width: 80%;
+  @include responsive(mobi) {
+    max-width: 100%;
+  }
+  input {
+    background-color: $white;
+    outline: none;
+    @include font($d-fs, $d-fs + 4);
+    font-family: $primary-ff;
+    @include padding(13, 20, 13, 20);
+    border: 0;
+  }
+  button[type="submit"] {
+    background-color: #014693;
+    border-radius: 19px;
+    color: $white;
+    display: inline-block;
+    width: auto;
+    @include padding(10, 30, 14, 30);
+    @include font($d-fs, $d-fs + 4);
+    font-family: $primary-ff;
+    border: 0;
+    img {
+      width: 15px;
+      margin-left: toRem(10);
+    }
+  }
+}
+select:focus > option:checked {
+  background: #e3effb;
+  color: #014693;
+  font-weight: 900;
+}
+
+.section-padding {
+  // margin-bottom: toRem(180);
+  @include padding_tb(180,180);
+}
+
+.fancybox__backdrop {
+  opacity: .6;
+}

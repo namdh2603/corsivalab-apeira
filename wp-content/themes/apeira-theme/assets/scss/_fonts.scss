@@ -1,0 +1,26 @@
+$font-path: "../fonts";
+$primary-ff: "Sofia Pro";
+$second-ff: "Brown";
+
+$ff-weights: "Light" 300, "Regular" 400, "Medium" 500, "Semibold" 600, "Bold" 700;
+
+@each $weight, $number in $ff-weights {
+  @font-face {
+    font-family: "#{$primary-ff}";
+    font-style: normal;
+    font-weight: #{$number};
+    src: url("#{$font-path}/#{$primary-ff}/#{$primary-ff} #{$weight}.woff");
+  }
+}
+
+
+$ff-weights-2: "Light" 300, "Medium" 500, "Bold" 700, "Heavy" 900;
+
+@each $weight, $number in $ff-weights-2 {
+  @font-face {
+    font-family: "#{$second-ff}";
+    font-style: normal;
+    font-weight: #{$number};
+    src: url("#{$font-path}/#{$second-ff}/#{$second-ff} #{$weight}.ttf");
+  }
+}

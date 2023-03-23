@@ -1,0 +1,595 @@
+2023-03-14T07:37:51+00:00 CRITICAL Uncaught Error: Class "TypeRocketCoreConfig" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php:11
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(503): include()
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(505): {closure}('D:\\xampp80\\htdo...', Array, ' data-name="Hom...', 5, Object(TypeRocket\Models\WPPost), true, false)
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(443): tr_components_loop(Array, Array)
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(4): tr_components_field('builder')
+#4 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php on line 11
+
+2023-03-14T07:38:31+00:00 CRITICAL Uncaught Error: Call to undefined function tr_builder_component_thumbnails() in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php:11
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(503): include()
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(505): {closure}('D:\\xampp80\\htdo...', Array, ' data-name="Hom...', 5, Object(TypeRocket\Models\WPPost), true, false)
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(443): tr_components_loop(Array, Array)
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(4): tr_components_field('builder')
+#4 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php on line 11
+
+2023-03-14T07:51:19+00:00 CRITICAL Uncaught Error: Call to undefined function getBuilderBlocks() in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php:9
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(503): include()
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(505): {closure}('D:\\xampp80\\htdo...', Array, 'builder', 5, Object(TypeRocket\Models\WPPost), true, false)
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(443): tr_components_loop(Array, Array)
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(4): tr_components_field('builder')
+#4 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php on line 9
+
+2023-03-14T07:52:42+00:00 CRITICAL Uncaught Error: Class "Config" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php:9
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(503): include()
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(505): {closure}('D:\\xampp80\\htdo...', Array, 'builder', 5, Object(TypeRocket\Models\WPPost), true, false)
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(443): tr_components_loop(Array, Array)
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(4): tr_components_field('builder')
+#4 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php on line 9
+
+2023-03-14T07:53:03+00:00 CRITICAL Uncaught Error: Call to undefined function Config() in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php:9
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(503): include()
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(505): {closure}('D:\\xampp80\\htdo...', Array, 'builder', 5, Object(TypeRocket\Models\WPPost), true, false)
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(443): tr_components_loop(Array, Array)
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(4): tr_components_field('builder')
+#4 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php on line 9
+
+2023-03-14T07:53:53+00:00 CRITICAL Uncaught Error: Class "Config" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php:9
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(503): include()
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(505): {closure}('D:\\xampp80\\htdo...', Array, 'builder', 5, Object(TypeRocket\Models\WPPost), true, false)
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(443): tr_components_loop(Array, Array)
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(4): tr_components_field('builder')
+#4 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php on line 9
+
+2023-03-14T07:55:17+00:00 CRITICAL syntax error, unexpected token "if" in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php on line 14
+
+2023-03-14T07:59:18+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function tr_components_field(), 0 passed in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php on line 11 and at least 1 expected in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php:428
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php(11): tr_components_field()
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(503): include('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(505): {closure}('D:\\xampp80\\htdo...', Array, 'builder', 5, Object(TypeRocket\Models\WPPost), true, false)
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(443): tr_components_loop(Array, Array)
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(4): tr_components_field('builder')
+#5 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#7 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#8 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php on line 428
+
+2023-03-14T08:00:17+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function tr_page(), 1 passed in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php on line 11 and at least 3 expected in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php:142
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php(11): tr_page(5)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(503): include('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(505): {closure}('D:\\xampp80\\htdo...', Array, 'builder', 5, Object(TypeRocket\Models\WPPost), true, false)
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(443): tr_components_loop(Array, Array)
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(4): tr_components_field('builder')
+#5 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#7 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#8 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php on line 142
+
+2023-03-14T08:00:24+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function tr_page(), 1 passed in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php on line 11 and at least 3 expected in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php:142
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php(11): tr_page(5)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(503): include('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(505): {closure}('D:\\xampp80\\htdo...', Array, 'builder', 5, Object(TypeRocket\Models\WPPost), true, false)
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(443): tr_components_loop(Array, Array)
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(4): tr_components_field('builder')
+#5 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#7 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#8 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php on line 142
+
+2023-03-14T08:01:30+00:00 CRITICAL Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, int given in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php:485
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php(10): tr_components_loop(5)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(503): include('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(505): {closure}('D:\\xampp80\\htdo...', Array, 'builder', 5, Object(TypeRocket\Models\WPPost), true, false)
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(443): tr_components_loop(Array, Array)
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(4): tr_components_field('builder')
+#5 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#7 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#8 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php on line 485
+
+2023-03-14T08:11:46+00:00 CRITICAL Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, int given in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php:485
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php(17): tr_components_loop(5)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(503): include('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(505): {closure}('D:\\xampp80\\htdo...', Array, 'builder', 5, Object(TypeRocket\Models\WPPost), true, false)
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(443): tr_components_loop(Array, Array)
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(4): tr_components_field('builder')
+#5 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#7 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#8 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php on line 485
+
+2023-03-14T08:14:32+00:00 CRITICAL Uncaught ArgumentCountError: Too few arguments to function tr_components_field(), 0 passed in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php on line 8 and at least 1 expected in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php:428
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php(8): tr_components_field()
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(503): include('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(505): {closure}('D:\\xampp80\\htdo...', Array, 'builder', 5, Object(TypeRocket\Models\WPPost), true, false)
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(443): tr_components_loop(Array, Array)
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(4): tr_components_field('builder')
+#5 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#7 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#8 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php on line 428
+
+2023-03-14T08:15:51+00:00 CRITICAL Uncaught Error: Class name must be a valid object or a string in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php:8
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(503): include()
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(505): {closure}('D:\\xampp80\\htdo...', Array, 'builder', 5, Object(TypeRocket\Models\WPPost), true, false)
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(443): tr_components_loop(Array, Array)
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(4): tr_components_field('builder')
+#4 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php on line 8
+
+2023-03-14T08:22:51+00:00 CRITICAL Uncaught TypeError: extract(): Argument #1 ($array) must be of type array, string given in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php:483
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(483): extract('name')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\resources\visuals\builder\home-banner-slide.php(7): tr_components_loop(Array, 'name')
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(504): include('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(506): {closure}('D:\\xampp80\\htdo...', Array, 'builder', 5, Object(TypeRocket\Models\WPPost), false, true)
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php(443): tr_components_loop(Array, Array)
+#5 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(4): tr_components_field('builder')
+#6 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#7 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#8 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#9 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\functions\helpers.php on line 483
+
+2023-03-14T08:36:22+00:00 CRITICAL Uncaught Error: Class "App\Components\HomeBannerSlideComponent" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php:331
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(163): TypeRocket\Elements\Fields\Matrix::getComponentClass('home-banner-sli...', 'builder')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(36): TypeRocket\Elements\Fields\Builder->getBuilderBlocks()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#5 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#6 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#8 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#9 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#10 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php on line 331
+
+2023-03-14T08:36:43+00:00 CRITICAL Uncaught Error: Class "App\Components\HomeBannerSlideComponent" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php:331
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(163): TypeRocket\Elements\Fields\Matrix::getComponentClass('home-banner-sli...', 'builder')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(36): TypeRocket\Elements\Fields\Builder->getBuilderBlocks()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#5 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#6 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#8 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#9 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#10 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php on line 331
+
+2023-03-14T08:37:30+00:00 CRITICAL Uncaught Error: Call to undefined function tr_options_field() in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\header.php:23
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-includes\template.php(783): require_once()
+#1 D:\xampp80\htdocs\website\apeira\wp-includes\template.php(718): load_template('D:\\xampp80\\htdo...', true, Array)
+#2 D:\xampp80\htdocs\website\apeira\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(1): get_header()
+#4 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\header.php on line 23
+
+2023-03-14T08:37:32+00:00 CRITICAL Uncaught Error: Call to undefined function tr_options_field() in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\header.php:23
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-includes\template.php(783): require_once()
+#1 D:\xampp80\htdocs\website\apeira\wp-includes\template.php(718): load_template('D:\\xampp80\\htdo...', true, Array)
+#2 D:\xampp80\htdocs\website\apeira\wp-includes\general-template.php(48): locate_template(Array, true, true, Array)
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(1): get_header()
+#4 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\header.php on line 23
+
+2023-03-14T08:37:43+00:00 CRITICAL Uncaught Error: Call to undefined function tr_posts_field() in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php:3
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include()
+#1 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#3 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php on line 3
+
+2023-03-14T08:38:32+00:00 CRITICAL Uncaught Error: Call to undefined function tr_options_field() in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\footer.php:19
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-includes\template.php(783): require_once()
+#1 D:\xampp80\htdocs\website\apeira\wp-includes\template.php(718): load_template('D:\\xampp80\\htdo...', true, Array)
+#2 D:\xampp80\htdocs\website\apeira\wp-includes\general-template.php(92): locate_template(Array, true, true, Array)
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(18): get_footer()
+#4 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\footer.php on line 19
+
+2023-03-14T08:43:15+00:00 CRITICAL Uncaught Error: Class "App\Components\ContentCoImageComponentmponent" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php:331
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php(263): TypeRocket\Elements\Fields\Matrix::getComponentClass('image-conponent', 'image-conponent')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(85): TypeRocket\Elements\Fields\Matrix->loadComponentsIntoOptions()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(53): TypeRocket\Elements\Fields\Builder->getSelectHtml()
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#5 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#6 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#8 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#10 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#11 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php on line 331
+
+2023-03-14T08:45:44+00:00 CRITICAL Uncaught BadMethodCallException: Method 'editor' does not exist. in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Traits\MacroTrait.php:74
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\HomeBannerSlideComponent.php(24): TypeRocket\Elements\BaseForm->__call('editor', Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(193): App\Components\HomeBannerSlideComponent->fields()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(166): TypeRocket\Elements\Fields\Builder::componentTemplate(Object(App\Components\HomeBannerSlideComponent), 'builder', 'active')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(36): TypeRocket\Elements\Fields\Builder->getBuilderBlocks()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#5 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#6 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#8 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#9 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#10 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#11 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#12 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Traits\MacroTrait.php on line 74
+
+2023-03-14T08:49:56+00:00 CRITICAL Uncaught Error: Failed opening required 'typerocket/init.php' (include_path='D:\xampp80\php\PEAR') in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php:7
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-settings.php(585): include()
+#1 D:\xampp80\htdocs\website\apeira\wp-config.php(96): require_once('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-admin\admin-ajax.php(22): require_once('D:\\xampp80\\htdo...')
+#4 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php on line 7
+
+2023-03-14T08:50:08+00:00 CRITICAL Uncaught Error: Failed opening required 'D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket/vendor/autoload.php' (include_path='D:\xampp80\php\PEAR') in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\init.php:29
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php(7): require()
+#1 D:\xampp80\htdocs\website\apeira\wp-settings.php(585): include('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\wp-config.php(96): require_once('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\wp-admin\admin.php(34): require_once('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(12): require_once('D:\\xampp80\\htdo...')
+#6 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\init.php on line 29
+
+2023-03-14T08:50:08+00:00 CRITICAL Uncaught Error: Failed opening required 'D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket/vendor/autoload.php' (include_path='D:\xampp80\php\PEAR') in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\init.php:29
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php(7): require()
+#1 D:\xampp80\htdocs\website\apeira\wp-settings.php(585): include('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\wp-config.php(96): require_once('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\wp-admin\admin-ajax.php(22): require_once('D:\\xampp80\\htdo...')
+#5 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\init.php on line 29
+
+2023-03-14T08:50:11+00:00 CRITICAL Uncaught Error: Failed opening required 'D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket/vendor/autoload.php' (include_path='D:\xampp80\php\PEAR') in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\init.php:29
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php(7): require()
+#1 D:\xampp80\htdocs\website\apeira\wp-settings.php(585): include('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\wp-config.php(96): require_once('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\wp-admin\admin-ajax.php(22): require_once('D:\\xampp80\\htdo...')
+#5 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\init.php on line 29
+
+2023-03-14T08:50:41+00:00 CRITICAL Uncaught Error: Failed opening required 'D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer/../../helpers.php' (include_path='D:\xampp80\php\PEAR') in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer\autoload_real.php:55
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer\autoload_real.php(38): composerRequire1ea299e54fdefaef41f855b3138bc6c1('4232713442289cf...', 'D:\\xampp80\\htdo...')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\autoload.php(12): ComposerAutoloaderInit1ea299e54fdefaef41f855b3138bc6c1::getLoader()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\init.php(29): require('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php(7): require('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\wp-settings.php(585): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-config.php(96): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#7 D:\xampp80\htdocs\website\apeira\wp-admin\admin.php(34): require_once('D:\\xampp80\\htdo...')
+#8 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(12): require_once('D:\\xampp80\\htdo...')
+#9 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer\autoload_real.php on line 55
+
+2023-03-14T08:52:12+00:00 CRITICAL Uncaught Error: Failed opening required 'D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer/../../helpers.php' (include_path='D:\xampp80\php\PEAR') in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer\autoload_real.php:55
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer\autoload_real.php(38): composerRequire1ea299e54fdefaef41f855b3138bc6c1('4232713442289cf...', 'D:\\xampp80\\htdo...')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\autoload.php(12): ComposerAutoloaderInit1ea299e54fdefaef41f855b3138bc6c1::getLoader()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\init.php(29): require('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php(7): require('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\wp-settings.php(585): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-config.php(96): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#7 D:\xampp80\htdocs\website\apeira\wp-admin\admin-ajax.php(22): require_once('D:\\xampp80\\htdo...')
+#8 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer\autoload_real.php on line 55
+
+2023-03-14T08:54:13+00:00 CRITICAL Uncaught Error: Failed opening required 'D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer/../../helpers.php' (include_path='D:\xampp80\php\PEAR') in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer\autoload_real.php:55
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer\autoload_real.php(38): composerRequire1ea299e54fdefaef41f855b3138bc6c1('4232713442289cf...', 'D:\\xampp80\\htdo...')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\autoload.php(12): ComposerAutoloaderInit1ea299e54fdefaef41f855b3138bc6c1::getLoader()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\init.php(29): require('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php(7): require('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\wp-settings.php(585): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-config.php(96): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#7 D:\xampp80\htdocs\website\apeira\wp-admin\admin-ajax.php(22): require_once('D:\\xampp80\\htdo...')
+#8 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer\autoload_real.php on line 55
+
+2023-03-14T08:55:14+00:00 CRITICAL Uncaught Error: Failed opening required 'D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer/../../helpers.php' (include_path='D:\xampp80\php\PEAR') in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer\autoload_real.php:55
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer\autoload_real.php(38): composerRequire1ea299e54fdefaef41f855b3138bc6c1('4232713442289cf...', 'D:\\xampp80\\htdo...')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\autoload.php(12): ComposerAutoloaderInit1ea299e54fdefaef41f855b3138bc6c1::getLoader()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\init.php(29): require('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php(7): require('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\wp-settings.php(585): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-config.php(96): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#7 D:\xampp80\htdocs\website\apeira\wp-admin\admin-ajax.php(22): require_once('D:\\xampp80\\htdo...')
+#8 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer\autoload_real.php on line 55
+
+2023-03-14T08:57:15+00:00 CRITICAL Uncaught Error: Failed opening required 'D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer/../../helpers.php' (include_path='D:\xampp80\php\PEAR') in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer\autoload_real.php:55
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer\autoload_real.php(38): composerRequire1ea299e54fdefaef41f855b3138bc6c1('4232713442289cf...', 'D:\\xampp80\\htdo...')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\autoload.php(12): ComposerAutoloaderInit1ea299e54fdefaef41f855b3138bc6c1::getLoader()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\init.php(29): require('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php(7): require('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\wp-settings.php(585): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-config.php(96): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#7 D:\xampp80\htdocs\website\apeira\wp-admin\admin-ajax.php(22): require_once('D:\\xampp80\\htdo...')
+#8 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer\autoload_real.php on line 55
+
+2023-03-14T08:58:31+00:00 CRITICAL Uncaught Error: Failed opening required 'D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer/../../helpers.php' (include_path='D:\xampp80\php\PEAR') in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer\autoload_real.php:55
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer\autoload_real.php(38): composerRequire1ea299e54fdefaef41f855b3138bc6c1('4232713442289cf...', 'D:\\xampp80\\htdo...')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\autoload.php(12): ComposerAutoloaderInit1ea299e54fdefaef41f855b3138bc6c1::getLoader()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\init.php(29): require('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php(7): require('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\wp-settings.php(585): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-config.php(96): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#7 D:\xampp80\htdocs\website\apeira\wp-admin\admin-ajax.php(22): require_once('D:\\xampp80\\htdo...')
+#8 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\composer\autoload_real.php on line 55
+
+2023-03-14T09:03:30+00:00 CRITICAL Uncaught BadMethodCallException: Method 'editor' does not exist. in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Traits\MacroTrait.php:74
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\HomeBannerSlideComponent.php(24): TypeRocket\Elements\BaseForm->__call('editor', Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(193): App\Components\HomeBannerSlideComponent->fields()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(166): TypeRocket\Elements\Fields\Builder::componentTemplate(Object(App\Components\HomeBannerSlideComponent), 'builder', 'active')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(36): TypeRocket\Elements\Fields\Builder->getBuilderBlocks()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#5 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#6 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#8 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#9 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#10 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#11 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#12 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Traits\MacroTrait.php on line 74
+
+2023-03-14T09:04:53+00:00 CRITICAL Uncaught BadMethodCallException: Method 'editor' does not exist. in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Traits\MacroTrait.php:74
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\HomeBannerSlideComponent.php(24): TypeRocket\Elements\BaseForm->__call('editor', Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(193): App\Components\HomeBannerSlideComponent->fields()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(166): TypeRocket\Elements\Fields\Builder::componentTemplate(Object(App\Components\HomeBannerSlideComponent), 'builder', 'active')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(36): TypeRocket\Elements\Fields\Builder->getBuilderBlocks()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#5 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#6 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#8 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#9 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#10 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#11 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#12 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Traits\MacroTrait.php on line 74
+
+2023-03-14T09:05:11+00:00 CRITICAL Uncaught BadMethodCallException: Method 'editor' does not exist. in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Traits\MacroTrait.php:74
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\HomeBannerSlideComponent.php(24): TypeRocket\Elements\BaseForm->__call('editor', Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(193): App\Components\HomeBannerSlideComponent->fields()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(166): TypeRocket\Elements\Fields\Builder::componentTemplate(Object(App\Components\HomeBannerSlideComponent), 'builder', 'active')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(36): TypeRocket\Elements\Fields\Builder->getBuilderBlocks()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#5 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#6 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#8 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#9 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#10 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#11 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#12 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Traits\MacroTrait.php on line 74
+
+2023-03-14T09:05:53+00:00 CRITICAL Uncaught BadMethodCallException: Method 'wp_editor' does not exist. in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Traits\MacroTrait.php:74
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\HomeBannerSlideComponent.php(24): TypeRocket\Elements\BaseForm->__call('wp_editor', Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(193): App\Components\HomeBannerSlideComponent->fields()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(166): TypeRocket\Elements\Fields\Builder::componentTemplate(Object(App\Components\HomeBannerSlideComponent), 'builder', 'active')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(36): TypeRocket\Elements\Fields\Builder->getBuilderBlocks()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#5 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#6 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#8 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#9 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#10 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#11 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#12 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Traits\MacroTrait.php on line 74
+
+2023-03-14T09:40:53+00:00 CRITICAL Uncaught Error: Class "Helper" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\inc\corsivalab-customize.php:487
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php(29): require()
+#1 D:\xampp80\htdocs\website\apeira\wp-settings.php(585): include('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\wp-config.php(96): require_once('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\wp-admin\admin.php(34): require_once('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-admin\customize.php(13): require_once('D:\\xampp80\\htdo...')
+#6 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\inc\corsivalab-customize.php on line 487
+
+2023-03-14T09:41:12+00:00 CRITICAL Uncaught Error: Class "Helper" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\inc\corsivalab-customize.php:487
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php(29): require()
+#1 D:\xampp80\htdocs\website\apeira\wp-settings.php(585): include('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\wp-config.php(96): require_once('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\wp-admin\admin.php(34): require_once('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-admin\customize.php(13): require_once('D:\\xampp80\\htdo...')
+#6 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\inc\corsivalab-customize.php on line 487
+
+2023-03-14T10:46:31+00:00 CRITICAL Uncaught Error: Class "App\Components\HomeSlideComponent" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php:331
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php(263): TypeRocket\Elements\Fields\Matrix::getComponentClass('home-slide', 'home-slide')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(85): TypeRocket\Elements\Fields\Matrix->loadComponentsIntoOptions()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(53): TypeRocket\Elements\Fields\Builder->getSelectHtml()
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#5 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#6 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#8 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#10 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#11 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php on line 331
+
+2023-03-14T10:46:42+00:00 CRITICAL Uncaught Error: Class "App\Components\HomeSlideComponent" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php:331
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php(263): TypeRocket\Elements\Fields\Matrix::getComponentClass('home-slide', 'home-slide')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(85): TypeRocket\Elements\Fields\Matrix->loadComponentsIntoOptions()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(53): TypeRocket\Elements\Fields\Builder->getSelectHtml()
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#5 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#6 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#8 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#10 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#11 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php on line 331
+
+2023-03-14T10:47:32+00:00 CRITICAL Uncaught Error: Class "App\Components\HomeSlide" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php:331
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php(263): TypeRocket\Elements\Fields\Matrix::getComponentClass('home-slide', 'home-slide')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(85): TypeRocket\Elements\Fields\Matrix->loadComponentsIntoOptions()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(53): TypeRocket\Elements\Fields\Builder->getSelectHtml()
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#5 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#6 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#8 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#10 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#11 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php on line 331
+
+2023-03-14T11:04:35+00:00 CRITICAL Uncaught BadMethodCallException: Method 'column' does not exist. in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Traits\MacroTrait.php:74
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\HomeSlide.php(20): TypeRocket\Elements\BaseForm->__call('column', Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(193): App\Components\HomeSlide->fields()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(166): TypeRocket\Elements\Fields\Builder::componentTemplate(Object(App\Components\HomeSlide), 'builder', 'active')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(36): TypeRocket\Elements\Fields\Builder->getBuilderBlocks()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#5 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#6 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#8 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#9 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#10 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#11 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#12 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Traits\MacroTrait.php on line 74
+
+2023-03-14T11:05:25+00:00 CRITICAL Uncaught BadMethodCallException: Method 'column' does not exist. in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Traits\MacroTrait.php:74
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\HomeSlide.php(22): TypeRocket\Elements\BaseForm->__call('column', Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(193): App\Components\HomeSlide->fields()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(166): TypeRocket\Elements\Fields\Builder::componentTemplate(Object(App\Components\HomeSlide), 'builder', 'active')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(36): TypeRocket\Elements\Fields\Builder->getBuilderBlocks()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#5 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#6 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#8 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#9 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#10 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#11 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#12 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Traits\MacroTrait.php on line 74
+
+2023-03-14T11:10:03+00:00 CRITICAL Uncaught BadMethodCallException: Method 'withColumn' does not exist. in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Traits\MacroTrait.php:74
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\HomeSlide.php(22): TypeRocket\Elements\BaseForm->__call('withColumn', Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(193): App\Components\HomeSlide->fields()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(166): TypeRocket\Elements\Fields\Builder::componentTemplate(Object(App\Components\HomeSlide), 'builder', 'active')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(36): TypeRocket\Elements\Fields\Builder->getBuilderBlocks()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#5 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#6 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#8 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#9 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#10 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#11 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#12 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Traits\MacroTrait.php on line 74
+
+2023-03-14T11:11:27+00:00 CRITICAL syntax error, unexpected token ";", expecting "]" in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\HomeSlide.php on line 32
+

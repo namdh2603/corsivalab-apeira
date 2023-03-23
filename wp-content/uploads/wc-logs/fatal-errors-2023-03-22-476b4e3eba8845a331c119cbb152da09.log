@@ -1,0 +1,113 @@
+2023-03-22T07:47:07+00:00 CRITICAL Uncaught Error: Class "App\Components\WP_query" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\WeAreHiring.php:45
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php(475): App\Components\WeAreHiring->render(Array, Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Utility\ModelField.php(144): TypeRocket\Elements\Fields\Matrix::componentsLoop(Array, Array)
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\helpers.php(386): TypeRocket\Utility\ModelField::components('builder')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(10): tr_components_field('builder')
+#4 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\WeAreHiring.php on line 45
+
+2023-03-22T07:52:03+00:00 CRITICAL Uncaught Error: Class "App\Components\WP_Query" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\WeAreHiring.php:29
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\WeAreHiring.php(54): App\Components\WeAreHiring->wordpressQuery('career')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php(475): App\Components\WeAreHiring->render(Array, Array)
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Utility\ModelField.php(144): TypeRocket\Elements\Fields\Matrix::componentsLoop(Array, Array)
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\helpers.php(386): TypeRocket\Utility\ModelField::components('builder')
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(10): tr_components_field('builder')
+#5 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#7 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#8 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\WeAreHiring.php on line 29
+
+2023-03-22T07:53:38+00:00 CRITICAL Uncaught Error: Class "App\Components\WP_Query" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\WeAreHiring.php:55
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php(475): App\Components\WeAreHiring->render(Array, Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Utility\ModelField.php(144): TypeRocket\Elements\Fields\Matrix::componentsLoop(Array, Array)
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\helpers.php(386): TypeRocket\Utility\ModelField::components('builder')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(10): tr_components_field('builder')
+#4 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\WeAreHiring.php on line 55
+
+2023-03-22T07:54:13+00:00 CRITICAL Uncaught Error: Class "App\Components\WP_Query" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\WeAreHiring.php:56
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php(475): App\Components\WeAreHiring->render(Array, Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Utility\ModelField.php(144): TypeRocket\Elements\Fields\Matrix::componentsLoop(Array, Array)
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\helpers.php(386): TypeRocket\Utility\ModelField::components('builder')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(10): tr_components_field('builder')
+#4 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\WeAreHiring.php on line 56
+
+2023-03-22T07:57:50+00:00 CRITICAL Uncaught Error: Class "App\Components\WP_Query" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\WeAreHiring.php:42
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php(475): App\Components\WeAreHiring->render(Array, Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Utility\ModelField.php(144): TypeRocket\Elements\Fields\Matrix::componentsLoop(Array, Array)
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\helpers.php(386): TypeRocket\Utility\ModelField::components('builder')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(10): tr_components_field('builder')
+#4 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\WeAreHiring.php on line 42
+
+2023-03-22T08:01:44+00:00 CRITICAL Uncaught Error: Call to a member function have_posts() on null in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\WeAreHiring.php:51
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php(475): App\Components\WeAreHiring->render(Array, Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Utility\ModelField.php(144): TypeRocket\Elements\Fields\Matrix::componentsLoop(Array, Array)
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\helpers.php(386): TypeRocket\Utility\ModelField::components('builder')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(10): tr_components_field('builder')
+#4 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\WeAreHiring.php on line 51
+
+2023-03-22T08:02:31+00:00 CRITICAL Uncaught Error: Call to a member function have_posts() on null in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\WeAreHiring.php:53
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php(475): App\Components\WeAreHiring->render(Array, Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Utility\ModelField.php(144): TypeRocket\Elements\Fields\Matrix::componentsLoop(Array, Array)
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\helpers.php(386): TypeRocket\Utility\ModelField::components('builder')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(10): tr_components_field('builder')
+#4 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\WeAreHiring.php on line 53
+
+2023-03-22T08:03:49+00:00 CRITICAL Uncaught Error: Class "App\Components\WP_Query" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\WeAreHiring.php:53
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php(475): App\Components\WeAreHiring->render(Array, Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Utility\ModelField.php(144): TypeRocket\Elements\Fields\Matrix::componentsLoop(Array, Array)
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\helpers.php(386): TypeRocket\Utility\ModelField::components('builder')
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(10): tr_components_field('builder')
+#4 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\WeAreHiring.php on line 53
+
+2023-03-22T10:58:18+00:00 CRITICAL Uncaught DivisionByZeroError: Division by zero in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\template-parts\archive-post-item.php:6
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-includes\template.php(785): require()
+#1 D:\xampp80\htdocs\website\apeira\wp-includes\template.php(718): load_template('D:\\xampp80\\htdo...', false, Array)
+#2 D:\xampp80\htdocs\website\apeira\wp-includes\general-template.php(204): locate_template(Array, true, false, Array)
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\Sustainability.php(63): get_template_part('template-parts/...', 'post-item', Array)
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php(475): App\Components\Sustainability->render(Array, Array)
+#5 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Utility\ModelField.php(144): TypeRocket\Elements\Fields\Matrix::componentsLoop(Array, Array)
+#6 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\helpers.php(386): TypeRocket\Utility\ModelField::components('builder')
+#7 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\page.php(10): tr_components_field('builder')
+#8 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#9 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#10 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#11 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\template-parts\archive-post-item.php on line 6
+

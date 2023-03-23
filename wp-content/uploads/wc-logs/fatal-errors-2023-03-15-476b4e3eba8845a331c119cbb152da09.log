@@ -1,0 +1,187 @@
+2023-03-15T04:00:21+00:00 CRITICAL Uncaught Error: Class "App\Components\HomeSlide" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php:331
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(163): TypeRocket\Elements\Fields\Matrix::getComponentClass('home-slide', 'builder')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(36): TypeRocket\Elements\Fields\Builder->getBuilderBlocks()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#5 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#6 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#8 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#9 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#10 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php on line 331
+
+2023-03-15T04:00:33+00:00 CRITICAL Uncaught Error: Class "App\Components\homeSlide" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php:331
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(163): TypeRocket\Elements\Fields\Matrix::getComponentClass('home-slide', 'builder')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(36): TypeRocket\Elements\Fields\Builder->getBuilderBlocks()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#5 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#6 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#8 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#9 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#10 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php on line 331
+
+2023-03-15T04:00:50+00:00 CRITICAL Uncaught Error: Class "App\Components\home_slide" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php:331
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(163): TypeRocket\Elements\Fields\Matrix::getComponentClass('home-slide', 'builder')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(36): TypeRocket\Elements\Fields\Builder->getBuilderBlocks()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#5 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#6 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#8 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#9 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#10 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php on line 331
+
+2023-03-15T04:01:22+00:00 CRITICAL Uncaught Error: Class "App\Components\HomeSlide" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php:331
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(163): TypeRocket\Elements\Fields\Matrix::getComponentClass('home-slide', 'builder')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(36): TypeRocket\Elements\Fields\Builder->getBuilderBlocks()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#5 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#6 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#8 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#9 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#10 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php on line 331
+
+2023-03-15T04:39:23+00:00 CRITICAL Uncaught TypeError: Cannot access offset of type string on string in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410\packages\field\src\Field.php:87
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\inc\corsivalab-customize.php(134): Kirki\Field->__construct('Copyright', Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php(29): require('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\wp-settings.php(585): include('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-config.php(96): require_once('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-admin\admin.php(34): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\wp-admin\customize.php(13): require_once('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410\packages\field\src\Field.php on line 87
+
+2023-03-15T04:39:36+00:00 CRITICAL Uncaught TypeError: Cannot access offset of type string on string in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410\packages\field\src\Field.php:87
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\inc\corsivalab-customize.php(134): Kirki\Field->__construct('Copyright', Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php(29): require('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\wp-settings.php(585): include('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-config.php(96): require_once('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-admin\admin.php(34): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\wp-admin\customize.php(13): require_once('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410\packages\field\src\Field.php on line 87
+
+2023-03-15T04:52:34+00:00 CRITICAL Uncaught TypeError: Cannot access offset of type string on string in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410\packages\field\src\Field.php:87
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\inc\corsivalab-customize.php(143): Kirki\Field->__construct('Copyright', Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php(31): require('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\wp-settings.php(585): include('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-config.php(96): require_once('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-admin\admin.php(34): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\wp-admin\customize.php(13): require_once('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410\packages\field\src\Field.php on line 87
+
+2023-03-15T04:53:13+00:00 CRITICAL Uncaught TypeError: Cannot access offset of type string on string in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410\packages\field\src\Field.php:87
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\inc\corsivalab-customize.php(136): Kirki\Field->__construct('Copyright', Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php(31): require('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\wp-settings.php(585): include('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-config.php(96): require_once('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-admin\admin.php(34): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\wp-admin\customize.php(13): require_once('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410\packages\field\src\Field.php on line 87
+
+2023-03-15T04:53:36+00:00 CRITICAL Uncaught TypeError: Cannot access offset of type string on string in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410\packages\field\src\Field.php:87
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\inc\corsivalab-customize.php(131): Kirki\Field->__construct('Copyright', Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php(31): require('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\wp-settings.php(585): include('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-config.php(96): require_once('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-admin\admin.php(34): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\wp-admin\customize.php(13): require_once('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410\packages\field\src\Field.php on line 87
+
+2023-03-15T04:54:15+00:00 CRITICAL Uncaught TypeError: Cannot access offset of type string on string in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410\packages\field\src\Field.php:87
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\inc\corsivalab-customize.php(138): Kirki\Field->__construct('Copyright', Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php(31): require('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\wp-settings.php(585): include('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-config.php(96): require_once('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-admin\admin.php(34): require_once('D:\\xampp80\\htdo...')
+#6 D:\xampp80\htdocs\website\apeira\wp-admin\customize.php(13): require_once('D:\\xampp80\\htdo...')
+#7 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410\packages\field\src\Field.php on line 87
+
+2023-03-15T04:54:21+00:00 CRITICAL Uncaught TypeError: Cannot access offset of type string on string in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410\packages\field\src\Field.php:87
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\inc\corsivalab-customize.php(138): Kirki\Field->__construct('Copyright', Array)
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\functions.php(31): require('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\wp-settings.php(585): include('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-config.php(96): require_once('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#5 D:\xampp80\htdocs\website\apeira\wp-admin\admin-ajax.php(22): require_once('D:\\xampp80\\htdo...')
+#6 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410\packages\field\src\Field.php on line 87
+
+2023-03-15T07:59:04+00:00 CRITICAL Uncaught Error: Failed opening required 'D:\xampp80\htdocs\website\apeira/wp-content/themes/apeira-theme/framework/core/megamenu/edit_custom_walker.php' (include_path='D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410/;D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410/core;D:\xampp80\php\PEAR') in D:\xampp80\htdocs\website\apeira\wp-content\plugins\WordPressMegaMenu\megamenu.php:289
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-admin\includes\plugin.php(2314): include_once()
+#1 D:\xampp80\htdocs\website\apeira\wp-admin\includes\plugin.php(661): plugin_sandbox_scrape('WordPressMegaMe...')
+#2 D:\xampp80\htdocs\website\apeira\wp-admin\plugins.php(58): activate_plugin('WordPressMegaMe...', 'http://localhos...', false)
+#3 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\plugins\WordPressMegaMenu\megamenu.php on line 289
+
+2023-03-15T07:59:05+00:00 CRITICAL Uncaught Error: Failed opening required 'D:\xampp80\htdocs\website\apeira/wp-content/themes/apeira-theme/framework/core/megamenu/edit_custom_walker.php' (include_path='D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410/;D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410/core;D:\xampp80\php\PEAR') in D:\xampp80\htdocs\website\apeira\wp-content\plugins\WordPressMegaMenu\megamenu.php:289
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-admin\includes\plugin.php(2314): include_once()
+#1 D:\xampp80\htdocs\website\apeira\wp-admin\plugins.php(192): plugin_sandbox_scrape('WordPressMegaMe...')
+#2 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\plugins\WordPressMegaMenu\megamenu.php on line 289
+
+2023-03-15T07:59:05+00:00 CRITICAL Uncaught Error: Failed opening required 'D:\xampp80\htdocs\website\apeira/wp-content/themes/apeira-theme/framework/core/megamenu/edit_custom_walker.php' (include_path='D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410/;D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410/core;D:\xampp80\php\PEAR') in D:\xampp80\htdocs\website\apeira\wp-content\plugins\WordPressMegaMenu\megamenu.php:289
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-admin\includes\plugin.php(2314): include_once()
+#1 D:\xampp80\htdocs\website\apeira\wp-admin\plugins.php(192): plugin_sandbox_scrape('WordPressMegaMe...')
+#2 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\plugins\WordPressMegaMenu\megamenu.php on line 289
+
+2023-03-15T08:00:03+00:00 CRITICAL Uncaught Error: Failed opening required 'D:\xampp80\htdocs\website\apeira/wp-content/themes/apeira-theme/framework/core/megamenu/edit_custom_walker.php' (include_path='D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410/;D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410/core;D:\xampp80\php\PEAR') in D:\xampp80\htdocs\website\apeira\wp-content\plugins\WordPressMegaMenu\megamenu.php:289
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-admin\includes\plugin.php(2314): include_once()
+#1 D:\xampp80\htdocs\website\apeira\wp-admin\includes\plugin.php(661): plugin_sandbox_scrape('WordPressMegaMe...')
+#2 D:\xampp80\htdocs\website\apeira\wp-admin\plugins.php(58): activate_plugin('WordPressMegaMe...', 'http://localhos...', false)
+#3 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\plugins\WordPressMegaMenu\megamenu.php on line 289
+
+2023-03-15T08:00:05+00:00 CRITICAL Uncaught Error: Failed opening required 'D:\xampp80\htdocs\website\apeira/wp-content/themes/apeira-theme/framework/core/megamenu/edit_custom_walker.php' (include_path='D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410/;D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410/core;D:\xampp80\php\PEAR') in D:\xampp80\htdocs\website\apeira\wp-content\plugins\WordPressMegaMenu\megamenu.php:289
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-admin\includes\plugin.php(2314): include_once()
+#1 D:\xampp80\htdocs\website\apeira\wp-admin\plugins.php(192): plugin_sandbox_scrape('WordPressMegaMe...')
+#2 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\plugins\WordPressMegaMenu\megamenu.php on line 289
+
+2023-03-15T08:00:05+00:00 CRITICAL Uncaught Error: Failed opening required 'D:\xampp80\htdocs\website\apeira/wp-content/themes/apeira-theme/framework/core/megamenu/edit_custom_walker.php' (include_path='D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410/;D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\kirki-410/core;D:\xampp80\php\PEAR') in D:\xampp80\htdocs\website\apeira\wp-content\plugins\WordPressMegaMenu\megamenu.php:289
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-admin\includes\plugin.php(2314): include_once()
+#1 D:\xampp80\htdocs\website\apeira\wp-admin\plugins.php(192): plugin_sandbox_scrape('WordPressMegaMe...')
+#2 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\plugins\WordPressMegaMenu\megamenu.php on line 289
+
