@@ -144,9 +144,26 @@ jQuery(document).ready(function ($) {
       // Your custom options
     });
   }
+  function categories_shop_swiper() {
+    if ($(".categories-slide-inner").length) {
+      var categories_shop_swiper = new Swiper(
+        ".categories-slide-inner .swiper",
+        {
+          loop: true,
+          spaceBetween: 30,
+          slidesPerView: 7,
+          navigation: {
+            nextEl: ".swiper-button-next-unique",
+            prevEl: ".swiper-button-prev-unique",
+          },
+        }
+      );
+    }
+  }
   home_posts_swiper();
   home_slide_swiper();
   topbar_swiper();
   our_team_swiper();
+  categories_shop_swiper();
   fancybox_init();
 });

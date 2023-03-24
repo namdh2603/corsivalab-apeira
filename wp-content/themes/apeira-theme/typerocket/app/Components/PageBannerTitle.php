@@ -1,6 +1,9 @@
 <?php
+
 namespace App\Components;
+
 use TypeRocket\Template\Component;
+
 class PageBannerTitle extends Component
 {
 	protected $title = 'Page Banner Title';
@@ -22,11 +25,13 @@ class PageBannerTitle extends Component
 	public function render(array $data, array $info)
 	{
 ?>
-		<section class="section-<?php echo $info['component_id']; ?> section-padding" data-id="<?php echo $info['component_id']; ?>" style="background-image: url('<?php echo get_attachment($data['img'])['src']; ?>'); background-size:cover; background-position: center center;">
-			<div class="head-section">
-				<?php if (!empty($data['title'])) : ?><div class="title"><?php echo $data['title']; ?></div><?php endif; ?>
-			</div>
-		</section>
+		<?php if (!empty($data['img'])) : ?>
+			<section class="section-<?php echo $info['component_id']; ?> section-padding" data-id="<?php echo $info['component_id']; ?>" style="background-image: url('<?php echo get_attachment($data['img'])['src']; ?>'); background-size:cover; background-position: center center;">
+				<div class="head-section">
+					<?php if (!empty($data['title'])) : ?><div class="title"><?php echo $data['title']; ?></div><?php endif; ?>
+				</div>
+			</section>
+		<?php endif; ?>
 		<section class="breadcrumb-section">
 			<div class="container">
 				<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">

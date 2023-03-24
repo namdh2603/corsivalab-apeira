@@ -28,6 +28,10 @@ return [
         sanitize_title('Page Search') => \App\Components\PageSearch::class,
         sanitize_title('FAQ') => \App\Components\FAQ::class,
         sanitize_title('Title With Shortcode') => \App\Components\TitleWithShortcode::class,
+        sanitize_title('Content') => \App\Components\ContentComponent::class,
+        sanitize_title('Content With Image') => \App\Components\ContentWithImage::class,
+        sanitize_title('Tabs Section') => \App\Components\TabsSection::class,
+        sanitize_title('Contact Us') => \App\Components\ContactUs::class,
     ],
 
     /*
@@ -43,7 +47,6 @@ return [
         // 'image-conponent',
         'home-slide',
         sanitize_title('Featured Collections'),
-
         sanitize_title('New Arrivals'),
         sanitize_title('Home Banner'),
         sanitize_title('Sustainability'),
@@ -63,5 +66,9 @@ return [
         sanitize_title('Page Search'),
         sanitize_title('FAQ'),
         sanitize_title('Title With Shortcode'),
+        sanitize_title('Content'),
+        sanitize_title('Content With Image'),
+        sanitize_title('Tabs Section'),
+        sanitize_title('Contact Us'),
     ]
 ];

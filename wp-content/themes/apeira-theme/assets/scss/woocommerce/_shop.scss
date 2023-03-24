@@ -1,21 +1,75 @@
 .woocommerce {
   .woocommerce-breadcrumb {
+    padding-top: toRem(50);
+    padding-bottom: toRem(20);
+    text-transform: uppercase;
+    @include font(20, 0);
+    font-weight: 700;
     color: var(--main-color);
-    margin-bottom: (40 / $d-fs) + rem;
     a,
     span {
-      @include font($fs-16, $fs-16 + 4);
+      color: var(--second-color);
+    }
+    // .current-item {
+    //   font-weight: 700;
+    //   color: var(--main-color);
+    // }
+    // color: var(--main-color);
+    // margin-bottom: toRem(40);
+    // a,
+    // span {
+    //   @include font($d-fs, $d-fs + 4);
+    //   color: var(--main-color);
+    // }
+  }
+  .categories-slide-inner {
+    position: relative;
+    .category-img {
+      margin-bottom: toRem(10);
+    }
+    .category-title {
+      a {
+        @include font(18, 0, 700);
+        color: var(--main-color);
+        display: block;
+        text-align: center;
+        text-decoration: none;
+      }
+    }
+    .swiper-button-next-unique,
+    .swiper-button-prev-unique {
+      height: toRem(40);
+      width: toRem(40);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      background: var(--bg-color);
       color: var(--main-color);
+      position: absolute;
+      top: 30%;
+      z-index: 9;
+      // &::after {
+      //   display: none;
+      // }
+    }
+    .swiper-button-next-unique {
+      background-color: #51423c;
+      color: var(--bg-color);
+      right: toRem(-20);
+    }
+    .swiper-button-prev-unique {
+      left: toRem(-20);
     }
   }
   span.onsale {
-    background-color: $second-color;
+    background-color: var(--main-color);
     color: $white;
-    top: (20 / $d-fs) + rem;
+    top: toRem(20);
     right: 0;
     left: unset;
     border-radius: 0;
-    @include font($fs-16, $fs-16 + 4);
+    @include font($d-fs, $d-fs + 4);
     font-weight: 400;
     min-height: unset;
     min-width: unset;
@@ -29,11 +83,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: (50 / $d-fs) + rem;
+    margin-bottom: toRem(50);
+    border-top: 1px solid rgba($c-51423C, 0.3);
+    border-bottom: 1px solid rgba($c-51423C, 0.3);
+    padding: 20px 0;
+    @include font(20, 0);
   }
   .woocommerce-result-count {
     margin-bottom: 0;
-    @include font($fs-16, $fs-16 + 4);
+    @include font($d-fs, $d-fs + 4);
     float: none;
   }
   .filter {
@@ -45,7 +103,7 @@
   .hide-filter {
     img {
       width: 14px;
-      margin-right: (10 / $d-fs) + rem;
+      margin-right: toRem(10);
       filter: brightness(0%);
     }
     button {
@@ -72,9 +130,9 @@
   }
   .woocommerce-ordering {
     margin: 0;
-    max-width: (240 / $d-fs) + rem;
+    max-width: toRem(200);
     select {
-      color: $second-color;
+      color: var(--main-color);
       background: #f4f6f8;
       border: 0;
       text-align: center;
@@ -120,9 +178,9 @@
     }
   }
   .berocket_single_filter_widget {
-    padding-bottom: (20 / $d-fs) + rem;
-    margin-bottom: (60 / $d-fs) + rem;
-    border-bottom: 1px solid rgba($second-color, 0.3);
+    padding-bottom: toRem(20);
+    margin-bottom: toRem(60);
+    border-bottom: 1px solid rgba(#000, 0.3);
     &:last-child() {
       border-bottom: 0;
     }
@@ -138,10 +196,10 @@
     //     display: flex;
     //     align-items: center;
     //     justify-content: space-between;
-    //     border-top: 1px solid rgba($second-color, 0.3);
+    //     border-top: 1px solid rgba(var(--main-color), 0.3);
     //     padding-top: 20px;
     //     margin-bottom: 20px;
-    //     @include font($fs-16, $fs-16 + 4);
+    //     @include font($d-fs, $d-fs + 4);
     //     font-weight: 700;
     //     text-transform: uppercase;
     //     padding-right: 0;
@@ -154,7 +212,7 @@
     }
     li {
       display: block;
-      margin-bottom: (10 / $d-fs) + rem !important;
+      margin-bottom: toRem(10) !important;
       &:last-child {
         margin-bottom: 0 !important;
       }
@@ -183,7 +241,7 @@
       border-radius: 0;
       vertical-align: text-bottom;
       position: relative;
-      border: 1px solid $second-color;
+      border: 1px solid var(--main-color);
       &:checked:after {
         content: "\2713";
         font-size: 18px;
@@ -196,7 +254,7 @@
       }
     }
     .bapf_button.bapf_update {
-      background: $second-color !important;
+      background: var(--main-color) !important;
       @include padding(8, 30, 10, 30);
       display: inline-block;
       color: $white;
@@ -213,7 +271,7 @@
     }
     .ui-slider-range,
     .ui-slider-handle {
-      background: $second-color !important;
+      background: var(--main-color) !important;
     }
     .bapf_slidr_main.ui-widget-content {
       height: 2px;
@@ -256,7 +314,7 @@
       bottom: 0;
       top: unset;
       transform: translateY(0);
-      @include bp-mobile {
+      @include responsive(mobi) {
         @include padding(4, 15, 4, 15);
         border-radius: 0px 0px 10px 0px;
         bottom: unset;
@@ -272,7 +330,7 @@
       width: 70%;
       margin: 0 auto;
       transform: translateY(100%);
-      background: $second-color !important;
+      background: var(--main-color) !important;
       @include padding(8, 20, 10, 20);
       display: inline-block;
       color: $white;
@@ -281,7 +339,7 @@
       text-decoration: none;
       border-radius: 19px;
       @include transition();
-      @include bp-mobile {
+      @include responsive(mobi) {
         bottom: 0;
         top: unset;
       }
@@ -296,7 +354,7 @@
   }
   .woocommerce-loop-product__title {
     font-weight: 800;
-    color: $second-color;
+    color: var(--main-color);
     position: relative;
     @include margin(0, 0, 10, 0);
     text-align: left;
@@ -304,21 +362,21 @@
   .product-top-info {
     @include padding(16, 0, 0, 0);
     overflow: hidden;
-    @include bp-mobile {
+    @include responsive(mobi) {
       max-height: unset;
       min-height: unset;
     }
   }
   #btn-sidebar-expend {
     display: none;
-    @include bp-mobile {
+    @include responsive(mobi) {
       display: block;
       position: fixed;
       top: 50vh;
       z-index: 999;
       padding: 4px 20px;
       color: $white;
-      background-color: $second-color;
+      background-color: var(--main-color);
       letter-spacing: 2px;
       border: none;
       text-transform: uppercase;
@@ -341,7 +399,7 @@
         transform: unset;
       }
     }
-    @include bp-mobile {
+    @include responsive(mobi) {
       position: fixed;
       top: 0;
       left: -100%;
@@ -359,13 +417,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: (20 / $d-fs) + rem;
+  margin-top: toRem(20);
   span {
     @include padding(0, 20, 0, 20);
   }
   a {
     position: relative;
-    border: 1px solid $second-color;
+    border: 1px solid var(--main-color);
     background-color: $white;
     outline: none;
     width: 35px;
@@ -375,7 +433,7 @@
     justify-content: center;
     align-items: center;
     img {
-      width: (10 / $d-fs) + rem;
+      width: toRem(10);
     }
   }
 }

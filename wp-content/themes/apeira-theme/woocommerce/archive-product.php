@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The Template for displaying product archives, including the main shop page which is a post type archive
  *
@@ -17,68 +18,91 @@
 defined('ABSPATH') || exit;
 get_header('shop'); ?>
 <?php
-/**
- * Hook: woocommerce_before_main_content.
- *
- * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
- * @hooked woocommerce_breadcrumb - 20
- * @hooked WC_Structured_Data::generate_website_data() - 30
- */
-do_action('woocommerce_before_main_content');
-
-
-$shop_title =  tr_options_field('corsivalab_options.shop_title');
-$shop_sub_title =  tr_options_field('corsivalab_options.shop_sub_title');
-
-$shop_banner =  tr_options_field('corsivalab_options.shop_banner');
-$shop_banner_data = get_attachment($shop_banner);
+if (is_shop()) {
+	$shop_page_banner =  get_theme_mod('shop_page_banner');
+} else {
+	$thumbnail_id = get_term_meta(get_queried_object_id(), 'img', true);
+	$shop_page_banner = wp_get_attachment_url($thumbnail_id);
+}
 ?>
-<div class="default-section title-page-section mb-5" style="background-image: url('<?php echo $shop_banner_data['src']; ?>');">
+<section class="section-page-banner-title section-padding" style="background-image: url('<?php echo $shop_page_banner; ?>'); background-size:cover; background-position: center center;">
+	<div class="head-section">
+		<div class="title">
+			<?php if (is_shop()) {
+				echo get_theme_mod('shop_page_title');
+			} else {
+				woocommerce_page_title();
+			} ?>
+		</div>
+	</div>
+</section>
+<section class="breadcrumb-section">
 	<div class="container">
-		<?php echo '<img class="w-100" src="' . $shop_banner_data['src'] . '" alt="' . $shop_banner_data['alt'] . '" title="' . $shop_banner_data['title'] . '" />'; ?>
+		<?php /**
+		 * Hook: woocommerce_before_main_content.
+		 *
+		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+		 * @hooked woocommerce_breadcrumb - 20
+		 * @hooked WC_Structured_Data::generate_website_data() - 30
+		 */
+		do_action('woocommerce_before_main_content');  ?>
 	</div>
-</div>
-<div class="container">
-	<div class="woocommerce-products-header">
-		<?php if (apply_filters('woocommerce_show_page_title', true)) : ?>
-			<!-- <h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1> -->
-			<div class="row align-items-end">
-				<div class="col-6">
-					<h2><?php echo $shop_title; ?></h2>
-					<div class="sub-title-shop"><?php echo $shop_sub_title; ?></div>
+</section>
+<?php if (is_shop()) {
+	$taxonomy = 'product_cat';
+	$taxonomy_list = get_terms($taxonomy, array('hide_empty' => false, 'parent' => 0, 'exclude' => 15));
+?>
+	<section class="categories-slide-shop">
+		<div class="container">
+			<div class="categories-slide-inner">
+				<div class="swiper">
+					<div class="swiper-wrapper">
+						<?php
+						if ($taxonomy_list) :
+							foreach ($taxonomy_list as $term) {
+								$thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
+								$term_image = wp_get_attachment_url($thumbnail_id);
+						?>
+								<div class="swiper-slide">
+									<?php if ($thumbnail_id) { ?>
+										<img class="category-img" src="<?php echo $term_image; ?>" alt="img" />
+									<?php } ?>
+									<div class="category-title"><a href="<?php echo esc_url(get_term_link($term)); ?>"><?php echo $term->name; ?></a></div>
+								</div>
+						<?php }
+						endif; ?>
+					</div>
+					<div class="swiper-pagination"></div>
 				</div>
-				<div class="col-6">
-					<?php do_action('corsivalab_woocommerce_catalog_ordering'); ?>
-				</div>
+				<div class="swiper-button-next-unique"><i class="fal fa-long-arrow-right"></i></div>
+				<div class="swiper-button-prev-unique"><i class="fal fa-long-arrow-left"></i></div>
 			</div>
-		<?php endif; ?>
-	</div>
-	<?php
-	/**
-	 * Hook: woocommerce_archive_description.
-	 *
-	 * @hooked woocommerce_taxonomy_archive_description - 10
-	 * @hooked woocommerce_product_archive_description - 10
-	 */
-	do_action('woocommerce_archive_description');
-	?>
-</div>
+		</div>
+	</section>
+<?php } ?>
+<?php
+/**
+ * Hook: woocommerce_archive_description.
+ *
+ * @hooked woocommerce_taxonomy_archive_description - 10
+ * @hooked woocommerce_product_archive_description - 10
+ */
+do_action('woocommerce_archive_description');
+?>
 <section id="layout-product" class="container-product mt-5 mb-5">
 	<div class="container">
-
-	<div class="top-header-woo">
-						<?php
-						/**
-						 * Hook: woocommerce_before_shop_loop.
-						 *
-						 * @hooked woocommerce_output_all_notices - 10
-						 * @hooked woocommerce_result_count - 20
-						 * @hooked woocommerce_catalog_ordering - 30
-						 */
-						do_action('woocommerce_before_shop_loop'); ?>
-					</div>
-
-
+		<?php do_action('corsivalab_all_notices'); ?>
+		<div class="top-header-woo">
+			<?php
+			/**
+			 * Hook: woocommerce_before_shop_loop.
+			 *
+			 * @hooked woocommerce_output_all_notices - 10
+			 * @hooked woocommerce_result_count - 20
+			 * @hooked woocommerce_catalog_ordering - 30
+			 */
+			do_action('woocommerce_before_shop_loop'); ?>
+		</div>
 		<div class="row">
 			<div class="col-12 col-lg-3 sidebar-product nav-sidebar">
 				<?php if (is_active_sidebar('widget-sidebar-woo')) {
@@ -90,7 +114,6 @@ $shop_banner_data = get_attachment($shop_banner);
 				<?php
 				do_action('corsivalab_all_notices');
 				if (woocommerce_product_loop()) { ?>
-
 				<?php
 					woocommerce_product_loop_start();
 					if (wc_get_loop_prop('total')) {
@@ -131,5 +154,4 @@ $shop_banner_data = get_attachment($shop_banner);
  */
 do_action('woocommerce_after_main_content');
 ?>
-
 <?php get_footer('shop');

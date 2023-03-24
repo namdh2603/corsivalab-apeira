@@ -1,0 +1,107 @@
+2023-03-24T03:59:29+00:00 CRITICAL syntax error, unexpected integer "200", expecting identifier or variable or "{" or "$" in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\ContentComponent.php on line 17
+
+2023-03-24T03:59:38+00:00 CRITICAL syntax error, unexpected single-quoted string "200", expecting identifier or variable or "{" or "$" in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\ContentComponent.php on line 17
+
+2023-03-24T04:55:35+00:00 CRITICAL Uncaught Error: Class "App\Components\TabsSection" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php:331
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php(263): TypeRocket\Elements\Fields\Matrix::getComponentClass('tabs-section', 'tabs-section')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(85): TypeRocket\Elements\Fields\Matrix->loadComponentsIntoOptions()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(53): TypeRocket\Elements\Fields\Builder->getSelectHtml()
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#5 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#6 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#8 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#10 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#11 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php on line 331
+
+2023-03-24T05:01:31+00:00 CRITICAL Uncaught Error: Call to undefined function tr_options_field() in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\woocommerce\archive-product.php:30
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 D:\xampp80\htdocs\website\apeira\wp-content\plugins\woocommerce\templates\taxonomy-product-cat.php(22): wc_get_template('archive-product...')
+#2 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#5 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\woocommerce\archive-product.php on line 30
+
+2023-03-24T05:01:33+00:00 CRITICAL Uncaught Error: Call to undefined function tr_options_field() in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\woocommerce\archive-product.php:30
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 D:\xampp80\htdocs\website\apeira\wp-content\plugins\woocommerce\templates\taxonomy-product-cat.php(22): wc_get_template('archive-product...')
+#2 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#5 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\woocommerce\archive-product.php on line 30
+
+2023-03-24T05:01:35+00:00 CRITICAL Uncaught Error: Call to undefined function tr_options_field() in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\woocommerce\archive-product.php:30
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 D:\xampp80\htdocs\website\apeira\wp-content\plugins\woocommerce\templates\taxonomy-product-cat.php(22): wc_get_template('archive-product...')
+#2 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#5 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\woocommerce\archive-product.php on line 30
+
+2023-03-24T05:01:37+00:00 CRITICAL Uncaught Error: Call to undefined function tr_options_field() in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\woocommerce\archive-product.php:30
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 D:\xampp80\htdocs\website\apeira\wp-content\plugins\woocommerce\templates\taxonomy-product-cat.php(22): wc_get_template('archive-product...')
+#2 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#3 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#4 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#5 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\woocommerce\archive-product.php on line 30
+
+2023-03-24T05:04:37+00:00 CRITICAL Uncaught Error: Class "App\Components\TabsSection" not found in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php:331
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php(263): TypeRocket\Elements\Fields\Matrix::getComponentClass('tabs-section', 'tabs-section')
+#1 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(85): TypeRocket\Elements\Fields\Matrix->loadComponentsIntoOptions()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Builder.php(53): TypeRocket\Elements\Fields\Builder->getSelectHtml()
+#3 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(235): TypeRocket\Elements\Fields\Builder->getString()
+#4 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Field.php(294): TypeRocket\Elements\Fields\Field->getFormString()
+#5 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Extensions\PageBuilder.php(208): TypeRocket\Elements\Fields\Field->__toString()
+#6 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): TypeRocket\Extensions\PageBuilder->edit_form_after_title(Object(WP_Post))
+#7 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#8 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#9 D:\xampp80\htdocs\website\apeira\wp-admin\edit-form-advanced.php(581): do_action('edit_form_after...', Object(WP_Post))
+#10 D:\xampp80\htdocs\website\apeira\wp-admin\post.php(206): require('D:\\xampp80\\htdo...')
+#11 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\vendor\typerocket\core\src\Elements\Fields\Matrix.php on line 331
+
+2023-03-24T06:27:54+00:00 CRITICAL syntax error, unexpected token ";", expecting "]" in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\typerocket\app\Components\TabsSection.php on line 21
+
+2023-03-24T08:39:44+00:00 CRITICAL Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given in D:\xampp80\htdocs\website\apeira\wp-content\plugins\yith-woocommerce-points-and-rewards-premium\includes\class.yith-wc-points-rewards-version-compatibility.php:106
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\plugins\yith-woocommerce-points-and-rewards-premium\includes\class.yith-wc-points-rewards-version-compatibility.php(54): YITH_WC_Points_Rewards_Version_Compatibility->compatibility_to_version_200()
+#1 D:\xampp80\htdocs\website\apeira\wp-content\plugins\yith-woocommerce-points-and-rewards-premium\includes\class.yith-wc-points-rewards-version-compatibility.php(36): YITH_WC_Points_Rewards_Version_Compatibility->__construct()
+#2 D:\xampp80\htdocs\website\apeira\wp-content\plugins\yith-woocommerce-points-and-rewards-premium\includes\class.yith-wc-points-rewards-version-compatibility.php(173): YITH_WC_Points_Rewards_Version_Compatibility::get_instance()
+#3 D:\xampp80\htdocs\website\apeira\wp-content\plugins\yith-woocommerce-points-and-rewards-premium\init.php(169): YITH_WC_Points_Rewards_Version_Compatibility()
+#4 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): yith_ywpar_premium_constructor('')
+#5 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters('', Array)
+#6 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#7 D:\xampp80\htdocs\website\apeira\wp-content\plugins\yith-woocommerce-points-and-rewards-premium\init.php(82): do_action('yith_ywpar_init')
+#8 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): yith_ywpar_premium_install('')
+#9 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#10 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#11 D:\xampp80\htdocs\website\apeira\wp-settings.php(480): do_action('plugins_loaded')
+#12 D:\xampp80\htdocs\website\apeira\wp-config.php(100): require_once('D:\\xampp80\\htdo...')
+#13 D:\xampp80\htdocs\website\apeira\wp-load.php(50): require_once('D:\\xampp80\\htdo...')
+#14 D:\xampp80\htdocs\website\apeira\wp-admin\admin.php(34): require_once('D:\\xampp80\\htdo...')
+#15 D:\xampp80\htdocs\website\apeira\wp-admin\plugins.php(10): require_once('D:\\xampp80\\htdo...')
+#16 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\plugins\yith-woocommerce-points-and-rewards-premium\includes\class.yith-wc-points-rewards-version-compatibility.php on line 106
+
+2023-03-24T09:11:24+00:00 CRITICAL Uncaught Error: Call to undefined function tr_options_field() in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\woocommerce\archive-product.php:30
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include()
+#1 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#2 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#3 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\woocommerce\archive-product.php on line 30
+

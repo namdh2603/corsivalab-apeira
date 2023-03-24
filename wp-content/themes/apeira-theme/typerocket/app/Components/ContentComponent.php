@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Components;
 
 use TypeRocket\Template\Component;
@@ -13,10 +14,7 @@ class ContentComponent extends Component
     public function fields()
     {
         $form = $this->form();
-
-        echo $form->text('Headline');
-        echo $form->image('Featured Image');
-        echo $form->textarea('Content');
+        echo $form->wpEditor('desc')->setLabel('Content')->setSetting('options', ['teeny' => false, 'tinymce' => true, 'editor_height' => 800]);;
     }
 
     /**
@@ -27,17 +25,16 @@ class ContentComponent extends Component
      */
     public function render(array $data, array $info)
     {
-        echo '<pre>';
-        // var_dump($info);
-        echo '</pre>';
-        // var_dump($info['hash']);
-        var_dump($info['component_id']);
-        ?>
-        <div class="builder-content">
-            <h2><?php echo esc_html($data['headline']); ?></h2>
-            <?php echo wp_get_attachment_image($data['featured_image']); ?>
-            <?php echo wpautop( $data['content'] ); ?>
-        </div>
-        <?php
+?>
+        <section class="section-<?php echo $info['component_id']; ?>" data-id="<?php echo $info['component_id']; ?>">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 col-sm-8 col-md-8 col-lg-8">
+                        <?php if (!empty($data['desc'])) : ?><div class="desc"><?php echo apply_filters('the_content', $data['desc']); ?></div><?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </section>
+<?php
     }
 }

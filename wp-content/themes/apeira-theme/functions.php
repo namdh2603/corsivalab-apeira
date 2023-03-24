@@ -11,7 +11,7 @@ require('inc/corsivalab-pagenavi.php');
 // require('inc/menu-navwalker.php');
 if (class_exists('woocommerce')) {
     // require('inc/corsivalab-field-product.php');
-    // require('inc/corsivalab-field-product-cat.php');
+    require('inc/corsivalab-field-product-cat.php');
     require('inc/corsivalab-woocommerce.php');
 }
 //require('inc/corsivalab-field-page.php');

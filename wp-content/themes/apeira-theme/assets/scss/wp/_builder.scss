@@ -196,7 +196,7 @@ section {
       display: block;
       inset: 0;
       position: absolute;
-      background-color: rgba($color: #000000, $alpha: 0.2);
+      background-color: rgba($color: #000000, $alpha: 0.3);
       z-index: 0;
     }
   }
@@ -442,7 +442,7 @@ section {
   .accordion-item {
     background-color: transparent;
     border: 0;
-    border-top: 1px solid rgba(var(--main-color), 0.2)!important;
+    border-top: 1px solid rgba($c-51423C, 0.2) !important;
     border-radius: 0 !important;
     .accordion-button {
       background-color: transparent;
@@ -474,8 +474,8 @@ section {
 #searchform {
   text-align: center;
   .search-inner {
-    border-top: 1px solid rgba(var(--main-color), 0.2);
-    border-bottom: 1px solid rgba(var(--main-color), 0.2);
+    border-top: 1px solid rgba($c-51423C, 0.3);
+    border-bottom: 1px solid rgba($c-51423C, 0.3);
     display: flex;
     align-items: center;
     input {
@@ -483,6 +483,7 @@ section {
       margin: 0;
       border: 0;
       padding: 20px 0;
+      outline: none;
     }
 
     button {
@@ -495,4 +496,73 @@ section {
       }
     }
   }
+}
+
+.section-content {
+  .desc {
+    margin-bottom: 0;
+    // padding-bottom: toRem(50);
+    @include font(20, 30, 300);
+    color: var(--main-color);
+    * {
+      margin-bottom: toRem(30);
+    }
+    h1,
+    h2 {
+      font-family: $second-ff;
+      @include font(60, 0, 700);
+    }
+    strong,
+    b {
+      @include font(30, 40);
+      font-weight: 500;
+    }
+  }
+}
+.section-content-with-image {
+  padding: toRem(20) 0;
+  .desc {
+    * {
+      margin-bottom: toRem(5);
+    }
+
+    h3 {
+      font-family: $second-ff;
+      @include font(46, 66, 700);
+    }
+    strong,
+    b {
+      @include font(24, 0);
+      font-weight: 500;
+    }
+    img {
+      max-width: 90%;
+    }
+  }
+}
+
+.tabs-section {
+  text-align: center;
+  .nav-pills {
+    display: inline-flex;
+    border-bottom: 1px solid rgba($c-51423C, 0.2);
+    margin-bottom: toRem(30);
+    .nav-link {
+      background-color: transparent;
+      color: #cfbba4;
+      font-weight: 700;
+      @include font(20, 0);
+      @include padding(10, 20, 10, 20);
+      &.active {
+        color: var(--main-color);
+      }
+    }
+    .tab-content{
+      text-align: left;
+    }
+  }
+}
+
+.social-footer-section {
+  margin-bottom: toRem(40);
 }

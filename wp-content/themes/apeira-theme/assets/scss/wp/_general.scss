@@ -79,6 +79,9 @@
   width: 22px;
 }
 form.wpcf7-form {
+  label{
+    margin-bottom: toRem(0);
+  }
   .wpcf7-form-control-wrap {
     display: block;
     margin-bottom: toRem(15);
@@ -95,37 +98,36 @@ form.wpcf7-form {
     background-color: transparent;
     color: var(--main-color);
     outline: none;
-    @include padding(15, 20, 15, 20);
-    @include font(18, 0);
-    margin-bottom: toRem(5);
+    @include padding(15, 20, 15, 0);
+    margin-bottom: toRem(15);
     width: 100%;
-    border-bottom: 1px solid rgba(var(--main-color), 0.2);
+    border-bottom: 1px solid rgba($c-51423C, 0.2);
+    @include font(18, 0, 300);
+    
   }
   textarea.wpcf7-form-control {
     min-height: toRem(150);
     border: 0;
-    background-color: rgba(#eaedf2, 0.5);
+    background-color: transparent;
     outline: none;
-    @include padding(15, 20, 15, 20);
-    @include font($d-fs, $d-fs + 4);
-    font-family: $primary-ff;
-    font-weight: 400;
+    @include padding(15, 20, 15, 0);
+    @include font(18, 0, 300);
+    width: 100%;
+    border-bottom: 1px solid rgba($c-51423C, 0.2);
   }
   input.wpcf7-submit {
-    background: var(--main-color);
-    color: $white;
-    @include font($d-fs, $d-fs + 4);
-    font-weight: 400;
+    background: var(--bg-second-color);
+    color: var(--main-color);
     text-decoration: none;
-    font-family: $primary-ff;
     border: 0;
     text-align: center;
     //margin: 0 auto;
     display: block;
     cursor: pointer;
-    @include padding(14, 50, 14, 50);
-    border-radius: 19px;
+    @include padding_tb(15, 15);
+    border-radius: 10px;
     position: relative;
+    @include font(20, 0, 700);
   }
 }
 .title-page-section {
