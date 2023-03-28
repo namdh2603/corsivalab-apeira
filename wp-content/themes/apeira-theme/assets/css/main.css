@@ -13301,6 +13301,9 @@ section form.mc4wp-form p {
 .woocommerce .filter .filter-top {
   padding: 0rem 0rem 2rem 0rem;
 }
+.woocommerce .filter .dropdown-icon {
+  width: 11px;
+}
 .woocommerce .hide-filter img {
   width: 14px;
   margin-right: 1rem;

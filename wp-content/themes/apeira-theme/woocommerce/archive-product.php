@@ -16,8 +16,8 @@
  * @version 3.4.0
  */
 defined('ABSPATH') || exit;
-get_header('shop'); ?>
-<?php
+get_header('shop');
+
 if (is_shop()) {
 	$shop_page_banner =  get_theme_mod('shop_page_banner');
 } else {
@@ -93,6 +93,17 @@ do_action('woocommerce_archive_description');
 	<div class="container">
 		<?php do_action('corsivalab_all_notices'); ?>
 		<div class="top-header-woo">
+			<div class="filter">
+				<div class="filter-btn">
+					<span>FILTER ( <?php echo wc_get_loop_prop('total'); ?> )</span><img class="dropdown-icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/arrow-dropdown-icon.png" />
+				</div>
+				<div class="filter-inner">
+				<?php if (is_active_sidebar('widget-sidebar-woocommerce')) {
+					dynamic_sidebar('widget-sidebar-woocommerce');
+				} ?>
+				</div>
+			</div>
+
 			<?php
 			/**
 			 * Hook: woocommerce_before_shop_loop.
@@ -105,10 +116,12 @@ do_action('woocommerce_archive_description');
 		</div>
 		<div class="row">
 			<div class="col-12 col-lg-3 sidebar-product nav-sidebar">
-				<?php if (is_active_sidebar('widget-sidebar-woo')) {
-					echo '<button id="btn-sidebar-expend">Filter</button>';
-					dynamic_sidebar('widget-sidebar-woo');
-				} ?>
+				<?php
+				// if (is_active_sidebar('widget-sidebar-woocommerce')) {
+				// 	echo '<button id="btn-sidebar-expend">Filter</button>';
+				// 	dynamic_sidebar('widget-sidebar-woocommerce');
+				// }
+				?>
 			</div>
 			<div class="col-12 col-lg-9">
 				<?php

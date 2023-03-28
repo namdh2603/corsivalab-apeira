@@ -99,6 +99,9 @@
     .filter-top {
       @include padding(0, 0, 20, 0);
     }
+    .dropdown-icon {
+      width: 11px;
+    }
   }
   .hide-filter {
     img {
