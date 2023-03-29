@@ -107,7 +107,7 @@ function corsivalab_scripts()
     $ver = rand();
     //$ver = '1.0';
     // <!-- Enqueue CSS -->
-    // wp_enqueue_style('corsivalab-bootstrap', get_stylesheet_directory_uri() . '/assets/bootstrap-523/dist/css/bootstrap.min.css', $ver);
+    // wp_enqueue_style('corsivalab-bootstrap', get_stylesheet_directory_uri() . '/assets/bootstrap-530/dist/css/bootstrap.min.css', $ver);
     wp_enqueue_style('corsivalab-fontawesome', get_stylesheet_directory_uri() . '/assets/fontawesome-pro-611/css/all.min.css', '', $ver);
     wp_enqueue_style('corsivalab-swiper', get_stylesheet_directory_uri() . '/assets/swiper-845/swiper-bundle.min.css', '', $ver);
     wp_enqueue_style('corsivalab-fancybox', get_stylesheet_directory_uri() . '/assets/fancybox/fancybox.css', '', $ver);
@@ -117,7 +117,7 @@ function corsivalab_scripts()
     // <!-- End Enqueue CSS -->
 
     // <!-- Enqueue JS -->
-    wp_enqueue_script('corsivalab-bootstrap', get_stylesheet_directory_uri() . '/assets/bootstrap-523/dist/js/bootstrap.bundle.min.js', array('jquery'), $ver, false);
+    wp_enqueue_script('corsivalab-bootstrap', get_stylesheet_directory_uri() . '/assets/bootstrap-530/dist/js/bootstrap.bundle.min.js', array('jquery'), $ver, false);
     wp_enqueue_script('corsivalab-main', get_stylesheet_directory_uri() . '/assets/js/main.js', array('jquery'), $ver, false);
     wp_enqueue_script('corsivalab-swiper', get_stylesheet_directory_uri() . '/assets/swiper-845/swiper-bundle.min.js', array('jquery'), $ver, false);
     wp_enqueue_script('corsivalab-fancybox', get_stylesheet_directory_uri() . '/assets/fancybox/fancybox.umd.js', array('jquery'), $ver, false);

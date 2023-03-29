@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying product content within loops
  *
@@ -28,26 +29,36 @@ if (!is_front_page()) {
 ?>
 <div <?php wc_product_class($class, $product); ?>>
 	<div class="product-inner">
-		<?php
-		/**
-		 * Hook: woocommerce_before_shop_loop_item.
-		 *
-		 * @hooked woocommerce_template_loop_product_link_open - 10
-		 */
-		do_action('woocommerce_before_shop_loop_item'); ?>
+
 		<div class="product-image">
-				<?php
-				/**
-				 * Hook: woocommerce_before_shop_loop_item_title.
-				 *
-				 * @hooked woocommerce_show_product_loop_sale_flash - 10
-				 * @hooked woocommerce_template_loop_product_thumbnail - 10
-				 */
-				do_action('woocommerce_before_shop_loop_item_title');
-				?>
+			<?php
+			/**
+			 * Hook: woocommerce_before_shop_loop_item.
+			 *
+			 * @hooked woocommerce_template_loop_product_link_open - 10
+			 */
+			do_action('woocommerce_before_shop_loop_item'); ?>
+
+			<?php
+			/**
+			 * Hook: woocommerce_before_shop_loop_item_title.
+			 *
+			 * @hooked woocommerce_show_product_loop_sale_flash - 10
+			 * @hooked woocommerce_template_loop_product_thumbnail - 10
+			 */
+			do_action('woocommerce_before_shop_loop_item_title'); ?>
+
+			<?php do_action('woocommerce_shop_loop_addtocart'); ?>
 		</div>
 		<div class="product-info">
 			<div class="product-top-info">
+			<?php
+			/**
+			 * Hook: woocommerce_before_shop_loop_item.
+			 *
+			 * @hooked woocommerce_template_loop_product_link_open - 10
+			 */
+			do_action('woocommerce_before_shop_loop_item'); ?>
 				<?php /**
 				 * Hook: woocommerce_shop_loop_item_title.
 				 *

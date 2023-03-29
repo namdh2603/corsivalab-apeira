@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The Template for displaying product archives, including the main shop page which is a post type archive
  *
@@ -17,7 +16,6 @@
  */
 defined('ABSPATH') || exit;
 get_header('shop');
-
 if (is_shop()) {
 	$shop_page_banner =  get_theme_mod('shop_page_banner');
 } else {
@@ -93,70 +91,60 @@ do_action('woocommerce_archive_description');
 	<div class="container">
 		<?php do_action('corsivalab_all_notices'); ?>
 		<div class="top-header-woo">
-			<div class="filter">
+			<div class="filter-left">
 				<div class="filter-btn">
 					<span>FILTER ( <?php echo wc_get_loop_prop('total'); ?> )</span><img class="dropdown-icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/arrow-dropdown-icon.png" />
 				</div>
 				<div class="filter-inner">
-				<?php if (is_active_sidebar('widget-sidebar-woocommerce')) {
-					dynamic_sidebar('widget-sidebar-woocommerce');
-				} ?>
+					<div class="filter-title">FILTERS<img class="close-filter" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/close-icon.png" /></div>
+					<?php if (is_active_sidebar('widget-sidebar-woocommerce')) {
+						dynamic_sidebar('widget-sidebar-woocommerce');
+					} ?>
 				</div>
 			</div>
-
-			<?php
-			/**
-			 * Hook: woocommerce_before_shop_loop.
-			 *
-			 * @hooked woocommerce_output_all_notices - 10
-			 * @hooked woocommerce_result_count - 20
-			 * @hooked woocommerce_catalog_ordering - 30
-			 */
-			do_action('woocommerce_before_shop_loop'); ?>
-		</div>
-		<div class="row">
-			<div class="col-12 col-lg-3 sidebar-product nav-sidebar">
+			<div class="filter-right">
 				<?php
-				// if (is_active_sidebar('widget-sidebar-woocommerce')) {
-				// 	echo '<button id="btn-sidebar-expend">Filter</button>';
-				// 	dynamic_sidebar('widget-sidebar-woocommerce');
-				// }
-				?>
+				/**
+				 * Hook: woocommerce_before_shop_loop.
+				 *
+				 * @hooked woocommerce_output_all_notices - 10
+				 * @hooked woocommerce_result_count - 20
+				 * @hooked woocommerce_catalog_ordering - 30
+				 */
+				do_action('woocommerce_before_shop_loop'); ?>
 			</div>
-			<div class="col-12 col-lg-9">
-				<?php
-				do_action('corsivalab_all_notices');
-				if (woocommerce_product_loop()) { ?>
-				<?php
-					woocommerce_product_loop_start();
-					if (wc_get_loop_prop('total')) {
-						while (have_posts()) {
-							the_post();
-							/**
-							 * Hook: woocommerce_shop_loop.
-							 */
-							do_action('woocommerce_shop_loop');
-							wc_get_template_part('content', 'product');
-						}
-					}
-					woocommerce_product_loop_end();
+		</div>
+		<?php
+		do_action('corsivalab_all_notices');
+		if (woocommerce_product_loop()) { ?>
+		<?php
+			woocommerce_product_loop_start();
+			if (wc_get_loop_prop('total')) {
+				while (have_posts()) {
+					the_post();
 					/**
-					 * Hook: woocommerce_after_shop_loop.
-					 *
-					 * @hooked woocommerce_pagination - 10
+					 * Hook: woocommerce_shop_loop.
 					 */
-					do_action('woocommerce_after_shop_loop');
-				} else {
-					/**
-					 * Hook: woocommerce_no_products_found.
-					 *
-					 * @hooked wc_no_products_found - 10
-					 */
-					do_action('woocommerce_no_products_found');
+					do_action('woocommerce_shop_loop');
+					wc_get_template_part('content', 'product');
 				}
-				?>
-			</div>
-		</div>
+			}
+			woocommerce_product_loop_end();
+			/**
+			 * Hook: woocommerce_after_shop_loop.
+			 *
+			 * @hooked woocommerce_pagination - 10
+			 */
+			do_action('woocommerce_after_shop_loop');
+		} else {
+			/**
+			 * Hook: woocommerce_no_products_found.
+			 *
+			 * @hooked wc_no_products_found - 10
+			 */
+			do_action('woocommerce_no_products_found');
+		}
+		?>
 	</div>
 </section>
 <?php

@@ -1,36 +1,39 @@
 // .product-inner,
 // .cart .cart_item td {
+.woocommerce {
+  .product{
+
+  
+  .product-inner{
+
+    .price {
+      @include font(20, 0, 600);
+      margin-bottom: toRem(10);
+      color: var(--main-color);
+      ins {
+        // color: var(--main-color);
+        text-decoration: none;
+        // display: block;
+      }
+      // del {
+      //   color: var(--main-color);
+      //   display: block;
+      // }
+    }
+  }
+}
+
+.entry-summary {
   .price {
-      @include font($d-fs, $d-fs+4);
-    font-family: $primary-ff;
-    font-weight: 800;
-    text-align: right;
+    @include font(30, 0, 600);
+    margin-bottom: toRem(20);
+    text-align: left;
     ins {
       color: var(--main-color);
-      text-decoration: none;
-      margin-bottom: (8 / $d-fs)+rem;
-      display: block;
     }
     del {
-      color: var(--main-color);
-      //@include font($d-fs, $d-fs+4);
-      font-weight: 400;
-      margin-bottom: (8 / $d-fs)+rem;
-      display: block;
+      // @include font($fs-20, $fs-20 + 4);
     }
   }
-// }
-
-.entry-summary{
-  .price {
-    @include font(30, 34);
-    margin-bottom: (20 / $d-fs)+rem;
-    text-align: left;
-    ins{
-      color: $second-color;
-    }
-    del {
-      @include font($fs-20, $fs-20+4);
-    }
+}
   }
-} 
