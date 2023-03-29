@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Single Product Price
  *
@@ -15,11 +16,17 @@
  * @version 3.0.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
 	exit; // Exit if accessed directly
 }
 
 global $product;
 
-?>
-<div class="<?php echo esc_attr( apply_filters( 'woocommerce_product_price_class', 'price' ) ); ?>"><?php echo $product->get_price_html(); ?></div>
+
+
+$check = wcpa_is_wcpa_product($product->get_id());
+if ($check == true) {
+	//echo '<div class="wcpa_price_summary"><div class="wcpa_total">' . get_woocommerce_currency_symbol() . '<span class="price_value"></span></div></div>';
+} else { ?>
+	<div class="<?php echo esc_attr(apply_filters('woocommerce_product_price_class', 'price')); ?>"><?php echo $product->get_price_html(); ?></div>
+<?php }

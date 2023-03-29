@@ -21,11 +21,11 @@ if ($related_products) : ?>
 	<div class="default-section related products">
 		<div class="container">
 			<?php
-			$heading = apply_filters('woocommerce_product_related_products_heading', __('Related products', 'woocommerce'));
+			$heading = apply_filters('woocommerce_product_related_products_heading', __('SIMILAR STYLES', 'woocommerce'));
 			if ($heading) :
 			?>
-				<div class="title-section">
-					<h2><?php echo esc_html($heading); ?></h2>
+				<div class="head-section">
+					<div class="title"><?php echo esc_html($heading); ?></div>
 				</div>
 			<?php endif; ?>
 			<?php woocommerce_product_loop_start(); ?>

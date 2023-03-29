@@ -9,33 +9,25 @@
   }
   div.product {
     .product_title {
-      @include font(40, 48);
-      font-weight: 900;
+      @include font(40, 0, 700);
       font-family: $primary-ff;
       position: relative;
       @include margin(0, 0, 20, 0);
-      color: $second-color;
+      color: var(--main-color);
     }
   }
   .entry-summary {
-    padding-top: (5 / $d-fs)+rem;
+    padding-top: toRem(10);
     i {
-      color: #848484;
-      font-family: $primary-ff;
+      color: var(--main-color);
       font-weight: 400;
       display: block;
     }
-    .wcpa_form_outer {
-      label {
-        @include font($d-fs, $d-fs + 4);
-        font-family: $primary-ff;
-        font-weight: 400;
-      }
-      .wcpa_form_item select {
-        @include font($d-fs, $d-fs + 4);
-        @include padding(8, 15, 8, 15);
-      }
+    .star-rating {
+      color: var(--main-color);
+      @include margin(7, 5, 0, 0);
     }
+
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
       -webkit-appearance: none;
@@ -44,23 +36,23 @@
   }
   .term-image,
   .woocommerce-product-details__short-description {
-    margin-bottom: (20 / $d-fs)+rem;
+    margin-bottom: toRem(20);
+    border-bottom: 1px solid rgb(81 66 60 / 50%);
+    padding-bottom: toRem(20);
     text-align: left;
     p {
-      margin-bottom: (10 / $d-fs)+rem;
+      margin-bottom: toRem(10);
     }
   }
   .max-width {
-    max-width: (200 / $d-fs)+rem;
+    max-width: toRem(200);
     margin: 0 auto;
-    margin-top: (50 / $d-fs)+rem;
+    margin-top: toRem(50);
   }
   .section-main-product {
-    margin-bottom: (20 / $d-fs)+rem;
+    margin-bottom: toRem(20);
   }
-  .wcpa_form_item {
-    margin: 0;
-  }
+
   form.cart {
     margin-bottom: 2em;
     .button {
@@ -68,13 +60,12 @@
       font-family: $primary-ff;
       float: none;
       clear: both;
-      display: block;
-      background: $second-color !important;
+
+      background: var(--main-color) !important;
       @include padding(8, 30, 10, 30);
       display: inline-block;
       color: $white !important;
-      @include font($d-fs, $d-fs + 4);
-      font-weight: 400;
+      @include font(20, 0, 400);
       text-decoration: none;
       border-radius: 19px;
       @include transition();
@@ -89,11 +80,11 @@
     .variations select {
       background: #f4f6f8;
       border: 0;
-      color: $second-color;
+      color: var(--main-color);
       margin: 0;
       @include padding(14, 20, 14, 20);
       font-family: $primary-ff;
-      @include font($d-fs, $d-fs + 4);
+      @include font(20, 0, 400);
       outline: none;
     }
   }
@@ -111,7 +102,7 @@
   }
   .woocommerce-Tabs-panel {
     ul {
-      margin-left: (25 / $d-fs)+rem;
+      margin-left: toRem(25);
     }
   }
 }
@@ -136,8 +127,7 @@
       @include padding(0, 20, 0, 20);
       a {
         position: relative;
-        @include font($fs-20, $fs-20 + 4);
-        font-weight: 700;
+        @include font(20, 0, 700);
         @include padding(10, 0, 20, 0);
         @include transition();
         &::after {
@@ -152,12 +142,176 @@
       }
       &.active {
         a {
-          color: $second-color;
+          color: var(--main-color);
           &::after {
-            background-color: $second-color;
+            background-color: var(--main-color);
           }
         }
       }
     }
   }
+}
+
+.wcpa_form_outer {
+  margin-bottom: 0;
+}
+
+.wcpa_form_item {
+  margin: 0;
+  position: relative;
+  padding-bottom: 20px;
+}
+
+.wcpa_price_summary {
+  background: none;
+  ul {
+    padding: 0;
+    border: 0;
+    margin: 0 0 40px 0;
+    li {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      vertical-align: middle;
+      > span:not(.wcpa_price_outer) {
+        display: none;
+      }
+      .wcpa_price_outer {
+        float: none;
+        text-align: left;
+      }
+      .wcpa_price_outer span {
+        @include font(30, 0, 600);
+        // color: var(--main-color);
+        // color: var(--second-color);
+        color: red;
+        vertical-align: bottom;
+      }
+    }
+  }
+}
+
+.wcpa_form_outer {
+  label {
+    @include font(20, 0, 700);
+    color: var(--main-color);
+  }
+  .wcpa_form_item {
+    .color-group {
+      &.wcpa_sel_type_tick {
+        .wcpa_color {
+          &:first-child {
+            label {
+              .label_inside {
+                padding-left: 0;
+              }
+            }
+          }
+          &:last-child {
+            label {
+              border-right: 0;
+            }
+          }
+          label {
+            border-right: 1px solid #a09993;
+            .label_inside {
+              width: auto;
+              color: rgb(81 66 60 / 50%);
+              padding: 0 toRem(20);
+              &:after {
+                display: none;
+              }
+            }
+            span {
+              box-shadow: none !important;
+              border: 0;
+            }
+          }
+          input {
+            &:checked + label {
+              span {
+                border: 0;
+                color: var(--main-color);
+              }
+            }
+          }
+        }
+      }
+
+      &.wcpa_sel_type_border {
+        .wcpa_color {
+          label {
+            // border-right: 1px solid #a09993;
+            // .label_inside {
+            //   width: auto;
+            // }
+            @include padding-lr(0, 20);
+            span {
+              border: 2px solid #a09993;
+              &.wcpa_clb_border {
+                border: 0;
+              }
+            }
+          }
+          input {
+            &:checked + label {
+              span {
+                border: 2px solid var(--main-color);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.content-product
+  .type-product.product
+  .yith-par-message.yith-par-message-product {
+  margin-bottom: 1rem;
+}
+
+.wpgs-wrapper .slick-prev,
+.wpgs-wrapper .slick-next {
+  height: 4rem;
+  width: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: var(--bg-color);
+  background-color: var(--main-color);
+  &:before {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: var(--fa-display, inline-block);
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+    font-family: "Font Awesome 6 Pro" !important;
+    font-weight: 300;
+  }
+}
+.wpgs-image .slick-next,
+.wpgs-image:hover .slick-next {
+  right: 20px;
+}
+
+.wpgs-image .slick-prev,
+.wpgs-image:hover .slick-prev {
+  left: 20px;
+}
+
+.wpgs-wrapper .slick-next:before {
+  content: "\f178";
+}
+.wpgs-wrapper .slick-prev:before {
+  content: "\f177";
+}
+
+.thumbnail_image.slick-current {
+  border: 1px solid rgb(81 66 60 / 50%)!important;
+  box-shadow: none;
 }

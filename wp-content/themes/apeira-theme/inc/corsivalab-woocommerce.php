@@ -1,8 +1,8 @@
 <?php
 // remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
 remove_action('woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
-//remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10);
-//remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10);
+remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10);
+remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10);
 remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5);
 remove_action('woocommerce_before_shop_loop', 'woocommerce_output_all_notices', 10);
 //remove_action( 'woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10 );
@@ -11,7 +11,7 @@ remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 // remove_action('woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10);
 //remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
 //remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
-//remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
+remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
 remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
 //remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
 //remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 5);
@@ -207,7 +207,7 @@ function corsivalab_woocommerce_loop_item_cat_func()
   $typesz = rtrim($types, ', ');
   echo '<div class="list-categories">' . $typesz . '</div>';
 }
-//add_filter( 'woocommerce_format_sale_price', 'corsivalab_invert_formatted_sale_price', 10, 3 );
+add_filter('woocommerce_format_sale_price', 'corsivalab_invert_formatted_sale_price', 10, 3);
 function corsivalab_invert_formatted_sale_price($price, $regular_price, $sale_price)
 {
   return '<ins>' . (is_numeric($sale_price) ? wc_price($sale_price) : $sale_price) . '</ins> <del>' . (is_numeric($regular_price) ? wc_price($regular_price) : $regular_price) . '</del>';
@@ -594,8 +594,23 @@ function custom_address_formats($formats)
 add_filter('woocommerce_localisation_address_formats', 'custom_address_formats');
 
 
-add_action( 'woocommerce_after_shop_loop_item_title', 'woo_show_excerpt_shop_page', 5 );
-function woo_show_excerpt_shop_page() {
-    global $product;
-    echo '<div class="excerpt-product">'.$product->post->post_excerpt.'</div>';
+add_action('woocommerce_after_shop_loop_item_title', 'woo_show_excerpt_shop_page', 5);
+function woo_show_excerpt_shop_page()
+{
+  global $product;
+  echo '<div class="excerpt-product">' . $product->post->post_excerpt . '</div>';
+}
+
+// function woo_related_products_limit()
+// {
+//   global $product;
+
+//   $args['posts_per_page'] = 5;
+//   return $args;
+// }
+add_filter('woocommerce_output_related_products_args', 'jk_related_products_args', 20);
+function jk_related_products_args($args)
+{
+  $args['posts_per_page'] = 5; // 4 related products
+  return $args;
 }

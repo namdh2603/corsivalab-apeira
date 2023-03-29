@@ -36,7 +36,7 @@ if (post_password_required()) {
 
 	<div class="pl-5 pr-5">
 		<div class="row">
-			<div class="col-12 col-sm-5 col-md-5 col-lg-6 image-single-product">
+			<div class="col-12 col-sm-5 col-md-5 col-lg-5 col-xl-5 image-single-product">
 				<div class="image-single-inner">
 					<?php
 					/**
@@ -49,7 +49,7 @@ if (post_password_required()) {
 					?>
 				</div>
 			</div>
-			<div class="col-12 col-sm-5 col-md-5 col-lg-6">
+			<div class="col-12 col-sm-5 col-md-5 col-lg-6 offset-lg-1">
 				<div class="summary entry-summary pl-0 pl-lg-4">
 					<?php
 					/**
