@@ -193,6 +193,7 @@ body {
   ::-webkit-scrollbar-thumb {
     background: rgba(30, 88, 105, 0.56);
   }
+  overflow: hidden;
 }
 menu,
 ol,
@@ -252,8 +253,8 @@ input[type="checkbox"] {
   position: relative;
   width: 100%;
   min-height: 1px;
-  padding-right: toRem(15);
-  padding-left: toRem(15);
+  // padding-right: toRem(15);
+  // padding-left: toRem(15);
 }
 .col-2dot4 {
   flex: 0 0 20%;

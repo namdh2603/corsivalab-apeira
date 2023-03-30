@@ -1,69 +1,135 @@
-.woocommerce-minicart-fragment {
-    @include padding(30, 30, 30, 30);
-    .name-product a {
-      color: black;
-      @include font(18, 24);
-      text-transform: uppercase;
-      margin-bottom: (5 / $d-fs)+rem;
-      display: block;
-    }
-    .price {
-      font-family: $primary-ff;
-      color: #052452;
-      @include font($d-fs, 18);
-      font-weight: 700;
-      margin-bottom: (5 / $d-fs)+rem;
-      display: block;
-    }
-    .quantity {
-      @include font(12, 15);
-      background: #16a2b7;
-      color: #fff;
-      @include padding(2, 4, 2, 4);
-      display: inline-block;
-    }
-    a.remove_from_cart_button {
-      background: #e2334c;
-      color: #fff;
-      height: (18 / $d-fs)+rem;
-      width: (18 / $d-fs)+rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .mini_cart_item {
-        border-bottom: 1px solid #eeeeee;
-        padding-bottom: (15 / $d-fs)+rem;
-        margin-bottom: (15 / $d-fs)+rem;
-      }
-      .woocommerce-mini-cart__total {
-        font-weight: 700;
-        display: flex;
-        justify-content: space-between;
-        font-family: $primary-ff;
-        @include font($d-fs, 20);
+// a.button.btn-minicart {
+
+//   img {
+//     width: 12px;
+//     margin-right: toRem(10);
+//     margin-left: toRem(10);
+//   }
+// }
+.woocommerce {
+  .woocommerce-mini-cart {
+    &__buttons {
+      .wp-element-button {
+        border: 1px solid var(--bg-color);
+        border-radius: toRem(10);
+        @include padding(16, 40, 16, 40);
+        color: var(--main-color);
+        background: var(--bg-color);
+        @include font(20, 0, 700);
+        text-decoration: none;
+        cursor: pointer;
+        @include transition();
+        margin-bottom: toRem(10);
+
+        display: block;
+        width: 100%;
+        text-align: center;
         text-transform: uppercase;
+
+        // &.checkout {
+        //   background-color: $black;
+        // }
       }
+    }
   }
 
-  a.button.btn-minicart {
-    background: #6d747d;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: (10 / $d-fs)+rem;
-    color: $white;
-    @include font($d-fs, 17);
-    font-family: $primary-ff;
-    font-weight: 400;
-    @include padding(10, 0, 10, 0);
-    text-decoration: none;
-    &.checkout {
-      background-color: $black;
+  .wc-minicart-fragment {
+    // @include padding(30, 30, 30, 30);
+    padding-top: toRem(30);
+    .minicart {
+      &-thumbnail {
+        display: inline-block;
+        margin-right: toRem(30);
+        img {
+          float: none;
+          width: toRem(180);
+          margin-left: 0;
+        }
+      }
+      &-info {
+        width: 100%;
+      }
+      &-item {
+        display: flex;
+        border-bottom: 1px solid rgba(81, 66, 60, 0.3);
+        padding-bottom: toRem(30);
+        margin-bottom: toRem(30);
+        a {
+          display: inline-block;
+        }
+        .name-inner {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          margin-bottom: toRem(30);
+        }
+        .name {
+          color: var(--main-color);
+          @include font(26, 0, 700);
+          text-transform: uppercase;
+          display: block;
+          text-decoration: none;
+        }
+
+        .price {
+          display: block;
+          @include font(24, 0);
+          color: var(--main-color);
+          text-decoration: none;
+        }
+        .quantity {
+          @include font(20, 0, 300);
+          // background: #16a2b7;
+          // color: #fff;
+          // @include padding(2, 4, 2, 4);
+          display: block;
+          margin-bottom: toRem(10);
+        }
+        a.remove_from_cart_button {
+          background: transparent !important;
+          color: #a09993 !important;
+          height: auto;
+          width: auto;
+          text-decoration: underline;
+          @include font(20, 0, 600);
+          text-transform: uppercase;
+          display: inline-block;
+          text-align: left;
+        }
+        .variation {
+          border: 0;
+          padding: 0;
+          margin-bottom: toRem(10);
+          dd {
+            padding: 0;
+            margin: 0;
+            * {
+              padding: 0;
+            }
+          }
+        }
+        .mini_cart_item {
+          border-bottom: 1px solid #eeeeee;
+          padding-bottom: toRem(15);
+          margin-bottom: toRem(15);
+        }
+      }
     }
-    img {
-      width: 12px;
-      margin-right: (10 / $d-fs)+rem;
-      margin-left: (10 / $d-fs)+rem;
+
+    .woocommerce-mini-cart__total {
+      display: flex;
+      justify-content: space-between;
+      text-transform: uppercase;
+      margin-bottom: toRem(30);
+      color: var(--main-color);
+      strong {
+        @include font(20, 0, 500);
+      }
+      .amount {
+        @include font(20, 0, 300);
+
+      }
     }
   }
+}

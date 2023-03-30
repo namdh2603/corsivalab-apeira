@@ -109,7 +109,10 @@
     .dropdown-icon {
       width: toRem(11);
     }
-    .filter-inner {
+  }
+  .filter,
+  .minicart {
+    &-container {
       position: fixed;
       left: 0;
       top: 0;
@@ -126,17 +129,50 @@
       -o-transition: transform 0.25s ease;
       transition: transform 0.25s ease;
       transition: transform 0.25s ease, -webkit-transform 0.25s ease;
+      overflow-y: scroll;
+      height: 100%;
       &.active {
         -ms-transform: none;
         transform: none;
         -webkit-transform: none;
       }
     }
-    .filter-title {
+
+    &-inner {
+      @include padding(30, 60, 30, 60);
+    }
+    &-title {
       background: var(--bg-color);
       color: var(--main-color);
+      @include font(40, 0, 500);
+      @include padding(30, 60, 30, 60);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      img {
+        max-width: toRem(30);
+        height: auto;
+      }
     }
   }
+
+  .minicart-container {
+    position: absolute;
+    left: unset;
+    right: 0;
+    top: 100%;
+    width: toRem(800);
+    height: auto;
+    overflow: hidden;
+    transform: translate3d(100%, 0, 0);
+    -webkit-transform: translate3d(100%, 0, 0);
+    // .minicart-inner{
+    //   overflow-y: scroll;
+    // }
+  }
+
+
   .filter-right {
     color: var(--main-color);
     .woocommerce-ordering {
@@ -178,6 +214,25 @@
             }
           }
         }
+      }
+    }
+
+    div.berocket_lgv_widget a.berocket_lgv_button {
+      line-height: 1.5;
+      width: auto;
+      height: auto;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      border-radius: 0;
+      vertical-align: baseline;
+      margin: 0;
+      padding: 0 10px;
+      img {
+        max-width: toRem(20);
+      }
+      &:not(:last-child) {
+        border-right: 1px solid rgba(81, 66, 60, 0.3);
       }
     }
   }
@@ -228,7 +283,8 @@
     // }
   }
   .berocket_lgv_widget {
-    display: inline-block;
+    display: inline-flex;
+    vertical-align: 3px;
   }
   .filter-main,
   .filter-bottom {
@@ -258,10 +314,10 @@
   }
   .bapf_head {
     h3 {
-      letter-spacing: toRem(2);
-      text-transform: capitalize;
-      @include font(24, 28, 700);
-      // font-family: $second-ff;
+      @include font(24, 0, 700);
+      color: var(--main-color);
+      text-transform: uppercase;
+      margin-bottom: toRem(20);
     }
   }
   .berocket_single_filter_widget {
@@ -384,6 +440,14 @@
     .excerpt-product {
       margin-bottom: toRem(10);
       color: var(--main-color);
+
+      display: block;
+      display: -webkit-box;
+      max-width: 100%;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .product-image {
       position: relative;
@@ -508,5 +572,13 @@
     img {
       width: toRem(10);
     }
+  }
+}
+
+.admin-bar {
+  &.woocommerce {
+      .filter-container, .minicart-container1 {
+        top: 32px;
+      }
   }
 }

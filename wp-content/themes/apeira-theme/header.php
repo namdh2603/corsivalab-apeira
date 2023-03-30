@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
-
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <?php wp_head(); ?>
 </head>
-
 <body <?php body_class(); ?>>
     <?php
     if (class_exists('woocommerce')) {
@@ -43,8 +41,6 @@
                 <!-- Slider main container -->
                 <div class="swiper">
                     <!-- Additional required wrapper -->
-
-
                     <?php if (!empty($topbar_list)) : ?>
                         <div class="swiper-wrapper">
                             <?php foreach ($topbar_list as $item) {
@@ -52,10 +48,6 @@
                             } ?>
                         </div>
                     <?php endif; ?>
-
-
-
-
                 </div>
             </div>
             <div class="middle-header">
@@ -77,12 +69,9 @@
                                 )
                             );
                             ?>
-
                         </div>
                         <div class="col-8 col-lg-2">
                             <div class="d-flex justify-content-end">
-
-
                                 <div class="header-icon search-icon">
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icon-search.png" />
                                 </div>
@@ -100,26 +89,32 @@
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icon-currency.png" />
                                 </div>
                                 <div class="header-icon cart-icon">
-                                    <a href="<?php echo $cart_link; ?>">
-                                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icon-cart.png" />
-                                    </a>
+                                    <!-- <a href="<?php echo $cart_link; ?>"> -->
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icon-cart.png" />
+                                    <!-- </a> -->
                                     <div class="cart-count">
                                         <?php echo $cart_count; ?>
                                     </div>
                                 </div>
-
-                                
                             </div>
-
                             <div class="mobile d-block d-lg-none">
-                                    <div class="navbar-toggle">
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                        <span class="icon-bar"></span>
-                                    </div>
+                                <div class="navbar-toggle">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
                                 </div>
-
-
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="minicart-container woocommerce">
+                    <div class="minicart-title"><span>YOUR CART</span><img class="close-minicart" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/close-icon.png" /></div>
+                    <div class="minicart-inner">
+                        <div class="menu-mini-cart">
+                            <div class="minicart-text">You are just $30.00 Away from free UK next day delivery!</div>
+                            <div class="wc-minicart-fragment">
+                                <?php woocommerce_mini_cart(); ?>
+                            </div>
                         </div>
                     </div>
                 </div>

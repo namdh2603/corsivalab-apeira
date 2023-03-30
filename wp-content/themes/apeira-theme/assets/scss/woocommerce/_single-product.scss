@@ -53,41 +53,6 @@
     margin-bottom: toRem(20);
   }
 
-  form.cart {
-    margin-bottom: 2em;
-    .button {
-      border: 0;
-      font-family: $primary-ff;
-      float: none;
-      clear: both;
-
-      background: var(--main-color) !important;
-      @include padding(8, 30, 10, 30);
-      display: inline-block;
-      color: $white !important;
-      @include font(20, 0, 400);
-      text-decoration: none;
-      border-radius: 19px;
-      @include transition();
-      &:hover {
-        background: var(--main-color);
-      }
-      img {
-        max-width: 22px;
-        margin-left: 4px;
-      }
-    }
-    .variations select {
-      background: #f4f6f8;
-      border: 0;
-      color: var(--main-color);
-      margin: 0;
-      @include padding(14, 20, 14, 20);
-      font-family: $primary-ff;
-      @include font(20, 0, 400);
-      outline: none;
-    }
-  }
   .corsivalab-has-thumbnail .woocommerce-product-gallery__wrapper {
     transition: none;
   }
@@ -108,11 +73,87 @@
 }
 .woocommerce {
   div.product {
+    form.cart {
+      margin-bottom: 2em;
+      .button {
+        border: 0;
+        font-family: $primary-ff;
+        float: none;
+        clear: both;
+
+        background: var(--bg-color) !important;
+        @include padding(8, 30, 10, 30);
+        display: inline-block;
+        color: var(--main-color) !important;
+        @include font(16, 0, 700);
+        text-decoration: none;
+        border-radius: 10px;
+        @include transition();
+        &:hover {
+          background: var(--main-color);
+        }
+        img {
+          max-width: 22px;
+          margin-left: 4px;
+        }
+      }
+
+      div.quantity {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include font(20, 0, 700);
+        border: 1px solid rgb(81 66 60 / 50%);
+        float: none;
+        @include padding(10, 30, 10, 30);
+        @include margin(0, 30, 0, 0);
+        input,
+        button {
+          border: 0;
+          background-color: transparent;
+          outline: none;
+          box-shadow: none;
+          margin: 0;
+        }
+        // input{
+        //   display: inline-block;
+        // }
+        button {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+        img {
+          max-width: toRem(12);
+          height: auto;
+        }
+        .qty {
+          width: auto;
+          display: inline-block;
+          padding: 0;
+          max-width: toRem(80);
+        }
+      }
+
+      .addtocart-inner {
+        display: flex;
+        align-items: center;
+        .button {
+          float: none;
+          height: toRem(46);
+          display: block;
+          width: 100%;
+        }
+      }
+    }
+
     .woocommerce-tabs ul.tabs {
       @include margin(0, 0, 30, 0);
       padding: 0;
-      text-align: left;
-      border-bottom: 2px solid #f4f5f7;
+      text-align: center;
+  
+      border-top: 1px solid rgba(81, 66, 60, 0.5);
+      border-bottom: 1px solid rgba(81, 66, 60, 0.5);
       overflow: unset;
     }
     .woocommerce-tabs ul.tabs::before,
@@ -127,8 +168,8 @@
       @include padding(0, 20, 0, 20);
       a {
         position: relative;
-        @include font(20, 0, 700);
-        @include padding(10, 0, 20, 0);
+        @include font(20, 0, 600);
+        @include padding(20, 0, 20, 0);
         @include transition();
         &::after {
           content: "";
@@ -312,6 +353,56 @@
 }
 
 .thumbnail_image.slick-current {
-  border: 1px solid rgb(81 66 60 / 50%)!important;
+  border: 1px solid rgb(81 66 60 / 50%) !important;
   box-shadow: none;
+}
+
+.woo-variation-swatches {
+  .product {
+    .variations {
+      tr {
+        td {
+          padding-bottom: toRem(20);
+        }
+        th {
+          padding-top: toRem(15);
+        }
+        &:not(:last-child) {
+          border-bottom: 1px solid rgb(81 66 60 / 50%);
+        }
+      }
+
+      .reset_variations {
+        display: none !important;
+      }
+      select {
+        background: #f4f6f8;
+        border: 0;
+        color: var(--main-color);
+        margin: 0;
+        @include padding(14, 20, 14, 20);
+        font-family: $primary-ff;
+        @include font(20, 0, 400);
+        outline: none;
+      }
+      .button-variable-items-wrapper {
+        .variable-item {
+          border: 0;
+          border-radius: 0;
+          @include padding-lr(0, 20);
+          @include margin(0, 20, 0, 0);
+          @include font(20, 0, 700);
+          color: rgb(81 66 60 / 50%);
+          box-shadow: none !important;
+          border-right: 1px solid #a09993;
+          &.selected:not(.no-stock) {
+            color: var(--main-color);
+          }
+          .variable-item-span.variable-item-span-button {
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
 }

@@ -160,10 +160,44 @@ jQuery(document).ready(function ($) {
       );
     }
   }
+  function filter_init() {
+    $(".container-product").on("click", ".filter-btn", function () {
+      var $this = $(this);
+      // $this.addClass('active');
+      $this.next().addClass("active");
+    });
+
+    $(".container-product").on("click", ".close-filter", function () {
+      var $this = $(this);
+      // $this.addClass('active');
+      $(".filter-container").removeClass("active");
+    });
+  }
+
+
+  function minicart_init() {
+    head = $(".header");
+    head.on("click", ".cart-icon", function () {
+      $('.minicart-container').addClass("active");
+    });
+
+    head.on("click", ".close-minicart", function () {
+      $('.minicart-container').removeClass("active");
+    });
+  }
+
+
+  
+  $('body').on("added_to_cart", function () {
+    console.log("EVENT: added_to_cart");
+  });
+
   home_posts_swiper();
   home_slide_swiper();
   topbar_swiper();
   our_team_swiper();
   categories_shop_swiper();
   fancybox_init();
+  filter_init();
+  minicart_init();
 });

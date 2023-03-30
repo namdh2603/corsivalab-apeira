@@ -1,0 +1,17 @@
+2023-03-30T04:29:23+00:00 CRITICAL Uncaught Error: Call to undefined function wcpa_is_wcpa_product() in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\woocommerce\single-product\price.php:27
+Stack trace:
+#0 D:\xampp80\htdocs\website\apeira\wp-content\plugins\woocommerce\includes\wc-core-functions.php(345): include()
+#1 D:\xampp80\htdocs\website\apeira\wp-content\plugins\woocommerce\includes\wc-template-functions.php(1647): wc_get_template('single-product/...')
+#2 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(308): woocommerce_template_single_price('')
+#3 D:\xampp80\htdocs\website\apeira\wp-includes\class-wp-hook.php(332): WP_Hook->apply_filters(NULL, Array)
+#4 D:\xampp80\htdocs\website\apeira\wp-includes\plugin.php(517): WP_Hook->do_action(Array)
+#5 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\woocommerce\content-single-product.php(67): do_action('woocommerce_sin...')
+#6 D:\xampp80\htdocs\website\apeira\wp-includes\template.php(785): require('D:\\xampp80\\htdo...')
+#7 D:\xampp80\htdocs\website\apeira\wp-content\plugins\woocommerce\includes\wc-core-functions.php(284): load_template('D:\\xampp80\\htdo...', false)
+#8 D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\woocommerce\single-product.php(34): wc_get_template_part('content', 'single-product')
+#9 D:\xampp80\htdocs\website\apeira\wp-includes\template-loader.php(106): include('D:\\xampp80\\htdo...')
+#10 D:\xampp80\htdocs\website\apeira\wp-blog-header.php(19): require_once('D:\\xampp80\\htdo...')
+#11 D:\xampp80\htdocs\website\apeira\index.php(17): require('D:\\xampp80\\htdo...')
+#12 {main}
+  thrown in D:\xampp80\htdocs\website\apeira\wp-content\themes\apeira-theme\woocommerce\single-product\price.php on line 27
+

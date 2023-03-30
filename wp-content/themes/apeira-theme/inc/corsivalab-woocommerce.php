@@ -75,20 +75,15 @@ function corsivalab_cart_count_fragments($fragments)
   $cart_total = $woocommerce->cart->get_total();
   $fragments['.cart-count'] = '<div class="cart-count">' . $cart_count . '</div>';
   $fragments['.cart-total'] = '<div class="cart-total">' . $cart_total . '</div>';
-  return $fragments;
-}
-//add_filter('woocommerce_add_to_cart_fragments', 'corsivalab_cart_mini_fragments');
-function corsivalab_cart_mini_fragments($fragments)
-{
   ob_start();
-  global $woocommerce;
 ?>
-  <div class="woocommerce-minicart-fragment">
+  <div class="wc-minicart-fragment">
     <?php woocommerce_mini_cart(); ?>
   </div>
-  <?php $fragments['.woocommerce-minicart-fragment'] = ob_get_clean();
+  <?php $fragments['.wc-minicart-fragment'] = ob_get_clean();
   return $fragments;
 }
+
 //remove_action('template_redirect', 'wc_track_product_view', 20);
 //add_action('template_redirect', 'corsivalab_wc_track_product_view', 20);
 function corsivalab_wc_track_product_view()
@@ -257,14 +252,14 @@ add_action('woocommerce_before_quantity_input_field', 'corsivalab_display_quanti
 function corsivalab_display_quantity_minus()
 {
   if (is_product() || is_cart()) {
-    echo '<button type="button" class="minus">-</button>';
+    echo '<button type="button" class="minus"><img src="' . get_stylesheet_directory_uri() . '/assets/images/minus-icon.png" /></button>';
   }
 }
 add_action('woocommerce_after_quantity_input_field', 'corsivalab_display_quantity_plus');
 function corsivalab_display_quantity_plus()
 {
   if (is_product() || is_cart()) {
-    echo '<button type="button" class="plus">+</button>';
+    echo '<button type="button" class="plus"><img src="' . get_stylesheet_directory_uri() . '/assets/images/plus-icon.png" /></button>';
   }
 }
 add_action('wp_footer', 'corsivalab_add_cart_quantity_plus_minus');
@@ -614,3 +609,11 @@ function jk_related_products_args($args)
   $args['posts_per_page'] = 5; // 4 related products
   return $args;
 }
+
+
+add_action('woocommerce_before_add_to_cart_button', function () {
+  echo '<div class="addtocart-inner">';
+});
+add_action('woocommerce_after_add_to_cart_button', function () {
+  echo '</div>';
+});

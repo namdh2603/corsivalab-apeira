@@ -1,3 +1,7 @@
+header{
+  position: relative;
+  // overflow: hidden;
+}
 .top-header {
   background-color: var(--main-color);
   color: var(--dark-color);
@@ -10,6 +14,7 @@
 .middle-header {
   background-color: var(--bg-color);
   @include padding_tb(30, 30);
+  position: relative;
   .header-icon {
     &:not(:last-child) {
       padding-right: toRem(10);
@@ -21,6 +26,7 @@
   }
   .cart-icon {
     position: relative;
+    cursor: pointer;
     .cart-count {
       position: absolute;
       top: -5px;
