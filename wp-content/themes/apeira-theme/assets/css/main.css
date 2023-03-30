@@ -13200,7 +13200,7 @@ body {
   font-weight: 300;
   font-size: 1.8rem;
   line-height: 1.2222222222;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 @media (max-width: 1599px) {
   body {
@@ -13215,6 +13215,9 @@ body ::-webkit-scrollbar-track {
 }
 body ::-webkit-scrollbar-thumb {
   background: rgba(30, 88, 105, 0.56);
+}
+body .overflow-hidden {
+  padding-right: 17px;
 }
 
 menu,
@@ -13570,6 +13573,32 @@ select:focus > option:checked {
 
 .fancybox__backdrop {
   opacity: 0.6;
+}
+
+.corsivalab-overlay {
+  background-color: rgba(207, 187, 164, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+@media (prefers-reduced-motion: reduce) {
+  .corsivalab-overlay {
+    transition: none;
+  }
+}
+.corsivalab-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-backdrop {
+  background-color: rgba(207, 187, 164, 0.5);
 }
 
 header {
@@ -14482,8 +14511,12 @@ section form.mc4wp-form p {
   width: 80rem;
   height: auto;
   overflow: hidden;
-  transform: translate3d(100%, 0, 0);
-  -webkit-transform: translate3d(100%, 0, 0);
+  transform: translate3d(110%, 0, 0);
+  -webkit-transform: translate3d(110%, 0, 0);
+}
+.woocommerce .minicart-container .minicart-inner {
+  max-height: 90rem;
+  overflow-y: scroll;
 }
 .woocommerce .filter-right {
   color: var(--main-color);
@@ -14836,7 +14869,8 @@ section form.mc4wp-form p {
   width: 1rem;
 }
 
-.admin-bar.woocommerce .filter-container, .admin-bar.woocommerce .minicart-container1 {
+.admin-bar.woocommerce .filter-container,
+.admin-bar.woocommerce .minicart-container1 {
   top: 32px;
 }
 

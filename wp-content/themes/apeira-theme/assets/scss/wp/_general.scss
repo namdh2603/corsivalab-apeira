@@ -43,7 +43,7 @@
       background-color: transparent;
       color: #fff;
       border-color: #fff;
-      &:hover{
+      &:hover {
         color: var(--main-color);
         background: var(--bg-color);
       }
@@ -79,7 +79,7 @@
   width: 22px;
 }
 form.wpcf7-form {
-  label{
+  label {
     margin-bottom: toRem(0);
   }
   .wpcf7-form-control-wrap {
@@ -103,7 +103,6 @@ form.wpcf7-form {
     width: 100%;
     border-bottom: 1px solid rgba($c-51423C, 0.2);
     @include font(18, 0, 300);
-    
   }
   textarea.wpcf7-form-control {
     min-height: toRem(150);
@@ -213,9 +212,31 @@ select:focus > option:checked {
 
 .section-padding {
   // margin-bottom: toRem(180);
-  @include padding_tb(180,180);
+  @include padding_tb(180, 180);
 }
 
 .fancybox__backdrop {
-  opacity: .6;
+  opacity: 0.6;
+}
+
+.corsivalab-overlay {
+  background-color: rgb(207 187 164 / 50%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  // height: 100%;
+  // width: 100%;
+    z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  @include transition();
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.modal-backdrop {
+  background-color: rgb(207 187 164 / 50%);
 }

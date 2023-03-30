@@ -160,37 +160,57 @@ jQuery(document).ready(function ($) {
       );
     }
   }
-  function filter_init() {
-    $(".container-product").on("click", ".filter-btn", function () {
-      var $this = $(this);
-      // $this.addClass('active');
-      $this.next().addClass("active");
-    });
 
-    $(".container-product").on("click", ".close-filter", function () {
-      var $this = $(this);
-      // $this.addClass('active');
+  var body = $("body"),
+    head = $(".header"),
+    product = $(".container-product"),
+    minicart = $(".minicart-container"),
+    overlay = $(".corsivalab-overlay");
+
+  function overlay_active() {
+    overlay.addClass("active");
+    body.addClass("overflow-hidden");
+  }
+  function overlay_deactivate() {
+    overlay.removeClass("active");
+    body.removeClass("overflow-hidden");
+  }
+
+  function overlay_trigger() {
+    body.on("click", ".corsivalab-overlay.active", function () {
       $(".filter-container").removeClass("active");
+      minicart.removeClass("active");
+      overlay_deactivate();
     });
   }
 
+  function filter_init() {
+    product.on("click", ".filter-btn", function () {
+      var $this = $(this);
+      $this.next().addClass("active");
+      overlay_active();
+    });
+
+    product.on("click", ".close-filter", function () {
+      var $this = $(this);
+      $(".filter-container").removeClass("active");
+      overlay_deactivate();
+    });
+  }
 
   function minicart_init() {
-    head = $(".header");
     head.on("click", ".cart-icon", function () {
-      $('.minicart-container').addClass("active");
+      minicart.addClass("active");
+      overlay_active();
     });
 
     head.on("click", ".close-minicart", function () {
-      $('.minicart-container').removeClass("active");
+      minicart.removeClass("active");
+      overlay_deactivate();
     });
   }
 
 
-  
-  $('body').on("added_to_cart", function () {
-    console.log("EVENT: added_to_cart");
-  });
 
   home_posts_swiper();
   home_slide_swiper();
@@ -200,4 +220,5 @@ jQuery(document).ready(function ($) {
   fancybox_init();
   filter_init();
   minicart_init();
+  overlay_trigger();
 });

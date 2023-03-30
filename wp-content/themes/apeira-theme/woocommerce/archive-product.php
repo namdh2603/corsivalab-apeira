@@ -95,7 +95,7 @@ do_action('woocommerce_archive_description');
 				<div class="filter-btn">
 					<span>FILTER ( <?php echo wc_get_loop_prop('total'); ?> )</span><img class="dropdown-icon" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/arrow-dropdown-icon.png" />
 				</div>
-				<div class="filter-container active">
+				<div class="filter-container">
 					<div class="filter-title"><span>FILTERS</span><img class="close-filter" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/close-icon.png" /></div>
 					<div class="filter-inner">
 					<?php if (is_active_sidebar('widget-sidebar-woocommerce')) {

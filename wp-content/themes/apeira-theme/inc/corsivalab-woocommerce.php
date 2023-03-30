@@ -486,7 +486,7 @@ function corsivalab_change_password_endpoint_content()
   <div class="form-change-password">
     <?php wc_get_template('myaccount/form-edit-account.php', array('user' => get_user_by('id', get_current_user_id()))); ?>
   </div>
-<?php }
+  <?php }
 //add_action( 'woocommerce_save_account_details', 'corsivalab_save_account_details', 12, 1 );
 function corsivalab_save_account_details($user_id)
 {
@@ -613,7 +613,97 @@ function jk_related_products_args($args)
 
 add_action('woocommerce_before_add_to_cart_button', function () {
   echo '<div class="addtocart-inner">';
-});
+}, 99);
 add_action('woocommerce_after_add_to_cart_button', function () {
   echo '</div>';
 });
+
+add_action('wp_footer', 'trigger_for_ajax_add_to_cart', 99);
+function trigger_for_ajax_add_to_cart()
+{
+  if (
+    isset($_POST['add-to-cart']) && $_POST['add-to-cart'] > 0
+    && isset($_POST['quantity']) && $_POST['quantity'] > 0
+  ) :
+  ?>
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $(".minicart-container").addClass("active");
+        $(".corsivalab-overlay").addClass("active");
+        $("body").addClass("overflow-hidden");
+      });
+    </script>
+  <?php
+  endif;
+}
+
+
+add_filter('woocommerce_before_add_to_cart_button', 'woocommerce_single_product_sizeguide', 98);
+function woocommerce_single_product_sizeguide()
+{ ?>
+  <div class="sizeguide-btn" data-bs-toggle="modal" data-bs-target="#sizeGuideModal">Size Guide</div>
+  <!-- Modal -->
+  <div class="modal fade" id="sizeGuideModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+
+        <div class="modal-body">
+          <div class="close" data-bs-dismiss="modal"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/close-icon.png" /></div>
+          <div class="head-section">
+            <div class="row justify-content-center">
+              <div class="col-12 col-sm-8 col-md-8 col-lg-8 text-center">
+                <div class="title">SIZE GUIDE</div>
+                <div class="desc">
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque congue dolor, non porta neque feugiat at. In hac habitasse platea dictumst</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tabs-section">
+            <div class="row justify-content-center">
+              <div class="col-12 col-sm-10 col-md-10 col-lg-10">
+                <ul class="nav nav-pills" id="pills-tab" role="tabsize">
+                  <li class="nav-item" role="presentation">
+                    <div class="nav-link active" id="pills-1-tab" data-bs-toggle="pill" data-bs-target="#pills-1" type="button" role="tab" aria-controls="pills-1" aria-selected="true">XXS TO 4X
+                    </div>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <div class="nav-link" id="pills-2-tab" data-bs-toggle="pill" data-bs-target="#pills-2" type="button" role="tab" aria-controls="pills-2" aria-selected="false" tabindex="-1">SLIDES
+                    </div>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <div class="nav-link" id="pills-3-tab" data-bs-toggle="pill" data-bs-target="#pills-3" type="button" role="tab" aria-controls="pills-3" aria-selected="false" tabindex="-1">KIDS
+                    </div>
+                  </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                  <div class="tab-pane fade active show" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab" tabindex="0">
+                    <div class="desc">
+                      <p><img decoding="async" loading="lazy" class="alignnone size-full wp-image-162" src="http://localhost/website/apeira/wp-content/uploads/2023/03/size-table.png" alt="" width="1383" height="545"></p>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab" tabindex="0">
+                    <div class="desc">
+                      <p><img decoding="async" loading="lazy" class="alignnone size-full wp-image-162" src="http://localhost/website/apeira/wp-content/uploads/2023/03/size-table.png" alt="" width="1383" height="545"></p>
+                      <p>SLIDES size table</p>
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab" tabindex="0">
+                    <div class="desc">
+                      <p><img decoding="async" loading="lazy" class="alignnone size-full wp-image-162" src="http://localhost/website/apeira/wp-content/uploads/2023/03/size-table.png" alt="" width="1383" height="545"></p>
+                      <p>KIDS size table</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+<?php
+}

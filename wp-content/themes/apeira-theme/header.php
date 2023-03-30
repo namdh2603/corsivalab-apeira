@@ -25,7 +25,7 @@
     $home_link = get_home_url();
     ?>
     <!-- Mobile Menu -->
-    <div class="navbar-overlay"></div>
+    <div class="corsivalab-overlay"></div>
     <div class="navbar-mobile">
         <?php
         // wp_nav_menu(array(
@@ -50,7 +50,7 @@
                     <?php endif; ?>
                 </div>
             </div>
-            <div class="middle-header">
+            <div class="middle-header woocommerce">
                 <div class="container">
                     <div class="row row-sm justify-content-center align-items-center">
                         <div class="col-4 col-lg-2 text-left">

@@ -193,7 +193,10 @@ body {
   ::-webkit-scrollbar-thumb {
     background: rgba(30, 88, 105, 0.56);
   }
-  overflow: hidden;
+  overflow-x: hidden;
+  .overflow-hidden{
+    padding-right: 17px;
+  }
 }
 menu,
 ol,
