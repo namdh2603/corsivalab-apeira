@@ -550,14 +550,24 @@ section {
     .nav-link {
       background-color: transparent;
       color: #cfbba4;
-      font-weight: 700;
-      @include font(20, 0);
+      @include font(20, 0,700);
       @include padding(10, 20, 10, 20);
+      position: relative;
       &.active {
         color: var(--main-color);
+        &:before {
+          content: "";
+          height: 1px;
+          width: 100%;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          background: var(--main-color);
+          margin: -1px;
+        }
       }
     }
-    .tab-content{
+    .tab-content {
       text-align: left;
     }
   }

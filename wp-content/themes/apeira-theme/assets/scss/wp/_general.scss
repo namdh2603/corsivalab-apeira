@@ -56,6 +56,15 @@
         background-color: var(--bg-second-color);
       }
     }
+    &.btn-outline-v3 {
+      color: var(--main-color);
+      border-color: var(--main-color);
+      background-color: transparent;
+      &:hover {
+        border-color: var(--bg-second-color);
+        background-color: var(--bg-second-color);
+      }
+    }
     &.btn-ajax {
       text-transform: uppercase;
       @include padding(12, 45, 12, 45);
@@ -239,4 +248,7 @@ select:focus > option:checked {
 }
 .modal-backdrop {
   background-color: rgb(207 187 164 / 50%);
+}
+.page-content{
+  margin-bottom: toRem(100)
 }

@@ -1,0 +1,20 @@
+03-31-2023 @ 10:11:10 - Updated points to 1: Array
+(
+    [user_id] => 1
+    [action] => order_completed
+    [order_id] => 224
+    [description] => 
+    [amount] => 64
+    [info] => 
+)
+
+03-31-2023 @ 10:31:09 - Updated points to 1: Array
+(
+    [user_id] => 1
+    [action] => admin_action
+    [order_id] => 0
+    [description] => 
+    [amount] => 200
+    [info] => 
+)
+

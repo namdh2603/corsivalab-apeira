@@ -1,22 +1,38 @@
 // Thank you
 
-
-  
+.thankyou-page {
+  padding-top: toRem(80);
+}
 .sub-thankyou {
-  font-size: 18px;
-  margin-bottom: 20px;
+  @include font(18, 0);
+  margin-bottom: toRem(20);
+  img {
+    max-width: toRem(30);
+    margin-right: toRem(10);
+  }
+}
+.order-information {
+  text-align: center;
+  @include font(18, 0, 700);
+  color: var(--main-color);
+  b {
+    font-weight: 400;
+    margin-right: toRem(5);
+  }
+  li{
+    margin-bottom: toRem(10);
+    *{
+      display: inline-block;
+    }
+  }
 }
 
-.orrder-num {
-  @include font($d-fs, $d-fs+4);
-  font-weight: 700;
-}
 .point-txt-thankyou {
-  background: $second-color;
+  background: var(--bg-color);
   text-align: center;
   color: #fff;
   @include padding(20, 0, 20, 0);
-  font-size: 20px;
+  @include font(20, 0);
 }
 
 .point-txt-thankyou p:last-child {
@@ -28,10 +44,10 @@
   padding: 0;
 }
 
-.woocommerce{
-  table.shop_table{
-    thead{
+.woocommerce {
+  table.shop_table {
+    thead {
       background: none;
     }
   }
-} 
+}

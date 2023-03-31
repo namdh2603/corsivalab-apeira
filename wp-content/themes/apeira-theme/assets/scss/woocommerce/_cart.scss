@@ -5,104 +5,108 @@
     margin: 0;
     border-radius: 0;
     thead {
-      display: none;
+      // display: none;
       th {
-        @include font($fs-20, $fs-20 + 4);
-        font-weight: 500;
-        font-family: $primary-ff;
-        @include padding(10, 20, 10, 20);
+        @include font(20, 0, 700);
+        @include padding(35, 20, 35, 20);
+        text-transform: uppercase;
       }
     }
 
     td {
-      @include padding(10, 20, 10, 20);
+      @include padding(30, 20, 30, 20);
 
-      vertical-align: top;
-      &.product-name{
+      vertical-align: middle;
+      &.product-name {
         text-align: left;
-        .price{
-          
-        text-align: left;
-        margin-bottom: (20 / $d-fs)+rem;
-        }
-        h4.title{
-          margin-bottom: (20 / $d-fs)+rem;
 
+        h4.title {
+          margin-bottom: toRem(20);
         }
       }
-      &.product-remove{
-        vertical-align: bottom;
-        text-align: right;
+      &.product-remove {
+        // vertical-align: bottom;
+        // text-align: right;
         a.remove {
           display: inline-block;
           height: auto;
-          img{
-            width: 16px;
-          }
-      }
-      }
-      &.actions {
-        text-align: center;
-        button.button, a{
-          border: 1px solid $second-color;
-          font-family: $primary-ff;
-          float: none;
-          clear: both;
-          display: block;
-          background: $second-color;
-          @include padding(8, 30, 10, 30);
-          display: inline-block;
-          color: $white;
-          @include font($d-fs, $d-fs + 4);
-          font-weight: 400;
-          text-decoration: none;
-          border-radius: 19px;
-          @include transition();
-          opacity: 1;
-          &:hover {
-            background: var(--main-color);
-            color: $white;
+          background: transparent;
+          img {
+            width: toRem(20);
           }
         }
-        a{
-          background: $white;
-          color: $second-color;
+      }
+      .price {
+        text-align: left;
+
+        @include font(24, 0, 700);
+        color: var(--main-color);
+        text-decoration: none;
+      }
+      .quantity {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include font(20, 0, 700);
+        border: 1px solid rgb(81 66 60 / 50%);
+        float: none;
+        @include padding(10, 20, 10, 20);
+        @include margin(0, 30, 0, 0);
+        input,
+        button {
+          border: 0;
+          background-color: transparent;
+          outline: none;
+          box-shadow: none;
+          margin: 0;
+        }
+        // input{
+        //   display: inline-block;
+        // }
+        button {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+        img {
+          max-width: toRem(12);
+          height: auto;
+        }
+        .qty {
+          width: auto;
+          display: inline-block;
+          padding: 0;
+          max-width: toRem(50);
         }
       }
     }
     .p-row {
       display: flex;
-      .product-thumb{
-        width: 30%;
-        
-        @include bp-mobile {
+      align-items: center;
+      .product-thumb {
+        width: 10%;
+
+        @include responsive(mobi) {
           width: 20%;
         }
-      img {
-        width: 100%;
+        img {
+          width: 100%;
+        }
       }
-    }
       .p-item {
-        margin-left: (30 / $d-fs)+rem;
-        line-height: 1.5;
-        font-family: $primary-ff;
+        margin-left: toRem(30);
         width: 70%;
-        
-        @include bp-mobile {
+
+        @include responsive(mobi) {
           width: 80%;
         }
         a {
-          font-size: 18px;
-          margin-bottom: 10px;
+          font-family: $primary-ff;
+          @include font(18, 0, 300);
+          margin-bottom: toRem(10);
           display: block;
           color: #000;
           text-decoration: none;
-          font-weight: 500;
-          line-height: 1.5;
-          font-family: $primary-ff;
-        }
-        .p-meta {
-          opacity: 0.5;
         }
       }
     }
@@ -115,7 +119,7 @@
     background-color: #d2ecf1;
     @include padding(10, 20, 10, 20);
     display: block;
-    margin-bottom: (15 / $d-fs)+rem;
+    margin-bottom: toRem(15);
     a {
       text-decoration: underline;
       color: #164489;
@@ -133,36 +137,40 @@
   }
 
   .coupon {
-    display: block;
+    display: flex;
+    align-items: center;
     //@include padding(10, 30, 10, 30);
-    margin-bottom: (60 / $d-fs)+rem;
+    // margin-bottom: toRem(60);
+    border: 1px solid rgb(81 66 60 / 50%);
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px;
   }
   .coupon input#coupon_code,
   input.point_code {
-    background: #F4F6F8;
+    background: transparent;
     border: 0;
-    @include padding(14, 20, 14, 20);
-    @include font($d-fs, $d-fs + 4);
-    font-family: $primary-ff;
+    @include padding(14, 30, 14, 30);
     border-right: 0;
     width: 100%;
     margin: 0;
     outline: none;
-    margin-bottom: (20 / $d-fs)+rem;
+    // margin-bottom: toRem(20);
+    margin-bottom: 0;
+    @include font(18, 0, 300);
+    font-family: $primary-ff;
   }
 
   .coupon .button {
-    border: 1px solid $second-color;
-    font-family: $primary-ff;
+    border: 1px solid var(--second-color);
     float: none;
     clear: both;
     display: block;
-    background: $second-color !important;
+    background: var(--second-color) !important;
     @include padding(8, 30, 10, 30);
     display: inline-block;
     color: $white !important;
-    @include font($d-fs, $d-fs + 4);
-    font-weight: 400;
+    @include font(20, 0);
     text-decoration: none;
     border-radius: 19px;
     @include transition();
@@ -185,39 +193,53 @@
     }
     input.button.btn-cart {
       @include transition();
-      font-weight: 700;
-      @include font($d-fs, $d-fs + 4);
-      font-family: $primary-ff;
+      @include font(20, 0, 700);
       @include padding(8, 0, 8, 0);
-      background: $second-color;
+      background: var(--second-color);
+
       color: $white;
       &.btn-outline {
         background: none;
-        border: 2px solid $second-color;
-        color: $second-color;
+        border: 2px solid var(--second-color);
+        color: var(--second-color);
       }
     }
   }
 
-  .cart-section{
-    h2{
-      
-      font-family: $primary-ff;
-      @include font(30, 34);
-      font-weight: 700;
-      margin-bottom: (20 / $d-fs)+rem;
-      color: $second-color;
+    // h2 {
+    //   @include font(30, 0, 700);
+    //   margin-bottom: toRem(20);
+    //   color: var(--second-color);
+    // }
+    .cart_totals_wrap {
+      background-color: var(--bg-color);
+      padding-top: toRem(30);
+      border: 1px solid rgba($c-51423C, 0.5);
     }
-  }
+    .cart_totals_top, .checkout-summary-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      @include font(20, 0, 700);
+      text-transform: uppercase;
+      color: var(--main-color);
+      border-bottom: 1px solid rgba($c-51423C, 0.5);
+      margin-left: toRem(30);
+      margin-right: toRem(30);
+      // margin-bottom: toRem(20);
+      padding-bottom: toRem(20);
+      // @include padding_all(30);
+      // .title {
+      // }
+    }
+  
 
   .cart-collaterals {
-    margin-top: 15px;
+    margin-top: toRem(80);
     h2 {
-      font-family: $primary-ff;
-      @include font(30, 34);
-      font-weight: 700;
-      margin-bottom: (20 / $d-fs)+rem;
-      color: $second-color;
+      @include font(30, 0, 700);
+      margin-bottom: toRem(20);
+      color: var(--second-color);
     }
     .cart_totals {
       float: none;
@@ -229,90 +251,140 @@
   .cart_totals {
     table.shop_table {
       border: 0;
-      background: #F4F6F8;
+      background: var(--bg-color);
+      margin: 0;
       tr {
+        background: var(--bg-color);
+        th {
+          color: var(--main-color);
+          @include font(18, 0, 500);
+        }
         //border-bottom: 2px solid #e6e6e6;
         &.order-total,
         &.order_total {
           // background: #505050;
           // color: #fff;
+          background-color: var(--second-color);
           text-transform: uppercase;
-          td{
-
-            font-weight: 800;
-            color: $second-color;
+          td,
+          th {
+            @include font(20, 0, 700);
           }
         }
       }
 
       th {
         border-top: 0;
-        @include font($d-fs, $d-fs + 4);
-        font-weight: 800;
-        font-family: $primary-ff;
+        @include font(20, 0, 700);
         @include padding(15, 30, 15, 30);
-        color: $second-color;
-
+        color: var(--second-color);
 
         a {
           color: #07b8ff;
           text-transform: capitalize;
           margin-left: 5px;
           text-decoration: underline;
-          font-family: $primary-ff;
         }
       }
       td {
         border-top: 0;
         text-align: right;
         @include padding(15, 30, 15, 30);
-        @include font($fs-20, $fs-20 + 4);
-        font-family: $primary-ff;
-        font-weight: 400;
+        @include font(20, 0);
       }
     }
     .code {
       color: #cdcdcd;
-      margin-top: 10px;
+      margin-top: toRem(10);
     }
     .amount {
-      @include font($fs-20, $fs-20 + 4);
+      @include font(20, 0);
     }
     .woocommerce-remove-coupon {
       display: block;
-      color: $second-color;
+      color: var(--second-color);
       text-transform: capitalize;
       margin-left: 5px;
       text-decoration: underline;
-      font-family: $primary-ff;
-      @include font($d-fs, $d-fs + 4);
+      @include font(20, 0);
     }
   }
 
-  .wc-proceed-to-checkout{
+  .wc-proceed-to-checkout {
     text-align: center;
     a.checkout-button {
+      text-transform: uppercase;
+      @include padding(16, 40, 16, 40);
+      @include font(16, 0, 700);
 
-      border: 1px solid $second-color;
-      font-family: $primary-ff;
-      float: none;
-      clear: both;
-      display: block;
-      background: $second-color !important;
-      @include padding(8, 30, 10, 30);
-      display: inline-block;
-      color: $white !important;
-      @include font($d-fs, $d-fs + 4);
-      font-weight: 400;
-      text-decoration: none;
-      border-radius: 19px;
-      @include transition();
-      &:hover {
-        background: var(--main-color);
-      }
-  
-  
+      // border: 1px solid var(--second-color);
+      // font-family: $primary-ff;
+      // float: none;
+      // clear: both;
+      // display: block;
+      // background: var(--second-color) !important;
+      // @include padding(8, 30, 10, 30);
+      // display: inline-block;
+      // color: $white !important;
+      // @include font(20, 0);
+      // text-decoration: none;
+      // border-radius: 19px;
+      // @include transition();
+      // &:hover {
+      //   background: var(--main-color);
+      // }
     }
+    .continue-shop {
+      background-color: transparent;
+      text-transform: uppercase;
+    }
+  }
 
-  } 
+  .actions {
+    text-align: right;
+    button,
+    a {
+      text-transform: uppercase;
+      // border: 1px solid var(--second-color);
+      // float: none;
+      // clear: both;
+      // display: block;
+      // background: var(--second-color);
+      // @include padding(8, 30, 10, 30);
+      // display: inline-block;
+      // color: $white;
+      // @include font(20, 0);
+      // text-decoration: none;
+      // border-radius: 19px;
+      // @include transition();
+      // opacity: 1;
+      // &:hover {
+      //   background: var(--main-color);
+      //   color: $white;
+      // }
+    }
+    a {
+      background-color: transparent;
+      // background: $white;
+      // color: var(--second-color);
+    }
+  }
+}
+
+.info-modal {
+  height: 100%;
+  @include padding_all(30);
+  .title-modal {
+    @include font(42, 0, 700);
+    @include margin(0, 0, 20, 0);
+    color: var(--main-color);
+  }
+  .account-btn {
+    .btn-main:not(:last-child) {
+      margin-bottom: toRem(20);
+    }
+    .register-btn {
+      background-color: transparent;
+    }
+  }
 }

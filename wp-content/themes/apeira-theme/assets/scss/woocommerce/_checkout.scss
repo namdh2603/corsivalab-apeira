@@ -1,47 +1,80 @@
 // Checkout
 .woocommerce {
+  .checkout-summary {
+    background-color: var(--bg-color);
+    // padding-top: 3rem;
+    border: 1px solid rgba(81, 66, 60, 0.5);
+    @include padding_all(30);
+    margin-bottom: toRem(30);
+    #place_order {
+      display: none;
+    }
+  }
   .woocommerce-billing-fields h3,
   .woocommerce-thankyou-fields h3,
   .woocommerce-select-datetime-fields h3,
   .woocommerce-shipping-fields h3,
   .woocommerce-shipping-method-fields h3,
   #woocommerce-payment-list h3,
+  .woocommerce-additional-fields h3,
   .woocommerce-checkout .cart-collaterals h3,
   #order_review_heading {
+    @include font(20, 0, 700);
+    margin-bottom: toRem(20);
+    padding-bottom: toRem(20);
+    color: var(--second-color);
+    position: relative;
 
-    font-family: $primary-ff;
-    @include font(30, 34);
-    font-weight: 700;
-    margin-bottom: (20 / $d-fs)+rem;
-    color: $second-color;
+    border-bottom: 1px solid rgba(81, 66, 60, 0.5);
+    &::after {
+      content: "";
+      margin-bottom: -2px;
+      height: 3px;
+      width: toRem(150);
+      background-color: var(--second-color);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
   }
   form .form-row label {
     line-height: 1.5;
-  } 
+  }
+  .checkout-summary-top {
+    margin-left: 0;
+    margin-right: 0;
+  }
   table.shop_table {
     &.woocommerce-checkout-review-order-table {
       thead {
         display: none;
       }
-      td{
-        .price{
+      td {
+        border: 0;
+        @include padding(10, 0, 10, 0);
+        &.product-total {
           text-align: right;
         }
       }
-      tfoot {
-        tr {
-          &.order-total {
-            th,
-            td {
-              font-weight: 700;
-            }
+      tr {
+        &.order-total {
+          th,
+          td {
+            font-weight: 700;
           }
         }
+      }
+      tr {
+        &:first-child {
+          td {
+            border: 0;
+          }
+        }
+      }
+      tfoot {
         th {
-          @include font($fs-20, $fs-20 + 4);
-          font-weight: 400;
-          font-family: $primary-ff;
-          @include padding(15, 30, 15, 30);
+          @include font(20, 0);
+          @include padding(15, 0, 15, 0);
           //border-top: 2px solid #e6e6e6;
           border: 0;
           a {
@@ -52,26 +85,36 @@
             font-family: $primary-ff;
           }
         }
+        tr {
+          &:first-child {
+            td,
+            th {
+              border-top: 1px solid #333;
+            }
+          }
+          &.order-total {
+            background-color: var(--second-color);
+            margin-left: toRem(-30);
+            margin-right: toRem(-30);
+          }
+        }
         td {
           text-align: right;
-          @include padding(15, 30, 15, 30);
-          font-family: $primary-ff;
-          font-weight: 400;
+          // @include padding(15, 30, 15, 30);
           //border-top: 2px solid #e6e6e6;
           border: 0;
-          @include font($fs-20, $fs-20 + 4);
+          @include font(20, 0);
         }
         .amount {
-          @include font($fs-20, $fs-20 + 4);
+          @include font(20, 0);
         }
         .woocommerce-remove-coupon {
           display: block;
-          color: $second-color;
+          color: var(--main-color);
           text-transform: capitalize;
           margin-left: 5px;
           text-decoration: underline;
-          font-family: $primary-ff;
-          @include font($d-fs, $d-fs + 4);
+          @include font(20, 0);
         }
       }
     }
@@ -87,9 +130,6 @@
     padding: 0 0 30px 0;
     display: inline-block;
     width: 100%;
-    @include bp-mobile{
-      @include padding(0, 0, 30, 0);
-    }
   }
   .woocommerce-thankyou-wrapper h4 {
     font-size: 18px;
@@ -123,10 +163,10 @@
     border: 0;
     border-radius: 0;
     height: 150px;
-    background: #EAEDF2;
+    background: #eaedf2;
     font-family: $primary-ff;
-    @include font($fs-16, $fs-16 + 4);
-    @include padding(15,20,15,20);
+    @include font(20, 0);
+    @include padding(15, 20, 15, 20);
   }
   #customer_details .form-row {
     display: block;
@@ -140,9 +180,9 @@
   .woocommerce-billing-fields__field-wrapper label,
   .woocommerce-shipping-fields__field-wrapper label {
     display: block;
-    font-size: 20px;
-    margin-bottom: 5px;
-    line-height: 1.5;
+    @include font(18, 0, 500);
+    margin-bottom: toRem(5);
+    text-transform: uppercase;
   }
   .woocommerce form .form-row .required {
     color: red;
@@ -152,15 +192,25 @@
     visibility: visible;
   }
   #customer_details .woocommerce-input-wrapper input {
-    display: block;
-    width: 100%;
+    // display: block;
+    // width: 100%;
+    // border: 0;
+    // outline: none;
+    // @include padding(15, 20, 15, 20);
+    // color: #2f2f2f;
+    // font-family: $primary-ff;
+    // @include font(20, 0);
+    // background: #eaedf2;
+
     border: 0;
+    background-color: transparent;
+    color: var(--main-color);
     outline: none;
-    @include padding(15,20,15,20);
-    color: #2f2f2f;
-    font-family: $primary-ff;
-    @include font($fs-16, $fs-16 + 4);
-    background: #EAEDF2;
+    @include padding(15, 20, 15, 0);
+    margin-bottom: toRem(15);
+    width: 100%;
+    border-bottom: 1px solid rgba($c-51423C, 0.2);
+    @include font(18, 0, 300);
   }
   .form-row-first {
     float: none;
@@ -189,19 +239,18 @@
     border: 0;
   }
   .woocommerce-checkout tr.order-total {
-    background: #F4F6F8;
+    background: #f4f6f8;
     color: #000;
   }
 
-  .woocommerce-checkout tr p,
-  .woocommerce-checkout tr span.woocommerce-terms-and-conditions-checkbox-text {
-    margin: 0;
-    font-size: 18px;
-  }
+  // .woocommerce-checkout tr p,
+  // .woocommerce-checkout tr span.woocommerce-terms-and-conditions-checkbox-text {
+  //   margin: 0;
+  //   font-size: 18px;
+  // }
   .woocommerce-checkout tr.order-total th,
   .woocommerce-checkout tr.order-total td {
-    font-size: 20px;
-    font-weight: 700;
+    @include font(20, 0, 700);
   }
   .description-payment {
     margin: 10px 0 0 0;
@@ -214,20 +263,21 @@
     margin: 0;
   }
   #payment {
-    background: #fff;
+    background: transparent;
     border-radius: 0;
     ul.payment_methods {
-      padding: 0;
       border: 0;
-      width: 60%;
+      border-bottom: 1px solid rgba(81, 66, 60, 0.5);
+      padding-top: toRem(30);
+      @include padding(30, 0, 0, 0);
+      width: 100%;
       li {
         margin-bottom: 20px;
         input {
           width: auto;
         }
         label {
-          @include font($d-fs, $d-fs + 4);
-          font-weight: 700;
+          @include font(20, 0, 700);
 
           font-family: $primary-ff;
           text-transform: capitalize;
@@ -236,15 +286,18 @@
       }
     }
     div.payment_box {
-      display: none!important;
+      // display: none !important;
       margin: 0;
-      background: none;
-      padding: 0 0 0 28px;
+      background: rgba($c-CFBBA4, 0.2);
+      @include padding_all(20);
       color: #464040;
       &::before {
         display: none;
       }
     }
+  }
+  .woocommerce-additional-fields {
+    display: none;
   }
   #woocommerce-payment-list {
     .woocommerce-terms-and-conditions-wrapper,
@@ -254,67 +307,68 @@
   }
   #order_review {
     #payment {
-      .wc_payment_methods {
-        display: none;
-      }
+      // .wc_payment_methods {
+      //   display: none;
+      // }
       div.form-row {
         padding: 0;
       }
     }
 
-    .woocommerce-terms-and-conditions-wrapper{
+    .woocommerce-terms-and-conditions-wrapper {
       text-align: center;
-      .woocommerce-privacy-policy-text, .form-row{
-       @include padding(15, 0, 15, 0);
+
+      .woocommerce-privacy-policy-text,
+      .form-row {
+        @include padding(15, 0, 15, 0);
         border: 0;
-        @include font($d-fs, $d-fs + 4);
-        p{
+        @include font(18, 0, 300);
+        p {
           margin: 0;
         }
       }
-
     }
-    
-
-
   }
 
-  .product-qty{
+  .product-qty {
     display: block;
     opacity: 0.5;
   }
 
-  #place_order{
-    border: 1px solid $second-color;
-    font-family: $primary-ff;
-    float: none!important;
-    clear: both;
-    display: block;
-    background: $second-color !important;
-    @include padding(8, 30, 10, 30);
-    margin: 0 auto;
-    color: $white !important;
-    @include font($d-fs, $d-fs + 4);
-    font-weight: 400;
-    text-decoration: none;
-    border-radius: 19px;
-    @include transition();
-    &:hover {
-      background: var(--main-color);
-    }
+  // #place_order {
+  //   border: 1px solid var(--main-color);
+  //   font-family: $primary-ff;
+  //   float: none !important;
+  //   clear: both;
+  //   display: block;
+  //   background: var(--main-color) !important;
+  //   @include padding(8, 30, 10, 30);
+  //   margin: 0 auto;
+  //   color: $white !important;
+  //   @include font(20, 0);
+  //   text-decoration: none;
+  //   border-radius: 19px;
+  //   @include transition();
+  //   &:hover {
+  //     background: var(--main-color);
+  //   }
+  // }
+
+  #place_order {
+    background-color: var(--bg-second-color);
   }
 }
 .select2-container--default {
-  font-family: $primary-ff;
-  font-weight: 400;
-  @include font($fs-16, $fs-16 + 4);
+  @include font(20, 0);
   .select2-selection--single {
     height: auto;
     border: 0;
     .select2-selection__rendered {
-      background: #EAEDF2;
-      @include padding(10, 20, 10, 20);
+      background: transparent;
+      @include padding(10, 0, 10, 0);
       border: 0;
+      border-bottom: 1px solid rgba($c-51423C, 0.2);
+      @include font(18, 0, 300);
     }
     .select2-selection__arrow {
       top: 15px;
@@ -338,9 +392,9 @@
     }
   }
 }
-.woocommerce-terms-and-conditions-checkbox-text{
-  a{
+.woocommerce-terms-and-conditions-checkbox-text {
+  a {
     font-weight: 800;
-    color: $second-color;
+    color: var(--main-color);
   }
 }

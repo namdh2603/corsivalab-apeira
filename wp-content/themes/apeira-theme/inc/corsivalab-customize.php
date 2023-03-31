@@ -20,6 +20,7 @@ $sections = [
     'header'      => 'Header',
     'footer'      => 'Footer',
     'shop'      => 'Woocommerce Shop',
+    'cart'      => 'Woocommerce Cart',
 ];
 foreach ($sections as $section_id => $section) {
     $section_args = [
@@ -93,4 +94,36 @@ new \Kirki\Field\Image(
         'default'     => '',
         'priority' => 20,
     ]
+);
+
+new \Kirki\Field\Image(
+    [
+        'settings'    => sanitize_underscores('Image Cart Popup'),
+        'label'       => 'Image Cart Popup',
+        'section'     => 'cart',
+        'default'     => '',
+        'priority' => 10,
+    ]
+);
+
+
+new \Kirki\Field\Text(
+    [
+        'settings'    => sanitize_underscores('Popup Title'),
+        'label'       => 'Popup Title',
+        'section'     => 'cart',
+        'default'         => '',
+        'priority' => 20,
+    ]
+);
+
+
+new \Kirki\Field\Textarea(
+	[
+        'settings'    => sanitize_underscores('Popup Description'),
+        'label'       => 'Popup Description',
+        'section'     => 'cart',
+        'default'         => '',
+        'priority' => 30,
+	]
 );

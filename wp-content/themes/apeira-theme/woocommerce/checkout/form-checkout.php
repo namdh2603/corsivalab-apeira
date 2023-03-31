@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Checkout Form
  *
@@ -11,56 +12,55 @@
  * the readme will list any important changes.
  *
  * @see https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce\Templates
+ * @package WooCommerce/Templates
  * @version 3.5.0
  */
-
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
-do_action( 'woocommerce_before_checkout_form', $checkout );
-
-// If checkout registration is disabled and not logged in, the user cannot checkout.
-if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_required() && ! is_user_logged_in() ) {
-	echo esc_html( apply_filters( 'woocommerce_checkout_must_be_logged_in_message', __( 'You must be logged in to checkout.', 'woocommerce' ) ) );
-	return;
-}
-
-?>
-
-<form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url( wc_get_checkout_url() ); ?>" enctype="multipart/form-data">
-
-	<?php if ( $checkout->get_checkout_fields() ) : ?>
-
-		<?php do_action( 'woocommerce_checkout_before_customer_details' ); ?>
-
-		<div class="col2-set" id="customer_details">
-			<div class="col-1">
-				<?php do_action( 'woocommerce_checkout_billing' ); ?>
-			</div>
-
-			<div class="col-2">
-				<?php do_action( 'woocommerce_checkout_shipping' ); ?>
-			</div>
-		</div>
-
-		<?php do_action( 'woocommerce_checkout_after_customer_details' ); ?>
-
-	<?php endif; ?>
-	
-	<?php do_action( 'woocommerce_checkout_before_order_review_heading' ); ?>
-	
-	<h3 id="order_review_heading"><?php esc_html_e( 'Your order', 'woocommerce' ); ?></h3>
-	
-	<?php do_action( 'woocommerce_checkout_before_order_review' ); ?>
-
-	<div id="order_review" class="woocommerce-checkout-review-order">
-		<?php do_action( 'woocommerce_checkout_order_review' ); ?>
-	</div>
-
-	<?php do_action( 'woocommerce_checkout_after_order_review' ); ?>
-
-</form>
-
-<?php do_action( 'woocommerce_after_checkout_form', $checkout ); ?>
+if (!defined('ABSPATH')) {
+    exit;
+} ?>
+<div>
+    <?php
+    do_action('woocommerce_before_checkout_form', $checkout);
+    // If checkout registration is disabled and not logged in, the user cannot checkout.
+    if (!$checkout->is_registration_enabled() && $checkout->is_registration_required() && !is_user_logged_in()) {
+        echo esc_html(apply_filters('woocommerce_checkout_must_be_logged_in_message', __('You must be logged in to checkout.', 'woocommerce')));
+        return;
+    }
+    ?>
+    <form name="checkout" method="post" class="checkout woocommerce-checkout" action="<?php echo esc_url(wc_get_checkout_url()); ?>" enctype="multipart/form-data">
+        <?php if ($checkout->get_checkout_fields()) : ?>
+            <?php do_action('woocommerce_checkout_before_customer_details'); ?>
+            <div class="zxccol2-set row" id="customer_details">
+                <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                    <?php do_action('woocommerce_checkout_billing'); ?>
+                    <?php do_action('woocommerce_checkout_shipping'); ?>
+                    <!-- <div id="woocommerce-payment-list">
+                        <h3>Payment Method</h3>
+                        <div class="woocommerce-checkout-payment">
+                        </div>
+                    </div> -->
+                </div>
+                <div class="col-12 col-sm-5 col-md-5 col-lg-5 col-xl-5 offset-lg-1">
+                    <div class="checkout-summary">
+                        <?php do_action('woocommerce_checkout_before_order_review'); ?>
+                        <div class="d-flex justify-content-between checkout-summary-top">
+                            <div class="">Order summary</div>
+                            <div class="count-item">
+                                <?php echo count(WC()->cart->get_cart()) ?> Items
+                            </div>
+                        </div>
+                        <div id="order_review" class="woocommerce-checkout-review-order">
+                            <?php do_action('woocommerce_checkout_order_review'); ?>
+                        </div>
+                        <?php do_action('woocommerce_checkout_after_order_review'); ?>
+                    </div>
+<div class="btn-wrap">
+                    <button type="submit" class="btn-main w-100 alt wp-element-button" name="woocommerce_checkout_place_order" id="place_order" value="Place order" data-value="Place order">Place order</button>
+                    </div>
+                </div>
+            </div>
+            <?php do_action('woocommerce_checkout_after_customer_details'); ?>
+        <?php endif; ?>
+    </form>
+    <?php do_action('woocommerce_after_checkout_form', $checkout); ?>
+</div>

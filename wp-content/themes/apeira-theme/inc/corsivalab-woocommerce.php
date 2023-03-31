@@ -83,7 +83,6 @@ function corsivalab_cart_count_fragments($fragments)
   <?php $fragments['.wc-minicart-fragment'] = ob_get_clean();
   return $fragments;
 }
-
 //remove_action('template_redirect', 'wc_track_product_view', 20);
 //add_action('template_redirect', 'corsivalab_wc_track_product_view', 20);
 function corsivalab_wc_track_product_view()
@@ -301,7 +300,7 @@ function corsivalab_add_to_wishlist()
 {
   echo do_shortcode('[yith_wcwl_add_to_wishlist]');
 }
-add_action('woocommerce_cart_actions', 'corsivalab_btn_clear_cart', 1);
+//add_action('woocommerce_cart_actions', 'corsivalab_btn_clear_cart', 1);
 function corsivalab_btn_clear_cart()
 {
   echo '<a href="' . esc_url(add_query_arg('empty_cart', 'yes')) . '" class="button btn-cart clear-cart">Clear cart</a>';
@@ -320,6 +319,8 @@ function corsivalab_checkout_fields($fields)
 {
   unset($fields['billing']['billing_state']);
   unset($fields['billing']['billing_company']);
+  // unset($fields['billing']['billing_city']);
+  // unset($fields['billing']['billing_address_2']);
   //unset($fields['billing']['billing_last_name']);
   // $fields['billing']['billing_first_name']['label'] = false;
   // $fields['billing']['billing_last_name']['label'] = false;
@@ -334,12 +335,12 @@ function corsivalab_checkout_fields($fields)
   $fields['billing']['billing_phone']['placeholder'] = 'Phone*';
   $fields['billing']['billing_first_name']['priority'] = 1;
   $fields['billing']['billing_last_name']['priority'] = 2;
-  $fields['billing']['billing_phone']['priority'] = 89;
+  $fields['billing']['billing_phone']['priority'] = 3;
   //$fields['billing']['billing_company']['priority'] = 4;
-  //$fields['billing']['billing_email']['priority'] = 5;
-  // $fields['billing']['billing_email']['class'][0] = 'form-row-wide';
+  $fields['billing']['billing_email']['priority'] = 5;
+  $fields['billing']['billing_email']['class'][0] = 'form-row-last';
   // $fields['billing']['billing_country']['class'][0] = 'form-row-first';
-  // $fields['billing']['billing_phone']['class'][0] = 'form-row-first';
+  $fields['billing']['billing_phone']['class'][0] = 'form-row-first';
   unset($fields['shipping']['shipping_state']);
   unset($fields['shipping']['shipping_company']);
   //unset($fields['shipping']['shipping_last_name']);
@@ -374,19 +375,21 @@ function corsivalab_checkout_fields($fields)
 add_filter('woocommerce_default_address_fields', 'corsivalab_edit_default_address_fields', 100, 1);
 function corsivalab_edit_default_address_fields($fields)
 {
-  $fields['city']['priority'] = 41;
-  // $fields['city']['label'] = false;
-  $fields['city']['placeholder'] = 'Town/City';
-  $fields['city']['class'][0] = 'form-row-last';
+  // $fields['city']['priority'] = 41;
+  // $fields['city']['priority'] = 41;
+  $fields['city']['required'] = false;
+  $fields['city']['placeholder'] = 'Town City';
+  $fields['city']['class'][0] = 'form-row-first';
   // $fields['address_1']['label'] = false;
   // $fields['address_1']['priority'] = 7;
   $fields['address_1']['placeholder'] = 'Address Line 1*';
-  // $fields['address_2']['label'] = false;
+  // $fields['address_2']['label'] = true;
   // $fields['address_2']['priority'] = 8;
   $fields['address_2']['placeholder'] = 'Address Line 2';
-  // $fields['postcode']['label'] = false;
+  // $fields['postcode']['label'] = true;
+  $fields['postcode']['required'] = false;
   $fields['postcode']['placeholder'] = 'Postcode/Zip*';
-  // $fields['postcode']['class'][0] = 'form-row-last';
+  $fields['postcode']['class'][0] = 'form-row-last';
   return $fields;
 }
 add_filter('woocommerce_product_tabs', 'corsivalab_rename_and_remove_tabs', 98);
@@ -579,27 +582,21 @@ function bbloomer_redirect_thank_you_page_order_admin_actions($order)
     return $url;
   });
 }
-
-
 function custom_address_formats($formats)
 {
   $formats['default']  = "<div>{name}</div><div>{company}</div><div>{address_1}</div><div>{address_2}</div><div>{city}</div><div>{state}</div><div>{postcode}</div><div>{country}</div>";
   return $formats;
 }
 add_filter('woocommerce_localisation_address_formats', 'custom_address_formats');
-
-
 add_action('woocommerce_after_shop_loop_item_title', 'woo_show_excerpt_shop_page', 5);
 function woo_show_excerpt_shop_page()
 {
   global $product;
   echo '<div class="excerpt-product">' . $product->post->post_excerpt . '</div>';
 }
-
 // function woo_related_products_limit()
 // {
 //   global $product;
-
 //   $args['posts_per_page'] = 5;
 //   return $args;
 // }
@@ -609,15 +606,12 @@ function jk_related_products_args($args)
   $args['posts_per_page'] = 5; // 4 related products
   return $args;
 }
-
-
 add_action('woocommerce_before_add_to_cart_button', function () {
   echo '<div class="addtocart-inner">';
 }, 99);
 add_action('woocommerce_after_add_to_cart_button', function () {
   echo '</div>';
 });
-
 add_action('wp_footer', 'trigger_for_ajax_add_to_cart', 99);
 function trigger_for_ajax_add_to_cart()
 {
@@ -636,74 +630,113 @@ function trigger_for_ajax_add_to_cart()
   <?php
   endif;
 }
-
-
 add_filter('woocommerce_before_add_to_cart_button', 'woocommerce_single_product_sizeguide', 98);
 function woocommerce_single_product_sizeguide()
 { ?>
   <div class="sizeguide-btn" data-bs-toggle="modal" data-bs-target="#sizeGuideModal">Size Guide</div>
   <!-- Modal -->
-  <div class="modal fade" id="sizeGuideModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog">
-    <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal fade modal-element" id="sizeGuideModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
       <div class="modal-content">
-
         <div class="modal-body">
           <div class="close" data-bs-dismiss="modal"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/close-icon.png" /></div>
           <div class="head-section">
-            <div class="row justify-content-center">
-              <div class="col-12 col-sm-8 col-md-8 col-lg-8 text-center">
-                <div class="title">SIZE GUIDE</div>
-                <div class="desc">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque congue dolor, non porta neque feugiat at. In hac habitasse platea dictumst</p>
-                </div>
-              </div>
+            <div class="title">SIZE GUIDE</div>
+            <div class="desc">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque congue dolor, non porta neque feugiat at. In hac habitasse platea dictumst</p>
             </div>
           </div>
-
           <div class="tabs-section">
-            <div class="row justify-content-center">
-              <div class="col-12 col-sm-10 col-md-10 col-lg-10">
-                <ul class="nav nav-pills" id="pills-tab" role="tabsize">
-                  <li class="nav-item" role="presentation">
-                    <div class="nav-link active" id="pills-1-tab" data-bs-toggle="pill" data-bs-target="#pills-1" type="button" role="tab" aria-controls="pills-1" aria-selected="true">XXS TO 4X
-                    </div>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <div class="nav-link" id="pills-2-tab" data-bs-toggle="pill" data-bs-target="#pills-2" type="button" role="tab" aria-controls="pills-2" aria-selected="false" tabindex="-1">SLIDES
-                    </div>
-                  </li>
-                  <li class="nav-item" role="presentation">
-                    <div class="nav-link" id="pills-3-tab" data-bs-toggle="pill" data-bs-target="#pills-3" type="button" role="tab" aria-controls="pills-3" aria-selected="false" tabindex="-1">KIDS
-                    </div>
-                  </li>
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                  <div class="tab-pane fade active show" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab" tabindex="0">
-                    <div class="desc">
-                      <p><img decoding="async" loading="lazy" class="alignnone size-full wp-image-162" src="http://localhost/website/apeira/wp-content/uploads/2023/03/size-table.png" alt="" width="1383" height="545"></p>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab" tabindex="0">
-                    <div class="desc">
-                      <p><img decoding="async" loading="lazy" class="alignnone size-full wp-image-162" src="http://localhost/website/apeira/wp-content/uploads/2023/03/size-table.png" alt="" width="1383" height="545"></p>
-                      <p>SLIDES size table</p>
-                    </div>
-                  </div>
-                  <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab" tabindex="0">
-                    <div class="desc">
-                      <p><img decoding="async" loading="lazy" class="alignnone size-full wp-image-162" src="http://localhost/website/apeira/wp-content/uploads/2023/03/size-table.png" alt="" width="1383" height="545"></p>
-                      <p>KIDS size table</p>
-                    </div>
-                  </div>
+            <ul class="nav nav-pills" id="pills-tab" role="tabsize">
+              <li class="nav-item" role="presentation">
+                <div class="nav-link active" id="pills-1-tab" data-bs-toggle="pill" data-bs-target="#pills-1" type="button" role="tab" aria-controls="pills-1" aria-selected="true">XXS TO 4X
+                </div>
+              </li>
+              <li class="nav-item" role="presentation">
+                <div class="nav-link" id="pills-2-tab" data-bs-toggle="pill" data-bs-target="#pills-2" type="button" role="tab" aria-controls="pills-2" aria-selected="false" tabindex="-1">SLIDES
+                </div>
+              </li>
+              <li class="nav-item" role="presentation">
+                <div class="nav-link" id="pills-3-tab" data-bs-toggle="pill" data-bs-target="#pills-3" type="button" role="tab" aria-controls="pills-3" aria-selected="false" tabindex="-1">KIDS
+                </div>
+              </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+              <div class="tab-pane fade active show" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab" tabindex="0">
+                <div class="desc">
+                  <p><img decoding="async" loading="lazy" class="alignnone size-full wp-image-162" src="http://localhost/website/apeira/wp-content/uploads/2023/03/size-table.png" alt="" width="1383" height="545"></p>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab" tabindex="0">
+                <div class="desc">
+                  <p><img decoding="async" loading="lazy" class="alignnone size-full wp-image-162" src="http://localhost/website/apeira/wp-content/uploads/2023/03/size-table.png" alt="" width="1383" height="545"></p>
+                  <p>SLIDES size table</p>
+                </div>
+              </div>
+              <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab" tabindex="0">
+                <div class="desc">
+                  <p><img decoding="async" loading="lazy" class="alignnone size-full wp-image-162" src="http://localhost/website/apeira/wp-content/uploads/2023/03/size-table.png" alt="" width="1383" height="545"></p>
+                  <p>KIDS size table</p>
                 </div>
               </div>
             </div>
           </div>
-
-
         </div>
       </div>
     </div>
   </div>
-<?php
+  <?php
+}
+
+
+add_filter('woocommerce_after_cart_table', 'woocommerce_cart_login_popup', 98);
+function woocommerce_cart_login_popup()
+{
+  if (!is_user_logged_in()) {
+
+    $popup_img =  get_theme_mod(sanitize_underscores('Image Cart Popup'));
+    $title =  get_theme_mod(sanitize_underscores('Popup Title'));
+    $desc =  get_theme_mod(sanitize_underscores('Popup Description'));
+    $account_link = get_permalink(get_option('woocommerce_myaccount_page_id'));
+  ?>
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $(document).ready(function() {
+          $("#loginCartModal").modal('show');
+        });
+      });
+    </script>
+    <div class="modal fade modal-element" id="loginCartModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body p-0">
+            <div class="row">
+              <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                <?php if ($popup_img) {
+                  echo '<img class="w-100" src="' . $popup_img . '" />';
+                } ?>
+              </div>
+              <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                <div class="info-modal d-flex justify-content-center align-items-center flex-column text-center">
+                  <?php if (!empty($title)) : ?>
+                  
+                    <div class="title-modal"><?php echo $title; ?></div>
+                  <?php endif; ?>
+
+                  <div class="desc"><?php echo $desc; ?></div>
+                  <?php if (!empty($desc)) : ?>
+                  
+                  <?php endif; ?>
+                  <div class="account-btn btn-wrap">
+                    <a href="<?php echo $account_link; ?>/?register=true" class="btn-main w-100 text-uppercase">SIGN UP</a>
+                    <a href="<?php echo $account_link; ?>" class="register-btn btn-main btn-outline-v2 w-100">ALREADY HAVE AN ACCOUNT? SIGN IN</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<?php }
 }

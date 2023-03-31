@@ -17,11 +17,11 @@ html {
     font-size: $d-fs + px;
   }
 }
-:root{
+:root {
   --gutter-container-x: #{toRem($desktop-gutter-width)};
   --gutter-container-m-x: #{toRem($mobile-gutter-width)};
   --gutter-container-tablet: #{toRem($tablet-gutter-width)};
-  
+
   --gutter-x: #{toRem($desktop-gutter-width)};
   --gutter-m-x: #{toRem($mobile-gutter-width)};
   --gutter-tablet: #{toRem($tablet-gutter-width)};
@@ -42,8 +42,6 @@ html {
     padding-left: calc(0.5 * var(--gutter-container-tablet));
     padding-right: calc(0.5 * var(--gutter-container-tablet));
   }
-
-
 }
 .container-fluid {
   width: 100%;
@@ -180,7 +178,8 @@ body {
   color: var(--body-color);
   font-family: $primary-ff;
   font-weight: 300;
-  @include font(18,22); // set font size design follow XD
+  @include font(18, 22); // set font size design follow XD
+
   @media (max-width: 1599px) {
     font-size: toRem(19);
   }
@@ -194,7 +193,7 @@ body {
     background: rgba(30, 88, 105, 0.56);
   }
   overflow-x: hidden;
-  .overflow-hidden{
+  &.overflow-hidden {
     padding-right: 17px;
   }
 }
@@ -288,7 +287,7 @@ input[type="checkbox"] {
   }
 }
 
-:root{
+:root {
   --body-color: #{$black};
   --dark-color: #{$c-F2EEE6};
   --main-color: #{$c-51423C};
