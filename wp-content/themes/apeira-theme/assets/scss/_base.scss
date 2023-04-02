@@ -184,13 +184,13 @@ body {
     font-size: toRem(19);
   }
   ::-webkit-scrollbar {
-    width: toRem(3);
+    width: toRem(5);
   }
   ::-webkit-scrollbar-track {
     background-color: rgba(30, 88, 105, 0.1);
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(30, 88, 105, 0.56);
+    background: var(--main-color);
   }
   overflow-x: hidden;
   &.overflow-hidden {
@@ -291,7 +291,12 @@ input[type="checkbox"] {
   --body-color: #{$black};
   --dark-color: #{$c-F2EEE6};
   --main-color: #{$c-51423C};
+  --main-color-rgb: 81,66,60;
   --second-color: #{$c-CFBBA4};
   --bg-color: #{$c-F2EEE6};
   --bg-second-color: #{$c-ECE4DB};
+  
+
+    --border-color: rgb(var(--main-color-rgb), 40%);
+
 }

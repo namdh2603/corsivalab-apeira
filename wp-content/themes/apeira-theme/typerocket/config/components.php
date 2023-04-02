@@ -32,6 +32,8 @@ return [
         sanitize_title('Content With Image') => \App\Components\ContentWithImage::class,
         sanitize_title('Tabs Section') => \App\Components\TabsSection::class,
         sanitize_title('Contact Us') => \App\Components\ContactUs::class,
+        sanitize_title('About Us Image Tabs') => \App\Components\AboutUsImageTabs::class,
+        sanitize_title('Impact Count') => \App\Components\ImpactCount::class,
     ],
 
     /*
@@ -70,5 +72,7 @@ return [
         sanitize_title('Content With Image'),
         sanitize_title('Tabs Section'),
         sanitize_title('Contact Us'),
+        sanitize_title('Impact Count'),
+        sanitize_title('About Us Image Tabs'),
     ]
 ];

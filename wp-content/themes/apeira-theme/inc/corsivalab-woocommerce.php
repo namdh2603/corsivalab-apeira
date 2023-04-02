@@ -405,10 +405,10 @@ function corsivalab_rename_and_remove_tabs($tabs)
 }
 function corsivalab_add_register_fields()
 { ?>
-  <p class="form-row form-row-wide">
+  <!-- <p class="form-row form-row-wide">
     <label><?php esc_html_e('Gender', 'woocommerce'); ?>&nbsp;<span class="required">*</span></label>
     <input type="date" class="input-text form-control" name="reg_dob" id="reg_dob" />
-  </p>
+  </p> -->
   <p class="form-row form-row-wide">
     <label><?php esc_html_e('Date of birth', 'woocommerce'); ?>&nbsp;<span class="required">*</span></label>
     <select type="text" class="input-text form-control" name="reg_gender" id="reg_gender">
@@ -422,27 +422,44 @@ function corsivalab_add_register_fields()
 //add_action('woocommerce_register_form_start', 'corsivalab_add_register_fields');
 function corsivalab_validate_extra_register_fields($username, $email, $validation_errors)
 {
-  if (isset($_POST['reg_dob']) && empty($_POST['reg_dob'])) {
-    $validation_errors->add('reg_dateofbirth_error', 'Date Of Birth is required!');
+
+
+  if (isset($_POST['reg_firstname']) && empty($_POST['reg_firstname'])) {
+    $validation_errors->add('reg_firstname_error', 'First Name is required!');
   }
-  if (isset($_POST['reg_gender']) && empty($_POST['reg_gender'])) {
-    $validation_errors->add('reg_gender_error', 'Gender is required!');
+
+
+  if (isset($_POST['reg_lastname']) && empty($_POST['reg_lastname'])) {
+    $validation_errors->add('reg_lastname_error', 'Last Name is required!');
   }
+
+  // if (isset($_POST['reg_dob']) && empty($_POST['reg_dob'])) {
+  //   $validation_errors->add('reg_dateofbirth_error', 'Date Of Birth is required!');
+  // }
+
+
+  // if (isset($_POST['reg_gender']) && empty($_POST['reg_gender'])) {
+  //   $validation_errors->add('reg_gender_error', 'Gender is required!');
+  // }
   return $validation_errors;
 }
-//add_action('woocommerce_register_post', 'corsivalab_validate_extra_register_fields', 10, 3);
+add_action('woocommerce_register_post', 'corsivalab_validate_extra_register_fields', 10, 3);
 function corsivalab_save_extra_register_fields($customer_id)
 {
   if (isset($_POST['reg_dob'])) {
     update_user_meta($customer_id, 'account_dob', sanitize_text_field($_POST['reg_dob']));
-    //update_user_meta($customer_id, 'billing_dateofbirth', sanitize_text_field($_POST['reg_dateofbirth']));
   }
-  if (isset($_POST['reg_gender'])) {
-    update_user_meta($customer_id, 'account_gender', sanitize_text_field($_POST['reg_gender']));
-    //update_user_meta($customer_id, 'billing_phone', sanitize_text_field($_POST['reg_contactnumber']));
+
+  if (isset($_POST['reg_firstname'])) {
+    update_user_meta($customer_id, 'first_name', sanitize_text_field($_POST['reg_firstname']));
+  }
+
+
+  if (isset($_POST['reg_lastname'])) {
+    update_user_meta($customer_id, 'last_name', sanitize_text_field($_POST['reg_lastname']));
   }
 }
-//add_action('woocommerce_created_customer', 'corsivalab_save_extra_register_fields');
+add_action('woocommerce_created_customer', 'corsivalab_save_extra_register_fields');
 //add_filter ( 'woocommerce_account_menu_items', 'corsivalab_remove_my_account_nav' );
 function corsivalab_remove_my_account_nav($menu_links)
 {
@@ -719,13 +736,13 @@ function woocommerce_cart_login_popup()
               <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
                 <div class="info-modal d-flex justify-content-center align-items-center flex-column text-center">
                   <?php if (!empty($title)) : ?>
-                  
+
                     <div class="title-modal"><?php echo $title; ?></div>
                   <?php endif; ?>
 
                   <div class="desc"><?php echo $desc; ?></div>
                   <?php if (!empty($desc)) : ?>
-                  
+
                   <?php endif; ?>
                   <div class="account-btn btn-wrap">
                     <a href="<?php echo $account_link; ?>/?register=true" class="btn-main w-100 text-uppercase">SIGN UP</a>

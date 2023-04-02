@@ -1,0 +1,102 @@
+.section-blog {
+  .dropdown-toggle {
+    cursor: pointer;
+    padding: 20px 0;
+    .dropdown-icon {
+      width: toRem(11);
+    }
+    &::after {
+      display: none;
+    }
+  }
+  .dropdown-menu {
+    width: toRem(230);
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 0;
+    margin-top: -2px !important;
+    @include padding_all(20);
+    .dropdown-item {
+      @include font(18, 0, 500);
+      color: rgb(81 66 60 / 40%);
+      background-color: transparent;
+      text-decoration: none;
+      @include padding(0, 0, 10, 0);
+      @include margin(0, 0, 10, 0);
+      border-bottom: 1px solid var(--border-color);
+      &:hover {
+        color: var(--main-color);
+      }
+    }
+    li {
+      &:last-child {
+        .dropdown-item {
+          border-bottom: 0;
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+.top-header-blog {
+  color: var(--main-color);
+  @include font(20, 0, 400);
+  border-top: 1px solid rgba($c-51423C, 0.3);
+  border-bottom: 1px solid rgba($c-51423C, 0.3);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: toRem(50);
+  .filter-left {
+    text-transform: uppercase;
+  }
+}
+.post-container {
+  .post-header {
+    h1 {
+      font-family: $second-ff;
+      @include font(60, 0, 700);
+      letter-spacing: 1.2px;
+      color: var(--main-color);
+      margin-bottom: toRem(15);
+    }
+    .post-date {
+      @include font(20, 0, 500);
+      color: #a09993;
+      margin-bottom: toRem(40);
+    }
+  }
+  .single-post-img {
+    margin-bottom: toRem(40);
+  }
+  .post-content {
+    color: var(--main-color);
+    @include font(20, 30, 300);
+  }
+  .post-author {
+    text-align: right;
+    border-top: 1px solid rgba($c-51423C, 0.3);
+    margin-top: toRem(50);
+    @include padding-tb(40, 40);
+
+    .about-author {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      a {
+        @include font(20, 0, 500);
+        color: var(--main-color);
+        text-decoration: none;
+      }
+    }
+    .author-avatar {
+      margin-right: toRem(10);
+      img {
+        max-width: toRem(60);
+        border-radius: 50%;
+      }
+    }
+  }
+}

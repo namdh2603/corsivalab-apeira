@@ -22,24 +22,7 @@ defined('ABSPATH') || exit;
     <form class="woocommerce-cart-form" action="<?php echo esc_url(wc_get_cart_url()); ?>" method="post">
 
         <?php do_action('woocommerce_before_cart_table'); ?>
-        <?php if (is_user_logged_in()) { ?>
-            <div class="actions-coupon">
-                <div class="notifi">
-                    <div class="point d-flex">
-                        <?php echo 'You currently have&nbsp<span class="fw-500">' . do_shortcode('[yith_ywpar_points label="" show_worth="no"]') . '</span>&nbspavailable'; ?>
-                    </div>
-                </div>
-                <?php $checkvalue = do_shortcode('[yith_ywpar_points label="" show_worth="no"]');
-                $checkbtn = '<p> <strong>0</strong> points</p>';
-                ?>
-                <div class="coupon">
-                    <input type="number" name="point_code" class="input-text" id="input-points" value="" placeholder="100" />
-                    <div class="button<?php echo $checkvalue == $checkbtn ? ' disable' : ''; ?>" id="points-rewards">
-                        <?php esc_attr_e('REDEEM', 'woocommerce'); ?>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
+
 
 
         <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
@@ -156,7 +139,7 @@ defined('ABSPATH') || exit;
         </table>
         <?php do_action('woocommerce_cart_contents'); ?>
         <div class="cart-button row">
-            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+            <div class="col-12 col-sm-4 col-md-4 col-lg-4 col-xl-4">
                 <div class="actions-coupon">
                     <?php if (wc_coupons_enabled()) { ?>
                         <div class="coupon btn-wrap">
@@ -171,7 +154,7 @@ defined('ABSPATH') || exit;
                 </div>
             </div>
 
-            <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+           <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">
                 <div class="actions btn-wrap">
                     <?php do_action('woocommerce_cart_actions'); ?>
                     <a class="btn-main btn-outline-v2" href="<?php echo esc_url(add_query_arg('empty_cart', 'yes')); ?>" class="button btn-cart clear-cart">Clear cart</a>

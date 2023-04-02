@@ -17,7 +17,7 @@
  */
 
 defined('ABSPATH') || exit;
-
+$count = count(WC()->cart->get_cart());
 ?>
 <div class="cart_totals <?php echo (WC()->customer->has_calculated_shipping()) ? 'calculated_shipping' : ''; ?>">
 
@@ -25,7 +25,7 @@ defined('ABSPATH') || exit;
     <div class="cart_totals_wrap">
         <div class="cart_totals_top">
             <div>Order summary</div>
-            <div class="count-item"><?php echo count(WC()->cart->get_cart()) ?> items</div>
+            <div class="count-item"><?php printf( _n( '%s item', '%s items', $count ), $count); ?></div>
         </div>
         <table cellspacing="0" class="shop_table shop_table_responsive">
 

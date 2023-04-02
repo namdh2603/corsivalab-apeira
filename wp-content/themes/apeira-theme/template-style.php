@@ -1,7 +1,5 @@
-<?php
-/* Template Name: Style Guide
- */
-get_header(); ?>
+<?php /* Template Name: Style Guide */ ?>
+<?php get_header(); ?>
 <section class="cart-page">
     <div class="section section-global-class text-center py-5">
         <div class="container">
@@ -35,25 +33,27 @@ get_header(); ?>
             </div>
 
             <div class="mb-3">
-            <div class="btn-group btn-left">
-                <a class="btn-main" href="#">.btn-group.btn-left > .btn-main</a>
-              </div>
-              </div>
-              <div class="mb-3">
-              <div class="btn-group btn-center">
-                <a class="btn-main" href="#">.btn-group.btn-center > .btn-main</a>
-              </div></div>
+                <div class="btn-group btn-left">
+                    <a class="btn-main" href="#">.btn-group.btn-left > .btn-main</a>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="btn-group btn-center">
+                    <a class="btn-main" href="#">.btn-group.btn-center > .btn-main</a>
+                </div>
+            </div>
 
-              <div class="mb-3">
-            <div class="btn-group btn-right">
-                <a class="btn-main" href="#">.btn-group.btn-right > .btn-main</a>
-              </div>
-              </div>
+            <div class="mb-3">
+                <div class="btn-group btn-right">
+                    <a class="btn-main" href="#">.btn-group.btn-right > .btn-main</a>
+                </div>
+            </div>
 
-              <div class="mb-3">
-              <div class="btn-group btn-center">
-                <a class="btn-main btn-white" href="#">.btn-group.btn-center > .btn-main.btn-white</a>
-              </div></div>
+            <div class="mb-3">
+                <div class="btn-group btn-center">
+                    <a class="btn-main btn-white" href="#">.btn-group.btn-center > .btn-main.btn-white</a>
+                </div>
+            </div>
 
 
         </div>

@@ -1,4 +1,29 @@
 .woocommerce-account {
+  &.tgwc-woocommerce-customize-my-account {
+    #tgwc-woocommerce {
+      display: block !important;
+    }
+  }
+  .tgwc {
+    &-woocommerce-MyAccount-navigation {
+      li {
+        a {
+          border: 0 !important;
+          color: var(--main-color);
+          margin: 0;
+          opacity: 0.4;
+          @include font(20, 0, 500);
+          @include transition();
+        }
+        &.is-active,
+        &:hover {
+          a {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
   .woocommerce-MyAccount {
     &-navigation {
       ul {
@@ -13,41 +38,49 @@
       padding-right: 0 !important;
     }
   }
-
-  .corsivalab-myaccount {
-    &-navbar, &-content {
-      background-color: #f9f9f9;
-      height: 100%;
-      @include padding_all(10);
-      border-radius: toRem(5);
+  .ywpar-wrapper {
+    > h2 {
+      display: none;
     }
-    #my-account-menu {
-      &.position-left {
-        float: none;
-        width: 100%;
-        padding-right: 0 !important;
-        &::before,
-        &::after {
-          display: none !important;
-        }
-        ul {
-          li {
-            a {
-              border-right: 0 !important;
-              padding-left: 10px;
-            }
-            &.active {
-              a {
-                background: #cc594e;
-                color: #fff;
-              }
-            }
-          }
-        }
-      }
+    .ywpar_myaccount_entry_info > div {
+      background-color: var(--bg-second-color);
+      color: var(--main-color);
     }
   }
-
+  // .corsivalab-myaccount {
+  //   &-navbar,
+  //   &-content {
+  //     background-color: #f9f9f9;
+  //     height: 100%;
+  //     @include padding_all(10);
+  //     border-radius: toRem(5);
+  //   }
+  //   #my-account-menu {
+  //     &.position-left {
+  //       float: none;
+  //       width: 100%;
+  //       padding-right: 0 !important;
+  //       &::before,
+  //       &::after {
+  //         display: none !important;
+  //       }
+  //       ul {
+  //         li {
+  //           a {
+  //             border-right: 0 !important;
+  //             padding-left: 10px;
+  //           }
+  //           &.active {
+  //             a {
+  //               background: #cc594e;
+  //               color: #fff;
+  //             }
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
   //   button.btn-account-page{
   //     background-color: $second-color;
   //     text-transform: uppercase;

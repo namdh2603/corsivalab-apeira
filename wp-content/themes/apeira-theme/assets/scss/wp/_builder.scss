@@ -550,7 +550,7 @@ section {
     .nav-link {
       background-color: transparent;
       color: #cfbba4;
-      @include font(20, 0,700);
+      @include font(20, 0, 700);
       @include padding(10, 20, 10, 20);
       position: relative;
       &.active {
@@ -575,4 +575,90 @@ section {
 
 .social-footer-section {
   margin-bottom: toRem(40);
+}
+
+.section-about-us-image-tabs {
+  padding-left: calc(0.5 * var(--gutter-container-x));
+  padding-right: calc(0.5 * var(--gutter-container-x));
+  .nav-pills {
+    // display: inline-flex;
+    // border-bottom: 1px solid rgba($c-51423C, 0.2);
+    margin-bottom: toRem(30);
+    .nav-link {
+      background-color: transparent;
+      color: #fff;
+      @include font(50, 0, 500);
+      // @include padding(10, 20, 10, 20);
+      position: relative;
+      @include padding_all(0);
+      cursor: pointer;
+      .tab-title {
+        position: absolute;
+        inset: 0;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @include transition();
+      }
+      &:before {
+        content: "";
+        //   height: 1px;
+        //   width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: var(--border-color);
+        z-index: 0;
+        height: 100%;
+        width: 100%;
+        @include transition();
+        //   margin: -1px;
+      }
+      &.active {
+        &:before,
+        .tab-title {
+          opacity: 0;
+          visibility: hidden;
+        }
+        // color: var(--main-color);
+        // &:before {
+        //   content: "";
+        //   height: 1px;
+        //   width: 100%;
+        //   position: absolute;
+        //   bottom: 0;
+        //   left: 0;
+        //   background: var(--main-color);
+        //   margin: -1px;
+        // }
+      }
+    }
+  }
+  .tab-content {
+    text-align: center;
+    &-title {
+      @include font(46, 0, 700);
+      color: var(--main-color);
+      margin-bottom: toRem(20);
+    }
+    &-subtitle {
+      @include font(24, 0, 500);
+      color: var(--main-color);
+      margin-bottom: toRem(20);
+    }
+    .desc {
+      @include font(20, 0);
+    }
+  }
+}
+
+.section-impact-count {
+  .number {
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    @include font(200, 200, 700);
+    margin-bottom: toRem(30);
+  }
 }

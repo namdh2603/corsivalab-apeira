@@ -51,7 +51,7 @@
       }
       &-item {
         display: flex;
-        border-bottom: 1px solid rgba(81, 66, 60, 0.3);
+        border-bottom: 1px solid var(--border-color);
         padding-bottom: toRem(30);
         margin-bottom: toRem(30);
         a {

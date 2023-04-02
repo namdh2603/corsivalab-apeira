@@ -3,7 +3,7 @@
   .checkout-summary {
     background-color: var(--bg-color);
     // padding-top: 3rem;
-    border: 1px solid rgba(81, 66, 60, 0.5);
+    border: 1px solid var(--border-color);
     @include padding_all(30);
     margin-bottom: toRem(30);
     #place_order {
@@ -25,7 +25,7 @@
     color: var(--second-color);
     position: relative;
 
-    border-bottom: 1px solid rgba(81, 66, 60, 0.5);
+    border-bottom: 1px solid var(--border-color);
     &::after {
       content: "";
       margin-bottom: -2px;
@@ -267,7 +267,7 @@
     border-radius: 0;
     ul.payment_methods {
       border: 0;
-      border-bottom: 1px solid rgba(81, 66, 60, 0.5);
+      border-bottom: 1px solid var(--border-color);
       padding-top: toRem(30);
       @include padding(30, 0, 0, 0);
       width: 100%;

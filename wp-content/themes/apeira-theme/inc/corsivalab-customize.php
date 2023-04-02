@@ -21,6 +21,8 @@ $sections = [
     'footer'      => 'Footer',
     'shop'      => 'Woocommerce Shop',
     'cart'      => 'Woocommerce Cart',
+    'login'      => 'Woocommerce Login & Register',
+    'blog'      => 'Blogs',
 ];
 foreach ($sections as $section_id => $section) {
     $section_args = [
@@ -126,4 +128,34 @@ new \Kirki\Field\Textarea(
         'default'         => '',
         'priority' => 30,
 	]
+);
+
+
+
+
+new \Kirki\Field\Image(
+    [
+        'settings'    => sanitize_underscores('Image Login'),
+        'label'       => 'Image Login',
+        'section'     => 'login',
+        'default'     => '',
+        'priority' => 10,
+		'choices'     => [
+			'save_as' => 'id',
+		],
+    ]
+);
+
+
+new \Kirki\Field\Image(
+    [
+        'settings'    => sanitize_underscores('Blog Page Banner'),
+        'label'       => 'Blog Page Banner',
+        'section'     => 'blog',
+        'default'     => '',
+        'priority' => 10,
+		'choices'     => [
+			'save_as' => 'id',
+		],
+    ]
 );

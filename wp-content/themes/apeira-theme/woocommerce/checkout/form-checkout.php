@@ -17,7 +17,9 @@
  */
 if (!defined('ABSPATH')) {
     exit;
-} ?>
+}
+$count = count(WC()->cart->get_cart());
+?>
 <div>
     <?php
     do_action('woocommerce_before_checkout_form', $checkout);
@@ -45,9 +47,7 @@ if (!defined('ABSPATH')) {
                         <?php do_action('woocommerce_checkout_before_order_review'); ?>
                         <div class="d-flex justify-content-between checkout-summary-top">
                             <div class="">Order summary</div>
-                            <div class="count-item">
-                                <?php echo count(WC()->cart->get_cart()) ?> Items
-                            </div>
+                            <div class="count-item"><?php printf( _n( '%s item', '%s items', $count ), $count); ?></div>
                         </div>
                         <div id="order_review" class="woocommerce-checkout-review-order">
                             <?php do_action('woocommerce_checkout_order_review'); ?>

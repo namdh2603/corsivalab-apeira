@@ -107,12 +107,14 @@
 @import "wp/header";
 @import "wp/footer";
 @import "wp/builder";
+@import "wp/blog";
 // @import "custom/wp/footer";
 // @import "custom/wp/sub-menu";
 // @import "custom/wp/homepage";
 // @import "custom/wp/contact";
 // @import "custom/wp/content";
 
+// @import "woocommerce/general";
 @import "woocommerce/shop";
 @import "woocommerce/price";
 @import "woocommerce/single-product";
@@ -120,3 +122,5 @@
 @import "woocommerce/cart";
 @import "woocommerce/checkout";
 @import "woocommerce/thankyou";
+@import "woocommerce/login-register";
+@import "woocommerce/account";

@@ -27,11 +27,6 @@
       @include margin(7, 5, 0, 0);
     }
 
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
     .sizeguide-btn {
       @include font(20, 0, 500);
       color: var(--main-color);
@@ -153,6 +148,11 @@
           display: inline-block;
           padding: 0;
           max-width: toRem(80);
+          &::-webkit-outer-spin-button,
+          &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
         }
       }
 
@@ -173,8 +173,8 @@
       padding: 0;
       text-align: center;
 
-      border-top: 1px solid rgba(81, 66, 60, 0.5);
-      border-bottom: 1px solid rgba(81, 66, 60, 0.5);
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
       overflow: unset;
     }
     .woocommerce-tabs ul.tabs::before,
