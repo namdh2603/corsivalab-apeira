@@ -14,7 +14,8 @@ class PageBannerTitle extends Component
 	{
 		$form = $this->form();
 		echo $form->image('img')->setLabel('Banner');
-		echo $form->text('title')->setLabel('Title');
+		echo $form->text('title')->setLabel('Title'); 
+		echo $form->color('bg_color')->setLabel('Breadcrumb BG Color');
 	}
 	/**
 	 * Render
@@ -32,7 +33,7 @@ class PageBannerTitle extends Component
 				</div>
 			</section>
 		<?php endif; ?>
-		<section class="breadcrumb-section">
+		<section class="breadcrumb-section" style="<?php echo (!empty($data['bg_color']) ? 'background-color:' . $data['bg_color'] . ';' : ''); ?>">
 			<div class="container">
 				<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
 					<?php if (function_exists('bcn_display')) {

@@ -42,7 +42,7 @@
     &.btn-main-v2 {
       background: var(--bg-second-color);
       border-color: var(--bg-second-color);
-      &:hover{
+      &:hover {
         background: var(--bg-color);
         border-color: var(--main-color);
       }
@@ -229,9 +229,9 @@ select:focus > option:checked {
 
 .section-padding {
   // margin-bottom: toRem(180);
-  @include padding_tb(180, 180);
+  @include padding_tb(100, 100);
   @include responsive(tablet) {
-    @include padding_tb(20, 20);
+    @include padding_tb(50, 50);
   }
 }
 
@@ -263,4 +263,76 @@ select:focus > option:checked {
 .page-content,
 .post-content {
   padding-bottom: toRem(100);
+}
+
+.countdown-fixed {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  // background-color: #f1eae4;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  z-index: 999;
+  background-color: #fff;
+  // background: rgb(255, 0, 0);
+  // background: linear-gradient(
+  //   300deg,
+  //   rgba(255, 0, 0, 1) 0%,
+  //   rgba(238, 120, 130, 1) 100%
+  // );
+  img {
+    max-width: toRem(60);
+    position: absolute;
+
+    right: -15px;
+    top: -35px;
+    transform: rotate(15deg);
+  }
+  #headline {
+    color: var(--main-color);
+    // color: #fff;
+    margin-bottom: toRem(10);
+    @include font(20, 0, 500);
+  }
+  ul {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    .separator {
+      padding: 0 toRem(5);
+    }
+  }
+  li {
+    display: inline-block;
+    font-size: 1rem;
+    list-style-type: none;
+    padding: 1em;
+    text-transform: uppercase;
+    text-align: center;
+    background: var(--second-color);
+    border-radius: toRem(10);
+    min-width: toRem(60);
+    // &:first-child {
+    //   padding-left: 0;
+    // }
+    span {
+      display: block;
+      @include font(20, 0, 700);
+    }
+  }
+}
+
+
+.form-control {
+  @include font(20, 0, 400);
+
+}
+
+.size-calculator{
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: toRem(10);
+  margin-bottom: toRem(10);
+  
 }

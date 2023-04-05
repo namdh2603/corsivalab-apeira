@@ -425,13 +425,21 @@ function corsivalab_validate_extra_register_fields($username, $email, $validatio
 
 
   if (isset($_POST['reg_firstname']) && empty($_POST['reg_firstname'])) {
-    $validation_errors->add('reg_firstname_error', 'First Name is required!');
+    $validation_errors->add('reg_firstname_error', 'First Name is required.');
   }
 
 
   if (isset($_POST['reg_lastname']) && empty($_POST['reg_lastname'])) {
-    $validation_errors->add('reg_lastname_error', 'Last Name is required!');
+    $validation_errors->add('reg_lastname_error', 'Last Name is required.');
   }
+	
+	if (!isset($_POST['password2']) && !empty($_POST['password2'])) {
+		if ( strcmp( $_POST['password'], $_POST['password2'] ) !== 0 ) {
+    $validation_errors->add('reg_pass_error', 'Passwords do not match.');
+  }
+	}
+	
+	
 
   // if (isset($_POST['reg_dob']) && empty($_POST['reg_dob'])) {
   //   $validation_errors->add('reg_dateofbirth_error', 'Date Of Birth is required!');
@@ -609,7 +617,7 @@ add_action('woocommerce_after_shop_loop_item_title', 'woo_show_excerpt_shop_page
 function woo_show_excerpt_shop_page()
 {
   global $product;
-  echo '<div class="excerpt-product">' . $product->post->post_excerpt . '</div>';
+  echo '<div class="excerpt-product">' . apply_filters('the_excerpt', get_the_excerpt($product->get_id())) . '</div>';
 }
 // function woo_related_products_limit()
 // {
@@ -663,6 +671,16 @@ function woocommerce_single_product_sizeguide()
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque congue dolor, non porta neque feugiat at. In hac habitasse platea dictumst</p>
             </div>
           </div>
+
+          <div class="size-calculator">
+            <label for="exampleInputEmail1" class="form-label">Weight</label>
+            <input type="number" class="form-control" id="inputWeight" />
+            <label for="exampleInputPassword1" class="form-label">Height</label>
+            <input type="number" class="form-control" id="inputHeight" />
+            <div class="result"></div>
+          </div>
+
+
           <div class="tabs-section">
             <ul class="nav nav-pills" id="pills-tab" role="tabsize">
               <li class="nav-item" role="presentation">

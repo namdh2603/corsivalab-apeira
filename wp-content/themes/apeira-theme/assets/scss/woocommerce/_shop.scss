@@ -167,6 +167,9 @@
     overflow: hidden;
     transform: translate3d(110%, 0, 0);
     -webkit-transform: translate3d(110%, 0, 0);
+    @include responsive(tablet){
+      width: 100vw;
+    }
     .minicart-inner {
       max-height: toRem(600);
       overflow-y: scroll;

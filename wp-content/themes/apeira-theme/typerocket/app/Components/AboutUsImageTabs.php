@@ -32,7 +32,7 @@ class AboutUsImageTabs extends Component
 	public function render(array $data, array $info)
 	{
 ?>
-		<section class="section-<?php echo $info['component_id']; ?> section-padding" data-id="<?php echo $info['component_id']; ?>" style="">
+		<section class="section-<?php echo $info['component_id']; ?>" data-id="<?php echo $info['component_id']; ?>" style="">
 			<div class="nav nav-pills" id="pills-tab" role="tabsize">
 				<div class="row">
 					<?php if (!empty($data['list'])) {

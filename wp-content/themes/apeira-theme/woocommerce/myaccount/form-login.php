@@ -59,6 +59,12 @@ do_action('woocommerce_before_customer_login_form'); ?>
                         <label for="reg_password">Password&nbsp;<span class="required">*</span></label>
                         <input type="password" placeholder="Enter your password" class="woocommerce-Input woocommerce-Input--text input-text" name="password" id="reg_password" autocomplete="new-password" />
                     </p>
+					
+<!-- 								<p class="form-row form-row-wide">
+		<label for="reg_password2"><?php _e( 'Confirm password', 'woocommerce' ); ?> <span class="required">*</span></label>
+		<input type="password" class="woocommerce-Input woocommerce-Input--text input-text" name="password2" id="reg_password2" value="<?php if ( ! empty( $_POST['password2'] ) ) echo esc_attr( $_POST['password2'] ); ?>" />
+	</p> -->
+					
                 <?php else : ?>
                     <p><?php esc_html_e('A password will be sent to your email address.', 'woocommerce'); ?></p>
                 <?php endif; ?>

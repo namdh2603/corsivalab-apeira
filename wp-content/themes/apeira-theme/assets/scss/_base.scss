@@ -195,6 +195,9 @@ body {
   overflow-x: hidden;
   &.overflow-hidden {
     padding-right: 17px;
+    @include responsive(tablet){
+      padding-right: 0;
+    }
   }
 }
 menu,

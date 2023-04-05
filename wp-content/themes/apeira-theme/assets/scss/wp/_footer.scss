@@ -1,8 +1,14 @@
 footer {
   background-color: #ece4db;
   @include padding_tb(130, 40);
+  @include responsive(tablet) {
+    @include padding_tb(50, 50);
+  }
   .middle-footer {
     margin-bottom: toRem(40);
+    @include responsive(tablet) {
+      margin-bottom: 0;
+    }
   }
   .widget-title {
     @include font(20, 0, 700);
@@ -52,10 +58,8 @@ footer {
     display: flex;
     gap: toRem(10);
   }
-  input{
-    
+  input {
     width: 100%;
-
   }
   input[type="submit"] {
     border-radius: 4px;

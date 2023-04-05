@@ -34,6 +34,9 @@ return [
         sanitize_title('Contact Us') => \App\Components\ContactUs::class,
         sanitize_title('About Us Image Tabs') => \App\Components\AboutUsImageTabs::class,
         sanitize_title('Impact Count') => \App\Components\ImpactCount::class,
+        sanitize_title('Social List') => \App\Components\SocialList::class,
+        sanitize_title('Search') => \App\Components\Search::class,
+        sanitize_title('Gap') => \App\Components\Gap::class,
     ],
 
     /*
@@ -73,6 +76,9 @@ return [
         sanitize_title('Tabs Section'),
         sanitize_title('Contact Us'),
         sanitize_title('Impact Count'),
+        sanitize_title('Social List'),
         sanitize_title('About Us Image Tabs'),
+        sanitize_title('Search'),
+        sanitize_title('Gap'),
     ]
 ];

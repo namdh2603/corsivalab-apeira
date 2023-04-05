@@ -258,8 +258,18 @@ function getYoutubeIdFromUrl($url)
 
 
 add_shortcode('wc_reg_form_bbloomer', 'bbloomer_separate_registration_form');
-
 function bbloomer_separate_registration_form()
+{
+if (is_user_logged_in()){
+							echo '<div class="head-section"><div class="title text-center mt-30">You are already registered</div></div>';
+						} else {
+	echo '<div class="woocommerce">';
+							wc_get_template_part( 'myaccount/form-register' );
+	echo '</div>';
+						}
+}
+
+function bbloomer_separate_registration_form2()
 {
     if (is_user_logged_in()) return '<div class="head-section"><div class="title text-center mt-30">You are already registered</div></div>';
     ob_start();

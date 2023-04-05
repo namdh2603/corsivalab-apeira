@@ -52,10 +52,10 @@ class RewardList extends Component
 			</div>
 			<div class="container">
 				<div class="reward-list">
-					<div class="row">
+					<div class="row justify-content-center">
 						<?php if (!empty($data['list'])) { ?>
 							<?php foreach ($data['list'] as $item) { ?>
-								<div class="col-3 reward-item">
+								<div class="col-6 col-sm-6 col-md-6 col-lg-3 col-xl-3 reward-item">
 									<img src="<?php echo get_attachment($item['img'])['src']; ?>" class="w-100" alt="img" />
 									<?php if (!empty($item['title'])) : ?>
 										<div class='icons-title'><?php echo $item['title']; ?></div>

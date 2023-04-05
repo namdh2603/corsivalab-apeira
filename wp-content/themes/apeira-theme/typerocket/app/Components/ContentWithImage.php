@@ -13,8 +13,9 @@ class ContentWithImage extends Component
     public function fields()
     {
         $form = $this->form();
+        echo $form->toggle('reverse')->setLabel('Image & Text reverse');
         echo $form->image('img')->setLabel('Image');
-        echo $form->wpEditor('desc')->setLabel('Content')->setSetting('options', ['teeny' => false, 'tinymce' => true, 'editor_height' => 600]);;
+        echo $form->wpEditor('desc')->setLabel('Content')->setSetting('options', ['teeny' => false, 'tinymce' => true, 'editor_height' => 600]);
     }
     /**
      * Render
@@ -30,7 +31,7 @@ class ContentWithImage extends Component
                 <div class="row justify-content-center">
                     <div class="col-12 col-sm-8 col-md-8 col-lg-8">
                         <div class="desc">
-                            <div class="row">
+                            <div class="row <?php echo (!empty($data['reverse'])?'flex-row-reverse':''); ?>">
                                 <div class="col-12 col-sm-5 col-md-5 col-lg-5">
                                     <img src="<?php echo get_attachment($data['img'])['src']; ?>" class="" alt="img" />
                                 </div>

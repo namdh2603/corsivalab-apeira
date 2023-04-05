@@ -29,7 +29,7 @@ class TitleWithShortcode extends Component
 	{
 		// $bg_color = $data['bg_color'];
 ?>
-		<section class="section-<?php echo $info['component_id']; ?> section-padding" data-id="<?php echo $info['component_id']; ?>" style="<?php //echo (!empty($bg_color) ? 'background-color:' . $bg_color . ';' : ''); 
+		<section class="section-<?php echo $info['component_id']; ?> section-padding pt-0" data-id="<?php echo $info['component_id']; ?>" style="<?php //echo (!empty($bg_color) ? 'background-color:' . $bg_color . ';' : ''); 
 																																	?>">
 			<div class="container">
 				<div class="head-section">

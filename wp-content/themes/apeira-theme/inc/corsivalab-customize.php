@@ -133,6 +133,31 @@ new \Kirki\Field\Text(
         'priority' => 10,
     ]
 );
+
+new \Kirki\Field\Date(
+	[
+		'settings'    => sanitize_underscores('Countdown Sale'),
+		'label'       => 'Countdown Sale Date',
+		'section'     => 'footer',
+		'default'     => '',
+        'priority' => 20,
+	]
+);
+
+
+new \Kirki\Field\Image(
+    [
+        'settings'    => sanitize_underscores('Countdown Sale Icon'),
+        'label'       => 'Countdown Sale Icon',
+        'section'     => 'footer',
+        'default'     => '',
+        'choices'     => [
+            'save_as' => 'id',
+        ],
+        'priority' => 30,
+    ]
+);
+
 new \Kirki\Field\Repeater(
     [
         'settings'    => sanitize_underscores('Social List'),

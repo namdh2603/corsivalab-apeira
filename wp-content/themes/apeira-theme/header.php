@@ -23,12 +23,6 @@
     // $social_list =  tr_options_field('corsivalab_options.social_list');
     // $topbar_list =  tr_options_field('corsivalab_options.topbar_list');
     $topbar_list =  get_theme_mod(sanitize_underscores('Topbar List'));
-
-
-
-
-
-
     $logo = get_attachment(get_theme_mod('custom_logo'));
     $home_link = get_home_url();
     ?>

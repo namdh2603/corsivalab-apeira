@@ -63,6 +63,7 @@ class RewardForm extends Component
 							</div>
 						</div>
 
+						
 						<?php if (!empty($data['shortcode'])) : ?><div class="shortcode"><?php echo do_shortcode($data['shortcode']); ?></div><?php endif; ?>
 
 
