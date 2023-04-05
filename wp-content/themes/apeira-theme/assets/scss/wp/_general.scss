@@ -39,6 +39,14 @@
     text-decoration: none;
     cursor: pointer;
     @include transition();
+    &.btn-main-v2 {
+      background: var(--bg-second-color);
+      border-color: var(--bg-second-color);
+      &:hover{
+        background: var(--bg-color);
+        border-color: var(--main-color);
+      }
+    }
     &.btn-outline {
       background-color: transparent;
       color: #fff;
@@ -222,6 +230,9 @@ select:focus > option:checked {
 .section-padding {
   // margin-bottom: toRem(180);
   @include padding_tb(180, 180);
+  @include responsive(tablet) {
+    @include padding_tb(20, 20);
+  }
 }
 
 .fancybox__backdrop {
@@ -237,7 +248,7 @@ select:focus > option:checked {
   right: 0;
   // height: 100%;
   // width: 100%;
-    z-index: 10;
+  z-index: 10;
   opacity: 0;
   visibility: hidden;
   @include transition();
@@ -249,6 +260,7 @@ select:focus > option:checked {
 .modal-backdrop {
   background-color: rgb(207 187 164 / 50%);
 }
-.page-content, .post-content{
-  padding-bottom: toRem(100)
+.page-content,
+.post-content {
+  padding-bottom: toRem(100);
 }

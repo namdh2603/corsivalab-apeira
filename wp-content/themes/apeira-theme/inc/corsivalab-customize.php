@@ -44,8 +44,86 @@ new \Kirki\Field\Repeater(
                 'default'     => '',
             ],
         ],
+        'priority' => 10,
     ]
 );
+
+$menus = get_terms( 'nav_menu' );
+$menu_arr = array();
+foreach($menus as $item){
+    $menu_arr[$item->slug] = $item->name;
+}
+
+
+new \Kirki\Field\Select(
+	[
+		'settings'    => sanitize_underscores('Sub Menu Column 1'),
+		'label'       => 'Sub Menu Column 1',
+		'section'     => 'header',
+		'placeholder' => 'Select a menu',
+        'priority' => 20,
+		'choices'     => $menu_arr,
+		
+	]
+);
+
+new \Kirki\Field\Select(
+	[
+		'settings'    => sanitize_underscores('Sub Menu Column 2'),
+		'label'       => 'Sub Menu Column 2',
+		'section'     => 'header',
+		'placeholder' => 'Select a menu',
+        'priority' => 30,
+		'choices'     => $menu_arr,
+		
+	]
+);
+
+new \Kirki\Field\Select(
+	[
+		'settings'    => sanitize_underscores('Sub Menu Column 3'),
+		'label'       => 'Sub Menu Column 3',
+		'section'     => 'header',
+		'placeholder' => 'Select a menu',
+        'priority' => 40,
+		'choices'     => $menu_arr,
+		
+	]
+);
+
+new \Kirki\Field\Repeater(
+    [
+        'settings'    => sanitize_underscores('Sub Menu Right Item'),
+        'label'       => 'Sub Menu Right Item',
+        'section'     => 'header',
+        'fields'      => [
+            
+            'image'   => [
+                'type'        => 'image',
+                'label'       => 'Image',
+                'default'     => '',
+                'choices'     => [
+                    'save_as' => 'id',
+                ],
+            ],
+            'text'   => [
+                'type'        => 'textarea',
+                'label'       => 'Text',
+                'default'     => '',
+            ],
+            'desc'   => [
+                'type'        => 'textarea',
+                'label'       => 'Text',
+                'default'     => '',
+            ],
+        ],
+        'priority' => 50,
+    ]
+
+);
+
+
+
 new \Kirki\Field\Text(
     [
         'settings'    => sanitize_underscores('Copyright'),

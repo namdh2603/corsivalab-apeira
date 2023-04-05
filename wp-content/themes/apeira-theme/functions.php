@@ -8,7 +8,7 @@ require('typerocket/init.php');
 require('inc/corsivalab-shortcode.php');
 // require('inc/corsivalab-addon.php');
 require('inc/corsivalab-pagenavi.php');
-// require('inc/menu-navwalker.php');
+require('inc/menu-navwalker.php');
 if (class_exists('woocommerce')) {
     // require('inc/corsivalab-field-product.php');
     require('inc/corsivalab-field-product-cat.php');

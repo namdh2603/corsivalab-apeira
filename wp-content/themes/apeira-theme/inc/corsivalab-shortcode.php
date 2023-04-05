@@ -1,5 +1,6 @@
 <?php
-function shortcode_list_social(){
+function shortcode_list_social()
+{
     $social_list =  get_theme_mod('social_list');
     ob_start();
     if ($social_list) :
@@ -13,10 +14,8 @@ function shortcode_list_social(){
     return ob_get_clean();
 }
 add_shortcode('corsivalab-social-icons', 'shortcode_list_social');
-
-
-
-function shortcode_info_company(){
+function shortcode_info_company()
+{
     $info_company =  tr_options_field('corsivalab_options.info_company');
     ob_start();
     echo '<div class="info-company">';
@@ -32,75 +31,86 @@ function shortcode_info_company(){
     return ob_get_clean();
 }
 add_shortcode('contact-info', 'shortcode_info_company');
-function shortcode_menu_content(){
+function shortcode_menu_content()
+{
     ob_start();
     $shop_page = wc_get_page_permalink('shop');
-    $parent_product_cats = get_terms('product_cat', array('parent' => 0, 'hide_empty' => true, 'exclude' => 15));
-    $parent_product_brands = get_terms('berocket_brand', array('parent' => 0, 'hide_empty' => true,));
-    $promotion_image =  tr_options_field('corsivalab_options.promotion_image');
-    $title =  tr_options_field('corsivalab_options.title');
-    $sub_title =  tr_options_field('corsivalab_options.sub_title');
-    $title_link =  tr_options_field('corsivalab_options.title_link');
-    $link =  tr_options_field('corsivalab_options.link');
-    $image_data = get_attachment($promotion_image);
+    $sub_menu_1 =  get_theme_mod(sanitize_underscores('Sub Menu Column 1'));
+    $sub_menu_2 =  get_theme_mod(sanitize_underscores('Sub Menu Column 2'));
+    $sub_menu_3 =  get_theme_mod(sanitize_underscores('Sub Menu Column 3'));
+    $sub_right =  get_theme_mod(sanitize_underscores('Sub Menu Right Item'));
 ?>
     <div class="row">
-        <div class="col-4">
-            <div class="promotion-inner">
-                <div class="promotion-item text-left">
-                    <?php echo '<img class="w-100" src="' . $image_data['src'] . '" alt="' . $image_data['alt'] . '" title="' . $image_data['title'] . '" />'; ?>
-                    <div class="promotion-info">
-                        <div class="w-100">
-                            <div class="title text-white"><?php echo $title; ?></div>
-                            <div class="sub-title text-white"><?php echo $sub_title; ?></div>
-                            <div class="btn-group btn-left">
-                                <a class="btn-main btn-selling text-white" href="<?php echo $link; ?>"><?php echo $title_link; ?></a>
-                            </div>
-                        </div>
-                    </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-4">
+                    <?php
+                    if(!empty($sub_menu_1)):
+            $sub_menu_1_obj = wp_get_nav_menu_object($sub_menu_1);
+            $sub_menu_1_items = wp_get_nav_menu_items($sub_menu_1);
+                    ?>
+                    <h4 class="title-sub-block"><?php echo wp_kses_post($sub_menu_1_obj->name); ?></h4>
+                    <ul>
+                        <?php foreach ($sub_menu_1_items as $menu_item) {
+                            if ($menu_item->menu_item_parent == 0) {
+                                echo '<li><a href="' . $menu_item->url . '">' . $menu_item->title . '</a></li>';
+                            }
+                        } ?>
+                    </ul>
+                    <?php endif; ?>
+                </div>
+                <div class="col-4">
+                    <?php
+                    if(!empty($sub_menu_2)):
+                    
+            $sub_menu_2_obj = wp_get_nav_menu_object($sub_menu_2);
+            $sub_menu_2_items = wp_get_nav_menu_items($sub_menu_2);
+                    ?>
+                    <h4 class="title-sub-block"><?php echo wp_kses_post($sub_menu_2_obj->name); ?></h4>
+                    <ul>
+                        <?php foreach ($sub_menu_2_items as $menu_item) {
+                            if ($menu_item->menu_item_parent == 0) {
+                                echo '<li><a href="' . $menu_item->url . '">' . $menu_item->title . '</a></li>';
+                            }
+                        } ?>
+                    </ul>
+                    <?php endif; ?>
+                </div>
+                <div class="col-4">
+                    <?php
+                    if(!empty($sub_menu_3)):
+            $sub_menu_3_obj = wp_get_nav_menu_object($sub_menu_3);
+            $sub_menu_3_items = wp_get_nav_menu_items($sub_menu_3);
+                    ?>
+                    <h4 class="title-sub-block"><?php echo wp_kses_post($sub_menu_3_obj->name); ?></h4>
+                    <ul>
+                        <?php foreach ($sub_menu_3_items as $menu_item) {
+                            if ($menu_item->menu_item_parent == 0) {
+                                echo '<li><a href="' . $menu_item->url . '">' . $menu_item->title . '</a></li>';
+                            }
+                        } ?>
+                    </ul>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
-        <div class="col-2">
-            <h4 class="title-sub-block">Shop By Category</h4>
-            <?php foreach ($parent_product_cats as $product_cat_obj) {
-                echo '<ul>';
-                $term_link = get_term_link($product_cat_obj);
-                //$term_id = $product_cat_obj->term_id; // term ID
-                $term_name = $product_cat_obj->name; // term Name
-                echo '<li><a href="' . $term_link . '">' . $term_name . '</a></li>';
-                echo '</ul>';
-            } ?>
-        </div>
-        <div class="col-2">
-            <h4 class="title-sub-block">Shop By Brands</h4>
-            <?php foreach ($parent_product_brands as $product_brands_obj) {
-                echo '<ul>';
-                $term_link = get_term_link($product_brands_obj);
-                //$term_id = $product_cat_obj->term_id; // term ID
-                $term_name = $product_brands_obj->name; // term Name
-                echo '<li><a href="' . $term_link . '">' . $term_name . '</a></li>';
-                echo '</ul>';
-            } ?>
-        </div>
-        <div class="col-4">
-            <h4 class="title-sub-block">Shop By Product Tag</h4>
-            <?php $terms = get_terms('product_tag');
-            if (!empty($terms) && !is_wp_error($terms)) {
-                echo '<ul class="product-tags">';
-                foreach ($terms as $term) {
-                    $term_link = get_term_link($term);
-                    $term_name = $term->name;
-                    echo '<li><a href="' . $term_link . '">' . $term_name . '</a></li>';
-                }
-                echo '</ul>';
-            } ?>
+        <div class="col-6">
+            <div class="row">
+                <?php foreach ($sub_right as $item) { ?>
+                    <div class="col-6">
+                        <div class="sub-img"><img src="<?php echo get_attachment($item['image'])['src']; ?>" /></div>
+                        <div class="sub-title"><?php echo $item['text']; ?></div>
+                        <div class="sub-desc"><?php echo $item['desc']; ?></div>
+                    </div>
+                <?php } ?>
+            </div>
         </div>
     </div>
     <?php return ob_get_clean();
 }
 add_shortcode('menu-shop-content', 'shortcode_menu_content');
-function shortcode_similar_blogposts(){
+function shortcode_similar_blogposts()
+{
     ob_start();
     echo '<ul class="list post-list">';
     $args = array(
@@ -129,7 +139,8 @@ function shortcode_similar_blogposts(){
     return ob_get_clean();
 }
 add_shortcode('similar-blogposts', 'shortcode_similar_blogposts');
-function shortcode_feature_list(){
+function shortcode_feature_list()
+{
     ob_start();
     $feature_item =  tr_options_field('corsivalab_options.feature_item');
     if (!empty($feature_item)) : ?>

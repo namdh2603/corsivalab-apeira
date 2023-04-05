@@ -137,9 +137,9 @@
         -webkit-transform: none;
       }
     }
- 
+
     &-inner {
-      @include padding(30, 60, 30, 60);
+      @include padding(30, 60, 60, 60);
     }
     &-title {
       background: var(--bg-color);
@@ -320,11 +320,11 @@
     }
   }
   .berocket_single_filter_widget {
-    padding-bottom: toRem(20);
-    margin-bottom: toRem(60);
-    border-bottom: 1px solid rgba(#000, 0.3);
-    &:last-child() {
-      border-bottom: 0;
+    .bapf_ckbox,
+    .bapf_slidr {
+      padding-bottom: toRem(30);
+      margin-bottom: toRem(30);
+      border-bottom: 1px solid rgba(#000, 0.3);
     }
   }
   .bapf_sfilter {
@@ -353,18 +353,21 @@
       @include padding(0, 30, 0, 30);
     }
     li {
-      display: block;
+      display: inline-block;
+
+      width: 50%;
       margin-bottom: toRem(10) !important;
       &:last-child {
         margin-bottom: 0 !important;
+      }
+      .roundpcs {
+        margin-left: toRem(5);
       }
     }
     label {
       margin-bottom: 0;
       color: var(--main-color);
-      @include font($d-fs, $d-fs + 4);
-      font-family: $primary-ff;
-      font-weight: 300;
+      @include font(20, 0);
       cursor: pointer;
       @include transition();
       &:hover {
@@ -377,39 +380,68 @@
       outline-offset: unset;
       width: auto;
       -webkit-appearance: none;
-      background-color: #fff;
-      padding: 6px;
+      background-color: var(--bg-color);
+      padding: toRem(9);
       border: 0;
       border-radius: 0;
       vertical-align: text-bottom;
       position: relative;
-      border: 1px solid var(--main-color);
+      border: 1px solid var(--border-color);
       &:checked:after {
-        content: "\2713";
-        font-size: 18px;
-        font-weight: bold;
+        content: "\f00c";
+        font-size: toRem(15);
+        line-height: 1.2;
         position: absolute;
-        top: -6px;
-        left: 1px;
-        color: #014693;
-        line-height: 1;
+        color: #fff;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        display: var(--fa-display, inline-block);
+        font-style: normal;
+        font-variant: normal;
+        text-rendering: auto;
+        font-family: "Font Awesome 6 Pro";
+        font-weight: 700;
+        background: var(--main-color);
+        text-align: center;
+        inset: 0;
       }
     }
-    .bapf_button.bapf_update {
-      background: var(--main-color) !important;
-      @include padding(8, 30, 10, 30);
-      display: inline-block;
-      color: $white;
-      @include font($d-fs, $d-fs + 4);
-      font-weight: 400;
-      text-decoration: none;
-      border-radius: 19px;
-      @include transition();
-      border: 0;
-      display: block !important;
-      margin: 0 auto;
-      @include font($d-fs, $d-fs + 4);
-      font-family: $primary-ff;
+    .bapf_button {
+      &.bapf_update {
+        border: 0;
+        display: block !important;
+        width: 100%;
+
+        border-radius: toRem(10);
+        @include padding(16, 40, 16, 40);
+        color: var(--main-color);
+        background: var(--bg-color) !important;
+        @include font(16, 0, 700);
+        text-decoration: none;
+        cursor: pointer;
+        @include transition();
+        margin-bottom: toRem(10);
+      }
+      &.bapf_reset {
+        border: 1px solid var(--main-color);
+        border-radius: toRem(10);
+        @include padding(16, 40, 16, 40);
+        display: block !important;
+        width: 100%;
+        color: var(--main-color);
+        background: var(--bg-color);
+        @include font(16, 0, 700);
+        font-family: $primary-ff;
+        text-decoration: none;
+        cursor: pointer;
+        background-color: transparent;
+        &:hover {
+          color: var(--main-color);
+          background: var(--bg-color);
+          border-color: var(--bg-color);
+        }
+        @include transition();
+      }
     }
     .ui-slider-range,
     .ui-slider-handle {
@@ -580,5 +612,14 @@
     .minicart-container1 {
       top: 32px;
     }
+  }
+}
+
+.woocommerce {
+  .wvs-archive-variations-wrapper {
+    margin-top: toRem(20);
+  }
+  ul.variable-items-wrapper {
+    margin-bottom: 0;
   }
 }

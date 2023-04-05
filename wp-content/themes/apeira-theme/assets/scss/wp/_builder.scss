@@ -9,6 +9,10 @@
     left: 0;
     right: 0;
     color: #fff;
+    @include responsive(tablet) {
+      top: 0;
+      bottom: 0;
+    }
   }
   .swiper-pagination-bullet {
     background-color: rgba($color: #f6f6f6, $alpha: 0.5);
@@ -82,6 +86,14 @@
     justify-content: center;
     max-width: 80%;
     margin: 0 auto;
+  }
+  &.last{
+    img{
+      @include responsive(tablet) {
+        min-height: toRem(600);
+      }
+    }
+
   }
 }
 .head-section {
@@ -543,6 +555,9 @@ section {
 
 .tabs-section {
   text-align: center;
+  &.products-list{
+    @include padding-lr(30,30);
+  }
   .nav-pills {
     display: inline-flex;
     border-bottom: 1px solid rgba($c-51423C, 0.2);

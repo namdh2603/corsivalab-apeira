@@ -410,12 +410,17 @@
         .variable-item {
           border: 0;
           border-radius: 0;
-          @include padding-lr(0, 20);
-          @include margin(0, 20, 0, 0);
+          @include padding-lr(15, 15);
+          @include margin(0, 0, 0, 0);
           @include font(20, 0, 700);
           color: rgb(81 66 60 / 50%);
           box-shadow: none !important;
-          border-right: 1px solid #a09993;
+          border-left: 1px solid #a09993;
+          background-color: transparent;
+          &:last-child{
+            border-right: 1px solid #a09993;
+
+          }
           &.selected:not(.no-stock) {
             color: var(--main-color);
           }

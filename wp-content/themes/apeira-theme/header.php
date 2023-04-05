@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
+
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <?php wp_head(); ?>
 </head>
+
 <body <?php body_class(); ?>>
     <?php
     if (class_exists('woocommerce')) {
@@ -23,7 +25,7 @@
     $topbar_list =  get_theme_mod(sanitize_underscores('Topbar List'));
 
 
-    
+
 
 
 
@@ -34,10 +36,10 @@
     <div class="corsivalab-overlay"></div>
     <div class="navbar-mobile">
         <?php
-        // wp_nav_menu(array(
-        //     'theme_location' => 'mobile-menu',
-        //     'container' => 'nav',
-        // ));
+        wp_nav_menu(array(
+            'theme_location' => 'mobile-menu',
+            'container' => 'nav',
+        ));
         ?>
     </div>
     <!-- Header -->
@@ -71,13 +73,13 @@
                                     'container' => false,
                                     //'container_class' => 'menu',
                                     'menu_class' => 'navmenu',
-                                    // 'walker' => new Default_Walker(),
+                                    'walker' => new Default_Walker(),
                                 )
                             );
                             ?>
                         </div>
                         <div class="col-8 col-lg-2">
-                            <div class="d-flex justify-content-end">
+                            <div class="header-icon-inner">
                                 <div class="header-icon search-icon">
                                     <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icon-search.png" />
                                 </div>
@@ -102,14 +104,16 @@
                                         <?php echo $cart_count; ?>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="mobile d-block d-lg-none">
-                                <div class="navbar-toggle">
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
-                                    <span class="icon-bar"></span>
+
+
+                                <div class="header-icon navbar-toggle">
+                                    <i class="fa-solid fa-bars"></i>
                                 </div>
+
+
                             </div>
+
+
                         </div>
                     </div>
                 </div>

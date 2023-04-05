@@ -15,16 +15,21 @@
  * @package WooCommerce\Templates
  * @version 4.6.0
  */
+
 defined('ABSPATH') || exit;
+
 $order = wc_get_order($order_id); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+
 if (!$order) {
 	return;
 }
+
 $order_items           = $order->get_items(apply_filters('woocommerce_purchase_order_item_types', 'line_item'));
 $show_purchase_note    = $order->has_status(apply_filters('woocommerce_purchase_note_order_statuses', array('completed', 'processing')));
 $show_customer_details = is_user_logged_in() && $order->get_user_id() === get_current_user_id();
 $downloads             = $order->get_downloadable_items();
 $show_downloads        = $order->has_downloadable_item() && $order->is_download_permitted();
+
 if ($show_downloads) {
 	wc_get_template(
 		'order/order-downloads.php',
@@ -35,26 +40,30 @@ if ($show_downloads) {
 	);
 }
 ?>
-<div class="row justify-content-center">
-    <div class="col-lg-6">
-        <div class="order-summary">
-            <section class="woocommerce-order-details">
-                <?php do_action('woocommerce_order_details_before_order_table', $order); ?>
-                <!-- <h2 class="woocommerce-order-details__title"><?php esc_html_e('Order details', 'woocommerce'); ?></h2> -->
-                <h3>ORDER SUMMARY</h3>
-                <table class="shop_table woocommerce-checkout-review-order-table">
-                    <thead>
-                        <tr>
-                            <th class="product-name"><?php esc_html_e('Product', 'woocommerce'); ?></th>
-                            <th class="product-quantity"><?php esc_html_e('Qty', 'woocommerce'); ?></th>
-                            <th class="product-total"><?php esc_html_e('Subtotal', 'woocommerce'); ?></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
+<section class="woocommerce-order-details">
+	<?php do_action('woocommerce_order_details_before_order_table', $order); ?>
+
+	<div class="row justify-content-center">
+
+		<div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+			<div class="checkout-summary">
+
+				<table class="woocommerce-table woocommerce-table--order-details shop_table order_details">
+
+					<thead>
+						<tr>
+							<th class="woocommerce-table__product-name product-name">ORDER DETAILS</th>
+							<th class="woocommerce-table__product-table product-total"><?php esc_html_e('Total', 'woocommerce'); ?></th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<?php
 						do_action('woocommerce_order_details_before_order_table_items', $order);
+
 						foreach ($order_items as $item_id => $item) {
 							$product = $item->get_product();
+
 							wc_get_template(
 								'order/order-details-item.php',
 								array(
@@ -67,53 +76,42 @@ if ($show_downloads) {
 								)
 							);
 						}
+
 						do_action('woocommerce_order_details_after_order_table_items', $order);
 						?>
-                    </tbody>
-                </table>
-                <?php do_action('woocommerce_order_details_after_order_table', $order); ?>
-            </section>
-            <div class="cart_totals">
-                <div class="order-total-title">
-                    CART SUMMARY
-                </div>
-                <table cellspacing="0" class="shop_table shop_table_responsive">
-                    <tbody>
-                        <?php
+					</tbody>
+
+					<tfoot>
+						<?php
 						foreach ($order->get_order_item_totals() as $key => $total) {
 						?>
-                        <tr class="<?php echo $key; ?>">
-                            <th scope="row"><?php echo esc_html($total['label']); ?></th>
-                            <td><?php echo ('payment_method' === $key) ? esc_html($total['value']) : wp_kses_post($total['value']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
+							<tr>
+								<th scope="row"><?php echo esc_html($total['label']); ?></th>
+								<td><?php echo ('payment_method' === $key) ? esc_html($total['value']) : wp_kses_post($total['value']); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped 
 									?></td>
-                        </tr>
-                        <?php
+							</tr>
+						<?php
 						}
 						?>
-                        <?php if ($order->get_customer_note()) : ?>
-                        <tr>
-                            <th><?php esc_html_e('Note:', 'woocommerce'); ?></th>
-                            <td><?php echo wp_kses_post(nl2br(wptexturize($order->get_customer_note()))); ?></td>
-                        </tr>
-                        <?php endif; ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="back-home">
-            <a href="<?php echo home_url(); ?>">BACK TO HOMEPAGE</a>
-        </div>
-    </div>
-    <div class="col-5 d-none">
-        <div class="card">
-            <?php if ($show_customer_details) { ?>
-            <?php
-				wc_get_template('order/order-details-customer.php', array('order' => $order));
-				?>
-            <?php } ?>
-        </div>
-    </div>
-</div>
+						<?php if ($order->get_customer_note()) : ?>
+							<tr>
+								<th><?php esc_html_e('Note:', 'woocommerce'); ?></th>
+								<td><?php echo wp_kses_post(nl2br(wptexturize($order->get_customer_note()))); ?></td>
+							</tr>
+						<?php endif; ?>
+					</tfoot>
+				</table>
+			</div>
+
+		</div>
+
+	</div>
+
+
+
+	<?php do_action('woocommerce_order_details_after_order_table', $order); ?>
+</section>
+
 <?php
 /**
  * Action hook fired after the order details.
@@ -122,3 +120,7 @@ if ($show_downloads) {
  * @param WC_Order $order Order data.
  */
 do_action('woocommerce_after_order_details', $order);
+
+if ($show_customer_details) {
+	wc_get_template('order/order-details-customer.php', array('order' => $order));
+}

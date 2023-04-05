@@ -24,7 +24,7 @@ if (empty($product) || !$product->is_visible()) {
 if (!is_front_page()) {
 	$class = 'col-6 col-lg-3 mb-5';
 } else {
-	$class = 'pb-4';
+	$class = 'col-6 col-lg-3 mb-5 text-start';
 }
 ?>
 <div <?php wc_product_class($class, $product); ?>>

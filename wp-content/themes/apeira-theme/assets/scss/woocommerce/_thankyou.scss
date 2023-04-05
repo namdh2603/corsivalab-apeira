@@ -1,5 +1,4 @@
 // Thank you
-
 .thankyou-page {
   padding-top: toRem(80);
 }
@@ -19,35 +18,45 @@
     font-weight: 400;
     margin-right: toRem(5);
   }
-  li{
+  li {
     margin-bottom: toRem(10);
-    *{
+    * {
       display: inline-block;
     }
   }
 }
-
-.point-txt-thankyou {
-  background: var(--bg-color);
-  text-align: center;
-  color: #fff;
-  @include padding(20, 0, 20, 0);
-  @include font(20, 0);
-}
-
-.point-txt-thankyou p:last-child {
-  font-weight: 700;
-}
-
-.point-txt-thankyou p {
-  margin: 0;
-  padding: 0;
-}
-
 .woocommerce {
-  table.shop_table {
-    thead {
-      background: none;
+  .shop_table {
+    &.order_details {
+      td,
+      th {
+        @include padding(20, 0, 20, 0);
+      }
+      th {
+        color: var(--main-color);
+      }
+      .order_item{
+        a{
+          color: var(--main-color);
+          text-decoration: none;
+          
+        }
+      }
+    }
+  }
+  .woocommerce-customer-details {
+    .woocommerce-column__title {
+      color: var(--main-color);
+      @include font(20, 0, 700);
+      border-bottom: 1px solid #333;
+      text-transform: uppercase;
+      padding-bottom: toRem(20);
+      margin-bottom: toRem(20);
+    }
+    address{
+      border: 0;
+      background: transparent;
+      padding: 0;
     }
   }
 }

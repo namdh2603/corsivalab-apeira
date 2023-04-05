@@ -52,6 +52,7 @@
       td {
         border: 0;
         @include padding(10, 0, 10, 0);
+        width: 55%;
         &.product-total {
           text-align: right;
         }

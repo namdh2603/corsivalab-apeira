@@ -3,12 +3,10 @@
 <?php if (isset($_GET['key'])) { ?>
     <section class="thankyou-page">
         <div class="container">
-            <div class="inner">
-                <div class="page-content">
-                    <?php while (have_posts()) : the_post();
-                        the_content();
-                    endwhile; ?>
-                </div>
+            <div class="page-content">
+                <?php while (have_posts()) : the_post();
+                    the_content();
+                endwhile; ?>
             </div>
         </div>
     </section>
@@ -29,12 +27,10 @@
                     </div>
                 </div>
             </div>
-            <div class="inner">
-                <div class="page-content">
-                    <?php while (have_posts()) : the_post();
-                        the_content();
-                    endwhile; ?>
-                </div>
+            <div class="page-content">
+                <?php while (have_posts()) : the_post();
+                    the_content();
+                endwhile; ?>
             </div>
         </div>
     </section>

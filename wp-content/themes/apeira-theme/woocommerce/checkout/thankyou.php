@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Thankyou page
  *
@@ -17,7 +16,6 @@
  */
 defined('ABSPATH') || exit;
 ?>
-
 <div class="woocommerce-order section-thankyou">
     <?php
     if ($order) :
@@ -49,7 +47,6 @@ defined('ABSPATH') || exit;
                         $order_id = $order->get_order_number();
                         $order_point = get_post_meta($order_id, 'ywpar_points_from_cart', true);
                         ?>
-
                         <div class="order-information">
                             <ul>
                                 <li><b>Order number: </b><span><?php echo $order_id; ?></span></li>
@@ -57,9 +54,7 @@ defined('ABSPATH') || exit;
                                 <li><b>Email: </b><span><?php echo $order->get_billing_email(); ?></span></li>
                                 <li><b>Total: </b><span><?php echo wc_price($order->get_total()); ?></span></li>
                                 <li><b>Payment method: </b><span><?php do_action('woocommerce_thankyou_' . $order->get_payment_method(), $order->get_id()); ?></span></li>
-
                             </ul>
-
                             <?php if (is_user_logged_in()) { ?>
                                 <div class="points">
                                     <div class="head">
@@ -76,16 +71,14 @@ defined('ABSPATH') || exit;
                                     </div>
                                 </div>
                             <?php } ?>
-                            
                         </div>
                     </div>
                 </div>
             </div>
         <?php endif; ?>
         <?php do_action('woocommerce_thankyou', $order->get_id()); ?>
-
         <div class="btn-wrap">
-            <a href="<?php home_url(); ?>" class="btn-main w-50">BACK TO HOMEPAGE</a>
+            <a href="<?php echo home_url(); ?>" class="btn-main w-50">BACK TO HOMEPAGE</a>
         </div>
     <?php else : ?>
         <p class="woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received">
