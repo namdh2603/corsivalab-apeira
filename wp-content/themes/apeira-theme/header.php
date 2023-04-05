@@ -40,17 +40,19 @@
     <header class="header">
         <div class="site-header">
             <div class="top-header">
-                <!-- Slider main container -->
-                <div class="swiper">
-                    <!-- Additional required wrapper -->
+
+            <marquee  direction="left" behavior="alternate">
+
+
                     <?php if (!empty($topbar_list)) : ?>
-                        <div class="swiper-wrapper">
+                        <div class="text-center">
                             <?php foreach ($topbar_list as $item) {
-                                echo '<div class="swiper-slide">' . $item['text'] . '</div>';
+                                echo $item['text'];
                             } ?>
                         </div>
                     <?php endif; ?>
-                </div>
+
+                </marquee>
             </div>
             <div class="middle-header woocommerce">
                 <div class="container">
