@@ -54,7 +54,7 @@ class FAQ extends Component
 								<?php foreach ($data['list'] as $item) {
 									$i++; ?>
 									<div class="accordion-item">
-										<div class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-<?php echo $i; ?>" aria-expanded="true" aria-controls="collapse-faq-<?php echo $i; ?>"><?php echo $item['title']; ?></div>
+										<div class="accordion-button <?php echo ($i==1)?'':'collapsed'; ?>" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-<?php echo $i; ?>" aria-expanded="true" aria-controls="collapse-faq-<?php echo $i; ?>"><?php echo $item['title']; ?></div>
 										<div id="collapse-faq-<?php echo $i; ?>" class="accordion-collapse collapse <?php echo ($i == 1 ? 'show' : ''); ?>" data-bs-parent="#accordionFAQ">
 											<div class="accordion-body"><?php echo $item['desc']; ?></div>
 										</div>

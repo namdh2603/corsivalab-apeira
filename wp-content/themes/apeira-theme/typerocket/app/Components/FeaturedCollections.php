@@ -35,7 +35,7 @@ class FeaturedCollections extends Component
 	public function render(array $data, array $info)
 	{
 ?>
-		<section class="section-<?php echo $info['component_id']; ?> section-padding" data-id="<?php echo $info['component_id']; ?>">
+		<section class="section-<?php echo $info['component_id']; ?> section-padding pb-0" data-id="<?php echo $info['component_id']; ?>">
 			<div class="container-fluid">
 				<div class="head-section">
 					<div class="row justify-content-center">

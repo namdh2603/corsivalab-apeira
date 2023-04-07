@@ -21,18 +21,13 @@ global $product;
 if (empty($product) || !$product->is_visible()) {
 	return;
 }
-if (!is_front_page()) {
-	$class = 'col-12 col-lg-2dot4 mb-5';
-} else {
-	$class = 'pb-4';
-}
 ?>
-<div <?php wc_product_class($class, $product); ?>>
+<div <?php wc_product_class('', $product); ?>>
 	<div class="product-inner">
 
 		<div class="product-image">
-
 			<?php woocommerce_template_loop_product_link_open(); ?>
+			
 
 			<?php
 			/**
@@ -48,7 +43,7 @@ if (!is_front_page()) {
 		<div class="product-info">
 			<div class="product-top-info">
 					<?php do_action('woocommerce_shop_loop_swatches'); ?>
-			<?php
+				<?php
 			/**
 			 * Hook: woocommerce_before_shop_loop_item.
 			 *

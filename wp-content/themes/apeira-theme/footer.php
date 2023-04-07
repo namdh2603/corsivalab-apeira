@@ -33,9 +33,15 @@
             </div>
         </div>
     </div>
-    <div class="copyright text-center">
+    <div class="copyright">
         <div class="container">
+			
+            <div class="row">
+                <div class="col-12 col-lg-8 offset-lg-4">
             <div class="copyright-txt"><?php echo get_theme_mod('copyright'); ?></div>
+				</div>
+			</div>
+			
         </div>
     </div>
 </footer>

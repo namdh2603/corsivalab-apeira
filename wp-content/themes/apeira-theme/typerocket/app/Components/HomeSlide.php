@@ -32,7 +32,7 @@ class HomeSlide extends Component
 	public function render(array $data, array $info)
 	{
 ?>
-		<section class="section-banner-slide" data-id="<?php echo $info['component_id']; ?>">
+		<section class="section-banner-slide slide-<?php echo $info['hash']; ?>" data-id="<?php echo $info['component_id']; ?>">
 			<div class="banner-slide-container">
 				<div class="swiper">
 					<div class="swiper-wrapper">
