@@ -1,4 +1,5 @@
 <?php
+
 use Kirki\Util\Helper;
 // Exit if accessed directly.
 if (!defined('ABSPATH')) {
@@ -42,56 +43,61 @@ new \Kirki\Field\Repeater(
                 'label'       => 'Text',
                 'default'     => '',
             ],
-            'link'   => [
-                'type'        => 'text',
-                'label'       => 'Link',
-                'default'     => '',
-            ],
         ],
         'priority' => 10,
     ]
 );
-$menus = get_terms('nav_menu');
+
+$menus = get_terms( 'nav_menu' );
 $menu_arr = array();
-foreach ($menus as $item) {
+foreach($menus as $item){
     $menu_arr[$item->slug] = $item->name;
 }
+
+
 new \Kirki\Field\Select(
-    [
-        'settings'    => sanitize_underscores('Sub Menu Column 1'),
-        'label'       => 'Sub Menu Column 1',
-        'section'     => 'header',
-        'placeholder' => 'Select a menu',
+	[
+		'settings'    => sanitize_underscores('Sub Menu Column 1'),
+		'label'       => 'Sub Menu Column 1',
+		'section'     => 'header',
+		'placeholder' => 'Select a menu',
         'priority' => 20,
-        'choices'     => $menu_arr,
-    ]
+		'choices'     => $menu_arr,
+		
+	]
 );
+
 new \Kirki\Field\Select(
-    [
-        'settings'    => sanitize_underscores('Sub Menu Column 2'),
-        'label'       => 'Sub Menu Column 2',
-        'section'     => 'header',
-        'placeholder' => 'Select a menu',
+	[
+		'settings'    => sanitize_underscores('Sub Menu Column 2'),
+		'label'       => 'Sub Menu Column 2',
+		'section'     => 'header',
+		'placeholder' => 'Select a menu',
         'priority' => 30,
-        'choices'     => $menu_arr,
-    ]
+		'choices'     => $menu_arr,
+		
+	]
 );
+
 new \Kirki\Field\Select(
-    [
-        'settings'    => sanitize_underscores('Sub Menu Column 3'),
-        'label'       => 'Sub Menu Column 3',
-        'section'     => 'header',
-        'placeholder' => 'Select a menu',
+	[
+		'settings'    => sanitize_underscores('Sub Menu Column 3'),
+		'label'       => 'Sub Menu Column 3',
+		'section'     => 'header',
+		'placeholder' => 'Select a menu',
         'priority' => 40,
-        'choices'     => $menu_arr,
-    ]
+		'choices'     => $menu_arr,
+		
+	]
 );
+
 new \Kirki\Field\Repeater(
     [
         'settings'    => sanitize_underscores('Sub Menu Right Item'),
         'label'       => 'Sub Menu Right Item',
         'section'     => 'header',
         'fields'      => [
+            
             'image'   => [
                 'type'        => 'image',
                 'label'       => 'Image',
@@ -113,7 +119,11 @@ new \Kirki\Field\Repeater(
         ],
         'priority' => 50,
     ]
+
 );
+
+
+
 new \Kirki\Field\Text(
     [
         'settings'    => sanitize_underscores('Copyright'),
@@ -123,15 +133,18 @@ new \Kirki\Field\Text(
         'priority' => 10,
     ]
 );
+
 new \Kirki\Field\Date(
-    [
-        'settings'    => sanitize_underscores('Countdown Sale'),
-        'label'       => 'Countdown Sale Date',
-        'section'     => 'footer',
-        'default'     => '',
+	[
+		'settings'    => sanitize_underscores('Countdown Sale'),
+		'label'       => 'Countdown Sale Date',
+		'section'     => 'footer',
+		'default'     => '',
         'priority' => 20,
-    ]
+	]
 );
+
+
 new \Kirki\Field\Image(
     [
         'settings'    => sanitize_underscores('Countdown Sale Icon'),
@@ -144,6 +157,7 @@ new \Kirki\Field\Image(
         'priority' => 30,
     ]
 );
+
 new \Kirki\Field\Repeater(
     [
         'settings'    => sanitize_underscores('Social List'),
@@ -166,6 +180,7 @@ new \Kirki\Field\Repeater(
         ],
     ]
 );
+
 new \Kirki\Field\Text(
     [
         'settings'    => sanitize_underscores('Shop Page Title'),
@@ -175,6 +190,7 @@ new \Kirki\Field\Text(
         'priority' => 10,
     ]
 );
+
 new \Kirki\Field\Image(
     [
         'settings'    => sanitize_underscores('Shop Page Banner'),
@@ -184,6 +200,7 @@ new \Kirki\Field\Image(
         'priority' => 20,
     ]
 );
+
 new \Kirki\Field\Image(
     [
         'settings'    => sanitize_underscores('Image Cart Popup'),
@@ -193,6 +210,8 @@ new \Kirki\Field\Image(
         'priority' => 10,
     ]
 );
+
+
 new \Kirki\Field\Text(
     [
         'settings'    => sanitize_underscores('Popup Title'),
@@ -202,15 +221,21 @@ new \Kirki\Field\Text(
         'priority' => 20,
     ]
 );
+
+
 new \Kirki\Field\Textarea(
-    [
+	[
         'settings'    => sanitize_underscores('Popup Description'),
         'label'       => 'Popup Description',
         'section'     => 'cart',
         'default'         => '',
         'priority' => 30,
-    ]
+	]
 );
+
+
+
+
 new \Kirki\Field\Image(
     [
         'settings'    => sanitize_underscores('Image Login'),
@@ -218,11 +243,13 @@ new \Kirki\Field\Image(
         'section'     => 'login',
         'default'     => '',
         'priority' => 10,
-        'choices'     => [
-            'save_as' => 'id',
-        ],
+		'choices'     => [
+			'save_as' => 'id',
+		],
     ]
 );
+
+
 new \Kirki\Field\Image(
     [
         'settings'    => sanitize_underscores('Blog Page Banner'),
@@ -230,8 +257,8 @@ new \Kirki\Field\Image(
         'section'     => 'blog',
         'default'     => '',
         'priority' => 10,
-        'choices'     => [
-            'save_as' => 'id',
-        ],
+		'choices'     => [
+			'save_as' => 'id',
+		],
     ]
 );

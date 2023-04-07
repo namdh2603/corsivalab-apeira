@@ -31,8 +31,13 @@ if (!is_front_page()) {
 	<div class="product-inner">
 
 		<div class="product-image">
-
-			<?php woocommerce_template_loop_product_link_open(); ?>
+			<?php
+			/**
+			 * Hook: woocommerce_before_shop_loop_item.
+			 *
+			 * @hooked woocommerce_template_loop_product_link_open - 10
+			 */
+			do_action('woocommerce_before_shop_loop_item'); ?>
 
 			<?php
 			/**
@@ -47,7 +52,6 @@ if (!is_front_page()) {
 		</div>
 		<div class="product-info">
 			<div class="product-top-info">
-					<?php do_action('woocommerce_shop_loop_swatches'); ?>
 			<?php
 			/**
 			 * Hook: woocommerce_before_shop_loop_item.

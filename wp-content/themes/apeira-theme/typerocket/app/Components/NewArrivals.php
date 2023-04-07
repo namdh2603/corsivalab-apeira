@@ -27,7 +27,7 @@ class NewArrivals extends Component
 	{
 		$choose_product_cat = $data['choose_product_cat'];
 ?>
-		<section class="section-<?php echo $info['component_id']; ?> section-padding bg-white" data-id="<?php echo $info['component_id']; ?>">
+		<section class="section-<?php echo $info['component_id']; ?> section-padding pt-0" data-id="<?php echo $info['component_id']; ?>">
 			<div class="container">
 				<div class="head-section">
 					<div class="row justify-content-center">
@@ -63,7 +63,7 @@ class NewArrivals extends Component
 									'post_type'             => 'product',
 									'post_status'           => 'publish',
 									'ignore_sticky_posts'   => 1,
-									'posts_per_page'        => -1,
+									'posts_per_page'        => '4',
 									'tax_query'             => array(
 										array(
 											'taxonomy'      => 'product_cat',
@@ -73,11 +73,9 @@ class NewArrivals extends Component
 									),
 								);
 								$products = new \WP_Query($args);
-								$num = $products->found_posts;
 							?>
 								<div class="tab-pane fade <?php echo ($ic == 1) ? 'show active' : ''; ?>" id="pills-<?php echo $ic; ?>" role="tabpanel" aria-labelledby="pills-<?php echo $ic; ?>-tab" tabindex="0">
 									<?php
-								if($num <= 4){
 									woocommerce_product_loop_start();
 									if ($products->have_posts()) {
 										while ($products->have_posts()) {
@@ -87,27 +85,6 @@ class NewArrivals extends Component
 										}
 									}
 									woocommerce_product_loop_end();
-								} else { ?>
-									
-				<div class="products-carousel">
-					<div class="swiper">
-						<div class="swiper-wrapper">
-									<?php if ($products->have_posts()) {
-										while ($products->have_posts()) {
-											$products->the_post();
-											// global $product;
-											echo '<div class="swiper-slide">';
-											wc_get_template_part('content', 'product-slide');
-											echo '</div>';
-										}
-									} ?>
-						</div>
-									</div>
-							
-					<div class="swiper-button-next-unique"><i class="fal fa-long-arrow-right"></i></div>
-					<div class="swiper-button-prev-unique"><i class="fal fa-long-arrow-left"></i></div>
-					</div>
-								<?php }
 									?>
 								</div>
 							<?php } ?>

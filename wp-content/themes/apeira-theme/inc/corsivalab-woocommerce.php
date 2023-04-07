@@ -17,8 +17,6 @@ remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add
 //remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 5);
 //remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50);
 // remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
-remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
-
 //add_action('sortby_checkbox', 'woocommerce_catalog_ordering', 20);
 add_action('corsivalab_all_notices', 'woocommerce_output_all_notices', 10);
 //add_action( 'corsivalab_woocommerce_catalog_ordering', 'woocommerce_catalog_ordering', 30 );
@@ -29,12 +27,8 @@ add_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_produc
 //add_action('corsivalab_shortcontent_product', 'woocommerce_template_single_excerpt', 5);
 //add_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 11);
 //add_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 25);
-//add_filter( 'woocommerce_catalog_orderby', 'custom_woocommerce_catalog_orderby' );
-
 add_action('woocommerce_shop_loop_addtocart', 'woocommerce_template_loop_add_to_cart', 15);
-add_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_add_to_cart', 99);
-
-
+//add_filter( 'woocommerce_catalog_orderby', 'custom_woocommerce_catalog_orderby' );
 function custom_woocommerce_catalog_orderby($sortby)
 {
   $sortby['sale'] = 'Discount';
@@ -48,20 +42,15 @@ function custom_woocommerce_get_catalog_ordering_args($args)
     $args['orderby'] = 'date';
     $args['order'] = 'ASC';
   }
-	if ('bestseller' == $orderby_value) {
-    $args['meta_key'] = 'total_sales';
-    $args['orderby'] = 'meta_value_num';
-    $args['order'] = 'ASC';
-  }
   return $args;
 }
 add_filter('woocommerce_catalog_orderby', 'corsivalab_change_sorting_options_order', 5);
 function corsivalab_change_sorting_options_order($options)
 {
   $options = array(
-    'bestseller' => 'Best Sellers',
-    'title' => 'A-Z',
-    'title-desc' => 'Z-A',
+    //'title' => 'A-Z',
+    //'title-desc' => 'Z-A',
+    //'date' => 'Newest',
     //'popularity' => 'Popularity',
     //'sale' => 'Discount',
     'price' => 'Price: low to high',
@@ -182,8 +171,8 @@ function corsivalab_form_when_stock_available()
   <?php
   }
 }
-//add_filter('woocommerce_product_add_to_cart_text', 'corsivalab_change_text_addtocart');
-//add_filter('woocommerce_product_single_add_to_cart_text', 'corsivalab_change_text_addtocart', 20, 2);
+add_filter('woocommerce_product_add_to_cart_text', 'corsivalab_change_text_addtocart');
+add_filter('woocommerce_product_single_add_to_cart_text', 'corsivalab_change_text_addtocart', 20, 2);
 function corsivalab_change_text_addtocart()
 {
   return esc_html__('ADD TO BAG');
@@ -710,18 +699,18 @@ function woocommerce_single_product_sizeguide()
             <div class="tab-content" id="pills-tabContent">
               <div class="tab-pane fade active show" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab" tabindex="0">
                 <div class="desc">
-                  <p><img decoding="async" loading="lazy" class="alignnone size-full wp-image-162" src="https://pm11.corsivalab.xyz/apeirawear/wp-content/uploads/2023/03/size-table.png" alt="" width="1383" height="545"></p>
+                  <p><img decoding="async" loading="lazy" class="alignnone size-full wp-image-162" src="http://localhost/website/apeira/wp-content/uploads/2023/03/size-table.png" alt="" width="1383" height="545"></p>
                 </div>
               </div>
               <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab" tabindex="0">
                 <div class="desc">
-                  <p><img decoding="async" loading="lazy" class="alignnone size-full wp-image-162" src="https://pm11.corsivalab.xyz/apeirawear/wp-content/uploads/2023/03/size-table.png" alt="" width="1383" height="545"></p>
+                  <p><img decoding="async" loading="lazy" class="alignnone size-full wp-image-162" src="http://localhost/website/apeira/wp-content/uploads/2023/03/size-table.png" alt="" width="1383" height="545"></p>
                   <p>SLIDES size table</p>
                 </div>
               </div>
               <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab" tabindex="0">
                 <div class="desc">
-                  <p><img decoding="async" loading="lazy" class="alignnone size-full wp-image-162" src="https://pm11.corsivalab.xyz/apeirawear/wp-content/uploads/2023/03/size-table.png" alt="" width="1383" height="545"></p>
+                  <p><img decoding="async" loading="lazy" class="alignnone size-full wp-image-162" src="http://localhost/website/apeira/wp-content/uploads/2023/03/size-table.png" alt="" width="1383" height="545"></p>
                   <p>KIDS size table</p>
                 </div>
               </div>

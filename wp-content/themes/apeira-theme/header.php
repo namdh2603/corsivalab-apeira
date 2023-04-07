@@ -40,31 +40,22 @@
     <header class="header">
         <div class="site-header">
             <div class="top-header">
-                <!-- Slider main container -->
-                <!--                 <div class="swiper"> -->
-                <!-- Additional required wrapper -->
-                <?php if (!empty($topbar_list)) : ?>
-                    <div class="mq-Marquee" style="--Marquee_Gap:80px;--Marquee_Speed:35s;">
-                        <div class="hd-AnnouncementBar_Items mq-Marquee_Items">
+
+            <marquee  direction="left" behavior="alternate">
+
+
+                    <?php if (!empty($topbar_list)) : ?>
+                        <div class="text-center">
                             <?php foreach ($topbar_list as $item) {
-                                echo '<div class="hd-AnnouncementBar_Item mq-Marquee_Item"><a href="' . $item['link'] . '">' . $item['text'] . '</a></div>';
+                                echo $item['text'];
                             } ?>
                         </div>
-                        <div class="hd-AnnouncementBar_Items mq-Marquee_Items">
-                            <?php foreach ($topbar_list as $item) {
-                                echo '<div class="hd-AnnouncementBar_Item mq-Marquee_Item"><a href="' . $item['link'] . '">' . $item['text'] . '</a></div>';
-                            } ?>
-                        </div>
-						<div class="hd-AnnouncementBar_Items mq-Marquee_Items">
-                            <?php foreach ($topbar_list as $item) {
-                                echo '<div class="hd-AnnouncementBar_Item mq-Marquee_Item"><a href="' . $item['link'] . '">' . $item['text'] . '</a></div>';
-                            } ?>
-                        </div>
-                    </div>
-                <?php endif; ?>
+                    <?php endif; ?>
+
+                </marquee>
             </div>
             <div class="middle-header woocommerce">
-                <div class="container-custom">
+                <div class="container">
                     <div class="row row-sm justify-content-center align-items-center">
                         <div class="col-4 col-lg-2 text-left">
                             <?php
@@ -86,12 +77,7 @@
                         <div class="col-8 col-lg-2">
                             <div class="header-icon-inner">
                                 <div class="header-icon search-icon">
-                                    <div class="dropdown">
-                                        <div class="dropdown-toggle" data-bs-toggle="dropdown"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icon-search.png" /></div>
-                                        <div class="dropdown-menu dropdown-menu-end  corsivalab-dropdown">
-                                            <?php echo get_search_form(); ?>
-                                        </div>
-                                    </div>
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icon-search.png" />
                                 </div>
                                 <div class="header-icon account-icon">
                                     <a href="<?php echo $account_link; ?>">
@@ -104,12 +90,7 @@
                                     </a>
                                 </div>
                                 <div class="header-icon currency-icon">
-                                    <div class="dropdown">
-                                        <div class="dropdown-toggle" data-bs-toggle="dropdown"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icon-currency.png" /></div>
-                                        <div class="dropdown-menu dropdown-menu-end  corsivalab-dropdown">
-                                            <?php echo do_shortcode('[woo_multi_currency_layout3]'); ?>
-                                        </div>
-                                    </div>
+                                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/icon-currency.png" />
                                 </div>
                                 <div class="header-icon cart-icon">
                                     <!-- <a href="<?php echo $cart_link; ?>"> -->
@@ -119,10 +100,16 @@
                                         <?php echo $cart_count; ?>
                                     </div>
                                 </div>
+
+
                                 <div class="header-icon navbar-toggle">
                                     <i class="fa-solid fa-bars"></i>
                                 </div>
+
+
                             </div>
+
+
                         </div>
                     </div>
                 </div>

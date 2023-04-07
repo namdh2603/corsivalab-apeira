@@ -36,6 +36,11 @@ if (!defined('ABSPATH')) {
 		<?php endforeach; ?>
 
 
+			<?php
+			// foreach ($page_arr as $page_item) {
+			// 	echo '<li><a href="' . esc_url(get_page_link($page_item)) . '" class="dropdown-item text-white">' . the_title_trim(get_the_title($page_item)) . '</a></li>';
+			// }
+			?>
 		</ul>
 	</div>
 

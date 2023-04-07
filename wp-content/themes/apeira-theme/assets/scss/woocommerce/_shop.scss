@@ -167,7 +167,7 @@
     overflow: hidden;
     transform: translate3d(110%, 0, 0);
     -webkit-transform: translate3d(110%, 0, 0);
-    @include responsive(tablet){
+    @include responsive(tablet) {
       width: 100vw;
     }
     .minicart-inner {
@@ -531,7 +531,7 @@
     text-decoration: none;
   }
   .product-top-info {
-    @include padding(16, 0, 0, 0);
+    @include padding(30, 0, 0, 0);
     overflow: hidden;
     @include responsive(mobi) {
       max-height: unset;
@@ -620,9 +620,27 @@
 
 .woocommerce {
   .wvs-archive-variations-wrapper {
-    margin-top: toRem(20);
+    margin-top: 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: toRem(10);
+    padding-bottom: toRem(10);
+
   }
   ul.variable-items-wrapper {
     margin-bottom: 0;
+  }
+  
+}
+.woo-variation-swatches {
+  .woo-variation-items-wrapper {
+    margin: 0!important;
+    ul {
+      &:not([data-attribute_name="attribute_pa_color"]) {
+        display: none;
+      }
+      li{
+        --wvs-item-background-color: transparent;
+      }
+    }
   }
 }

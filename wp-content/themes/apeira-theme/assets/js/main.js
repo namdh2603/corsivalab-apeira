@@ -48,37 +48,12 @@ jQuery(document).ready(function ($) {
   // });
   function topbar_swiper() {
     var topbar_swiper = new Swiper(".top-header .swiper", {
-//       slidesPerView: 4,
-//       roundLengths: true,
-//       loop: true,
-//       slidesPerView: "auto",
-//       centeredSlides: true,
-//       spaceBetween: 30,
-		
-	loop: true,
-      slidesPerView: 1,
-      spaceBetween: 30,
-      freeMode: true,
+      // slidesPerView: 3,
+      roundLengths: true,
+      loop: true,
+      slidesPerView: "auto",
       centeredSlides: true,
-		speed: 6000,
-  allowTouchMove: false,
-	autoplay: {
-        delay: 0,
-				disableOnInteraction: false,
-// 		reverseDirection: true,
-      },
-		
-		      breakpoints: {
-        768: {
-          slidesPerView: 2,
-          spaceBetween: 40,
-        },
-        1024: {
-          slidesPerView: 3,
-      spaceBetween: 50,
-        },
-      },
-		
+      spaceBetween: 30,
       // loopAdditionalSlides: 30,
       // navigation: {
       //   nextEl: ".swiper-button-next",
@@ -86,12 +61,6 @@ jQuery(document).ready(function ($) {
       // },
     });
   }
-	function topbar_ticker() {
-
-	}
-
-
-
   function home_slide_swiper() {
     var home_slide_swiper = new Swiper(".banner-slide-container .swiper", {
       slidesPerView: 1,
@@ -110,20 +79,6 @@ jQuery(document).ready(function ($) {
       // },
     });
   }
-	
-	  function home_products_swiper() {
-    var home_products_swiper = new Swiper(".products-carousel .swiper", {
-      loop: true,
-      spaceBetween: 20,
-      slidesPerView: 4,
-      navigation: {
-        nextEl: ".swiper-button-next-unique",
-        prevEl: ".swiper-button-prev-unique",
-      },
-    });
-  }
-	
-	
   function home_posts_swiper() {
     var home_posts_swiper = new Swiper(".posts-carousel .swiper", {
       loop: true,
@@ -155,18 +110,18 @@ jQuery(document).ready(function ($) {
       loop: true,
 
       slidesPerView: 3,
-      spaceBetween: 23,
+      spaceBetween: 30,
       freeMode: true,
       centeredSlides: true,
 
       breakpoints: {
         768: {
           slidesPerView: 4,
-          spaceBetween: 23,
+          spaceBetween: 30,
         },
         1024: {
           slidesPerView: 6,
-          spaceBetween: 23,
+          spaceBetween: 30,
         },
       },
     });
@@ -252,10 +207,9 @@ jQuery(document).ready(function ($) {
     });
   }
 
-//   topbar_swiper();
-  home_products_swiper();
   home_posts_swiper();
   home_slide_swiper();
+  topbar_swiper();
   our_team_swiper();
   categories_shop_swiper();
   fancybox_init();

@@ -34,10 +34,7 @@ if (is_shop()) {
 		</div>
 	</div>
 </section>
-
-<section id="layout-product" class="container-product">
-	
-	<div class="breadcrumb-section">
+<section class="breadcrumb-section">
 	<div class="container">
 		<?php /**
 		 * Hook: woocommerce_before_main_content.
@@ -48,12 +45,12 @@ if (is_shop()) {
 		 */
 		do_action('woocommerce_before_main_content');  ?>
 	</div>
-</div>
+</section>
 <?php if (is_shop()) {
 	$taxonomy = 'product_cat';
 	$taxonomy_list = get_terms($taxonomy, array('hide_empty' => false, 'parent' => 0, 'exclude' => 15));
 ?>
-	<div class="categories-slide-shop">
+	<section class="categories-slide-shop">
 		<div class="container">
 			<div class="categories-slide-inner">
 				<div class="swiper">
@@ -66,9 +63,7 @@ if (is_shop()) {
 						?>
 								<div class="swiper-slide">
 									<?php if ($thumbnail_id) { ?>
-										<div class="category-img-inner ratio ratio-1x1">
 										<img class="category-img" src="<?php echo $term_image; ?>" alt="img" />
-										</div>
 									<?php } ?>
 									<div class="category-title"><a href="<?php echo esc_url(get_term_link($term)); ?>"><?php echo $term->name; ?></a></div>
 								</div>
@@ -81,7 +76,7 @@ if (is_shop()) {
 				<div class="swiper-button-prev-unique"><i class="fal fa-long-arrow-left"></i></div>
 			</div>
 		</div>
-	</div>
+	</section>
 <?php } ?>
 <?php
 /**
@@ -92,8 +87,7 @@ if (is_shop()) {
  */
 do_action('woocommerce_archive_description');
 ?>
-	
-	
+<section id="layout-product" class="container-product mt-5 mb-5">
 	<div class="container">
 		<?php do_action('corsivalab_all_notices'); ?>
 		<div class="top-header-woo">

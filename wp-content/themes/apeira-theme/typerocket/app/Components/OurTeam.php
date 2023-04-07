@@ -46,7 +46,7 @@ class OurTeam extends Component
 							<?php if (!empty($data['desc'])) : ?><div class="desc"><?php echo apply_filters('the_content', $data['desc']); ?></div><?php endif; ?>
 							<?php if (!empty($data['btn_txt'])) : ?>
 								<div class="btn-wrap btn-center">
-									<a class="btn-main btn-main-v2" href="<?php echo $data['btn_link']; ?>"><?php echo $data['btn_txt']; ?></a>
+									<a class="btn-main" href="<?php echo $data['btn_link']; ?>"><?php echo $data['btn_txt']; ?></a>
 								</div>
 							<?php endif; ?>
 						</div>
