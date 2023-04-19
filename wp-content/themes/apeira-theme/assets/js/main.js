@@ -6,7 +6,6 @@ jQuery(document).ready(function ($) {
     overlay = $(".corsivalab-overlay"),
     navToggle = $(".header .navbar-toggle"),
     menuSidebar = $(".menu-mobile-sidebar");
-
   // Mobile menu
   navToggle.on("click", function (e) {
     //$(this).toggleClass('open');
@@ -23,7 +22,6 @@ jQuery(document).ready(function ($) {
     e.preventDefault();
     $(".search-icon").toggleClass("active");
   });
-
   $(".count").each(function () {
     $(this)
       .prop("Counter", 0)
@@ -48,12 +46,34 @@ jQuery(document).ready(function ($) {
   // });
   function topbar_swiper() {
     var topbar_swiper = new Swiper(".top-header .swiper", {
-      // slidesPerView: 3,
-      roundLengths: true,
+      //       slidesPerView: 4,
+      //       roundLengths: true,
+      //       loop: true,
+      //       slidesPerView: "auto",
+      //       centeredSlides: true,
+      //       spaceBetween: 30,
       loop: true,
-      slidesPerView: "auto",
-      centeredSlides: true,
+      slidesPerView: 1,
       spaceBetween: 30,
+      freeMode: true,
+      centeredSlides: true,
+      speed: 6000,
+      allowTouchMove: false,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+        // 		reverseDirection: true,
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 50,
+        },
+      },
       // loopAdditionalSlides: 30,
       // navigation: {
       //   nextEl: ".swiper-button-next",
@@ -61,6 +81,7 @@ jQuery(document).ready(function ($) {
       // },
     });
   }
+  function topbar_ticker() {}
   function home_slide_swiper() {
     var home_slide_swiper = new Swiper(".banner-slide-container .swiper", {
       slidesPerView: 1,
@@ -73,10 +94,34 @@ jQuery(document).ready(function ($) {
       pagination: {
         el: ".swiper-pagination",
       },
+		 autoplay: {
+   delay: 4000,
+ },
       // navigation: {
       //   nextEl: ".swiper-button-next",
       //   prevEl: ".swiper-button-prev",
       // },
+    });
+  }
+  function home_products_swiper() {
+    var home_products_swiper = new Swiper(".products-carousel .swiper", {
+      loop: true,
+      slidesPerView: 2,
+      spaceBetween: 20,
+      navigation: {
+        nextEl: ".swiper-button-next-unique",
+        prevEl: ".swiper-button-prev-unique",
+      },
+      breakpoints: {
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 20,
+        },
+      },
     });
   }
   function home_posts_swiper() {
@@ -90,38 +135,39 @@ jQuery(document).ready(function ($) {
       },
     });
   }
-
   function similar_posts_swiper() {
     var similar_posts_swiper = new Swiper("#relatedpost-cat .swiper", {
       loop: true,
+      slidesPerView: 2,
       spaceBetween: 30,
-      slidesPerView: 3,
       navigation: {
         nextEl: ".swiper-button-next-unique",
         prevEl: ".swiper-button-prev-unique",
       },
+		
+		      breakpoints: {
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 30,
+        },
+      },
     });
   }
-
-
-
   function our_team_swiper() {
     var our_team_swiper = new Swiper(".ourteam-carousel .swiper", {
       loop: true,
-
       slidesPerView: 3,
-      spaceBetween: 30,
+      spaceBetween: 23,
       freeMode: true,
       centeredSlides: true,
-
       breakpoints: {
         768: {
           slidesPerView: 4,
-          spaceBetween: 30,
+          spaceBetween: 23,
         },
         1024: {
           slidesPerView: 6,
-          spaceBetween: 30,
+          spaceBetween: 23,
         },
       },
     });
@@ -137,17 +183,28 @@ jQuery(document).ready(function ($) {
         ".categories-slide-inner .swiper",
         {
           loop: true,
-          slidesPerView: 7,
+          slidesPerView: 3,
           spaceBetween: 30,
+          observer: true,
+          observeParents: true,
           navigation: {
             nextEl: ".swiper-button-next-unique",
             prevEl: ".swiper-button-prev-unique",
+          },
+          breakpoints: {
+            768: {
+              slidesPerView: 4,
+              spaceBetween: 30,
+            },
+            1024: {
+              slidesPerView: 7,
+              spaceBetween: 30,
+            },
           },
         }
       );
     }
   }
-
   function overlay_active() {
     overlay.addClass("active");
     body.addClass("overflow-hidden");
@@ -156,47 +213,46 @@ jQuery(document).ready(function ($) {
     overlay.removeClass("active");
     body.removeClass("overflow-hidden");
   }
-
   function overlay_trigger() {
     body.on("click", ".corsivalab-overlay.active", function () {
       $(".filter-container").removeClass("active");
       minicart.removeClass("active");
-
       body.removeClass("navbarmobile-is-active");
       overlay_deactivate();
     });
   }
-
   function filter_init() {
     product.on("click", ".filter-btn", function () {
       var $this = $(this);
       $this.next().addClass("active");
       overlay_active();
     });
-
     product.on("click", ".close-filter", function () {
       var $this = $(this);
       $(".filter-container").removeClass("active");
       overlay_deactivate();
     });
   }
-
   function minicart_init() {
     head.on("click", ".cart-icon", function () {
       minicart.addClass("active");
       overlay_active();
     });
-
     head.on("click", ".close-minicart", function () {
       minicart.removeClass("active");
       overlay_deactivate();
     });
   }
-
+  function timeline() {
+    body.on("click", ".timeline li", function () {
+      $(".timeline li").removeClass("active");
+      $(this).addClass("active");
+      $(".comment-form-field").find("#fit").val($(this).data("fit"));
+    });
+  }
   function size_calculator() {
     $(".size-calculator input").change(function () {
       // $(this).data("formValues", $(this).val());
-
       // console.log('changed!');
       var inputWeight = $("#inputWeight").val();
       var inputHeight = $("#inputHeight").val();
@@ -206,10 +262,23 @@ jQuery(document).ready(function ($) {
         .html("Result: " + inputWeight * inputHeight);
     });
   }
-
+	  function applyModalAutoFill() {
+		  if ($(".careers-list").length) {
+  body.on("click", ".career-btn", function (e) {
+    e.preventDefault();
+	 var $this = $(this);
+    var title = $this.data('title');
+// 	  console.log(title);
+	  $('#sizeApplyModal').find('input[name="your-subject"]').val(title);
+  });
+		  }
+  }
+	
+	
+  //   topbar_swiper();
+  home_products_swiper();
   home_posts_swiper();
   home_slide_swiper();
-  topbar_swiper();
   our_team_swiper();
   categories_shop_swiper();
   fancybox_init();
@@ -218,4 +287,6 @@ jQuery(document).ready(function ($) {
   overlay_trigger();
   size_calculator();
   similar_posts_swiper();
+  timeline();
+	applyModalAutoFill();
 });

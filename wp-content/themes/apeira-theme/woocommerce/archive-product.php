@@ -34,7 +34,10 @@ if (is_shop()) {
 		</div>
 	</div>
 </section>
-<section class="breadcrumb-section">
+
+<section id="layout-product" class="container-product">
+	
+	<div class="breadcrumb-section">
 	<div class="container">
 		<?php /**
 		 * Hook: woocommerce_before_main_content.
@@ -45,39 +48,68 @@ if (is_shop()) {
 		 */
 		do_action('woocommerce_before_main_content');  ?>
 	</div>
-</section>
-<?php if (is_shop()) {
-	$taxonomy = 'product_cat';
-	$taxonomy_list = get_terms($taxonomy, array('hide_empty' => false, 'parent' => 0, 'exclude' => 15));
+</div>
+<?php 
+// 	if (is_shop()) {
+    $cat_filter_list =  get_theme_mod(sanitize_underscores('Shop Categories Filter'));
+	$cat_filter_count = count($cat_filter_list);
 ?>
-	<section class="categories-slide-shop">
+	
+						<?php if ($cat_filter_list) : ?>
+	<div class="categories-slide-shop">
 		<div class="container">
 			<div class="categories-slide-inner">
+				<?php if($cat_filter_count <= 7){ ?>
+	<div class="row">
+		<?php foreach ($cat_filter_list as $termid) {
+								$thumbnail_id = get_term_meta($termid, 'thumbnail_id', true);
+								$term_image = wp_get_attachment_image($thumbnail_id, 'medium', false, array( "class" => "category-img" ) );
+	$data_term = get_term_by('ID', $termid, 'product_cat');
+						?>
+								<div class="col-3 col-lg-1dot7">
+									<?php if ($thumbnail_id) { ?>
+										<div class="category-img-inner ratio ratio-1x1">
+										<?php echo $term_image; ?>
+										</div>
+									<?php } ?>
+									<div class="category-title"><a href="<?php echo esc_url(get_term_link($data_term->slug, 'product_cat')); ?>"><?php echo $data_term->name; ?></a></div>
+								</div>
+						<?php } ?>
+				</div>
+<?php } else { ?>
+				
 				<div class="swiper">
 					<div class="swiper-wrapper">
-						<?php
-						if ($taxonomy_list) :
-							foreach ($taxonomy_list as $term) {
-								$thumbnail_id = get_term_meta($term->term_id, 'thumbnail_id', true);
-								$term_image = wp_get_attachment_url($thumbnail_id);
+						<?php foreach ($cat_filter_list as $termid) {
+								$thumbnail_id = get_term_meta($termid, 'thumbnail_id', true);
+								$term_image = wp_get_attachment_image($thumbnail_id, 'medium', false, array( "class" => "category-img" ) );
 						?>
 								<div class="swiper-slide">
 									<?php if ($thumbnail_id) { ?>
-										<img class="category-img" src="<?php echo $term_image; ?>" alt="img" />
+										<div class="category-img-inner ratio ratio-1x1">
+										<?php echo $term_image; ?>
+										</div>
 									<?php } ?>
-									<div class="category-title"><a href="<?php echo esc_url(get_term_link($term)); ?>"><?php echo $term->name; ?></a></div>
+									<div class="category-title"><a href="<?php echo esc_url(get_term_link($termid, 'product_cat')); ?>"><?php echo get_term_by('ID', $termid, 'product_cat')->name; ?></a></div>
 								</div>
-						<?php }
-						endif; ?>
+						<?php } ?>
+						
 					</div>
 					<div class="swiper-pagination"></div>
 				</div>
 				<div class="swiper-button-next-unique"><i class="fal fa-long-arrow-right"></i></div>
 				<div class="swiper-button-prev-unique"><i class="fal fa-long-arrow-left"></i></div>
+				
+				
+				<?php } ?>
+	
+
+				
 			</div>
 		</div>
-	</section>
-<?php } ?>
+	</div>
+	<?php endif; ?>
+<?php //} ?>
 <?php
 /**
  * Hook: woocommerce_archive_description.
@@ -87,7 +119,8 @@ if (is_shop()) {
  */
 do_action('woocommerce_archive_description');
 ?>
-<section id="layout-product" class="container-product mt-5 mb-5">
+	
+	
 	<div class="container">
 		<?php do_action('corsivalab_all_notices'); ?>
 		<div class="top-header-woo">
@@ -116,8 +149,10 @@ do_action('woocommerce_archive_description');
 				do_action('woocommerce_before_shop_loop'); ?>
 			</div>
 		</div>
+		</div>
+	
+	<div class="container-fluid">
 		<?php
-		do_action('corsivalab_all_notices');
 		if (woocommerce_product_loop()) { ?>
 		<?php
 			woocommerce_product_loop_start();

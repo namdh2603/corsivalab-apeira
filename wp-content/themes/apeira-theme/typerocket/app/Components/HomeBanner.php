@@ -36,7 +36,7 @@ class HomeBanner extends Component
 ?>
 		<section class="section-<?php echo $info['component_id']; ?>" data-id="<?php echo $info['component_id']; ?>">
 			<div class="container-fluid">
-				<div class="banner-inner">
+				<div class="banner-inner" style="background-image: url('<?php echo get_attachment($data['img'])['src']; ?>'); background-position: center center; background-repeat: no-repeat;">
 					<img src="<?php echo get_attachment($data['img'])['src']; ?>" class="w-100" alt="img" />
 					<div class="caption">
 						<div class="row">

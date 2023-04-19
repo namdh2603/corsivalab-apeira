@@ -36,7 +36,7 @@ class RewardForm extends Component
 	public function render(array $data, array $info)
 	{
 ?>
-		<section class="section-<?php echo $info['component_id']; ?> bg-white section-padding" data-id="<?php echo $info['component_id']; ?>">
+		<section class="section-<?php echo $info['component_id']; ?> bg-white section-padding" id="corsivalab-shortcode-form" data-id="<?php echo $info['component_id']; ?>">
 			<div class="container">
 				<div class="row">
 					<div class="col-12 col-sm-5 col-md-5 col-lg-5">

@@ -43,7 +43,7 @@ $count = count(WC()->cart->get_cart());
                     </div> -->
                 </div>
                 <div class="col-12 col-sm-5 col-md-5 col-lg-5 col-xl-5 offset-lg-1">
-                    <div class="checkout-summary">
+                    <div class="checkout-summary-inner">
                         <?php do_action('woocommerce_checkout_before_order_review'); ?>
                         <div class="d-flex justify-content-between checkout-summary-top">
                             <div class="">Order summary</div>

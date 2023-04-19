@@ -12,11 +12,18 @@ remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 //remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
 //remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
-remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
 //remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
 //remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 5);
 //remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50);
 // remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
+
+remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+remove_action( 'woocommerce_cart_collaterals', 'woocommerce_cross_sell_display' );
+
+
+
+remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
+
 //add_action('sortby_checkbox', 'woocommerce_catalog_ordering', 20);
 add_action('corsivalab_all_notices', 'woocommerce_output_all_notices', 10);
 //add_action( 'corsivalab_woocommerce_catalog_ordering', 'woocommerce_catalog_ordering', 30 );
@@ -27,8 +34,22 @@ add_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_produc
 //add_action('corsivalab_shortcontent_product', 'woocommerce_template_single_excerpt', 5);
 //add_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 11);
 //add_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 25);
-add_action('woocommerce_shop_loop_addtocart', 'woocommerce_template_loop_add_to_cart', 15);
+add_action('woocommerce_single_product_summary', 'woocommerce_upsell_display', 80);
 //add_filter( 'woocommerce_catalog_orderby', 'custom_woocommerce_catalog_orderby' );
+
+add_action('woocommerce_shop_loop_addtocart', 'woocommerce_template_loop_add_to_cart', 15);
+
+remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10);
+add_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_add_to_cart', 99);
+
+
+
+remove_action( 'woocommerce_register_form', 'wc_registration_privacy_policy_text', 20 );
+remove_action( 'woocommerce_checkout_terms_and_conditions', 'wc_checkout_privacy_policy_text', 20 );
+
+
+
+
 function custom_woocommerce_catalog_orderby($sortby)
 {
   $sortby['sale'] = 'Discount';
@@ -42,15 +63,20 @@ function custom_woocommerce_get_catalog_ordering_args($args)
     $args['orderby'] = 'date';
     $args['order'] = 'ASC';
   }
+	if ('bestseller' == $orderby_value) {
+    $args['meta_key'] = 'total_sales';
+    $args['orderby'] = 'meta_value_num';
+    $args['order'] = 'ASC';
+  }
   return $args;
 }
 add_filter('woocommerce_catalog_orderby', 'corsivalab_change_sorting_options_order', 5);
 function corsivalab_change_sorting_options_order($options)
 {
   $options = array(
-    //'title' => 'A-Z',
-    //'title-desc' => 'Z-A',
-    //'date' => 'Newest',
+    'bestseller' => 'Best Sellers',
+    'title' => 'A-Z',
+    'title-desc' => 'Z-A',
     //'popularity' => 'Popularity',
     //'sale' => 'Discount',
     'price' => 'Price: low to high',
@@ -171,8 +197,8 @@ function corsivalab_form_when_stock_available()
   <?php
   }
 }
-add_filter('woocommerce_product_add_to_cart_text', 'corsivalab_change_text_addtocart');
-add_filter('woocommerce_product_single_add_to_cart_text', 'corsivalab_change_text_addtocart', 20, 2);
+//add_filter('woocommerce_product_add_to_cart_text', 'corsivalab_change_text_addtocart');
+//add_filter('woocommerce_product_single_add_to_cart_text', 'corsivalab_change_text_addtocart', 20, 2);
 function corsivalab_change_text_addtocart()
 {
   return esc_html__('ADD TO BAG');
@@ -319,16 +345,8 @@ function corsivalab_checkout_fields($fields)
 {
   unset($fields['billing']['billing_state']);
   unset($fields['billing']['billing_company']);
-  // unset($fields['billing']['billing_city']);
-  // unset($fields['billing']['billing_address_2']);
-  //unset($fields['billing']['billing_last_name']);
-  // $fields['billing']['billing_first_name']['label'] = false;
-  // $fields['billing']['billing_last_name']['label'] = false;
-  // $fields['billing']['billing_company']['label'] = false;
-  // $fields['billing']['billing_email']['label'] = false;
-  // $fields['billing']['billing_country']['label'] = false;
-  // $fields['billing']['billing_phone']['label'] = false;
-  // $fields['billing']['billing_postcode']['label'] = false;
+	
+	
   $fields['billing']['billing_first_name']['placeholder'] = 'First Name*';
   $fields['billing']['billing_last_name']['placeholder'] = 'Last Name*';
   $fields['billing']['billing_email']['placeholder'] = 'Email*';
@@ -336,40 +354,27 @@ function corsivalab_checkout_fields($fields)
   $fields['billing']['billing_first_name']['priority'] = 1;
   $fields['billing']['billing_last_name']['priority'] = 2;
   $fields['billing']['billing_phone']['priority'] = 3;
-  //$fields['billing']['billing_company']['priority'] = 4;
   $fields['billing']['billing_email']['priority'] = 5;
   $fields['billing']['billing_email']['class'][0] = 'form-row-last';
-  // $fields['billing']['billing_country']['class'][0] = 'form-row-first';
   $fields['billing']['billing_phone']['class'][0] = 'form-row-first';
+	
+	
   unset($fields['shipping']['shipping_state']);
   unset($fields['shipping']['shipping_company']);
-  //unset($fields['shipping']['shipping_last_name']);
-  // $fields['shipping']['shipping_first_name']['label'] = false;
-  // $fields['shipping']['shipping_last_name']['label'] = false;
-  // $fields['shipping']['shipping_email']['label'] = false;
-  // $fields['shipping']['shipping_country']['label'] = false;
-  // $fields['shipping']['shipping_phone']['label'] = false;
-  // $fields['shipping']['shipping_postcode']['label'] = false;
-  $fields['shipping']['shipping_first_name']['placeholder'] = 'First Name*';
+	
+$fields['shipping']['shipping_first_name']['placeholder'] = 'First Name*';
   $fields['shipping']['shipping_last_name']['placeholder'] = 'Last Name*';
   $fields['shipping']['shipping_email']['placeholder'] = 'Email*';
   $fields['shipping']['shipping_phone']['placeholder'] = 'Phone*';
-  // $fields['shipping']['shipping_first_name']['placeholder'] = 'First Name*';
-  // $fields['shipping']['shipping_last_name']['placeholder'] = 'Last Name*';
-  // $fields['shipping']['shipping_email']['placeholder'] = 'Email Address*';
-  // $fields['shipping']['shipping_company']['placeholder'] = 'Company Name*';
-  // $fields['shipping']['shipping_phone']['placeholder'] = 'Contact Number*';
   $fields['shipping']['shipping_first_name']['priority'] = 1;
   $fields['shipping']['shipping_last_name']['priority'] = 2;
-  $fields['shipping']['shipping_phone']['priority'] = 89;
-  // $fields['shipping']['shipping_email']['priority'] = 5;
-  //$fields['shipping']['shipping_company']['priority'] = 4;
-  // $fields['shippin']['shippin_email']['class'][0] = 'form-row-wide';
-  //$fields['shipping']['shipping_first_name']['class'][0] = 'form-row-first';
-  // $fields['shipping']['shipping_country']['class'][0] = 'form-row-first';
-  // $fields['shipping']['shipping_country']['class'][0] = 'form-row-first';
-  // $fields['shipping']['shipping_phone']['class'][0] = 'form-row-first';
-  // $fields['order']['order_comments']['label'] = false;
+  $fields['shipping']['shipping_phone']['priority'] = 3;
+  $fields['shipping']['shipping_email']['priority'] = 5;
+  $fields['shipping']['shipping_email']['class'][0] = 'form-row-last';
+  $fields['shipping']['shipping_phone']['class'][0] = 'form-row-first';
+	
+	
+	
   return $fields;
 }
 add_filter('woocommerce_default_address_fields', 'corsivalab_edit_default_address_fields', 100, 1);
@@ -397,7 +402,7 @@ function corsivalab_rename_and_remove_tabs($tabs)
 {
   //$tabs['description']['title'] = 'What\'s Included?';    // Rename the description tab
   //$tabs['reviews']['title'] = 'Product Reviews';        // Rename the reviews tab
-  //$tabs['description']['priority'] = 1;
+//   $tabs['description']['priority'] = 99;
   unset($tabs['additional_information']);
   //unset($tabs['reviews']);
   //unset($tabs['description']);
@@ -424,12 +429,12 @@ function corsivalab_validate_extra_register_fields($username, $email, $validatio
 {
 
 
-  if (isset($_POST['reg_firstname']) && empty($_POST['reg_firstname'])) {
+  if (isset($_POST['firstname']) && empty($_POST['firstname'])) {
     $validation_errors->add('reg_firstname_error', 'First Name is required.');
   }
 
 
-  if (isset($_POST['reg_lastname']) && empty($_POST['reg_lastname'])) {
+  if (isset($_POST['lastname']) && empty($_POST['lastname'])) {
     $validation_errors->add('reg_lastname_error', 'Last Name is required.');
   }
 	
@@ -438,6 +443,15 @@ function corsivalab_validate_extra_register_fields($username, $email, $validatio
     $validation_errors->add('reg_pass_error', 'Passwords do not match.');
   }
 	}
+	
+	
+	if ( ! is_checkout() ) {
+    if ( ! (int) isset( $_POST['privacy_policy_reg'] ) ) {
+        $validation_errors->add( 'privacy_policy_reg_error', __( 'Privacy Policy consent is required!', 'woocommerce' ) );
+    }
+}
+	
+	
 	
 	
 
@@ -468,6 +482,48 @@ function corsivalab_save_extra_register_fields($customer_id)
   }
 }
 add_action('woocommerce_created_customer', 'corsivalab_save_extra_register_fields');
+
+
+add_action( 'woocommerce_checkout_process', 'bbloomer_not_approved_privacy' );
+function bbloomer_not_approved_privacy() {
+    if ( ! (int) isset( $_POST['privacy_policy'] ) ) {
+        wc_add_notice( __( 'Please acknowledge the Privacy Policy' ), 'error' );
+    }
+}
+add_action( 'woocommerce_checkout_terms_and_conditions', 'corsivalab_wc_checkout_privacy_policy_text', 20 );
+function corsivalab_wc_checkout_privacy_policy_text() {
+	$txt = '<span>'.wc_replace_policy_page_link_placeholders( wc_get_privacy_policy_text( 'checkout' ) ).'</span>';
+woocommerce_form_field( 'privacy_policy', array(
+   'type'          => 'checkbox',
+   'class'         => array('form-row privacy woocommerce-privacy-policy-text'),
+   'label_class'   => array('woocommerce-form__label woocommerce-form__label-for-checkbox checkbox'),
+   'input_class'   => array('woocommerce-form__input woocommerce-form__input-checkbox input-checkbox'),
+   'required'      => true,
+   'label'         => $txt,
+));
+}
+
+
+add_action( 'woocommerce_register_form', 'bbloomer_add_registration_privacy_policy', 1 );  
+function bbloomer_add_registration_privacy_policy() {
+// 		$privacy_page_id = wc_privacy_policy_page_id();
+// 	$terms_page_id   = wc_terms_and_conditions_page_id();
+// 	$privacy_link    = $privacy_page_id ? '<a href="' . esc_url( get_permalink( $privacy_page_id ) ) . '" class="woocommerce-privacy-policy-link" target="_blank">' . __( 'privacy policy', 'woocommerce' ) . '</a>' : __( 'privacy policy', 'woocommerce' );
+// 	$terms_link      = $terms_page_id ? '<a href="' . esc_url( get_permalink( $terms_page_id ) ) . '" class="woocommerce-terms-and-conditions-link" target="_blank">' . __( 'terms and conditions', 'woocommerce' ) . '</a>' : __( 'terms and conditions', 'woocommerce' );
+//$txt = wc_registration_privacy_policy_text();
+$txt = '<span>'.wc_replace_policy_page_link_placeholders( wc_get_privacy_policy_text( 'registration' ) ).'</span>';
+woocommerce_form_field( 'privacy_policy_reg', array(
+   'type'          => 'checkbox',
+   'class'         => array('form-row privacy woocommerce-privacy-policy-text'),
+   'label_class'   => array('woocommerce-form__label woocommerce-form__label-for-checkbox checkbox'),
+   'input_class'   => array('woocommerce-form__input woocommerce-form__input-checkbox input-checkbox'),
+   'required'      => true,
+   'label'         => $txt,
+));
+  
+}
+
+
 //add_filter ( 'woocommerce_account_menu_items', 'corsivalab_remove_my_account_nav' );
 function corsivalab_remove_my_account_nav($menu_links)
 {
@@ -612,12 +668,13 @@ function custom_address_formats($formats)
   $formats['default']  = "<div>{name}</div><div>{company}</div><div>{address_1}</div><div>{address_2}</div><div>{city}</div><div>{state}</div><div>{postcode}</div><div>{country}</div>";
   return $formats;
 }
-add_filter('woocommerce_localisation_address_formats', 'custom_address_formats');
+//add_filter('woocommerce_localisation_address_formats', 'custom_address_formats');
 add_action('woocommerce_after_shop_loop_item_title', 'woo_show_excerpt_shop_page', 5);
 function woo_show_excerpt_shop_page()
 {
   global $product;
-  echo '<div class="excerpt-product">' . apply_filters('the_excerpt', get_the_excerpt($product->get_id())) . '</div>';
+//   echo '<div class="excerpt-product">' . apply_filters('the_excerpt', get_the_excerpt($product->get_id())) . '</div>';
+  echo '<div class="excerpt-product">' . $product->get_short_description() . '</div>';
 }
 // function woo_related_products_limit()
 // {
@@ -657,8 +714,12 @@ function trigger_for_ajax_add_to_cart()
 }
 add_filter('woocommerce_before_add_to_cart_button', 'woocommerce_single_product_sizeguide', 98);
 function woocommerce_single_product_sizeguide()
-{ ?>
+{ $desc = tr_field('desc');
+			  if (!empty($desc)) { ?>
+			  
   <div class="sizeguide-btn" data-bs-toggle="modal" data-bs-target="#sizeGuideModal">Size Guide</div>
+			  
+			  <?php } ?>
   <!-- Modal -->
   <div class="modal fade modal-element" id="sizeGuideModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -667,9 +728,12 @@ function woocommerce_single_product_sizeguide()
           <div class="close" data-bs-dismiss="modal"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/close-icon.png" /></div>
           <div class="head-section">
             <div class="title">SIZE GUIDE</div>
-            <div class="desc">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean scelerisque congue dolor, non porta neque feugiat at. In hac habitasse platea dictumst</p>
-            </div>
+			<?php $desc = tr_field('desc');
+			  if (!empty($desc)) { ?>
+			  
+            <div class="desc"><?php echo apply_filters('the_content', $desc); ?></div>
+			  
+			  <?php } ?>
           </div>
 
           <div class="size-calculator">
@@ -679,43 +743,33 @@ function woocommerce_single_product_sizeguide()
             <input type="number" class="form-control" id="inputHeight" />
             <div class="result"></div>
           </div>
+			
+			<div class="tabs-section">
+			<ul class="nav nav-pills" id="pills-tab" role="tabsize">
+								<?php if (!empty($data['list'])) {
+									$i = 0; ?>
+									<?php foreach ($data['list'] as $item) {
+										$i++; ?>
+										<li class="nav-item" role="presentation">
+											<div class="nav-link <?php echo ($i == 1) ? 'active' : ''; ?>" id="pills-<?php echo $i; ?>-tab" data-bs-toggle="pill" data-bs-target="#pills-<?php echo $i; ?>" type="button" role="tab" aria-controls="pills-<?php echo $i; ?>" aria-selected="true"><?php echo $item['title']; ?></button>
+										</li>
+									<?php } ?>
+								<?php } ?>
+							</ul>
+							<div class="tab-content" id="pills-tabContent">
+								<?php if (!empty($data['list'])) {
+									$ic = 0; ?>
+									<?php foreach ($data['list'] as $item) {
+										$ic++; ?>
+										<div class="tab-pane fade <?php echo ($ic == 1) ? 'show active' : ''; ?>" id="pills-<?php echo $ic; ?>" role="tabpanel" aria-labelledby="pills-<?php echo $ic; ?>-tab" tabindex="0">
+											<?php if (!empty($item['desc'])) : ?><div class="desc"><?php echo apply_filters('the_content', $item['desc']); ?></div><?php endif; ?>
+										</div>
+									<?php } ?>
+								<?php } ?>
+							</div>
+</div>
 
-
-          <div class="tabs-section">
-            <ul class="nav nav-pills" id="pills-tab" role="tabsize">
-              <li class="nav-item" role="presentation">
-                <div class="nav-link active" id="pills-1-tab" data-bs-toggle="pill" data-bs-target="#pills-1" type="button" role="tab" aria-controls="pills-1" aria-selected="true">XXS TO 4X
-                </div>
-              </li>
-              <li class="nav-item" role="presentation">
-                <div class="nav-link" id="pills-2-tab" data-bs-toggle="pill" data-bs-target="#pills-2" type="button" role="tab" aria-controls="pills-2" aria-selected="false" tabindex="-1">SLIDES
-                </div>
-              </li>
-              <li class="nav-item" role="presentation">
-                <div class="nav-link" id="pills-3-tab" data-bs-toggle="pill" data-bs-target="#pills-3" type="button" role="tab" aria-controls="pills-3" aria-selected="false" tabindex="-1">KIDS
-                </div>
-              </li>
-            </ul>
-            <div class="tab-content" id="pills-tabContent">
-              <div class="tab-pane fade active show" id="pills-1" role="tabpanel" aria-labelledby="pills-1-tab" tabindex="0">
-                <div class="desc">
-                  <p><img decoding="async" loading="lazy" class="alignnone size-full wp-image-162" src="http://localhost/website/apeira/wp-content/uploads/2023/03/size-table.png" alt="" width="1383" height="545"></p>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab" tabindex="0">
-                <div class="desc">
-                  <p><img decoding="async" loading="lazy" class="alignnone size-full wp-image-162" src="http://localhost/website/apeira/wp-content/uploads/2023/03/size-table.png" alt="" width="1383" height="545"></p>
-                  <p>SLIDES size table</p>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="pills-3" role="tabpanel" aria-labelledby="pills-3-tab" tabindex="0">
-                <div class="desc">
-                  <p><img decoding="async" loading="lazy" class="alignnone size-full wp-image-162" src="http://localhost/website/apeira/wp-content/uploads/2023/03/size-table.png" alt="" width="1383" height="545"></p>
-                  <p>KIDS size table</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
@@ -774,4 +828,78 @@ function woocommerce_cart_login_popup()
       </div>
     </div>
 <?php }
+}
+
+
+
+
+add_filter( 'comment_text', 'add_pros_and_cons_to_review_text', 10, 1 );
+function add_pros_and_cons_to_review_text( $text ) {
+	// We don't want to modify a comment's text in the admin, and we don't need to modify the text of blog post commets
+	if ( is_admin() || ! is_product() ) {
+		return $text;
+	}
+	
+	$fits = array(
+1 => 'Too Small',
+2 => 'Small',
+	3 => 'True To Size',
+	4 => 'Large',
+	5 => 'Too Large',
+);
+	
+	$addon_html = '';
+	$fit = get_comment_meta( get_comment_ID(), 'fit', true );
+	if(!empty($fit)){
+	$addon_html = '<div class="addon-row"><b>Size: </b>' . $fits[$fit] . '</div>';
+	}
+	return $addon_html . $text;
+}
+
+add_action( 'comment_post', 'save_review_pros_and_cons', 10, 3 );
+function save_review_pros_and_cons( $comment_id, $approved, $commentdata ) {
+	// The pros and cons fields are not required, so we have to check if they're not empty
+	$fit = isset( $_POST['fit'] ) ? $_POST['fit'] : '';
+	
+	// Spammers and hackers love to use comments to do XSS attacks.
+	// Don't forget to escape the variables
+	update_comment_meta( $comment_id, 'fit', $fit );
+}
+
+add_action( 'add_meta_boxes_comment', 'extend_comment_add_meta_box', 10, 1 );
+function extend_comment_add_meta_box( $comment ) {
+	// We don't need to show this metabox if a comment doesn't belong to a product
+	$post_id = $comment->comment_post_ID;
+	$product = wc_get_product( $post_id );
+	
+	if ( $product === null || $product === false ) {
+		return;
+	}
+	
+    add_meta_box( 'pcf_fields', 'Additional', 'render_pcf_fields_metabox', 'comment', 'normal', 'high' );
+}
+
+function render_pcf_fields_metabox ( $comment ) {
+    $fit = get_comment_meta( $comment->comment_ID, 'fit', true );
+    wp_nonce_field( 'pcf_metabox_update', 'pcf_metabox_nonce', false );
+    ?>
+    <p>
+        <label for="phone">Size Fit:</label>
+        <input type="text" name="fit" id="fit" value="<?php echo esc_attr( $fit ); ?>" class="widefat" />
+    </p>
+    <?php
+}
+
+add_action( 'edit_comment', 'save_pcf_changes', 10, 1 );
+function save_pcf_changes( $comment_id ) {
+	// First of all, let's validate the nonce
+	if ( ! isset( $_POST['pcf_metabox_nonce'] ) || ! wp_verify_nonce( $_POST['pcf_metabox_nonce'], 'pcf_metabox_update') ) {
+		wp_die( 'You can not do this action' );
+	}
+	
+	if ( isset( $_POST['fit'] ) ) {
+		$fit = $_POST['fit'];
+		update_comment_meta( $comment_id, 'fit', $fit );
+	}
+	
 }

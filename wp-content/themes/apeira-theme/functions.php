@@ -6,11 +6,13 @@ add_filter('wpcf7_autop_or_not', '__return_false');
 add_filter('use_widgets_block_editor', '__return_false');
 require('typerocket/init.php');
 require('inc/corsivalab-shortcode.php');
+require('inc/corsivalab-rewards.php');
+
 // require('inc/corsivalab-addon.php');
 require('inc/corsivalab-pagenavi.php');
 require('inc/menu-navwalker.php');
 if (class_exists('woocommerce')) {
-    // require('inc/corsivalab-field-product.php');
+    require('inc/corsivalab-field-product.php');
     require('inc/corsivalab-field-product-cat.php');
     require('inc/corsivalab-woocommerce.php');
 }
@@ -108,20 +110,26 @@ function corsivalab_scripts()
     //$ver = '1.0';
     // <!-- Enqueue CSS -->
     // wp_enqueue_style('corsivalab-bootstrap', get_stylesheet_directory_uri() . '/assets/bootstrap-530/dist/css/bootstrap.min.css', $ver);
-    wp_enqueue_style('corsivalab-fontawesome', get_stylesheet_directory_uri() . '/assets/fontawesome-pro-611/css/all.min.css', '', $ver);
     wp_enqueue_style('corsivalab-swiper', get_stylesheet_directory_uri() . '/assets/swiper-845/swiper-bundle.min.css', '', $ver);
-    wp_enqueue_style('corsivalab-fancybox', get_stylesheet_directory_uri() . '/assets/fancybox/fancybox.css', '', $ver);
+    wp_enqueue_style('corsivalab-fontawesome', get_stylesheet_directory_uri() . '/assets/fontawesome-pro-611/css/all.min.css', '', $ver);
     wp_enqueue_style('corsivalab-core', get_stylesheet_directory_uri() . '/assets/css/main.css', '', $ver);
     wp_enqueue_style('corsivalab-theme', get_stylesheet_uri(), '', $ver);
+    wp_enqueue_style('corsivalab-fancybox', get_stylesheet_directory_uri() . '/assets/fancybox/fancybox.css', '', $ver);
 
     // <!-- End Enqueue CSS -->
 
     // <!-- Enqueue JS -->
     wp_enqueue_script('corsivalab-bootstrap', get_stylesheet_directory_uri() . '/assets/bootstrap-530/dist/js/bootstrap.bundle.min.js', array('jquery'), $ver, false);
-    wp_enqueue_script('corsivalab-main', get_stylesheet_directory_uri() . '/assets/js/main.js', array('jquery'), $ver, false);
     wp_enqueue_script('corsivalab-swiper', get_stylesheet_directory_uri() . '/assets/swiper-845/swiper-bundle.min.js', array('jquery'), $ver, false);
+    wp_enqueue_script('corsivalab-main', get_stylesheet_directory_uri() . '/assets/js/main.js', array('jquery'), $ver, false);
     wp_enqueue_script('corsivalab-fancybox', get_stylesheet_directory_uri() . '/assets/fancybox/fancybox.umd.js', array('jquery'), $ver, false);
     wp_enqueue_script('corsivalab-pushToUrl-js', get_stylesheet_directory_uri() . '/assets/js/pushToUrl.jQuery.js', array('jquery'), $ver, false);
+	
+    wp_enqueue_script('corsivalab-reward', get_stylesheet_directory_uri() . '/assets/js/reward-ajax.js', array('jquery'), $ver, false);
+	wp_localize_script( 'corsivalab-reward', 'corsivalab_vars',
+					   array(
+						   'ajax_url' => admin_url('admin-ajax.php'),
+					   ) );
     // <!-- End Enqueue JS -->
 }
 add_action('wp_enqueue_scripts', 'corsivalab_scripts');
@@ -332,5 +340,3 @@ function shortcode_search_form()
 }
 
 add_shortcode('search_form', 'shortcode_search_form');
-
-

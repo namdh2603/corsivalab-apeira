@@ -38,10 +38,18 @@ class ContactUs extends Component
 	{
 		$bg_color = $data['bg_color'];
 ?>
-		<section class="section-<?php echo $info['component_id']; ?>" data-id="<?php echo $info['component_id']; ?>" style="<?php echo (!empty($bg_color) ? 'background-color:' . $bg_color . ';' : ''); ?>">
+		<section class="section-<?php echo $info['component_id']; ?>" data-id="<?php echo $info['component_id']; ?>" style="<?php echo (!empty($bg_color) ? 'background-color:' . $bg_color . ';' : ''); ?>;background-image: url('<?php echo get_attachment($data['img'])['src']; ?>');">
 			<div class="container">
 				<div class="row align-items-center">
-					<div class="col-12 col-sm-6 col-md-6 col-lg-5">
+					<div class="col-12 col-sm-6 col-md-6 col-lg-6">
+						<?php if (!empty($data['img'])) : ?>
+							<div class="img-full">
+								<img src="<?php echo get_attachment($data['img'])['src']; ?>" class="w-100" alt="img" />
+							</div>
+							
+						<?php endif; ?>
+					</div>
+					<div class="col-12 col-sm-6 col-md-6 col-lg-5 offset-lg-1">
 						<div class="head-section text-start">
 							<?php if (!empty($data['sub_title'])) : ?><div class="sub-title"><?php echo $data['sub_title']; ?></div><?php endif; ?>
 							<?php if (!empty($data['title'])) : ?><div class="title"><?php echo $data['title']; ?></div><?php endif; ?>
@@ -57,11 +65,7 @@ class ContactUs extends Component
 							<?php echo do_shortcode($data['shortcode']); ?>
 						</div>
 					</div>
-					<div class="col-12 col-sm-6 col-md-6 col-lg-6 offset-lg-1">
-						<?php if (!empty($data['img'])) : ?>
-							<img src="<?php echo get_attachment($data['img'])['src']; ?>" class="w-100" alt="img" />
-						<?php endif; ?>
-					</div>
+					
 				</div>
 			</div>
 		</section>

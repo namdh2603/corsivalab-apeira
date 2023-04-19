@@ -34,9 +34,10 @@ header {
         max-width: toRem(50);
       }
     }
-    &.cart-icon {
-      margin-right: toRem(20);
-    }
+&.cart-icon{
+  margin-right: toRem(20);
+
+}
     &.navbar-toggle {
       display: none;
       margin-right: 0;
@@ -48,12 +49,6 @@ header {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-      }
-    }
-    .dropdown-toggle {
-      cursor: pointer;
-      &::after {
-        display: none;
       }
     }
   }
@@ -75,35 +70,6 @@ header {
       @include font(15, 0, 700);
     }
   }
-
-  .corsivalab-dropdown {
-    border: 0;
-    background: var(--bg-second-color);
-
-    // color: var(--main-color);
-
-    #searchform {
-      width: toRem(500);
-      @include padding(5, 10, 5, 10);
-      .search-inner {
-        border: 1px solid var(--border-color);
-        border-radius: toRem(10);
-
-        @include padding(0, 15, 0, 15);
-        input{
-          @include font(18, 0);
-
-        }
-      }
-    }
-  }
-  .woocommerce-multi-currency.wmc-shortcode {
-    text-align: center;
-    .wmc-currency {
-      background-color: transparent;
-    }
-  }
-
   .logo {
     max-width: toRem(130);
     height: auto;

@@ -37,4 +37,8 @@
   .control-section-kirki-outer {
     display: list-item !important;
   }
+
+  #customize-sidebar-outer-content{
+    width: 150%;
+  }
   

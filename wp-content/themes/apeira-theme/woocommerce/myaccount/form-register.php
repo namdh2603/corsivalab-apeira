@@ -24,19 +24,17 @@ do_action('woocommerce_before_customer_login_form');
                     <?php do_action('woocommerce_register_form_start'); ?>
                     <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-first">
                         <label for="reg_firstname">FIRST NAME&nbsp;<span class="required">*</span></label>
-                        <input type="email" placeholder="Your First Name" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_firstname" value="" /><?php // @codingStandardsIgnoreLine 																																																																				
-                                                                                                                                                                                    ?>
-                    </p>
+                        <input type="text" placeholder="Your First Name" class="woocommerce-Input woocommerce-Input--text input-text" name="firstname" id="reg_firstname" value="<?php echo (!empty($_POST['firstname'])) ? esc_attr($_POST['firstname']) : ''; ?>" /><?php // @codingStandardsIgnoreLine ?>
+					</p>
                     <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-last">
                         <label for="reg_lastname">LAST NAME&nbsp;<span class="required">*</span></label>
-                        <input type="text" placeholder="Your Last Name" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="reg_lastname" value="" /><?php // @codingStandardsIgnoreLine 																																																																				
-                                                                                                                                                                                    ?>
-                    </p>
+                        <input type="text" placeholder="Your Last Name" class="woocommerce-Input woocommerce-Input--text input-text" name="lastname" id="reg_lastname" value="<?php echo (!empty($_POST['lastname'])) ? esc_attr($_POST['lastname']) : ''; ?>" /><?php // @codingStandardsIgnoreLine ?>
+					</p>
+					
                     <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-first">
                         <label for="reg_email">Email Address&nbsp;<span class="required">*</span></label>
-                        <input type="email" placeholder="email@address.com" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email" autocomplete="email" value="<?php echo (!empty($_POST['email'])) ? esc_attr(wp_unslash($_POST['email'])) : ''; ?>" /><?php // @codingStandardsIgnoreLine 																																																																				
-                                                                                                                                                                                                                                                                                            ?>
-                    </p>
+                        <input type="email" placeholder="email@address.com" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email" autocomplete="email" value="<?php echo (!empty($_POST['email'])) ? esc_attr(wp_unslash($_POST['email'])) : ''; ?>" /><?php // @codingStandardsIgnoreLine ?>
+					</p>
                     <?php if ('no' === get_option('woocommerce_registration_generate_username')) : ?>
                         <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-last">
                             <label for="reg_username">User Name&nbsp;<span class="required">*</span></label>
@@ -45,8 +43,9 @@ do_action('woocommerce_before_customer_login_form');
                         </p>
                     <?php endif; ?>
                     <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                        <label for="reg_dob">DATE OF BIRTH&nbsp;<span class="required">*</span></label>
-                        <input type="date" placeholder="" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="reg_dob" value="" />
+                        <label for="reg_dob">DATE OF BIRTH</label>
+                        <input type="date" placeholder="" class="woocommerce-Input woocommerce-Input--text input-text" name="dob" id="reg_dob" value="" />
+					</p>
                         <?php if ('no' === get_option('woocommerce_registration_generate_password')) : ?>
                     <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                         <label for="reg_password">Password&nbsp;<span class="required">*</span></label>

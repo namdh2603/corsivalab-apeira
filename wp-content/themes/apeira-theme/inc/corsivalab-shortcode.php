@@ -34,7 +34,7 @@ add_shortcode('contact-info', 'shortcode_info_company');
 function shortcode_menu_content()
 {
     ob_start();
-    $shop_page = wc_get_page_permalink('shop');
+    //$shop_page = wc_get_page_permalink('shop');
     $sub_menu_1 =  get_theme_mod(sanitize_underscores('Sub Menu Column 1'));
     $sub_menu_2 =  get_theme_mod(sanitize_underscores('Sub Menu Column 2'));
     $sub_menu_3 =  get_theme_mod(sanitize_underscores('Sub Menu Column 3'));

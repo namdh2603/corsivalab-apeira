@@ -95,13 +95,39 @@ class WeAreHiring extends Component
 							</div>
 							<div class="career-link">
 								<div class="btn-wrap">
-									<a class="btn-main btn-outline-v2 career-btn" href="<?php echo tr_post_field('career_link'); ?>">APPLY</a>
+									<a class="btn-main btn-outline-v2 career-btn" data-bs-toggle="modal" data-bs-target="#sizeApplyModal" data-title="<?php the_title(); ?>">APPLY</a>
+									
 								</div>
 							</div>
 						</div>
+					
+					
+					
+					
 					<?php endwhile;
 					wp_reset_postdata(); ?>
+					
+					
 				</div>
+				
+				<div class="modal fade modal-element" id="sizeApplyModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-sm1 modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-body p-0">
+          <div class="close" data-bs-dismiss="modal"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/close-icon.png" /></div>
+                <div class="info-modal d-flex justify-content-center align-items-center flex-column text-center">
+
+                    <div class="title-modal">Apply Information</div>
+					
+					<?php echo do_shortcode('[contact-form-7 id="443" title="Careers Form"]'); ?>
+					
+					
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+				
 			</div>
 			<script>
 				jQuery(document).ready(function($) {
@@ -126,21 +152,8 @@ class WeAreHiring extends Component
 					var getValue = function(index, element) {
 						var type = $(this).getType();
 						var key_filter = $(this).attr('data');
-						if (type == 'select') {
-							var value_filter = $(this).find(":selected").val();
-							body.pushToUrl('add', {
-								url: or_link,
-								key: key_filter,
-								value: value_filter
-							});
-						} else {
-							var value_filter = $(this).val();
+						
 							if ($(this).is(':checked')) { //checked
-								if ($.inArray(value_filter, arr) == -1) arr.push(value_filter);
-							} else { //not check
-							}
-							if (arr.length != 0) {
-								value_filter_str = arr.join(',');
 								body.pushToUrl('removeSelected', {
 									url: or_link,
 									key: key_filter
@@ -148,15 +161,48 @@ class WeAreHiring extends Component
 								body.pushToUrl('add', {
 									url: or_link,
 									key: key_filter,
-									value: value_filter_str
+									value: $(this).val()
 								});
-							} else {
-								body.pushToUrl('removeSelected', {
-									url: or_link,
-									key: key_filter
-								});
+								
 							}
-						}
+						
+						
+// 						if (type == 'select') {
+// 							var value_filter = $(this).find(":selected").val();
+// 							body.pushToUrl('add', {
+// 								url: or_link,
+// 								key: key_filter,
+// 								value: value_filter
+// 							});
+// 						} else {
+// 							var value_filter = $(this).val();
+// 							if ($(this).is(':checked')) { //checked
+
+// 								if ($.inArray(value_filter, arr) == -1) arr.push(value_filter);
+								
+								
+								
+// 							} else { //not check
+// 							}
+// 							if (arr.length != 0) {
+// 								value_filter_str = arr.join(',');
+// 								body.pushToUrl('removeSelected', {
+// 									url: or_link,
+// 									key: key_filter
+// 								});
+// 								body.pushToUrl('add', {
+// 									url: or_link,
+// 									key: key_filter,
+// 									value: value_filter_str
+// 								});
+// 							} else {
+// 								body.pushToUrl('removeSelected', {
+// 									url: or_link,
+// 									key: key_filter
+// 								});
+// 							}
+// 							console.log('check');
+// 						}
 					};
 					var setValue = function() {
 						var type = $(this).getType();

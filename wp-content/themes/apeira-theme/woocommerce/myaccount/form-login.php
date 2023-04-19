@@ -20,7 +20,19 @@ if (!defined('ABSPATH')) {
 }
 do_action('woocommerce_before_customer_login_form'); ?>
 <div class="row justify-content-center">
-    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 align-self-center">
+	    <?php $image_login =  get_theme_mod('image_login');
+    if ($image_login) : ?>
+        <div class="col-12 col-sm-5 col-md-5 col-lg-5 col-xl-5">
+            <div class="box-img-login">
+                <div class="image">
+                    <img src="<?php echo get_attachment($image_login)['src']; ?>" class="w-100" alt="img" />
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+	
+	
+    <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 offset-lg-1 align-self-center">
         <?php
         if (isset($_GET['register']) && $_GET['register'] == 'true') {
             if ('yes' === get_option('woocommerce_enable_myaccount_registration')) { ?>
@@ -29,17 +41,15 @@ do_action('woocommerce_before_customer_login_form'); ?>
                 </div>
                 <form method="post" class="woocommerce-form woocommerce-form-register corsivalab-form" <?php do_action('woocommerce_register_form_tag'); ?>>
                     <?php do_action('woocommerce_register_form_start'); ?>
-                    <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-first">
+                   <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-first">
                         <label for="reg_firstname">FIRST NAME&nbsp;<span class="required">*</span></label>
-                        <input type="email" placeholder="Your First Name" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_firstname" value="" /><?php // @codingStandardsIgnoreLine 																																																																				
-                                                                                                                                                                                    ?>
-                    </p>
+                        <input type="text" placeholder="Your First Name" class="woocommerce-Input woocommerce-Input--text input-text" name="firstname" id="reg_firstname" value="<?php echo (!empty($_POST['firstname'])) ? esc_attr($_POST['firstname']) : ''; ?>" /><?php // @codingStandardsIgnoreLine ?>
+					</p>
                     <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-last">
                         <label for="reg_lastname">LAST NAME&nbsp;<span class="required">*</span></label>
-                        <input type="text" placeholder="Your Last Name" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="reg_lastname" value="" /><?php // @codingStandardsIgnoreLine 																																																																				
-                                                                                                                                                                                    ?>
-                    </p>
-                    <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-first">
+                        <input type="text" placeholder="Your Last Name" class="woocommerce-Input woocommerce-Input--text input-text" name="lastname" id="reg_lastname" value="<?php echo (!empty($_POST['lastname'])) ? esc_attr($_POST['lastname']) : ''; ?>" /><?php // @codingStandardsIgnoreLine ?>
+					</p>
+                    <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                         <label for="reg_email">Email Address&nbsp;<span class="required">*</span></label>
                         <input type="email" placeholder="email@address.com" class="woocommerce-Input woocommerce-Input--text input-text" name="email" id="reg_email" autocomplete="email" value="<?php echo (!empty($_POST['email'])) ? esc_attr(wp_unslash($_POST['email'])) : ''; ?>" /><?php // @codingStandardsIgnoreLine 																																																																				
                                                                                                                                                                                                                                                                                             ?>
@@ -52,8 +62,12 @@ do_action('woocommerce_before_customer_login_form'); ?>
                         </p>
                     <?php endif; ?>
                     <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
-                        <label for="reg_dob">DATE OF BIRTH&nbsp;<span class="required">*</span></label>
-                        <input type="date" placeholder="" class="woocommerce-Input woocommerce-Input--text input-text" name="username" id="reg_dob" value="" />
+                        <label for="reg_dob">DATE OF BIRTH</label>
+                        <input type="date" placeholder="" class="woocommerce-Input woocommerce-Input--text input-text" name="dob" id="reg_dob" value="" />
+					</p>
+						
+						
+						
                         <?php if ('no' === get_option('woocommerce_registration_generate_password')) : ?>
                     <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
                         <label for="reg_password">Password&nbsp;<span class="required">*</span></label>
@@ -116,15 +130,6 @@ do_action('woocommerce_before_customer_login_form'); ?>
             </form>
         <?php } ?>
     </div>
-    <?php $image_login =  get_theme_mod('image_login');
-    if ($image_login) : ?>
-        <div class="col-12 col-sm-5 col-md-5 col-lg-5 col-xl-5 offset-lg-1">
-            <div class="box-img-login">
-                <div class="image">
-                    <img src="<?php echo get_attachment($image_login)['src']; ?>" class="w-100" alt="img" />
-                </div>
-            </div>
-        </div>
-    <?php endif; ?>
+
 </div>
 <?php do_action('woocommerce_after_customer_login_form'); ?>
