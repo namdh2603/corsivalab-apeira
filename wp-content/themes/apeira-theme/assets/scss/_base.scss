@@ -72,108 +72,8 @@ html {
   }
 }
 @include make-grid-columns();
-a,
-abbr,
-acronym,
-address,
-applet,
-article,
-aside,
-audio,
-b,
-big,
-blockquote,
-body,
-canvas,
-caption,
-center,
-cite,
-code,
-dd,
-del,
-details,
-dfn,
-div,
-dl,
-dt,
-em,
-embed,
-fieldset,
-figcaption,
-figure,
-footer,
-form,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-header,
-hgroup,
-i,
-iframe,
-img,
-ins,
-kbd,
-label,
-legend,
-li,
-main,
-mark,
-menu,
-nav,
-object,
-ol,
-output,
-p,
-pre,
-q,
-ruby,
-s,
-samp,
-section,
-small,
-span,
-strike,
-strong,
-sub,
-summary,
-sup,
-table,
-tbody,
-td,
-tfoot,
-th,
-thead,
-time,
-tr,
-tt,
-u,
-ul,
-var,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
-article,
-aside,
-details,
-figcaption,
-figure,
-footer,
-header,
-hgroup,
-main,
-menu,
-nav,
-section {
-  display: block;
-}
+
+
 body {
   color: var(--body-color);
   font-family: $primary-ff;
@@ -200,56 +100,8 @@ body {
     }
   }
 }
-menu,
-ol,
-ul {
-  list-style: none;
-}
-blockquote,
-q {
-  quotes: none;
-}
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-a {
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-p {
-  margin-bottom: toRem(10);
-}
-img {
-  max-width: 100%;
-  height: auto;
-  vertical-align: middle;
-}
-label {
-  display: block;
-  text-align: left;
-  margin-bottom: toRem(10);
-}
-input,
-textarea,
-select {
-  border: 1px solid $black;
-  @include padding_tb(10, 20);
-  margin-bottom: toRem(20);
-  background: transparent;
-}
-input[type="checkbox"] {
-  width: auto;
-}
+
+
 .col-2dot4,
 .col-sm-2dot4,
 .col-md-2dot4,
