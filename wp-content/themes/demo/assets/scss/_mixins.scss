@@ -1,0 +1,58 @@
+@mixin make-transform($property) {
+  -moz-transform: $property;
+  -webkit-transform: $property;
+  -o-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+$transition-base: all 0.3s ease-in-out;
+@mixin font($fs, $lh: null, $fw: null) {
+  font-size: toRem($fs);
+  @if $lh == null {
+  } @else if $lh == 0 {
+  } @else {
+    line-height: calc($lh/$fs);
+  }
+  font-weight: $fw;
+}
+@mixin margin($t, $r, $b, $l) {
+  margin: toRem($t) toRem($r) toRem($b) toRem($l);
+}
+
+@mixin padding_all($val) {
+  padding: toRem($val);
+}
+@mixin padding($t, $r, $b, $l) {
+  padding: toRem($t) toRem($r) toRem($b) toRem($l);
+}
+@mixin padding_tb($t: null, $b: null) {
+  padding-top: toRem($t);
+  padding-bottom: toRem($b);
+}
+@mixin padding_lr($l: null, $r: null) {
+  padding-left: toRem($l);
+  padding-right: toRem($r);
+}
+@mixin responsive($canvas) {
+  // X-Small devices (portrait phones, less than 576px)
+  @if $canvas == m-default {
+    //575.98
+    @include media-breakpoint-down(sm) {
+      @content;
+    }
+  }
+  // Small devices (landscape phones, less than 768px)
+  @if $canvas == m-landscape {
+    //767.98
+    @include media-breakpoint-down(md) {
+      @content;
+    }
+  }
+  // Medium devices (tablets, less than 992px)
+  @if $canvas == tablet {
+    //991.98
+    @include media-breakpoint-down(lg) {
+      @content;
+    }
+  }
+}
