@@ -2,9 +2,9 @@
 
 Contributors: yithemes
 Tags: points, rewards, Points and Rewards, point, woocommerce, yith, point collection, reward, awards, credits, multisite, advertising, affiliate, beans, coupon, credit, Customers, discount, e-commerce, ecommerce, engage, free, incentive, incentivize, loyalty, loyalty program, marketing, promoting, referring, retention, woocommerce, woocommerce extension, WooCommerce Plugin
-Requires at least: 5.8
-Tested up to: 6.0
-Stable tag: 3.12.0
+Requires at least: 5.9
+Tested up to: 6.2
+Stable tag: 3.20.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -25,6 +25,73 @@ Important: First of all, you have to download and activate WooCommerce plugin, w
 
 
 == Changelog ==
+= Version 3.20.0 - Released on 13 April 2023 =
+ * New: support for WooCommerce 7.6
+ * New: support for WooCommerce HPOS feature
+ * New: support for PHP 8.1
+ * New: shortcode 'ywpar_referral_link'
+ * New: support for Turkish language
+ * New: support for Romanian language
+ * Update: YITH plugin framework
+ * Fix: referral name
+ * Fix: avoid point miscalculation when a WC coupon is applied
+ * Fix: auto apply points session cleaning
+ * Dev: added filter 'ywpar_calculate_user_total_orders_amount_get_orders_query'
+
+= Version 3.19.0 - Released on 10 March 2023 =
+ * New: support for WordPress 6.2
+ * New: support for WooCommerce 7.5
+ * Update: YITH plugin framework
+ * Fix: date picker localization
+ * Fix: fixed issue with WooCommerce Multi Currency Switcher
+
+= Version 3.18.0 - Released on 9 February 2023 =
+* New: support for WooCommerce 7.4
+* Update: YITH plugin framework
+* Dev: added filter 'ywpar_default_container' for positioning the rewards message
+
+= Version 3.17.0 - Released on 9 January 2023 =
+* New: support for WooCommerce 7.3
+* Update: YITH plugin framework
+* Fix: hid messages from emails for users that are not enabled to earn points
+
+= Version 3.16.0 - Released on 9 December 2022 =
+* New: support for WooCommerce 7.2
+* Update: YITH plugin framework
+* Fix: fixed issue in earned points message displayed on email
+* Fix: fixed issue in js on "My Account" page
+* Dev: added filter 'ywpar_extra_points_on_checkout_threshold_total' to manage order total for extra points on checkout threshold
+
+= Version 3.15.1 - Released on 11 November 2022 =
+ * Fix: patched security vulnerability
+
+= Version 3.15.0 - Released on 7 November 2022 =
+* New: support for WordPress 6.1
+* New: support for WooCommerce 7.1
+* Update: YITH plugin framework
+* Fix: screen reader + accessibility
+* Fix: issue with refund of an order
+* Fix: fixed coupon type percent
+* Fix: adjusted next level points banner
+* Fix: refunded earned points
+* Dev: added filter 'ywpar_cart_discount_percentage' to fix an issue with the percentage reedem options and max discount restriction
+
+
+= Version 3.14.0 - Released on 5 October 2022 =
+* New: support for WooCommerce 7.0
+* Update: YITH plugin framework
+* Fix: fixed issue with earn point message
+* Fix: fixed for the points summary in the order email
+
+= Version 3.13.0 - Released on 6 September 2022 =
+* New: support for WooCommerce 6.9
+* Update: YITH plugin framework
+* Fix: fixed issue where on refund the redeemed points were also adding back to the total collected points
+* Fix: avoid to do price worth calculation in loop points shortcode if the placeholder is not present
+* Fix: fixed the collection of cached points
+* Fix: fixed customers list table filter for banned users
+* Fix: fixed redeeming discount calculation
+
 = Version 3.12.0 - Released on 4 August 2022 =
 * New: support for WooCommerce 6.8
 * Update: YITH plugin framework

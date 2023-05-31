@@ -3,7 +3,7 @@ get_header();
 corsivalab_maincontent_loop_start();
 $banner =  get_theme_mod(sanitize_underscores('Blog Page Banner'));
 if (!empty($banner)) : ?>
-    <section class="section-page-banner-title section-padding" style="background-image: url('<?php echo get_attachment($banner)['src']; ?>'); background-size:cover; background-position: center center;">
+    <section class="section-page-banner-title section-padding" style="background-image: url('<?php echo (!empty($banner))?wp_get_attachment_image_url($banner, 'full'):""; ?>'); background-size:cover; background-position: center center;">
         <div class="head-section">
             <div class="title"><?php single_post_title(); ?></div>
         </div>

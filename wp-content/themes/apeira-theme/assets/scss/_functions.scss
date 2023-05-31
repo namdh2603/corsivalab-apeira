@@ -1,4 +1,0 @@
-@function toRem($value) {
-  $remValue: (calc($value/$d-fs)) + rem;
-  @return $remValue;
-}

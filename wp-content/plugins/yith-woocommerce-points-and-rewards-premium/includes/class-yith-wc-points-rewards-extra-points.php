@@ -787,7 +787,16 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Extra_Points' ) ) {
 		 */
 		private function assign_extra_points_on_checkout_threshold( &$extra_points_earned, &$extrapoint_list, $order_id, &$rules = array() ) {
 			$order            = wc_get_order( $order_id );
-			$total            = $order->get_total();
+			/**
+			* APPLY_FILTERS: ywpar_extra_points_on_checkout_threshold_total
+			*
+			* Manage order total for extra points on checkout threshold.
+			* 
+			* @param float    $total order total.
+			* @param WC_Order $order the order.
+			* 
+			*/
+			$total            = apply_filters( 'ywpar_extra_points_on_checkout_threshold_total', $order->get_total(), $order );
 			$current_currency = $order->get_currency();
 			$thresholds       = array();
 

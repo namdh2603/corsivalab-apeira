@@ -36,8 +36,8 @@ class HomeBanner extends Component
 ?>
 		<section class="section-<?php echo $info['component_id']; ?>" data-id="<?php echo $info['component_id']; ?>">
 			<div class="container-fluid">
-				<div class="banner-inner" style="background-image: url('<?php echo get_attachment($data['img'])['src']; ?>'); background-position: center center; background-repeat: no-repeat;">
-					<img src="<?php echo get_attachment($data['img'])['src']; ?>" class="w-100" alt="img" />
+				<div class="banner-inner" style="background-image: url('<?php echo (!empty($data['img']))?wp_get_attachment_image_url($data['img'], 'full'):""; ?>'); background-position: center center; background-repeat: no-repeat;">
+					<?php if (!empty($data['img'])) : echo wp_get_attachment_image($data['img'], 'full', "", array( "class" => "w-100" )); endif; ?>
 					<div class="caption">
 						<div class="row">
 							<div class="mx-auto">

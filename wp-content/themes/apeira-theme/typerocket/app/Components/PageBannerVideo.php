@@ -57,7 +57,7 @@ class PageBannerVideo extends Component
 				} ?>
 
 				<div class="banner-video-inner">
-					<img src="<?php echo get_attachment($data['img'])['src']; ?>" class="w-100" alt="img" />
+					<?php if (!empty($data['img'])) : echo wp_get_attachment_image($data['img'], 'full', "", array( "class" => "w-100" )); endif; ?>
 					<div class="player-inner">
 						<div class="container">
 							<div class="row">

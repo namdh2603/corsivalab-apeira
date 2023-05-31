@@ -3,8 +3,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: YITH WooCommerce Points and Rewards\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/points\n"
-"POT-Creation-Date: 2022-08-04 08:48:16+00:00\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/yith-woocommerce-"
+"points-and-rewards.premium\n"
+"POT-Creation-Date: 2023-04-13 10:51:09+00:00\n"
 "PO-Revision-Date: 2020-10-20 15:41+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,8 +18,8 @@ msgstr ""
 
 #: includes/admin/class-yith-wc-points-rewards-customer-history-list-table.php:58
 #: templates/emails/latest-updates.php:51
-#: templates/myaccount/my-points-view.php:126
-#: templates/myaccount/my-points-view.php:135
+#: templates/myaccount/my-points-view.php:146
+#: templates/myaccount/my-points-view.php:155
 msgid "Date"
 msgstr "Fecha"
 
@@ -28,14 +29,14 @@ msgstr "Cantidad"
 
 #: includes/admin/class-yith-wc-points-rewards-customer-history-list-table.php:60
 #: templates/emails/latest-updates.php:53
-#: templates/myaccount/my-points-view.php:128
-#: templates/myaccount/my-points-view.php:141
+#: templates/myaccount/my-points-view.php:148
+#: templates/myaccount/my-points-view.php:161
 msgid "Order No."
 msgstr "Pedido nº"
 
 #: includes/admin/class-yith-wc-points-rewards-customer-history-list-table.php:61
-#: templates/myaccount/my-points-view.php:127
-#: templates/myaccount/my-points-view.php:138
+#: templates/myaccount/my-points-view.php:147
+#: templates/myaccount/my-points-view.php:158
 msgid "Reason"
 msgstr ""
 
@@ -68,53 +69,53 @@ msgstr "Canjeo de puntos"
 msgid "Rank"
 msgstr ""
 
-#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:173
+#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:169
 #, fuzzy
 msgid "Remove points"
 msgstr "Restablecer puntos"
 
-#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:174
+#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:170
 #, fuzzy
 msgid "Ban users"
 msgstr "Bloquear usuario"
 
-#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:175
+#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:171
 msgid "Unban users"
 msgstr "Desbloquear usuarios"
 
-#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:176
+#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:172
 #, fuzzy
 msgid "Apply extrapoint rules"
 msgstr "Aplicar puntos"
 
-#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:258
+#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:254
 #: views/tabs/customer-history.php:44
 #, fuzzy
 msgid "banned"
 msgstr "bloqueado"
 
 #. translators: 1: user display name 2: user ID 3: user email
-#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:379
+#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:375
 msgid "Show All Customers"
 msgstr "Mostrar todos los clientes"
 
-#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:390
-#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:410
+#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:386
+#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:406
 msgid "Filter"
 msgstr "Filtro"
 
-#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:395
+#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:391
 #: plugin-options/metaboxes/points-earning-rules-options.php:27
 #: plugin-options/metaboxes/points-redeeming-rules-options.php:38
 #: plugin-options/points/standard-options.php:53
 msgid "All Users"
 msgstr "Todos los usuarios"
 
-#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:396
+#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:392
 msgid "Only users with points"
 msgstr "Solo usuarios con puntos"
 
-#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:397
+#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:393
 #, fuzzy
 msgid "Only banned customers"
 msgstr "Solo usuarios específicados"
@@ -167,8 +168,8 @@ msgstr "bloqueado"
 
 #: includes/admin/cpt/class-yith-wc-points-rewards-editor-banners.php:135
 #: includes/admin/cpt/class-yith-wc-points-rewards-editor-levels-badges.php:118
-#: templates/myaccount/ywpar-share-points.php:83
-#: templates/myaccount/ywpar-share-points.php:101
+#: templates/myaccount/ywpar-share-points.php:87
+#: templates/myaccount/ywpar-share-points.php:105
 msgid "Status"
 msgstr ""
 
@@ -441,6 +442,11 @@ msgstr ""
 "¡Utiliza <strong>{points}</strong> {points_label} para "
 "un<strong>{max_discount}</strong> descuento en este pedido!"
 
+#: includes/class-yith-wc-points-rewards-frontend.php:640
+#, fuzzy
+msgid "Enter points to use"
+msgstr "Asignar puntos al usuario"
+
 #: includes/class-yith-wc-points-rewards-porting.php:73
 msgid "Apply Points from WooCommerce Points and Rewards"
 msgstr "Aplicar puntos de WooCommerce Points and Rewards"
@@ -571,17 +577,17 @@ msgstr ""
 msgid "Search rule"
 msgstr ""
 
-#: includes/class-yith-wc-points-rewards-redeeming.php:944
+#: includes/class-yith-wc-points-rewards-redeeming.php:946
 #: plugin-options/customization-options.php:560
 #, fuzzy
 msgid "Redeem points"
 msgstr "Puntos canjeados"
 
-#: includes/class-yith-wc-points-rewards-redeeming.php:1024
+#: includes/class-yith-wc-points-rewards-redeeming.php:1026
 msgid "Reward Discount Applied Successfully"
 msgstr "Descuento de recompensa aplicado satisfactoriamente"
 
-#: includes/class-yith-wc-points-rewards-redeeming.php:1029
+#: includes/class-yith-wc-points-rewards-redeeming.php:1031
 msgid ""
 "Reward Discount has been removed. You can't use this discount with other "
 "coupons."
@@ -589,41 +595,54 @@ msgstr ""
 "Se ha eliminado el descuento de recompensa. No puedes usar este descuento "
 "con otros cupones."
 
-#: includes/class-yith-wc-points-rewards-redeeming.php:1031
+#: includes/class-yith-wc-points-rewards-redeeming.php:1033
 msgid "You can't use this coupon in conjunction with other coupons"
 msgstr "No puedes usar este cupón junto con otros cupones"
 
-#: includes/class-yith-wc-points-rewards-redeeming.php:1036
+#: includes/class-yith-wc-points-rewards-redeeming.php:1038
 msgid ""
 "Coupon has been removed. You can't use this coupon with Rewards Discount"
 msgstr ""
 "El cupón se ha eliminado. No puedes usar este cupón con descuentos de "
 "recompensa"
 
-#: includes/class-yith-wc-points-rewards-redeeming.php:1038
+#: includes/class-yith-wc-points-rewards-redeeming.php:1040
 msgid "You can't use this coupon with Rewards Discount"
 msgstr "No puedes usar este cupón con descuentos de recompensa"
 
-#: includes/class-yith-wc-points-rewards-referral.php:221
+#: includes/class-yith-wc-points-rewards-referral.php:222
 #, fuzzy
 msgid "Points get from referred purchase"
 msgstr "Puntos asignados por cada compra de producto"
 
 #. translators: placeholder is the user id.
-#: includes/class-yith-wc-points-rewards-referral.php:259
+#: includes/class-yith-wc-points-rewards-referral.php:260
 msgid "A referred user has been deleted"
 msgstr ""
 
-#: includes/class-yith-wc-points-rewards-shortcodes.php:231
+#: includes/class-yith-wc-points-rewards-referral.php:379
+msgid "Get the referral link"
+msgstr ""
+
+#: includes/class-yith-wc-points-rewards-shortcodes.php:73
+#, fuzzy
+msgid "Share to Earn"
+msgstr "Puntos estándar"
+
+#: includes/class-yith-wc-points-rewards-shortcodes.php:74
+msgid "Your referral link"
+msgstr ""
+
+#: includes/class-yith-wc-points-rewards-shortcodes.php:267
 #, fuzzy
 msgid "Points you can get:"
 msgstr "Puntos ganados:"
 
-#: includes/class-yith-wc-points-rewards-shortcodes.php:309
+#: includes/class-yith-wc-points-rewards-shortcodes.php:345
 msgid "Your credit is "
 msgstr "Tu crédito es "
 
-#: includes/class-yith-wc-points-rewards-shortcodes.php:327
+#: includes/class-yith-wc-points-rewards-shortcodes.php:363
 #, fuzzy
 msgid "worth"
 msgstr "valor"
@@ -800,34 +819,34 @@ msgstr ""
 msgid "Target achieved - Membership Plan"
 msgstr "Objetivo alcanzado - Cumpleaños"
 
-#: includes/compatibility/class-ywpar-yith-woocommerce-subscription.php:161
+#: includes/compatibility/class-ywpar-yith-woocommerce-subscription.php:160
 #, fuzzy
 msgid "Extra points for subscribers"
 msgstr "Puntos extra por pedidos"
 
-#: includes/compatibility/class-ywpar-yith-woocommerce-subscription.php:167
+#: includes/compatibility/class-ywpar-yith-woocommerce-subscription.php:166
 #, fuzzy
 msgid "Enable to earn points on the subscriptions fees"
 msgstr "Ganar puntos en la cuota de suscripción"
 
-#: includes/compatibility/class-ywpar-yith-woocommerce-subscription.php:168
+#: includes/compatibility/class-ywpar-yith-woocommerce-subscription.php:167
 msgid ""
 "Enable to earn points on the subscriptions fees. If disabled, the user will "
 "get points only for the price of subscription products."
 msgstr ""
 
-#: includes/compatibility/class-ywpar-yith-woocommerce-subscription.php:176
+#: includes/compatibility/class-ywpar-yith-woocommerce-subscription.php:175
 #, fuzzy
 msgid "Enable to earn points on each renewal order"
 msgstr "Ganar puntos en las renovaciones de pedidos"
 
-#: includes/compatibility/class-ywpar-yith-woocommerce-subscription.php:177
+#: includes/compatibility/class-ywpar-yith-woocommerce-subscription.php:176
 msgid ""
 "Enable to earn points on each renewal order (each subscription payment). If "
 "disabled, the user will get points only for the 1st payment."
 msgstr ""
 
-#: includes/compatibility/class-ywpar-yith-woocommerce-subscription.php:186
+#: includes/compatibility/class-ywpar-yith-woocommerce-subscription.php:185
 #, fuzzy
 msgid ""
 "Enter the renew order label to identify point assignment in the user's "
@@ -836,7 +855,7 @@ msgstr ""
 "Introduce la etiqueta para identificar la sección de puntos en la página Mi "
 "Cuenta"
 
-#: includes/compatibility/class-ywpar-yith-woocommerce-subscription.php:189
+#: includes/compatibility/class-ywpar-yith-woocommerce-subscription.php:188
 msgid "Renew order"
 msgstr "Renovar pedido"
 
@@ -964,8 +983,8 @@ msgstr ""
 
 #: includes/functions-yith-wc-points-rewards.php:377
 msgid ""
-"When you spend a total of %amount% in our shop you will earn an extra %points"
-"%"
+"When you spend a total of %amount% in our shop you will earn an extra "
+"%points%"
 msgstr ""
 
 #: includes/functions-yith-wc-points-rewards.php:378
@@ -1017,11 +1036,12 @@ msgstr ""
 msgid "Complete your profile"
 msgstr ""
 
-#: includes/functions-yith-wc-points-rewards.php:1203
+#: includes/functions-yith-wc-points-rewards.php:1237
+#: includes/functions-yith-wc-points-rewards.php:1239
 msgid "earned:"
 msgstr "ganado:"
 
-#: includes/functions-yith-wc-points-rewards.php:1208
+#: includes/functions-yith-wc-points-rewards.php:1243
 msgid "used:"
 msgstr "usado:"
 
@@ -3108,21 +3128,22 @@ msgstr "Debes haber iniciado sesión pare ver tus puntos"
 msgid "You are not enabled to see this page."
 msgstr ""
 
-#: templates/myaccount/my-points-view.php:99 views/tabs/customer-history.php:83
+#: templates/myaccount/my-points-view.php:105
+#: views/tabs/customer-history.php:83
 msgid "Points history"
 msgstr "Historial de puntos"
 
-#: templates/myaccount/my-points-view.php:104
+#: templates/myaccount/my-points-view.php:114
 #, fuzzy
 msgid "Targets to achieve"
 msgstr "Objetivo alcanzado - Cumpleaños"
 
-#: templates/myaccount/my-points-view.php:109
+#: templates/myaccount/my-points-view.php:123
 #, fuzzy
 msgid "Get points!"
 msgstr "Restablecer puntos"
 
-#: templates/myaccount/my-points-view.php:114
+#: templates/myaccount/my-points-view.php:132
 #, fuzzy
 msgid "Manage points"
 msgstr "Puntos estándar"
@@ -3138,24 +3159,24 @@ msgstr[1] "ID de producto"
 msgid "Purchased on "
 msgstr ""
 
-#: templates/myaccount/ywpar-share-points.php:79
-#: templates/myaccount/ywpar-share-points.php:97
+#: templates/myaccount/ywpar-share-points.php:83
+#: templates/myaccount/ywpar-share-points.php:101
 #, fuzzy
 msgid "Date of creation"
 msgstr "Fecha de nacimiento"
 
-#: templates/myaccount/ywpar-share-points.php:80
-#: templates/myaccount/ywpar-share-points.php:98
+#: templates/myaccount/ywpar-share-points.php:84
+#: templates/myaccount/ywpar-share-points.php:102
 msgid "Value"
 msgstr ""
 
-#: templates/myaccount/ywpar-share-points.php:81
-#: templates/myaccount/ywpar-share-points.php:99
+#: templates/myaccount/ywpar-share-points.php:85
+#: templates/myaccount/ywpar-share-points.php:103
 msgid "Code"
 msgstr ""
 
-#: templates/myaccount/ywpar-share-points.php:82
-#: templates/myaccount/ywpar-share-points.php:100
+#: templates/myaccount/ywpar-share-points.php:86
+#: templates/myaccount/ywpar-share-points.php:104
 #, fuzzy
 msgid "Expire on"
 msgstr "Puntos caducados"
@@ -3586,7 +3607,7 @@ msgid "Add points"
 msgstr "Añadir puntos a"
 
 #: includes/admin/class-yith-wc-points-rewards-customer-history-list-table.php:224
-#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:299
+#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:295
 #, fuzzy
 msgctxt "Customer Points action"
 msgid "Remove points"
@@ -3598,19 +3619,19 @@ msgctxt "Customer Points action"
 msgid "Remove all points"
 msgstr "Restablecer puntos"
 
-#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:285
+#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:281
 #, fuzzy
 msgctxt "Customer Points action"
 msgid "View history"
 msgstr "Ver historial"
 
-#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:314
+#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:310
 #, fuzzy
 msgctxt "Customer Points action"
 msgid "Unban user"
 msgstr "Desbloquear usuarios"
 
-#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:328
+#: includes/admin/class-yith-wc-points-rewards-customers-list-table.php:324
 #, fuzzy
 msgctxt "Customer Points action"
 msgid "Ban user"
@@ -3847,9 +3868,9 @@ msgstr "#%1$d - %2$s"
 
 #. translators: First placeholder: number of points; second placeholder: label
 #. of points.
-#: includes/class-yith-wc-points-rewards-earning.php:228
-#: includes/class-yith-wc-points-rewards-orders.php:324
-#: includes/compatibility/class-ywpar-yith-woocommerce-subscription.php:141
+#: includes/class-yith-wc-points-rewards-earning.php:248
+#: includes/class-yith-wc-points-rewards-orders.php:322
+#: includes/compatibility/class-ywpar-yith-woocommerce-subscription.php:140
 msgctxt ""
 "First placeholder: number of points; second placeholder: label of points"
 msgid "Customer earned %1$d %2$s for this purchase."
@@ -3857,7 +3878,7 @@ msgstr "El cliente ha ganado %1$d %2$s por esta compra."
 
 #. translators:First placeholder: number of points; second placeholder: label
 #. of points.
-#: includes/class-yith-wc-points-rewards-orders.php:146
+#: includes/class-yith-wc-points-rewards-orders.php:144
 msgctxt ""
 "First placeholder: number of points; second placeholder: label of points"
 msgid "Removed %1$d %2$s for order %3$s."
@@ -3865,7 +3886,7 @@ msgstr "Eliminado %1$d %2$s para pedido %3$s."
 
 #. translators:First placeholder: number of points; second placeholder: label
 #. of points.
-#: includes/class-yith-wc-points-rewards-orders.php:584
+#: includes/class-yith-wc-points-rewards-orders.php:582
 #, fuzzy
 msgctxt ""
 "First placeholder: number of points; second placeholder: label of points"
@@ -3874,7 +3895,7 @@ msgstr "%1$d %2$s para obtener una recompensa"
 
 #. translators: 'First placeholder: number of points; second placeholder:
 #. reason'.
-#: includes/class-yith-wc-points-rewards-orders.php:619
+#: includes/class-yith-wc-points-rewards-orders.php:617
 #, fuzzy
 msgctxt ""
 "First placeholder: number of points; second placeholder: label of points"
@@ -3893,7 +3914,7 @@ msgstr[0] "<strong>%1$s</strong> %2$s"
 msgstr[1] "<strong>%3$s</strong> %4$s"
 
 #. translators: Total number of orders updated.
-#: includes/class-yith-wc-points-rewards-orders.php:287
+#: includes/class-yith-wc-points-rewards-orders.php:285
 msgctxt "Total number of orders updated."
 msgid "<strong>%d</strong> order has been updated"
 msgid_plural "<strong>%d</strong> orders have been updated"
@@ -3902,7 +3923,7 @@ msgstr[1] "<strong>%d</strong> pedidos han sido actualizados"
 
 #. translators: 'First placeholder: number of points; second placeholder:
 #. reason of action'.
-#: includes/class-yith-wc-points-rewards-orders.php:656
+#: includes/class-yith-wc-points-rewards-orders.php:654
 #, fuzzy
 msgctxt ""
 "First placeholder: number of points; second placeholder: reason of action"
@@ -3911,7 +3932,7 @@ msgstr "Añadido %1$d %2$s por el pedido %3$s."
 
 #. translators:First placeholder: number of point; second placeholder: label of
 #. points.
-#: includes/class-yith-wc-points-rewards-orders.php:750
+#: includes/class-yith-wc-points-rewards-orders.php:745
 #, fuzzy
 msgctxt ""
 "First placeholder: number of point; second placeholder: label of points"
@@ -3969,31 +3990,31 @@ msgctxt "Name of duplicated post type"
 msgid " - Copy"
 msgstr ""
 
-#: includes/class-yith-wc-points-rewards-redeeming.php:165
+#: includes/class-yith-wc-points-rewards-redeeming.php:166
 msgctxt "20% on order total"
 msgid "on order total"
 msgstr "en el total del pedido"
 
 #. translators: Placeholder is the id of the customer.
-#: includes/class-yith-wc-points-rewards-referral.php:233
+#: includes/class-yith-wc-points-rewards-referral.php:234
 #, fuzzy
 msgctxt "Placeholder is the id of the customer."
 msgid "Points from registration of a new customer"
 msgstr "Puntos a asignar a los nuevos usuarios"
 
 #. translators: Placeholder is the if of the order.
-#: includes/class-yith-wc-points-rewards-referral.php:323
+#: includes/class-yith-wc-points-rewards-referral.php:324
 msgctxt " Placeholder is the if of the order."
 msgid "Points removed from order with id %1$s because the user has been banned"
 msgstr ""
 
-#: includes/class-yith-wc-points-rewards-referral.php:383
+#: includes/class-yith-wc-points-rewards-referral.php:386
 #: includes/class-yith-wc-points-rewards-share-points.php:281
 msgctxt "Copy-to-clipboard message"
 msgid "Copied!"
 msgstr ""
 
-#: includes/class-yith-wc-points-rewards-referral.php:387
+#: includes/class-yith-wc-points-rewards-referral.php:390
 #: includes/class-yith-wc-points-rewards-share-points.php:285
 msgctxt "Copy-to-clipboard button text"
 msgid "Copy"
@@ -4037,7 +4058,7 @@ msgstr ""
 
 #. translators: First placeholder: number of points; second and third
 #. placeholder: labels of points.
-#: includes/class-yith-wc-points-rewards-shortcodes.php:325
+#: includes/class-yith-wc-points-rewards-shortcodes.php:361
 #, fuzzy
 msgctxt ""
 "First placeholder: number of points; second and third placeholder: labels of "
@@ -4056,7 +4077,7 @@ msgctxt "yith-woocommerce-points-and-rewards"
 msgid "Imported rule"
 msgstr "Importar"
 
-#: includes/compatibility/class-ywpar-yith-woocommerce-subscription.php:185
+#: includes/compatibility/class-ywpar-yith-woocommerce-subscription.php:184
 #, fuzzy
 msgctxt "Reason to show when the customer earns points from recurring payment"
 msgid "Renew order label"
@@ -4548,15 +4569,15 @@ msgid ""
 "can be used"
 msgstr ""
 
-#: templates/myaccount/ywpar-share-points.php:33
+#: templates/myaccount/ywpar-share-points.php:36
 msgctxt "Error message on My account share points tab"
 msgid "At the moment you don't have enough points to convert."
 msgstr ""
 
 #. translators:Placeholder is the minimum amount of points that can be used.
 #. Error message on My account share points tab.
-#: templates/myaccount/ywpar-share-points.php:38
-#: templates/myaccount/ywpar-share-points.php:69
+#: templates/myaccount/ywpar-share-points.php:41
+#: templates/myaccount/ywpar-share-points.php:73
 msgctxt ""
 "Placeholder is the minimum amount of points that can be used. Error message "
 "on My account share points tab"
@@ -4565,29 +4586,29 @@ msgstr ""
 
 #. translators:Placeholder is the maximum amount of points that can be used.
 #. Error message on My account share points tab.
-#: templates/myaccount/ywpar-share-points.php:63
+#: templates/myaccount/ywpar-share-points.php:67
 msgctxt ""
 "Placeholder is the minimum amount of points that can be used. Error message "
 "on My account share points tab"
 msgid "You can convert a maximum of %s"
 msgstr ""
 
-#: templates/myaccount/ywpar-share-points.php:51
+#: templates/myaccount/ywpar-share-points.php:54
 msgctxt "part of a sentence on My account page share points tab"
 msgid "Convert"
 msgstr ""
 
-#: templates/myaccount/ywpar-share-points.php:55
+#: templates/myaccount/ywpar-share-points.php:59
 msgctxt "part of a sentence on My account page share points tab"
 msgid "points for a coupon value of %s"
 msgstr ""
 
-#: templates/myaccount/ywpar-share-points.php:57
+#: templates/myaccount/ywpar-share-points.php:61
 msgctxt "Label of button to convert point on My account page share points tab"
 msgid "Convert"
 msgstr ""
 
-#: templates/myaccount/ywpar-share-points.php:75
+#: templates/myaccount/ywpar-share-points.php:79
 #, fuzzy
 msgctxt "Title of table for the shared coupon in My account page"
 msgid "Your coupons:"

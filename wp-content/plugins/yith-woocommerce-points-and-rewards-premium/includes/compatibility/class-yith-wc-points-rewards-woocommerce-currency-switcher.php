@@ -104,7 +104,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_WooCommerce_Currency_Switcher' ) ) 
 		 */
 		public function convert_price( float $price, string $currency = '' ) {
 			global $WOOCS; //phpcs:ignore
-			if ( $WOOCS->is_multiple_allowed || ! $WOOCS ) { //phpcs:ignore
+			if ( ! $WOOCS || $WOOCS->is_multiple_allowed ) { //phpcs:ignore
 				return $price;
 			}
 

@@ -18,7 +18,13 @@
 defined('ABSPATH') || exit;
 ?>
 <section class="cart-section">
-    <?php do_action('woocommerce_before_cart'); ?>
+	<div class="woo-noti">
+		<?php do_action('woocommerce_cart_noti'); ?>
+	</div>
+	<div class="other-noti">
+		<?php do_action('woocommerce_before_cart'); ?>
+	</div>
+    
     <form class="woocommerce-cart-form" action="<?php echo esc_url(wc_get_cart_url()); ?>" method="post">
 
         <?php do_action('woocommerce_before_cart_table'); ?>

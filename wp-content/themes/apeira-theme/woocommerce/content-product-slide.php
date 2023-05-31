@@ -21,11 +21,12 @@ global $product;
 if (empty($product) || !$product->is_visible()) {
 	return;
 }
+
+$attachment_ids = $product->get_gallery_image_ids();
 ?>
 <div <?php wc_product_class('', $product); ?>>
 	<div class="product-inner">
-
-		<div class="product-image">
+		<div class="product-image <?php echo $attachment_ids?'has-attachment':''; ?>">
 			<?php woocommerce_template_loop_product_link_open(); ?>
 			
 
@@ -36,7 +37,13 @@ if (empty($product) || !$product->is_visible()) {
 			 * @hooked woocommerce_show_product_loop_sale_flash - 10
 			 * @hooked woocommerce_template_loop_product_thumbnail - 10
 			 */
-			do_action('woocommerce_before_shop_loop_item_title'); ?>
+			do_action('woocommerce_before_shop_loop_item_title');
+			
+			
+			woocommerce_template_loop_product_link_close();
+			?>
+			
+			
 
 			<?php do_action('woocommerce_shop_loop_addtocart'); ?>
 		</div>
@@ -63,6 +70,9 @@ if (empty($product) || !$product->is_visible()) {
 				 * @hooked woocommerce_template_loop_price - 10
 				 */
 				do_action('woocommerce_after_shop_loop_item_title');
+				
+				
+				woocommerce_template_loop_product_link_close();
 				?>
 			</div>
 		</div>

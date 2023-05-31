@@ -361,6 +361,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Cpt_Object' ) ) {
 			$product   = wc_get_product( $product_id );
 			$parent_id = $product->get_parent_id();
 
+
 			if ( 'all_products' === $this->get_apply_to() ) {
 				$is_valid = true;
 				if ( 'yes' === $this->get_exclude_products() ) {

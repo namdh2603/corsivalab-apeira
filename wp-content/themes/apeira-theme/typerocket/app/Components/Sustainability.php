@@ -14,7 +14,7 @@ class Sustainability extends Component
 		echo $form->text('sub_title')->setLabel('Sub Title');
 		echo $form->text('title')->setLabel('Title');
 		echo $form->wpEditor('desc')->setLabel('Description');
-		echo $form->search('choose_post')->multiple()->setLabel('Choose Posts')->setPostTypeOptions('post');
+		echo $form->search('choose_post')->multiple()->setLabel('Choose Posts')->setPostTypeOptions('sustainability');
 	}
 	/**
 	 * Render
@@ -25,6 +25,11 @@ class Sustainability extends Component
 	public function render(array $data, array $info)
 	{
 		$bg_color = $data['bg_color'];
+		$args = array(
+			'post_type' => 'sustainability',
+			'post__in' => $data['choose_post'],
+		);
+		$p_query = new \WP_Query($args);
 ?>
 		<section class="section-<?php echo $info['component_id']; ?> section-padding" data-id="<?php echo $info['component_id']; ?>" style="<?php echo (!empty($bg_color) ? 'background-color:' . $bg_color . ';' : ''); ?>">
 			<div class="container">
@@ -37,36 +42,27 @@ class Sustainability extends Component
 					</div>
 				</div>
 				<div class="posts-carousel">
-					<div class="swiper">
-						<div class="swiper-wrapper">
-							<?php
-							foreach ($data['choose_post'] as $item) {
-								$post_data   = get_post($item);
-								$title = $post_data->post_title;
-								$excerpt = wp_trim_words(strip_shortcodes($post_data->post_content), 20, ' ...');
-							?>
-								<div class="swiper-slide">
-									<!-- <div class="post-inner">
-										<?php if (has_post_thumbnail($item)) {
-											echo get_the_post_thumbnail($item, 'full');
-										} else {
-											echo wc_placeholder_img();
-										} ?>
-										<div class="post-information">
-											<div class="post-title"><?php echo $title; ?></div>
-											<div class="post-excerpt"><?php echo $excerpt; ?></div>
-											<div class="btn-wrap btn-left">
-												<a class="btn-main btn-outline-v2" href="<?php the_permalink($item); ?>">DISCOVER MORE</a>
-											</div>
-										</div>
-									</div> -->
-									<?php get_template_part('template-parts/archive', 'post-item', array('id' => $item, 'col' => 0)); ?>
-								</div>
-							<?php } ?>
+					<?php if ($p_query->have_posts()) { ?>
+						<div class="swiper">
+							<div class="swiper-wrapper">
+								<?php while ($p_query->have_posts()) {
+									$p_query->the_post();
+								?>
+									<div class="swiper-slide">
+										<?php get_template_part('template-parts/archive', 'post-item', array('col' => 0)); ?>
+									</div>
+								<?php } ?>
+							</div>
 						</div>
+					<div class="swiper-button-next-unique">
+<!-- 						<i class="fal fa-long-arrow-right"></i> -->
+						<i class="fa fa-long-arrow-right"></i>
 					</div>
-					<div class="swiper-button-next-unique"><i class="fal fa-long-arrow-right"></i></div>
-					<div class="swiper-button-prev-unique"><i class="fal fa-long-arrow-left"></i></div>
+					<div class="swiper-button-prev-unique">
+<!-- 						<i class="fal fa-long-arrow-left"></i> -->
+						<i class="fa fa-long-arrow-left"></i>
+					</div>
+					<?php	} ?>
 				</div>
 			</div>
 		</section>

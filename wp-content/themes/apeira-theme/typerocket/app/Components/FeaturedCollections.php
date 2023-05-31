@@ -17,6 +17,7 @@ class FeaturedCollections extends Component
 			$form->row()
 				->withColumn(
 					$form->image('img')->setLabel('Banner'),
+					$form->image('img_mobile')->setLabel('Banner (Mobile Version)'),
 				)
 				->withColumn(
 					$form->text('Title'),
@@ -55,10 +56,26 @@ class FeaturedCollections extends Component
 						$extra_class = '';
 						if ($i >= 3) $col = 12;
 						$extra_class = "last";
+						$has_img_mobile = ''
 					?>
 						<div class="col-12 col-sm-<?php echo $col; ?> col-md-<?php echo $col; ?> col-lg-<?php echo $col; ?>">
 							<div class="featured-item <?php echo $extra_class; ?>">
-								<img src="<?php echo get_attachment($item['img'])['src']; ?>" class="w-100" alt="img" />
+						
+								
+								
+								
+										<?php if(!empty($item['img_mobile'])): $has_img_mobile = 'has-img-mobile';
+						echo wp_get_attachment_image($item['img_mobile'], 'medium', "", array( "class" => "w-100 img-mobile" ));
+						endif; ?>
+								
+								<?php if(!empty($item['img'])):
+						echo wp_get_attachment_image($item['img'], 'full', "", array( "class" => "w-100 ".$has_img_mobile ));
+						endif; ?>
+								
+								
+								
+								
+								
 								<div class="caption">
 									<div class="block-content">
 										<?php if (!empty($item['title'])) : ?><div class="title"><?php echo $item['title']; ?></div><?php endif; ?>

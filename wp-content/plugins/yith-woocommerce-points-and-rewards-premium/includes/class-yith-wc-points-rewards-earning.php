@@ -28,7 +28,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Earning' ) ) {
 		protected static $instance;
 
 		/**
-		 * Single instance of the class
+		 * Points applied
 		 *
 		 * @var bool
 		 */
@@ -79,7 +79,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Earning' ) ) {
 		 * @return array
 		 */
 		public function set_points_on_cart_item( $cart_item, $cart_item_key ) {
-			$cart_item['ywpar_total_points'] = $this->calculate_points_for_cart_item( $cart_item, $cart_item_key );
+			$cart_item['ywpar_total_points'] = $this->calculate_points_for_cart_item( $cart_item, $cart_item_key, 0 );
 
 			return $cart_item;
 		}
@@ -125,10 +125,11 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Earning' ) ) {
 		 *
 		 * @param array  $cart_item Cart item.
 		 * @param string $cart_item_key Cart item key.
+		 * @param int    $items_that_have_discount Number of cart items that can obtain points.
 		 *
 		 * @return int
 		 */
-		public function calculate_points_for_cart_item( $cart_item, $cart_item_key ) {
+		public function calculate_points_for_cart_item( $cart_item, $cart_item_key, $items_that_have_discount = '' ) {
 
 			$cart_contents        = WC()->cart->get_cart_contents();
 			$total_product_points = 0;
@@ -153,7 +154,13 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Earning' ) ) {
 
 			if ( WC()->cart->applied_coupons && isset( WC()->cart->discount_cart ) && WC()->cart->discount_cart > 0 ) {
 				if ( ywpar_get_option( 'remove_points_coupon', 'yes' ) === 'yes' && $cart_item['line_subtotal'] ) {
-					$total_product_points = ( $cart_item['line_total'] / $cart_item['line_subtotal'] ) * $total_product_points;
+					// Calculate points for the current cart item based on the proportional discount only for the items that can obtain the points.
+					if ( $items_that_have_discount > 0 ) {
+						$discount_per_item = WC()->cart->discount_cart / $items_that_have_discount;
+						$total_product_points = ( $cart_item['line_subtotal'] - $discount_per_item ) / $cart_item['line_subtotal'] * $total_product_points;
+					} else { // Calculate points for the current cart item based on the proportional discount for all cart items.
+						$total_product_points = ( $cart_item['line_total'] / $cart_item['line_subtotal'] ) * $total_product_points;
+					}
 				}
 
 				if ( apply_filters( 'ywpar_disable_earning_if_there_is_a_coupon', false ) || ( 'yes' === ywpar_get_option( 'disable_earning_while_reedeming' ) && ywpar_cart_has_redeeming_coupon() ) ) {
@@ -177,8 +184,17 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Earning' ) ) {
 			$items      = WC()->cart->get_cart();
 			$tot_points = 0;
 
+			// First loop to get the number of cart items that can obtain points. This avoids problems when calculating the corresponding points only to items that can obtain the discount.
+			$items_that_have_discount = 0;
+			foreach ( $items as $cart_item ) {
+				if ( $this->get_product_points( $cart_item['data'], '', false ) > 0 ) {
+					$items_that_have_discount++;
+				}
+			}
+
+			// Second loop for calculating the points for each item.
 			foreach ( $items as $cart_item_key => $cart_item ) {
-				$tot_points += $this->calculate_points_for_cart_item( $cart_item, $cart_item_key );
+				$tot_points += $this->calculate_points_for_cart_item( $cart_item, $cart_item_key, $items_that_have_discount );
 			}
 			$tot_points = ( $tot_points < 0 ) ? 0 : $tot_points;
 			$tot_points = $integer ? yith_ywpar_round_points( $tot_points ) : $tot_points;
@@ -214,7 +230,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Earning' ) ) {
 				return;
 			}
 
-			$tot_points = (int) trim( $order->get_meta( 'ywpar_points_from_cart' ) );
+			$tot_points = trim( $order->get_meta( 'ywpar_points_from_cart' ) );
 			$tot_points = apply_filters( 'ywpar_force_calculation_of_order_points', '' === $tot_points, $tot_points, $order ) ? $this->calculate_order_points_from_items( $order, $customer ) : $tot_points;
 			$tot_points = apply_filters( 'ywpar_earned_total_points_by_order', $tot_points, $order );
 
@@ -223,6 +239,10 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Earning' ) ) {
 			$order->update_meta_data( '_ywpar_conversion_points', $this->get_conversion_option( $order->get_currency(), $order ) );
 			$order->save();
 
+			if ( !$this->points_applied ) {
+				$this->points_applied = array();
+			}
+			
 			$this->points_applied[] = $order_id;
 			// translators: First placeholder: number of points; second placeholder: label of points.
 			$order->add_order_note( sprintf( _x( 'Customer earned %1$d %2$s for this purchase.', 'First placeholder: number of points; second placeholder: label of points', 'yith-woocommerce-points-and-rewards' ), $tot_points, ywpar_get_option( 'points_label_plural' ) ), 0 );
@@ -286,9 +306,10 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Earning' ) ) {
 
 			$customer_id   = ywpar_get_current_customer_id( $user );
 			$points_cached = wp_cache_get( 'ywpar_product_points', 'ywpar_points' );
+			$points_cached = $points_cached ? $points_cached : array();
+			$index         = $currency . '_' . ( $integer ? 'integer' : 'decimal' );
 
 			if ( false !== $points_cached ) {
-				$index = $currency . '_' . ( $integer ? 'integer' : 'decimal' );
 				if ( isset( $points_cached[ $product->get_id() ][ $customer_id ][ $index ] ) ) {
 					$product_points = $points_cached[ $product->get_id() ][ $customer_id ][ $index ];
 				}
@@ -297,7 +318,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Earning' ) ) {
 			if ( ! $product_points ) {
 				$product_points = $this->calculate_product_points( $product, $currency, $integer, $user );
 
-				$points_cached[ $product->get_id() ][ $customer_id ][ $currency ] = $product_points;
+				$points_cached[ $product->get_id() ][ $customer_id ][ $index ] = $product_points;
 				wp_cache_set( 'ywpar_product_points', $points_cached, 'ywpar_points' );
 			}
 
@@ -335,8 +356,8 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Earning' ) ) {
 			if ( $product->is_type( 'grouped' ) ) {
 
 				foreach ( $product->get_children() as $child_id ) {
-					$child              = wc_get_product( $child_id );
-					$calculated_points += $this->calculate_product_points( $child, $integer, $currency );
+					$child             = wc_get_product( $child_id );
+					$calculated_points += $this->calculate_product_points( $child, $currency, $integer );
 				}
 
 				return $calculated_points;

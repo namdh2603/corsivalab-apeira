@@ -64,7 +64,7 @@ class OurPromise extends Component
 								}
 						?>
 								<div class="ourpromise-item">
-									<img src="<?php echo get_attachment($item['img'])['src']; ?>" class="w-100 h-100" alt="img" />
+					<?php if (!empty($item['img'])) : echo wp_get_attachment_image($item['img'], 'full', "", array( "class" => "w-100 h-100" )); endif; ?>
 								</div>
 						<?php
 								echo '</div>';

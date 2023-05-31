@@ -20,9 +20,9 @@ corsivalab_maincontent_loop_start();
             </div>
         </div>
     </div>
-    <?php if (!empty(tr_post_field('banner'))) : ?>
-        <img class="single-post-img w-100" src="<?php echo get_attachment(tr_post_field('banner'))['src']; ?>" alt="" />
-    <?php endif; ?>
+    <?php if (!empty(tr_post_field('banner'))) :
+		echo wp_get_attachment_image(tr_post_field('banner'), 'full', "", array( "class" => "w-100 single-post-img" ));
+	endif; ?>
     <!-- <img class="single-post-img w-100" src="<?php the_post_thumbnail_url(); ?>" alt="" /> -->
     <div class="row justify-content-center">
         <div class="col-12 col-sm-8 col-md-8 col-lg-8 col-xl-8">

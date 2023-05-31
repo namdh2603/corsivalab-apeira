@@ -403,7 +403,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Porting' ) ) {
 
 			global $wpdb;
 
-			$results   = $wpdb->get_results( $wpdb->prepare( "SELECT u.id, u.user_email as email, um.meta_value as points FROM $wpdb->users u LEFT JOIN $wpdb->usermeta um ON ( u.id = um.user_id AND um.meta_key LIKE %s )", '_ywpar_user_total_points' ) ); //phpcs:ignore
+			$results   = $wpdb->get_results( $wpdb->prepare( "SELECT u.id, u.user_email as email, um.meta_value as points FROM $wpdb->users u LEFT JOIN $wpdb->usermeta um ON ( u.id = um.user_id AND um.meta_key LIKE %s )", apply_filters( 'ywpar_export_csv_user_meta', '_ywpar_user_total_points', $format ) ) ); //phpcs:ignore
 			$first_row = ( 'id' === $format ) ? array( 'id', 'points' ) : array( 'email', 'points' );
 
 			$data[] = apply_filters( 'ywpar_export_csv_first_row', $first_row, $format );

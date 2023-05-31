@@ -243,7 +243,7 @@
                 if ( 'after' === $position ) {
                     add_action( 'woocommerce_after_shop_loop_item', array( $this, 'after_shop_loop_item' ), 30 );
                 } else {
-                    add_action( 'woocommerce_after_shop_loop_item', array( $this, 'after_shop_loop_item' ), 7 );
+                    add_action( 'woocommerce_shop_loop_swatches', array( $this, 'after_shop_loop_item' ), 7 );
                 }
             }
             

@@ -33,7 +33,7 @@ class ContentWithImage extends Component
                         <div class="desc">
                             <div class="row <?php echo (!empty($data['reverse'])?'flex-row-reverse':''); ?>">
                                 <div class="col-12 col-sm-5 col-md-5 col-lg-5">
-                                    <img src="<?php echo get_attachment($data['img'])['src']; ?>" class="" alt="img" />
+									<?php if (!empty($data['img'])) : echo wp_get_attachment_image($data['img'], 'full'); endif; ?>
                                 </div>
                                 <div class="col-12 col-sm-7 col-md-7 col-lg-7 align-self-center">
                                     <?php if (!empty($data['desc'])) : ?><div class="desc"><?php echo apply_filters('the_content', $data['desc']); ?></div><?php endif; ?>

@@ -240,31 +240,31 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Points_Log' ) ) {
 			switch ( $time ) {
 				case 'today':
 					if ( 'positive' === $calculation_type ) {
-						$query = "SELECT user_id, SUM(amount) as total FROM {$this->get_table_name()} where (date_earning >= CURDATE()) AND amount > 0 GROUP BY user_id ORDER BY total DESC LIMIT $limit";
+						$query = "SELECT user_id, SUM(amount) as total FROM {$this->get_table_name()} as pt INNER JOIN {$wpdb->users} as wpu ON wpu.ID = pt.user_id where (date_earning >= CURDATE()) AND amount > 0 GROUP BY user_id ORDER BY total DESC LIMIT $limit";
 					} else {
-						$query = "SELECT user_id, SUM(amount) as total FROM {$this->get_table_name()} where (date_earning >= CURDATE()) GROUP BY user_id ORDER BY total DESC LIMIT $limit";
+						$query = "SELECT user_id, SUM(amount) as total FROM {$this->get_table_name()} as pt INNER JOIN {$wpdb->users} as wpu ON wpu.ID = pt.user_id where (date_earning >= CURDATE()) GROUP BY user_id ORDER BY total DESC LIMIT $limit";
 					}
 
 					break;
 				case 'last_month':
 					if ( 'positive' === $calculation_type ) {
-						$query = "SELECT user_id, SUM(amount) as total FROM {$this->get_table_name()} where amount > 0 AND (date_earning >= CURDATE() - INTERVAL 1 MONTH )  GROUP BY user_id ORDER BY total DESC LIMIT $limit";
+						$query = "SELECT user_id, SUM(amount) as total FROM {$this->get_table_name()} as pt INNER JOIN {$wpdb->users} as wpu ON wpu.ID = pt.user_id where amount > 0 AND (date_earning >= CURDATE() - INTERVAL 1 MONTH )  GROUP BY user_id ORDER BY total DESC LIMIT $limit";
 					} else {
-						$query = "SELECT user_id, SUM(amount) as total FROM {$this->get_table_name()} where (date_earning >= CURDATE() - INTERVAL 1 MONTH )  GROUP BY user_id ORDER BY total DESC LIMIT $limit";
+						$query = "SELECT user_id, SUM(amount) as total FROM {$this->get_table_name()} as pt INNER JOIN {$wpdb->users} as wpu ON wpu.ID = pt.user_id where (date_earning >= CURDATE() - INTERVAL 1 MONTH )  GROUP BY user_id ORDER BY total DESC LIMIT $limit";
 					}
 					break;
 				case 'this_week':
 					if ( 'positive' === $calculation_type ) {
-						$query = "SELECT user_id, SUM(amount) as total FROM {$this->get_table_name()} where  amount > 0 AND (date_earning >= CURDATE() - INTERVAL 7 DAY )  GROUP BY user_id ORDER BY total DESC LIMIT $limit";
+						$query = "SELECT user_id, SUM(amount) as total FROM {$this->get_table_name()} as pt INNER JOIN {$wpdb->users} as wpu ON wpu.ID = pt.user_id where  amount > 0 AND (date_earning >= CURDATE() - INTERVAL 7 DAY )  GROUP BY user_id ORDER BY total DESC LIMIT $limit";
 					} else {
-						$query = "SELECT user_id, SUM(amount) as total FROM {$this->get_table_name()} where (date_earning >= CURDATE() - INTERVAL 1 MONTH )  GROUP BY user_id ORDER BY total DESC LIMIT $limit";
+						$query = "SELECT user_id, SUM(amount) as total FROM {$this->get_table_name()} as pt INNER JOIN {$wpdb->users} as wpu ON wpu.ID = pt.user_id where (date_earning >= CURDATE() - INTERVAL 1 MONTH )  GROUP BY user_id ORDER BY total DESC LIMIT $limit";
 					}
 					break;
 				default:
 					if ( 'positive' === $calculation_type ) {
-						$query = "SELECT user_id, SUM(amount) as total FROM {$this->get_table_name()} where amount > 0  GROUP BY user_id ORDER BY total DESC LIMIT $limit";
+						$query = "SELECT user_id, SUM(amount) as total FROM {$this->get_table_name()} as pt INNER JOIN {$wpdb->users} as wpu ON wpu.ID = pt.user_id where amount > 0  GROUP BY user_id ORDER BY total DESC LIMIT $limit";
 					} else {
-						$query = "SELECT user_id, SUM(amount) as total FROM {$this->get_table_name()}  GROUP BY user_id ORDER BY total DESC LIMIT $limit";
+						$query = "SELECT user_id, SUM(amount) as total FROM {$this->get_table_name()}  as pt INNER JOIN {$wpdb->users} as wpu ON wpu.ID = pt.user_id GROUP BY user_id ORDER BY total DESC LIMIT $limit";
 					}
 					break;
 			}

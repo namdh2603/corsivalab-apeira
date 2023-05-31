@@ -31,84 +31,29 @@ function shortcode_info_company()
     return ob_get_clean();
 }
 add_shortcode('contact-info', 'shortcode_info_company');
-function shortcode_menu_content()
+function shortcode_submenu_content($atts)
 {
+
+	
+	    extract(shortcode_atts(array(
+        'page_id' => 1,
+    ), $atts));
+	
+	
     ob_start();
-    //$shop_page = wc_get_page_permalink('shop');
-    $sub_menu_1 =  get_theme_mod(sanitize_underscores('Sub Menu Column 1'));
-    $sub_menu_2 =  get_theme_mod(sanitize_underscores('Sub Menu Column 2'));
-    $sub_menu_3 =  get_theme_mod(sanitize_underscores('Sub Menu Column 3'));
-    $sub_right =  get_theme_mod(sanitize_underscores('Sub Menu Right Item'));
-?>
-    <div class="row">
-        <div class="col-6">
-            <div class="row">
-                <div class="col-4">
-                    <?php
-                    if(!empty($sub_menu_1)):
-            $sub_menu_1_obj = wp_get_nav_menu_object($sub_menu_1);
-            $sub_menu_1_items = wp_get_nav_menu_items($sub_menu_1);
-                    ?>
-                    <h4 class="title-sub-block"><?php echo wp_kses_post($sub_menu_1_obj->name); ?></h4>
-                    <ul>
-                        <?php foreach ($sub_menu_1_items as $menu_item) {
-                            if ($menu_item->menu_item_parent == 0) {
-                                echo '<li><a href="' . $menu_item->url . '">' . $menu_item->title . '</a></li>';
-                            }
-                        } ?>
-                    </ul>
-                    <?php endif; ?>
-                </div>
-                <div class="col-4">
-                    <?php
-                    if(!empty($sub_menu_2)):
-                    
-            $sub_menu_2_obj = wp_get_nav_menu_object($sub_menu_2);
-            $sub_menu_2_items = wp_get_nav_menu_items($sub_menu_2);
-                    ?>
-                    <h4 class="title-sub-block"><?php echo wp_kses_post($sub_menu_2_obj->name); ?></h4>
-                    <ul>
-                        <?php foreach ($sub_menu_2_items as $menu_item) {
-                            if ($menu_item->menu_item_parent == 0) {
-                                echo '<li><a href="' . $menu_item->url . '">' . $menu_item->title . '</a></li>';
-                            }
-                        } ?>
-                    </ul>
-                    <?php endif; ?>
-                </div>
-                <div class="col-4">
-                    <?php
-                    if(!empty($sub_menu_3)):
-            $sub_menu_3_obj = wp_get_nav_menu_object($sub_menu_3);
-            $sub_menu_3_items = wp_get_nav_menu_items($sub_menu_3);
-                    ?>
-                    <h4 class="title-sub-block"><?php echo wp_kses_post($sub_menu_3_obj->name); ?></h4>
-                    <ul>
-                        <?php foreach ($sub_menu_3_items as $menu_item) {
-                            if ($menu_item->menu_item_parent == 0) {
-                                echo '<li><a href="' . $menu_item->url . '">' . $menu_item->title . '</a></li>';
-                            }
-                        } ?>
-                    </ul>
-                    <?php endif; ?>
-                </div>
-            </div>
-        </div>
-        <div class="col-6">
-            <div class="row">
-                <?php foreach ($sub_right as $item) { ?>
-                    <div class="col-6">
-                        <div class="sub-img"><img src="<?php echo get_attachment($item['image'])['src']; ?>" /></div>
-                        <div class="sub-title"><?php echo $item['text']; ?></div>
-                        <div class="sub-desc"><?php echo $item['desc']; ?></div>
-                    </div>
-                <?php } ?>
-            </div>
-        </div>
-    </div>
-    <?php return ob_get_clean();
+	?>
+	 <div class="row woocommerce">
+		<div class="col-12">
+	 <div class="row">
+		 <?php tr_components_field('builder',$page_id); ?>
+		</div>
+		</div>
+</div>
+<?php return ob_get_clean();
 }
-add_shortcode('menu-shop-content', 'shortcode_menu_content');
+add_shortcode('submenu-content', 'shortcode_submenu_content');		 
+
+
 function shortcode_similar_blogposts()
 {
     ob_start();
@@ -139,45 +84,3 @@ function shortcode_similar_blogposts()
     return ob_get_clean();
 }
 add_shortcode('similar-blogposts', 'shortcode_similar_blogposts');
-function shortcode_feature_list()
-{
-    ob_start();
-    $feature_item =  tr_options_field('corsivalab_options.feature_item');
-    if (!empty($feature_item)) : ?>
-        <div class="default-section feature-list-section" style="background-color: #F3F8EF">
-            <div class="container">
-                <div class="feature-list-inner">
-                    <div class="row row-eq-height">
-                        <?php foreach ($feature_item as $item) {
-                            $title = $item['title'];
-                            $description = $item['description'];
-                            $description = str_replace("|", "<br>", $description);
-                            $image = $item['icon'];
-                            $image_data = get_attachment($image);
-                        ?>
-                            <div class="col-4 col-lg-4">
-                                <div class="feature-item text-left">
-                                    <div class="row align-items-center">
-                                        <div class="col-12 col-lg-4">
-                                            <div class="feature-icon">
-                                                <?php echo '<img src="' . $image_data['src'] . '" alt="' . $image_data['alt'] . '" title="' . $image_data['title'] . '" />'; ?>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-lg-8">
-                                            <div class="feature-info">
-                                                <div class="name"><?php echo $title; ?></div>
-                                                <div class="address"><?php echo $description; ?></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-<?php endif;
-    return ob_get_clean();
-}
-add_shortcode('feature-list', 'shortcode_feature_list');

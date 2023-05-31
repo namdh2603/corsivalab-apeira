@@ -815,6 +815,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Customer' ) ) {
 			}
 
 			$remove_collected_points = isset( $args['remove_collected_points'] ) ?? false;
+			$remove_redeemed_points  = isset( $args['remove_redeemed_points'] ) ?? false;
 			$arguments               = array(
 				'user_id'     => $this->get_id(),
 				'action'      => $action,
@@ -846,7 +847,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Customer' ) ) {
 			if ( $update_result ) {
 				$this->set_total_points( $total_points );
 
-				if ( $points_amount > 0 || $remove_collected_points ) {
+				if ( ( $points_amount > 0 || $remove_collected_points ) && ! $remove_redeemed_points ) {
 					$this->increment_points_collected( $points_amount );
 					$this->update_level();
 				}

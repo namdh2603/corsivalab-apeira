@@ -89,35 +89,55 @@ if ( 'yes' === ywpar_get_option( 'show_point_worth_my_account', 'yes' ) ) {
 	if ( ! $target_banners && ! $history && ! $get_points_banners && ! $show_share_points ) {
 		return;
 	}
+
+	$selected = 0;
 	?>
 	<!-- Tab links -->
 	<div id="ywpar_tabs">
 		<div class="ywpar_tabs_header">
-			<ul>
+			<ul role="tablist" aria-label="Tabs">
 				<?php if ( $history ) : ?>
 					<li class="ywpar_tabs_links"
-						data-target="history"><?php esc_html_e( 'Points history', 'yith-woocommerce-points-and-rewards' ); ?></li>
+                        id="history-tab"
+						aria-selected="<?php echo ! $selected ? 'true' : 'false'; ?>"
+                        tabindex="<?php echo ! $selected++ ? '0' : '-1'; ?>"
+						aria-controls="history"
+						data-target="history"  role="tab"><?php esc_html_e( 'Points history', 'yith-woocommerce-points-and-rewards' ); ?></li>
 				<?php endif; ?>
 
 				<?php if ( $target_banners ) : ?>
 					<li class="ywpar_tabs_links"
-						data-target="targets"><?php esc_html_e( 'Targets to achieve', 'yith-woocommerce-points-and-rewards' ); ?></li>
+                        id="targets-tab"
+                        aria-selected="<?php echo ! $selected ? 'true' : 'false'; ?>"
+                        tabindex="<?php echo ! $selected++ ? '0' : '-1'; ?>"
+                        aria-controls="targets"
+						data-target="targets"  role="tab"><?php esc_html_e( 'Targets to achieve', 'yith-woocommerce-points-and-rewards' ); ?></li>
 				<?php endif; ?>
 
 				<?php if ( $get_points_banners ) : ?>
 					<li class="ywpar_tabs_links"
-						data-target="getpoints"><?php esc_html_e( 'Get points!', 'yith-woocommerce-points-and-rewards' ); ?></li>
+                        id="getpoints-tab"
+                        aria-selected="<?php echo ! $selected ? 'true' : 'false'; ?>"
+                        tabindex="<?php echo ! $selected++ ? '0' : '-1'; ?>"
+                        aria-controls="getpoints"
+						data-target="getpoints"  role="tab"><?php esc_html_e( 'Get points!', 'yith-woocommerce-points-and-rewards' ); ?></li>
 				<?php endif; ?>
 
 				<?php if ( $show_share_points ) : ?>
 					<li class="ywpar_tabs_links"
-						data-target="share_points"><?php esc_html_e( 'Manage points', 'yith-woocommerce-points-and-rewards' ); ?></li>
+                        id="share_points-tab"
+                        aria-selected="<?php echo ! $selected ? 'true' : 'false'; ?>"
+                        tabindex="<?php echo ! $selected++ ? '0' : '-1'; ?>"
+                        aria-controls="share_points"
+						data-target="share_points"  role="tab"><?php esc_html_e( 'Manage points', 'yith-woocommerce-points-and-rewards' ); ?></li>
 				<?php endif; ?>
 			</ul>
 		</div>
 		<div class="ywpar_tabs_content_container">
-		<?php if ( $history ) : ?>
-			<div id="history" class="ywpar_tabcontent">
+		<?php
+		$selected = 0;
+        if ( $history ) : ?>
+			<div id="history" class="ywpar_tabcontent" role="tabpanel" tabindex="0" aria-labelledby="history-tab">
 				<!-- Tab content -->
 
 				<table class="shop_table ywpar_points_rewards my_account_orders shop_table_responsive">
@@ -151,7 +171,7 @@ if ( 'yes' === ywpar_get_option( 'show_point_worth_my_account', 'yes' ) ) {
 									} else {
 										echo esc_html( '-' );
 									}
-								} 
+								}
 								?>
 							</td>
 							<td class="ywpar_points_rewards-points" width="1%" data-title="<?php echo esc_attr( $plural ); ?>">
@@ -167,11 +187,11 @@ if ( 'yes' === ywpar_get_option( 'show_point_worth_my_account', 'yes' ) ) {
 
 								echo '<span class="' . $class . '">' . wp_kses_post( apply_filters( 'ywpar_product_points_formatted', $item['amount'] ) ) . '</span>' . apply_filters( 'ywpar_product_points_formatted', $total_amount ) . ' ' . $plural;
 
-                                if ( 'remove' === $type ) {
-                                    $total_amount = intval( $total_amount ) + substr( $item['amount'], 1, strlen( $item['amount'] ) );
-                                } else {
-                                    $total_amount = intval( $total_amount ) - substr( $item['amount'], 1, strlen( $item['amount'] ) );
-                                }
+								if ( 'remove' === $type ) {
+									$total_amount = intval( $total_amount ) + substr( $item['amount'], 1, strlen( $item['amount'] ) );
+								} else {
+									$total_amount = intval( $total_amount ) - substr( $item['amount'], 1, strlen( $item['amount'] ) );
+								}
 								?>
 							</td>
 						</tr>
@@ -184,7 +204,7 @@ if ( 'yes' === ywpar_get_option( 'show_point_worth_my_account', 'yes' ) ) {
 		</div>
 		<?php if ( $target_banners ) : ?>
 			<!-- Tab content -->
-			<div id="targets" class="ywpar_tabcontent">
+			<div id="targets" class="ywpar_tabcontent" role="tabpanel" tabindex="0" aria-labelledby="targets-tab">
 				<?php
 				foreach ( $target_banners as $banner ) {
 					$banner->get_template();
@@ -194,7 +214,7 @@ if ( 'yes' === ywpar_get_option( 'show_point_worth_my_account', 'yes' ) ) {
 		<?php endif; ?>
 
 		<?php if ( $get_points_banners ) : ?>
-			<div id="getpoints" class="ywpar_tabcontent">
+			<div id="getpoints" class="ywpar_tabcontent" role="tabpanel" tabindex="0" aria-labelledby="getpoints-tab">
 				<?php
 				foreach ( $get_points_banners as $banner ) {
 					$banner->get_template();

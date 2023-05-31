@@ -48,7 +48,7 @@ class NewArrivals extends Component
 								$term_id = $item;
 								$i++; ?>
 								<li class="nav-item" role="presentation">
-									<div class="nav-link <?php echo ($i == 1) ? 'active' : ''; ?>" id="pills-<?php echo $i; ?>-tab" data-bs-toggle="pill" data-bs-target="#pills-<?php echo $i; ?>" type="button" role="tab" aria-controls="pills-<?php echo $i; ?>" aria-selected="true"><?php echo get_term($term_id)->name; ?></button>
+									<div class="nav-link <?php echo ($i == 1) ? 'active' : ''; ?>" id="pills-<?php echo $i; ?>-tab" data-bs-toggle="pill" data-bs-target="#pills-<?php echo $i; ?>" type="button" role="tab" aria-controls="pills-<?php echo $i; ?>" aria-selected="true"><?php echo get_term($term_id)->name; ?></div>
 								</li>
 							<?php } ?>
 						<?php } ?>
@@ -77,7 +77,7 @@ class NewArrivals extends Component
 							?>
 								<div class="tab-pane fade <?php echo ($ic == 1) ? 'show active' : ''; ?>" id="pills-<?php echo $ic; ?>" role="tabpanel" aria-labelledby="pills-<?php echo $ic; ?>-tab" tabindex="0">
 									<?php
-								if($num <= 4){
+								if($num <= 2){
 									woocommerce_product_loop_start();
 									if ($products->have_posts()) {
 										while ($products->have_posts()) {
@@ -104,8 +104,14 @@ class NewArrivals extends Component
 						</div>
 									</div>
 							
-					<div class="swiper-button-next-unique"><i class="fal fa-long-arrow-right"></i></div>
-					<div class="swiper-button-prev-unique"><i class="fal fa-long-arrow-left"></i></div>
+					<div class="swiper-button-next-unique">
+<!-- 						<i class="fal fa-long-arrow-right"></i> -->
+						<i class="fa fa-long-arrow-right"></i>
+					</div>
+					<div class="swiper-button-prev-unique">
+<!-- 						<i class="fal fa-long-arrow-left"></i> -->
+						<i class="fa fa-long-arrow-left"></i>
+					</div>
 					</div>
 								<?php }
 									?>

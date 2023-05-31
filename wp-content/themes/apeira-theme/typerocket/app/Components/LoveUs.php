@@ -54,9 +54,9 @@ class LoveUs extends Component
 								<?php
 								foreach ($data['list'] as $item) {
 								?>
-									<div class="col-12 col-sm-3 col-md-3 col-lg-3">
+									<div class="col-12 col-sm-6 col-md-6 col-lg-3">
 										<div class="loveus-item">
-											<img src="<?php echo get_attachment($item['img'])['src']; ?>" class="w-100" alt="img" />
+											<?php if (!empty($item['img'])) : echo wp_get_attachment_image($item['img'], 'medium', "", array( "class" => "w-100" )); endif; ?>
 											<?php if (!empty($item['title'])) : ?><div class="loveus-item-title"><?php echo $item['title']; ?></div><?php endif; ?>
 											<?php if (!empty($item['desc'])) : ?><div class="desc"><?php echo apply_filters('the_content', $item['desc']); ?></div><?php endif; ?>
 

@@ -3,13 +3,13 @@
  * Plugin Name: YITH WooCommerce Points and Rewards Premium
  * Plugin URI: https://yithemes.com/themes/plugins/yith-woocommerce-points-and-rewards/
  * Description: With <code><strong>YITH WooCommerce Points and Rewards</strong></code> you can start a rewards program with points to gain your customers' loyalty. Your customers will be able to use their points to get discounts making it a perfect marketing strategy for your store. <a href="https://yithemes.com/" target="_blank">Get more plugins for your e-commerce shop on <strong>YITH</strong></a>.
- * Version: 3.12.0
+ * Version: 3.20.0
  * Author: YITH
  * Author URI: https://yithemes.com/
  * Text Domain: yith-woocommerce-points-and-rewards
  * Domain Path: /languages/
- * WC requires at least: 6.6
- * WC tested up to: 6.8
+ * WC requires at least: 7.4
+ * WC tested up to: 7.6
  **/
 
 /*
@@ -26,10 +26,10 @@ if ( ! function_exists( 'is_plugin_active' ) ) {
 
 ! defined( 'YITH_YWPAR_DIR' ) && define( 'YITH_YWPAR_DIR', plugin_dir_path( __FILE__ ) );
 
-if ( ! function_exists( 'yit_deactive_free_version' ) ) {
+if ( ! function_exists( 'yith_deactivate_plugins' ) ) {
 	require_once 'plugin-fw/yit-deactive-plugin.php';
 }
-yit_deactive_free_version( 'YITH_YWPAR_FREE_INIT', plugin_basename( __FILE__ ) );
+yith_deactivate_plugins( 'YITH_YWPAR_FREE_INIT', plugin_basename( __FILE__ ) );
 
 /* Plugin Framework Version Check */
 if ( ! function_exists( 'yit_maybe_plugin_fw_loader' ) && file_exists( YITH_YWPAR_DIR . 'plugin-fw/init.php' ) ) {
@@ -38,7 +38,7 @@ if ( ! function_exists( 'yit_maybe_plugin_fw_loader' ) && file_exists( YITH_YWPA
 yit_maybe_plugin_fw_loader( YITH_YWPAR_DIR );
 
 // Define constants ________________________________________.
-! defined( 'YITH_YWPAR_VERSION' ) && define( 'YITH_YWPAR_VERSION', '3.12.0' );
+! defined( 'YITH_YWPAR_VERSION' ) && define( 'YITH_YWPAR_VERSION', '3.20.0' );
 ! defined( 'YITH_YWPAR_PREMIUM' ) && define( 'YITH_YWPAR_PREMIUM', plugin_basename( __FILE__ ) );
 ! defined( 'YITH_YWPAR_INIT' ) && define( 'YITH_YWPAR_INIT', plugin_basename( __FILE__ ) );
 ! defined( 'YITH_YWPAR_FILE' ) && define( 'YITH_YWPAR_FILE', __FILE__ );
@@ -81,6 +81,7 @@ if ( ! function_exists( 'yith_ywpar_premium_install' ) ) {
 			return;
 		}
 
+		add_action( 'before_woocommerce_init', 'ywpar_add_support_hpos_system' );
 		// DO_ACTION : yith_ywpar_init : action triggered before install the plugin.
 		do_action( 'yith_ywpar_init' );
 
@@ -92,6 +93,14 @@ if ( ! function_exists( 'yith_ywpar_premium_install' ) ) {
 }
 
 add_action( 'plugins_loaded', 'yith_ywpar_premium_install', 11 );
+
+if ( ! function_exists( 'ywpar_add_support_hpos_system' ) ) {
+    function ywpar_add_support_hpos_system() {
+	    if ( class_exists( '\Automattic\WooCommerce\Utilities\FeaturesUtil' ) ) {
+		    \Automattic\WooCommerce\Utilities\FeaturesUtil::declare_compatibility( 'custom_order_tables', YITH_YWPAR_INIT );
+	    }
+    }
+}
 
 if ( ! function_exists( 'yith_plugin_onboarding_registration_hook' ) ) {
 	include_once 'plugin-upgrade/functions-yith-licence.php';

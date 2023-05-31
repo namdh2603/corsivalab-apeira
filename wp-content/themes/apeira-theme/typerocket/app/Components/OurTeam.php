@@ -37,7 +37,7 @@ class OurTeam extends Component
 			<div class="container-fluid">
 				<div class="row justify-content-center g-0">
 					<div class="col-12 col-sm-6 col-md-6 col-lg-6">
-						<img src="<?php echo get_attachment($data['img'])['src']; ?>" class="w-100" alt="img" />
+					<?php if (!empty($data['img'])) : echo wp_get_attachment_image($data['img'], 'full', "", array( "class" => "w-100" )); endif; ?>
 					</div>
 					<div class="col-12 col-sm-6 col-md-6 col-lg-6 align-self-center">
 						<div class="head-section">

@@ -13,6 +13,7 @@ class ImpactCount extends Component
 	public function fields()
 	{
 		$form = $this->form();
+		echo $form->toggle('enable')->setLabel('Enable this section');
 		echo $form->color('bg_color')->setLabel('Section Background Color');
 		echo $form->input('number')->setTypeNumber()->setLabel('Count Number');
 		echo $form->text('title')->setLabel('Title');
@@ -27,6 +28,7 @@ class ImpactCount extends Component
 	public function render(array $data, array $info)
 	{
 		$bg_color = $data['bg_color'];
+		if (!empty($data['enable'])) :
 ?>
 		<section class="section-<?php echo $info['component_id']; ?> section-padding" data-id="<?php echo $info['component_id']; ?>" style="<?php echo (!empty($bg_color) ? 'background-color:' . $bg_color . ';' : ''); ?>">
 			<div class="container">
@@ -42,5 +44,6 @@ class ImpactCount extends Component
 			</div>
 		</section>
 <?php
+		endif;
 	}
 }

@@ -80,8 +80,6 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Orders' ) ) {
 
 			if ( ywpar_get_option( 'remove_point_refund_order' ) === 'yes' ) {
 				add_action( 'woocommerce_order_refunded', array( $this, 'remove_order_points_refund' ), 11, 2 );
-				add_action( 'wp_ajax_nopriv_woocommerce_delete_refund', array( $this, 'refund_delete' ), 9, 2 );
-				add_action( 'wp_ajax_woocommerce_delete_refund', array( $this, 'refund_delete' ), 9, 2 );
 			}
 		}
 
@@ -649,7 +647,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Orders' ) ) {
 
 			$action = 'refunded' ? 'order_refund' : 'order_cancelled';
 			$customer->add_total_discount( - $discount_amount );
-			$customer->update_points( $points, $action, array( 'order_id' => $order_id ) );
+			$customer->update_points( $points, $action, array( 'order_id' => $order_id, 'remove_redeemed_points' => true ) );
 			$customer->add_rewarded_points( - $points );
 
 			// translators: 'First placeholder: number of points; second placeholder: reason of action'.
@@ -679,12 +677,11 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Orders' ) ) {
 
 			$point_earned = $order->get_meta( '_ywpar_points_earned' );
 			$user_id      = $order->get_user_id();
-			$customer     = ywpar_get_customer( $user_id );
 
-			if ( $point_earned <= 0 || ! $customer ) {
+			if ( $point_earned <= 0 || ! $user_id ) {
 				return;
 			}
-
+			$customer     = ywpar_get_customer( $user_id );
 			/**
 			 * WC_Order_Refund
 			 *
@@ -729,23 +726,21 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Orders' ) ) {
 					}
 					$total_points_to_refund += abs( $product_point_to_refund );
 				}
+
 				$new_total_refunded = $total_points_refunded + $total_points_to_refund;
 
 			} else {
 				$total_points_to_refund = $point_earned - $total_points_refunded;
 				$new_total_refunded     = $total_points_to_refund;
 			}
-
 			$new_total_refunded = $new_total_refunded >= $point_earned ? $point_earned : $new_total_refunded;
-
 			if ( $new_total_refunded > 0 ) {
-				$order->update_meta_data( '_ywpar_total_points_refunded', $total_points_to_refund );
+				$order->update_meta_data( '_ywpar_total_points_refunded', $new_total_refunded );
 				$order->save();
 
 				// DO_ACTION : ywpar_customer_removed_points : action triggered before remove point to customer in a refund.
 				do_action( 'ywpar_customer_removed_points', $total_points_to_refund, $order );
 				$customer->update_points( -$total_points_to_refund, 'order_refund', array( 'order_id' => $order_id, 'remove_collected_points' => true ) );
-
 				// translators:First placeholder: number of point; second placeholder: label of points.
 				$order->add_order_note( sprintf( _x( 'Removed %1$d %2$s to customer for order refund.', 'First placeholder: number of point; second placeholder: label of points', 'yith-woocommerce-points-and-rewards' ), $total_points_to_refund, ywpar_get_option( 'points_label_plural' ) ), 0 );
 

@@ -34,93 +34,100 @@ if (is_shop()) {
 		</div>
 	</div>
 </section>
-
 <section id="layout-product" class="container-product">
-	
 	<div class="breadcrumb-section">
-	<div class="container">
-		<?php /**
-		 * Hook: woocommerce_before_main_content.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 * @hooked WC_Structured_Data::generate_website_data() - 30
-		 */
-		do_action('woocommerce_before_main_content');  ?>
-	</div>
-</div>
-<?php 
-// 	if (is_shop()) {
-    $cat_filter_list =  get_theme_mod(sanitize_underscores('Shop Categories Filter'));
-	$cat_filter_count = count($cat_filter_list);
-?>
-	
-						<?php if ($cat_filter_list) : ?>
-	<div class="categories-slide-shop">
 		<div class="container">
-			<div class="categories-slide-inner">
-				<?php if($cat_filter_count <= 7){ ?>
-	<div class="row">
-		<?php foreach ($cat_filter_list as $termid) {
-								$thumbnail_id = get_term_meta($termid, 'thumbnail_id', true);
-								$term_image = wp_get_attachment_image($thumbnail_id, 'medium', false, array( "class" => "category-img" ) );
-	$data_term = get_term_by('ID', $termid, 'product_cat');
-						?>
-								<div class="col-3 col-lg-1dot7">
-									<?php if ($thumbnail_id) { ?>
-										<div class="category-img-inner ratio ratio-1x1">
-										<?php echo $term_image; ?>
-										</div>
-									<?php } ?>
-									<div class="category-title"><a href="<?php echo esc_url(get_term_link($data_term->slug, 'product_cat')); ?>"><?php echo $data_term->name; ?></a></div>
-								</div>
-						<?php } ?>
-				</div>
-<?php } else { ?>
-				
-				<div class="swiper">
-					<div class="swiper-wrapper">
-						<?php foreach ($cat_filter_list as $termid) {
-								$thumbnail_id = get_term_meta($termid, 'thumbnail_id', true);
-								$term_image = wp_get_attachment_image($thumbnail_id, 'medium', false, array( "class" => "category-img" ) );
-						?>
-								<div class="swiper-slide">
-									<?php if ($thumbnail_id) { ?>
-										<div class="category-img-inner ratio ratio-1x1">
-										<?php echo $term_image; ?>
-										</div>
-									<?php } ?>
-									<div class="category-title"><a href="<?php echo esc_url(get_term_link($termid, 'product_cat')); ?>"><?php echo get_term_by('ID', $termid, 'product_cat')->name; ?></a></div>
-								</div>
-						<?php } ?>
-						
-					</div>
-					<div class="swiper-pagination"></div>
-				</div>
-				<div class="swiper-button-next-unique"><i class="fal fa-long-arrow-right"></i></div>
-				<div class="swiper-button-prev-unique"><i class="fal fa-long-arrow-left"></i></div>
-				
-				
-				<?php } ?>
-	
-
-				
-			</div>
+			<?php /**
+			 * Hook: woocommerce_before_main_content.
+			 *
+			 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
+			 * @hooked woocommerce_breadcrumb - 20
+			 * @hooked WC_Structured_Data::generate_website_data() - 30
+			 */
+			do_action('woocommerce_before_main_content');  ?>
 		</div>
 	</div>
+	<?php
+	// 	if (is_shop()) {
+	$cat_filter_list =  get_theme_mod(sanitize_underscores('Shop Categories Filter'));
+	$cat_filter_count = count($cat_filter_list);
+	if(is_product_category()){
+// 		var_dump($cat_filter_list);
+		 $cat_ex = [93, 94];
+		foreach($cat_filter_list as $key => $value){
+			foreach($cat_ex as $cat_item){
+			if($cat_item == $value){
+				unset($cat_filter_list[$key]);
+			}
+			}
+		}
+	}
+	?>
+	<?php if ($cat_filter_list) : ?>
+		<div class="categories-slide-shop">
+			<div class="container">
+				<div class="categories-slide-inner">
+					<?php if ($cat_filter_count <= 7) { ?>
+						<div class="row">
+							<?php foreach ($cat_filter_list as $termid) {
+								$thumbnail_id = get_term_meta($termid, 'thumbnail_id', true);
+								$data_term = get_term_by('ID', $termid, 'product_cat');
+								$placeholder = wc_placeholder_img_src('medium');
+								if ($thumbnail_id) {
+									$term_image = wp_get_attachment_image($thumbnail_id, 'medium', false, array("class" => "category-img"));
+								} else {
+									$term_image = '<img class="category-img" src="' . $placeholder . '" />';
+								}
+							?>
+								<div class="col-3 col-lg-1dot7">
+									<div class="category-img-inner ratio ratio-1x1">
+										<?php echo $term_image; ?>
+									</div>
+									<div class="category-title"><a href="<?php echo esc_url(get_term_link($data_term->slug, 'product_cat')); ?>"><?php echo $data_term->name; ?></a></div>
+								</div>
+							<?php } ?>
+						</div>
+					<?php } else { ?>
+						<div class="swiper">
+							<div class="swiper-wrapper">
+								<?php foreach ($cat_filter_list as $termid) {
+									$thumbnail_id = get_term_meta($termid, 'thumbnail_id', true);
+									$data_term = get_term_by('ID', $termid, 'product_cat');
+									$placeholder = wc_placeholder_img_src('medium');
+									if ($thumbnail_id) {
+										$term_image = wp_get_attachment_image($thumbnail_id, 'medium', false, array("class" => "category-img"));
+									} else {
+										$term_image = '<img class="category-img" src="' . $placeholder . '" />';
+									}
+								?>
+									<div class="swiper-slide">
+										<div class="category-img-inner ratio ratio-1x1">
+											<?php echo $term_image; ?>
+										</div>
+										<div class="category-title"><a href="<?php echo esc_url(get_term_link($data_term->slug, 'product_cat')); ?>"><?php echo $data_term->name; ?></a></div>
+									</div>
+								<?php } ?>
+							</div>
+							<div class="swiper-pagination"></div>
+						</div>
+						<div class="swiper-button-next-unique"><i class="fal fa-long-arrow-right"></i></div>
+						<div class="swiper-button-prev-unique"><i class="fal fa-long-arrow-left"></i></div>
+					<?php } ?>
+				</div>
+			</div>
+		</div>
 	<?php endif; ?>
-<?php //} ?>
-<?php
-/**
- * Hook: woocommerce_archive_description.
- *
- * @hooked woocommerce_taxonomy_archive_description - 10
- * @hooked woocommerce_product_archive_description - 10
- */
-do_action('woocommerce_archive_description');
-?>
-	
-	
+	<?php //} 
+	?>
+	<?php
+	/**
+	 * Hook: woocommerce_archive_description.
+	 *
+	 * @hooked woocommerce_taxonomy_archive_description - 10
+	 * @hooked woocommerce_product_archive_description - 10
+	 */
+	do_action('woocommerce_archive_description');
+	?>
 	<div class="container">
 		<?php do_action('corsivalab_all_notices'); ?>
 		<div class="top-header-woo">
@@ -131,9 +138,9 @@ do_action('woocommerce_archive_description');
 				<div class="filter-container">
 					<div class="filter-title"><span>FILTERS</span><img class="close-filter" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/close-icon.png" /></div>
 					<div class="filter-inner">
-					<?php if (is_active_sidebar('widget-sidebar-woocommerce')) {
-						dynamic_sidebar('widget-sidebar-woocommerce');
-					} ?>
+						<?php if (is_active_sidebar('widget-sidebar-woocommerce')) {
+							dynamic_sidebar('widget-sidebar-woocommerce');
+						} ?>
 					</div>
 				</div>
 			</div>
@@ -149,8 +156,7 @@ do_action('woocommerce_archive_description');
 				do_action('woocommerce_before_shop_loop'); ?>
 			</div>
 		</div>
-		</div>
-	
+	</div>
 	<div class="container-fluid">
 		<?php
 		if (woocommerce_product_loop()) { ?>
@@ -191,5 +197,4 @@ do_action('woocommerce_archive_description');
  * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
  */
 do_action('woocommerce_after_main_content');
-?>
-<?php get_footer('shop');
+get_footer('shop');

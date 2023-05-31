@@ -37,6 +37,11 @@ return [
         sanitize_title('Social List') => \App\Components\SocialList::class,
         sanitize_title('Search') => \App\Components\Search::class,
         sanitize_title('Gap') => \App\Components\Gap::class,
+        sanitize_title('Sub Menu Add Menu') => \App\Components\SubMenuAddMenu::class,
+        sanitize_title('Sub Menu Feature') => \App\Components\SubMenuFeature::class,
+        sanitize_title('Sub Menu Product') => \App\Components\SubMenuProduct::class,
+		
+		
     ],
 
     /*
@@ -80,5 +85,11 @@ return [
         sanitize_title('About Us Image Tabs'),
         sanitize_title('Search'),
         sanitize_title('Gap'),
+        sanitize_title('Sub Menu Add Menu'),
+        sanitize_title('Sub Menu Feature'),
+		sanitize_title('Sub Menu Product')
+		
+		
+		
     ]
 ];

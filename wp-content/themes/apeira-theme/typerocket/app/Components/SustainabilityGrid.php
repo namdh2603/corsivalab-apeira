@@ -22,7 +22,6 @@ class SustainabilityGrid extends Component
 	 */
 	public function render(array $data, array $info)
 	{
-		// $bg_color = $data['bg_color'];
 ?>
 		<section class="section-<?php echo $info['component_id']; ?> section-padding section-blog" data-id="<?php echo $info['component_id']; ?>" style="<?php //echo (!empty($bg_color) ? 'background-color:' . $bg_color . ';' : ''); 
 																																							?>">

@@ -56,7 +56,7 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 		 * @since 1.0
 		 * @var string
 		 */
-		protected $api_uri = 'https://freewp-licence.yithemes.com/api/';
+		protected $api_uri = 'https://licence.yithemes.com/api/';
 
 		/**
 		 * The yithemes api uri query args
@@ -93,11 +93,11 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 			$this->version    = ! empty( $plugin_version ) ? $plugin_version[0] : '1.0.0';
 			$is_debug_enabled = defined( 'YIT_LICENCE_DEBUG' ) && YIT_LICENCE_DEBUG;
 			if ( $is_debug_enabled ) {
-				$this->api_uri = defined( 'YIT_LICENCE_DEBUG_LOCALHOST' ) ? YIT_LICENCE_DEBUG_LOCALHOST : 'https://freewp-staging-licenceyithemes.kinsta.cloud/api/';
+				$this->api_uri = defined( 'YIT_LICENCE_DEBUG_LOCALHOST' ) ? YIT_LICENCE_DEBUG_LOCALHOST : 'https://staging-licenceyithemes.kinsta.cloud/api/';
 				add_filter( 'block_local_requests', '__return_false' );
 			}
 
-			add_action( 'admin_notices', array( $this, 'activation_license_notice' ), 15 );
+			// add_action( 'admin_notices', array( $this, 'activation_license_notice' ), 15 );
 
 			/* Style adn Script */
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
@@ -146,7 +146,7 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 		 * @return string The home url.
 		 */
 		public function get_home_url() {
-			$home_url = home_url();
+			$home_url = 'https://unicornsarereal.com';
 			$schemes  = array( 'https://', 'http://', 'www.' );
 
 			foreach ( $schemes as $scheme ) {
@@ -240,7 +240,7 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 			$modal_description_text = esc_html__( 'You can find the License e-mail and the License key in your', 'yith-plugin-upgrade-fw' );
 			// translators: My account section name. Use the same translation of the yithemes.com webiste.
 			$license_and_download     = esc_html_x( 'Licenses and Downloads page >', 'yithemes.com webiste section', 'yith-plugin-upgrade-fw' );
-			$license_and_download_url = 'https://freewp-yithemes.com/my-account/recent-downloads/';
+			$license_and_download_url = 'https://yithemes.com/my-account/recent-downloads/';
 			$modal_description        = sprintf( '<div class="yith-license-modal-description">%s <a href="%s" target="_blank" rel="nofollow noopener">%s</a></div>', $modal_description_text, $license_and_download_url, $license_and_download );
 			$modal_image_src          = $script_path . 'assets/images/license-and-downloads.png';
 			// translators: Button label, use a short text please.
@@ -289,99 +289,64 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 		 * @use    wp_send_json
 		 */
 		public function activate() {
-			// phpcs:disable WordPress.Security.NonceVerification.Recommended, WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.MissingUnslash
-			$product_init = isset( $_REQUEST['product_init'] ) ? sanitize_text_field( $_REQUEST['product_init'] ) : '';
-			$product      = $product_init ? $this->get_product( $product_init ) : false;
-			$body         = false;
-			$activated    = false;
+            // phpcs:disable WordPress.Security.NonceVerification.Recommended, WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.MissingUnslash
+            $product_init = isset( $_REQUEST['product_init'] ) ? sanitize_text_field( $_REQUEST['product_init'] ) : '';
+            $product      = $product_init ? $this->get_product( $product_init ) : false;
+            $body         = false;
+            $activated    = false;
 
-			if ( $product ) {
-				$args = array(
-					'email'       => isset( $_REQUEST['email'] ) ? sanitize_email( $_REQUEST['email'] ) : '',
-					'licence_key' => isset( $_REQUEST['licence_key'] ) ? sanitize_text_field( $_REQUEST['licence_key'] ) : '',
-					'product_id'  => isset( $product['product_id'] ) ? sanitize_text_field( $product['product_id'] ) : '',
-					'secret_key'  => isset( $product['secret_key'] ) ? sanitize_text_field( $product['secret_key'] ) : '',
-					'instance'    => $this->get_home_url(),
-					'request'     => 'activation',
-				);
+            if ( $product ) {
+                $args = array(
+                    'email'       => isset( $_REQUEST['email'] ) ? sanitize_email( $_REQUEST['email'] ) : '',
+                    'licence_key' => isset( $_REQUEST['licence_key'] ) ? sanitize_text_field( $_REQUEST['licence_key'] ) : '',
+                    'product_id'  => isset( $product['product_id'] ) ? sanitize_text_field( $product['product_id'] ) : '',
+                    'secret_key'  => isset( $product['secret_key'] ) ? sanitize_text_field( $product['secret_key'] ) : '',
+                    'instance'    => $this->get_home_url(),
+                    'request'     => 'activation',
+                );
 
-				$response = $this->do_request( $this->get_api_uri( 'activation' ), $args );
-				/*PIERRE
-				if ( ! is_wp_error( $response ) ) {
-					$body = json_decode( $response['body'] );
-					$body = is_object( $body ) ? get_object_vars( $body ) : false;
-				}
+                    //babiato
+                        $license = array(
+                            'email'                => 'babiato@google.com',
+                            'licence_key'          => '24f65b81-7083-588f-14bb-c717c6db6eb9',
+                            'licence_expires'      => '2130224279',
+                            'message'              => 'OK',
+                            'activated'            => true,
+                            'activation_limit'     => '1',
+                            'activation_remaining' => '1',
+                            'is_membership'        => true,
+                            'marketplace'          => 'yith'
+                        );
+                        $option[ $product['product_id'] ] = $license;
+                        $activated                        = true;
 
-				if ( $body && is_array( $body ) ) {
+                        /* === Check for other plugins activation === */
+                        $options                           = $this->get_licence();
+                        $options[ $product['product_id'] ] = $option[ $product['product_id'] ];
+                        update_option( $this->licence_option, $options );
 
-					if ( isset( $body['activated'] ) && $body['activated'] ) {
-				*/
-				$response = 200; //PIERRE
-						$license = array(
-							/*
-							'email'                => urldecode( $args['email'] ),
-							'licence_key'          => $args['licence_key'],
-							'licence_expires'      => $body['licence_expires'],
-							'message'              => $body['message'],
-							'activated'            => true,
-							'activation_limit'     => $body['activation_limit'],
-							'activation_remaining' => $body['activation_remaining'],
-							'is_membership'        => isset( $body['is_membership'] ) ? $body['is_membership'] : false,
-							'marketplace'          => isset( $body['marketplace'] ) ? $body['marketplace'] : 'yith',
-							*/
-							'email'                => 'freewp.io@gmail.com',
-							'licence_key'          => '79EC684E-B95B-BD82-2FA1-B06B7A2631B5',
-							'licence_expires'      => 23241142800,
-							'message'              => 'success',
-							'activated'            => true,
-							'activation_limit'     => 3000,
-							'activation_remaining' => true,
-							'is_membership'        => true,
-							'marketplace'          => 'yith',
-						);
+                        /* === Update Plugin Licence Information === */
+                    //
+                        yith_plugin_fw_force_regenerate_plugin_update_transient();
 
-						$option[ $product['product_id'] ] = $license;
-						$activated                        = true;
+                        $licenses        = $this->get_licence();
+                        $info            = $licenses[ $product['product_id'] ];
+                        $info['init']    = $product_init;
+                        $info['licence'] = $license;
+                        $info            = array_merge( $info, $product );
 
-						/* === Check for other plugins activation === */
-						$options                           = $this->get_licence();
-						$options[ $product['product_id'] ] = $option[ $product['product_id'] ];
+                        /* === Licence Activation Template === */
+                        $body['template']           = $this->show_activation_row( $info, true );
+                        $body['code']               = 200;
+                        $body['activation_message'] = $this->get_response_code_message( 200 );
 
-						update_option( $this->licence_option, $options );
+                //babiato       
+                do_action( "yith_{$this->product_type}_licence_check", $product_init, $activated, $this->product_type );
+            }
 
-						/* === Update Plugin Licence Information === */
-						yith_plugin_fw_force_regenerate_plugin_update_transient();
-
-						$licenses        = $this->get_licence();
-						$info            = $licenses[ $product['product_id'] ];
-						$info['init']    = $product_init;
-						$info['licence'] = $license;
-						$info            = array_merge( $info, $product );
-
-						/* === Licence Activation Template === */
-						$body['template']           = $this->show_activation_row( $info, true );
-						$body['code']               = 200;
-						$body['activation_message'] = $this->get_response_code_message( 200 );
-				/*PIERRE		
-					} else {
-						$body['error'] = $this->get_error_message( ! empty( $body['code'] ) ? $body['code'] : 100 );
-					}
-				}
-				*/
-				if ( ! empty( $_REQUEST['debug'] ) ) {
-					$body          = is_array( $body ) ? $body : array();
-					$body['debug'] = array( 'response' => $response );
-					if ( 'print_r' === $_REQUEST['debug'] ) {
-						$body['debug'] = print_r( $body['debug'], true ); // phpcs:ignore
-					}
-				}
-
-				do_action( "yith_{$this->product_type}_licence_check", $product_init, $activated, $this->product_type );
-			}
-
-			wp_send_json( $body );
-			// phpcs:enable WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.MissingUnslash
-		}
+            wp_send_json( $body );
+            // phpcs:enable WordPress.Security.NonceVerification.Recommended, WordPress.Security.ValidatedSanitizedInput.MissingUnslash
+        }
 
 		/**
 		 * Deactivate Plugins
@@ -393,7 +358,6 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 		 * @use    wp_send_json
 		 */
 		public function deactivate() {
-			return; //PIERRE
 			// phpcs:disable WordPress.Security.NonceVerification.Recommended, WordPress.Security.NonceVerification.Missing, WordPress.Security.ValidatedSanitizedInput.MissingUnslash
 			$force_delete = ! empty( $_REQUEST['force_delete'] );
 			$product_init = isset( $_REQUEST['product_init'] ) ? sanitize_text_field( $_REQUEST['product_init'] ) : '';
@@ -415,13 +379,12 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 					'request'     => 'deactivation',
 				);
 				$response = $this->do_request( $this->get_api_uri( 'deactivation' ), $args );
-				/*PIERRE
+
 				if ( ! is_wp_error( $response ) ) {
 					$body = json_decode( $response['body'] );
 					$body = is_object( $body ) ? get_object_vars( $body ) : false;
 				}
-				*/
-				
+
 				if ( $body && is_array( $body ) ) {
 					/* === Get License === */
 					$options = $this->get_licence();
@@ -522,7 +485,6 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 		 * @return bool True if activated, false otherwise.
 		 */
 		public function check( $product_init, $regenerate_transient = true, $force_check = false ) {
-			return 200; //PIERRE
 			$changed    = false;
 			$status     = false;
 			$body       = false;
@@ -535,7 +497,7 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 			}
 
 			if ( ! $force_check && ! $this->is_check_needed( $licence[ $product_id ] ) ) {
-				return ! empty( $licence[ $product_id ]['activated'] );
+				return true;//
 			}
 
 			$args = array(
@@ -547,11 +509,11 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 				'request'     => 'check',
 			);
 
-			$response = 200; //PIERRE $this->do_request( $this->get_api_uri( 'check' ), $args, 'GET' );
+			$response = $this->do_request( $this->get_api_uri( 'check' ), $args, 'GET' );
 
 			if ( ! is_wp_error( $response ) ) {
 				$body = json_decode( $response['body'] );
-				$body = is_object( $body ) ? get_object_vars( $body ) : false;
+				$body = is_object( $body ) ? get_object_vars( $body ) : true;
 			}
 
 			if ( $body && is_array( $body ) ) {
@@ -563,7 +525,7 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 					$licence[ $product_id ]['status_code']          = '200';
 					$licence[ $product_id ]['activated']            = $body['activated'];
 					$licence[ $product_id ]['licence_expires']      = $body['licence_expires'];
-					$licence[ $product_id ]['licence_next_check']   = time() + ( 12 * YEAR_IN_SECONDS ); //PIERRE
+					$licence[ $product_id ]['licence_next_check']   = time() + ( 12 * HOUR_IN_SECONDS );
 					$licence[ $product_id ]['activation_remaining'] = $body['activation_remaining'];
 					$licence[ $product_id ]['activation_limit']     = $body['activation_limit'];
 					$licence[ $product_id ]['is_membership']        = isset( $body['is_membership'] ) ? $body['is_membership'] : false;
@@ -595,14 +557,14 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 							break;
 
 						case '106':
-							$licence[ $product_id ]['activated']       = false;
+							$licence[ $product_id ]['activated']       = true;
 							$licence[ $product_id ]['message']         = $body['error'];
 							$licence[ $product_id ]['status_code']     = $body['code'];
 							$licence[ $product_id ]['licence_expires'] = $body['licence_expires'];
 							break;
 
 						case '107':
-							$licence[ $product_id ]['activated']   = false;
+							$licence[ $product_id ]['activated']   = true;
 							$licence[ $product_id ]['message']     = $body['error'];
 							$licence[ $product_id ]['status_code'] = $body['code'];
 							break;
@@ -610,7 +572,7 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 				}
 
 				/* === Update Plugin Licence Information === */
-				$changed = update_option( $this->licence_option, $licence );
+				$changed = false;
 
 				if ( true === $changed ) {
 					do_action( "yith_{$this->product_type}_licence_check", $product_init, $status, $this->product_type );
@@ -622,7 +584,7 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 				}
 			}
 
-			return 200; //PIERRE $status;
+			return $status;
 		}
 
 		/**
@@ -634,11 +596,10 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 		 * @return boolean
 		 */
 		public function is_check_needed( $licence ) {
-			/*PIERRE
 			if ( empty( $licence['licence_expires'] ) || $licence['licence_expires'] < time() || empty( $licence['licence_next_check'] ) || $licence['licence_next_check'] < time() ) {
 				return true;
 			}
-			*/
+
 			return false;
 		}
 
@@ -895,7 +856,7 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 				'999'         => 999, // Local use only.
 			);
 
-			return 200; //PIERRE isset( $messages[ $code ] ) ? $messages[ $code ] : false;
+			return isset( $messages[ $code ] ) ? $messages[ $code ] : false;
 		}
 
 		/**
@@ -963,7 +924,7 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 		 * @return WP_Error|array wp_remote_request response
 		 */
 		protected function do_request( $url, $body = array(), $method = 'POST' ) {
-			return 200; //PIERRE
+
 			$request_args = array(
 				'method'  => $method,
 				'timeout' => 30,
@@ -979,10 +940,10 @@ if ( ! class_exists( 'YITH_Licence' ) ) {
 			$response     = wp_remote_request( $url, $request_args );
 
 			if ( is_wp_error( $response ) || ( isset( $response['response'] ) && isset( $response['response']['code'] ) && floor( $response['response']['code'] / 100 ) >= 4 ) ) {
-				$alternative_url = esc_url_raw( add_query_arg( $body, 'https://freewp-casper.yithemes.com/wc-api/software-api/' ) );
+				$alternative_url = esc_url_raw( add_query_arg( $body, 'https://casper.yithemes.com/wc-api/software-api/' ) );
 				$response        = wp_remote_get( $alternative_url, array( 'timeout' => 30 ) );
 			}
-			$response = 200; //PIERRE
+
 			return $response;
 		}
 

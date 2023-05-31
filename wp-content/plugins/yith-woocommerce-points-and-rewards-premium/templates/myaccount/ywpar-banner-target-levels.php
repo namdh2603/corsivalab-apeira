@@ -31,10 +31,10 @@ if ( 0 === count( $steps ) ) { /* we have probably reached all levels */
 krsort( $steps ); /* sort to have the max rule option value as first value the array has as key the points value and as value the lavel id */
 
 $what_need_to_get       = array_values( $steps );
-$what_need_to_get_id    = $what_need_to_get['0']; /* id level to use with placeholder %level% */
+$what_need_to_get_id    = end( $what_need_to_get ); /* id level to use with placeholder %level% */
 $what_need_to_get_level = ywpar_get_level_badge( $what_need_to_get_id );
-$what_need_to_get       = array_keys( $steps );
-$what_need_to_get       = $what_need_to_get['0']; /* max points value to get in order to get the latest level rule */
+$point_levels           = array_keys( $steps );
+$what_need_to_get       = end( $point_levels ); /* max points value to get in order to get the latest level rule */
 
 $level_name   = $what_need_to_get_level->get_name();
 $banner_title = $banner->get_title();
@@ -80,7 +80,7 @@ $image_class = ! empty( $image ) ? 'with_image' : '';
 					<div class="pbar_back"
 						style="background-color: <?php echo esc_attr( $progress_bar_colors['bar'] ); ?>;">
 						<?php
-						$current_progress   = ( $points * 100 ) / $what_need_to_get;
+						$current_progress   = ( $points * 100 ) / $point_levels[0];
 						$current_level_name = $current_level->get_name();
 						$bar_fill_style     = 'background:' . $progress_bar_colors['progress'] . ';width:' . $current_progress . '%;';
 						$step_style         = 'background:' . $progress_bar_colors['progress'].';left: calc(100% - 3px );';
@@ -100,7 +100,7 @@ $image_class = ! empty( $image ) ? 'with_image' : '';
 							$level      = ywpar_get_level_badge( $id_level );
 							$level_name = $level->get_name();
 							if ( $c < count( $steps ) ) {
-								$position = ( (int)$step * 100 ) / (int)$what_need_to_get;
+								$position = ( (int)$step * 100 ) / (int)$point_levels[0];
 								?>
 								<div class="step" style="left:<?php echo esc_attr( $position ); ?>%;">
 									<span><?php echo esc_attr( $step ); ?></span>

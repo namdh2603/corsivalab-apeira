@@ -21,18 +21,19 @@ global $product;
 if (empty($product) || !$product->is_visible()) {
 	return;
 }
-if (!is_front_page()) {
-	$class = 'col-12 col-lg-2dot4 mb-5';
-} else {
-	$class = 'pb-4';
-}
+// if (!is_front_page()) {
+// 	$class = 'col-12 col-lg-2dot4 mb-5';
+// } else {
+// 	$class = 'pb-4';
+// }
+
+$attachment_ids = $product->get_gallery_image_ids();
 ?>
-<div <?php wc_product_class($class, $product); ?>>
+<div <?php wc_product_class('', $product); ?>>
 	<div class="product-inner">
-
-		<div class="product-image">
-
+		<div class="product-image <?php echo $attachment_ids?'has-attachment':''; ?>">
 			<?php woocommerce_template_loop_product_link_open(); ?>
+			
 
 			<?php
 			/**
@@ -41,14 +42,20 @@ if (!is_front_page()) {
 			 * @hooked woocommerce_show_product_loop_sale_flash - 10
 			 * @hooked woocommerce_template_loop_product_thumbnail - 10
 			 */
-			do_action('woocommerce_before_shop_loop_item_title'); ?>
+			do_action('woocommerce_before_shop_loop_item_title');
+			
+			
+			woocommerce_template_loop_product_link_close();
+			?>
+			
+			
 
 			<?php do_action('woocommerce_shop_loop_addtocart'); ?>
 		</div>
 		<div class="product-info">
 			<div class="product-top-info">
 					<?php do_action('woocommerce_shop_loop_swatches'); ?>
-			<?php
+				<?php
 			/**
 			 * Hook: woocommerce_before_shop_loop_item.
 			 *
@@ -68,6 +75,8 @@ if (!is_front_page()) {
 				 * @hooked woocommerce_template_loop_price - 10
 				 */
 				do_action('woocommerce_after_shop_loop_item_title');
+				
+				woocommerce_template_loop_product_link_close();
 				?>
 			</div>
 		</div>

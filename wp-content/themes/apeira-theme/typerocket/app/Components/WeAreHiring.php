@@ -117,7 +117,7 @@ class WeAreHiring extends Component
           <div class="close" data-bs-dismiss="modal"><img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/close-icon.png" /></div>
                 <div class="info-modal d-flex justify-content-center align-items-center flex-column text-center">
 
-                    <div class="title-modal">Apply Information</div>
+                    <div class="title-modal">Application Form</div>
 					
 					<?php echo do_shortcode('[contact-form-7 id="443" title="Careers Form"]'); ?>
 					

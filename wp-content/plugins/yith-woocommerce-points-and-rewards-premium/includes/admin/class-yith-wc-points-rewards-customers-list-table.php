@@ -142,17 +142,13 @@ class YITH_WC_Points_Rewards_Customers_List_Table extends WP_List_Table {
 
 		$args = $this->add_filter_args( $args, $request );
 
-		$wp_user_search = new WP_User_Query( $args );
-		$this->items    = $wp_user_search->get_results();
-
 		/* filter only banned users */
 		if ( isset( $request['ywpar_list_filter'] ) && 'only_banned' === $request['ywpar_list_filter'] ) {
-			foreach ( $this->items as $ui => $user ) {
-				if ( ! in_array( $user->ID, $this->banned_users, true ) ) {
-					unset( $this->items[ $ui ] );
-				}
-			}
+			$args['include'] = $this->banned_users;
 		}
+
+		$wp_user_search = new WP_User_Query( $args );
+		$this->items    = $wp_user_search->get_results();
 
 		$this->set_pagination_args(
 			array(

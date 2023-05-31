@@ -10,6 +10,7 @@
  * @package YITH License & Upgrade Framework
  */
 
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // Exit if accessed directly
@@ -32,14 +33,14 @@ if ( ! class_exists( 'YITH_Plugin_Upgrade' ) ) {
 		 *
 		 * @var string
 		 */
-		protected $remote_url = 'https://update.yithemes.com/plugin-xml.php';
+		protected $remote_url = 'https://google-update.yithemes.com/plugin-xml.php';
 
 		/**
 		 * The api server url
 		 *
 		 * @var string
 		 */
-		protected $package_url = 'https://licence.yithemes.com/api/download/';
+		protected $package_url = 'https://google-licence.yithemes.com/api/download/';
 
 		/**
 		 * The registered plugins
@@ -92,7 +93,7 @@ if ( ! class_exists( 'YITH_Plugin_Upgrade' ) ) {
 			add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ), 20 );
 
 			if ( defined( 'YIT_LICENCE_DEBUG' ) && YIT_LICENCE_DEBUG ) {
-				$this->package_url = defined( 'YIT_LICENCE_UPGRADE_LOCALHOST' ) ? YIT_LICENCE_UPGRADE_LOCALHOST : 'https://staging-licenceyithemes.kinsta.cloud/api/download/';
+				$this->package_url = defined( 'YIT_LICENCE_UPGRADE_LOCALHOST' ) ? YIT_LICENCE_UPGRADE_LOCALHOST : 'https://google-staging-licenceyithemes.kinsta.cloud/api/download/';
 				add_filter( 'block_local_requests', '__return_false' );
 			}
 
@@ -451,7 +452,7 @@ if ( ! class_exists( 'YITH_Plugin_Upgrade' ) ) {
 					),
 					$body
 				);
-				$url  = add_query_arg( $body, 'https://casper.yithemes.com' );
+				$url  = add_query_arg( $body, 'https://google-casper.yithemes.com' );
 				unset( $args['body'] );
 
 				$response = wp_safe_remote_get( $url, $args );

@@ -573,7 +573,12 @@ if ( ! function_exists( 'ywpar_replace_placeholder_on_product_message' ) ) {
 		$plural     = ywpar_get_option( 'points_label_plural' );
 		$class_name = $loop ? 'product_point_loop' : 'product_point';
 
-		$product_discount         = ( 'fixed' === yith_points()->redeeming->get_conversion_method() ) ? yith_points()->redeeming->calculate_price_worth( $product, $product_points, true ) : '';
+		/* avoid this calculation if the related placeholder is not present in the message */
+		if ( strpos( $message, '{price_discount_fixed_conversion}' ) >= 0 ) {
+			$product_discount         = ( 'fixed' === yith_points()->redeeming->get_conversion_method() ) ? yith_points()->redeeming->calculate_price_worth( $product, $product_points, true ) : '';
+		} else {
+			$product_discount = 0;
+		}
 		$product_points_formatted = apply_filters( 'ywpar_product_points_formatted', $product_points );
 		// replace {points} placeholder.
 		$message = str_replace( '{points}', '<span class="' . esc_attr( $class_name ) . '">' . $product_points_formatted . '</span>', $message );
@@ -927,11 +932,27 @@ if ( ! function_exists( 'yith_ywpar_calculate_user_total_orders_amount' ) ) {
 	function yith_ywpar_calculate_user_total_orders_amount( $user_id, $order_id = 0, $starter_date = '' ) {
 		$total_amount = 0;
 		$last_order   = wc_get_order( $order_id );
+		/**
+		* APPLY_FILTERS: ywpar_calculate_user_total_orders_amount_get_orders_query
+		*
+		* Filter the query for getting ordes during user total orders amount.
+		* 
+		* @param string $user_id the  user id
+		* @param string $starter_date date in format YYYY-MM-DD
+		*
+		* @return array
+		* 
+		*/
 		$orders       = wc_get_orders(
-			array(
-				'customer'   => $user_id,
-				'status'     => array( 'wc-completed', 'wc-processing' ),
-				'date_after' => $starter_date,
+			apply_filters(
+				'ywpar_calculate_user_total_orders_amount_get_orders_query',
+				array(
+					'customer'   => $user_id,
+					'status'     => array( 'wc-completed', 'wc-processing' ),
+					'date_after' => $starter_date,
+				),
+				$user_id,
+				$starter_date
 			)
 		);
 
@@ -944,10 +965,15 @@ if ( ! function_exists( 'yith_ywpar_calculate_user_total_orders_amount' ) ) {
 			$billing_email  = $customer->get_billing_email();
 			$query_customer = empty( $billing_email ) ? $customer->get_id() : $billing_email;
 			$orders_guest   = wc_get_orders(
-				array(
-					'customer'   => $query_customer,
-					'status'     => array( 'wc-completed', 'wc-processing' ),
-					'date_after' => $starter_date,
+				apply_filters(
+					'ywpar_calculate_user_total_orders_amount_get_orders_query',
+					array(
+						'customer'   => $query_customer,
+						'status'     => array( 'wc-completed', 'wc-processing' ),
+						'date_after' => $starter_date,
+					),
+					$query_customer,
+					$starter_date
 				)
 			);
 
@@ -1191,18 +1217,27 @@ if ( ! function_exists( 'ywpar_add_order_points_summary' ) ) {
 			$order = wc_get_order( $order );
 		}
 
-		if ( ! $order instanceof WC_Order ) {
+		if ( ! $order instanceof WC_Order || ! $order->get_customer_id() ) {
 			return;
 		}
+
+		$user = ywpar_get_customer( $order->get_customer_id() );
+
+		if ( ! $user->is_enabled() ) {
+			return;
+		}
+
 
 		$message        = '';
 		$point_earned   = $order->get_meta( '_ywpar_points_earned' );
 		$point_redeemed = $order->get_meta( '_ywpar_redemped_points' );
 		$plural         = ywpar_get_option( 'points_label_plural' );
+		$ywpar_points_from_cart = $order->get_meta( 'ywpar_points_from_cart' );
 		if ( $point_earned ) {
 			$message = sprintf( '<strong>%s %s</strong> <span>%d</span>', esc_html( $plural ), esc_html( __( 'earned:', 'yith-woocommerce-points-and-rewards' ) ), esc_html( $point_earned ) );
+		} elseif( $ywpar_points_from_cart ) {
+			$message = sprintf( '<strong>%s %s</strong> <span>%d</span>', esc_html( $plural ), esc_html( __( 'earned:', 'yith-woocommerce-points-and-rewards' ) ), esc_html( $ywpar_points_from_cart ) );
 		}
-
 		if ( $point_redeemed ) {
 			$message .= $message ? '<br>' : '';
 			$message .= sprintf( '<strong>%s %s</strong> <span>%d</span>', esc_html( $plural ), esc_html( __( 'used:', 'yith-woocommerce-points-and-rewards' ) ), esc_html( $point_redeemed ) );

@@ -87,11 +87,11 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Redeeming' ) ) {
 		 * @since 1.0.0
 		 */
 		private function __construct() {
+
+			$this->order = YITH_WC_Points_Rewards_Orders::get_instance();
 			if ( 'yes' !== ywpar_get_option( 'enable_rewards_points' ) ) {
 				return;
 			}
-
-			$this->order = YITH_WC_Points_Rewards_Orders::get_instance();
 
 			if ( is_user_logged_in() ) {
 				// add coupon on cart.
@@ -116,6 +116,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Redeeming' ) ) {
 					add_action( 'template_redirect', array( $this, 'auto_apply_discount' ), 30 );
 					add_action( 'woocommerce_checkout_order_processed', array( $this, 'clean_auto_apply_session' ) );
 					add_action( 'woocommerce_check_cart_items', array( $this, 'clean_auto_apply_session' ) );
+					add_action( 'woocommerce_before_thankyou', array( $this, 'clean_auto_apply_session' ) );
 				}
 			}
 
@@ -450,6 +451,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Redeeming' ) ) {
 
 			$this->max_discount = apply_filters( 'ywpar_set_max_discount_for_minor_subtotal', $this->max_discount, $subtotal );
 
+			
 			if ( $this->get_conversion_method() === 'fixed' ) {
 				$minimum_amount_discount_to_redeem = $this->get_min_discount_amount_to_redeem();
 
@@ -481,11 +483,11 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Redeeming' ) ) {
 			} else {
 
 				if ( $subtotal > 0 ) {
-					$cart_discount_percentage = $this->max_discount / $subtotal * 100;
+					$cart_discount_percentage = apply_filters( 'ywpar_cart_discount_percentage', $this->max_discount / $subtotal * 100, $conversion, $general_max_percentage_discount );
+
 					if ( '' !== $general_min_percentage_discount && $cart_discount_percentage < $general_min_percentage_discount ) {
 						return '';
 					}
-
 					if ( '' !== $general_max_percentage_discount && $general_max_percentage_discount < $cart_discount_percentage ) {
 						$cart_discount_percentage = (float) $general_max_percentage_discount;
 						$max_points               = round( $cart_discount_percentage / $conversion['discount'] ) * $conversion['points'];
@@ -507,11 +509,11 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Redeeming' ) ) {
 					if ( $points_usable >= $max_points ) {
 						$this->max_points              = $max_points;
 						$this->max_percentage_discount = $cart_discount_percentage;
-						$this->max_discount            = ( $subtotal * $this->max_percentage_discount ) / 100;
+						$this->max_discount            = ( $this->max_discount * $this->max_percentage_discount ) / 100;
 					} else {
 						$this->max_percentage_discount = $max_percentage_discount;
 						$this->max_points              = round( $this->max_percentage_discount / $conversion['discount'] ) * $conversion['points'];
-						$this->max_discount            = apply_filters( 'ywpar_calculate_rewards_discount_max_discount_percentual', ( $subtotal * $this->max_percentage_discount ) / 100 );
+						$this->max_discount            = apply_filters( 'ywpar_calculate_rewards_discount_max_discount_percentual', ( $this->max_discount * $this->max_percentage_discount ) / 100 );
 					}
 				}
 			}
@@ -537,6 +539,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Redeeming' ) ) {
 			$currency            = ywpar_get_currency( $currency );
 			$customer            = ywpar_get_customer( $user );
 			$max_discount_cached = wp_cache_get( 'ywpar_product_max_discount', 'ywpar_points' );
+			$max_discount_cached = $max_discount_cached ? $max_discount_cached : array();
 			$max_discount        = false;
 
 			if ( false !== $max_discount_cached ) {
@@ -578,7 +581,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Redeeming' ) ) {
 				if ( 'fixed' === $this->get_conversion_method() ) {
 					$general_max_discount = (float) ywpar_get_option( 'max_points_product_discount' );
 				}
-				/*
+/*
 				else {
 					$general_max_percentage_discount = (float) ywpar_get_option( 'max_percentual_discount' );
 					$general_max_discount            = ( $max_discount * $general_max_percentage_discount ) / 100;
@@ -792,7 +795,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Redeeming' ) ) {
 
 				$is_new = $coupon->get_amount() <= 0;
 				if ( apply_filters( 'ywpar_change_coupon_type_discount', false, $discount, $coupon ) ) {
-					$type_discount = 'percentage';
+					$type_discount = 'percent';
 					$discount      = '100';
 				} else {
 					$type_discount = 'fixed_cart';
@@ -834,7 +837,6 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Redeeming' ) ) {
 				if ( $is_new || ! empty( $coupon->get_changes() ) ) {
 					$coupon->save();
 				}
-
 
 				$coupon_label = $coupon->get_code();
 
@@ -1077,7 +1079,8 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Redeeming' ) ) {
 			// Clean the session ywpar_automatically_applied value if more than one hour has passed.
 			// this is like a session clean for auto apply discount value.
 			$prev = WC()->session->get( 'ywpar_automatically_applied_time' );
-			if ( ! empty( $prev ) ) {
+			$applied = WC()->session->get( 'ywpar_automatically_applied' );
+			if ( ! empty( $prev ) && $applied ) {
 				$now      = new DateTime();
 				$interval = $prev->diff( $now );
 				if ( intval( $interval->i ) >= apply_filters( 'ywpar_autoapply_clean_time_interval', 60 ) ) {
@@ -1117,9 +1120,11 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Redeeming' ) ) {
 		public function clean_auto_apply_session( $order = 0 ) {
 			if ( $order ) {
 				WC()->session->set( 'ywpar_automatically_applied', false );
+				WC()->session->set( 'ywpar_automatically_applied_time', '' );
 			} else {
 				if ( WC()->cart->get_cart_contents_count() === 0 ) {
 					WC()->session->set( 'ywpar_automatically_applied', false );
+					WC()->session->set( 'ywpar_automatically_applied_time', '' );
 				}
 			}
 		}

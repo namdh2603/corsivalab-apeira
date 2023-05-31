@@ -28,15 +28,41 @@ if ($related_products) : ?>
 				<div class="title"><?php echo esc_html($heading); ?></div>
 			</div>
 		<?php endif; ?>
-		<?php woocommerce_product_loop_start(); ?>
+		<?php //woocommerce_product_loop_start(); ?>
+		
+			<div class="products-related-carousel">
+					<div class="swiper">
+						<div class="swiper-wrapper">
+							
+							
+							
 		<?php foreach ($related_products as $related_product) : ?>
 			<?php
 			$post_object = get_post($related_product->get_id());
 			setup_postdata($GLOBALS['post'] = &$post_object); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
+							echo '<div class="swiper-slide">';
 			wc_get_template_part('content', 'product-related');
+							echo '</div>';
 			?>
 		<?php endforeach; ?>
-		<?php woocommerce_product_loop_end(); ?>
+							
+					
+						</div>
+				</div>
+				
+									<div class="swiper-button-next-unique">
+<!-- 						<i class="fal fa-long-arrow-right"></i> -->
+						<i class="fa fa-long-arrow-right"></i>
+					</div>
+					<div class="swiper-button-prev-unique">
+<!-- 						<i class="fal fa-long-arrow-left"></i> -->
+						<i class="fa fa-long-arrow-left"></i>
+					</div>
+				
+		</div>
+							
+							
+		<?php //woocommerce_product_loop_end(); ?>
 	</div>
 <?php
 endif;

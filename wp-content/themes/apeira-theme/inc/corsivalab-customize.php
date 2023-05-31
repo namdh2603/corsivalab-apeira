@@ -21,6 +21,7 @@ new \Kirki\Panel(
     ]
 );
 $sections = [
+    'general'      => 'General',
     'header'      => 'Header',
     'footer'      => 'Footer',
     'shop'      => 'Woocommerce Shop',
@@ -62,64 +63,64 @@ new \Kirki\Field\Repeater(
     ]
 );
 
-new \Kirki\Field\Select(
-    [
-        'settings'    => sanitize_underscores('Sub Menu Column 1'),
-        'label'       => 'Sub Menu Column 1',
-        'section'     => 'header',
-        'placeholder' => 'Select a menu',
-        'priority' => 20,
-		'choices'     => Kirki\Util\Helper::get_terms( array('taxonomy' => 'nav_menu') ),
-    ]
-);
-new \Kirki\Field\Select(
-    [
-        'settings'    => sanitize_underscores('Sub Menu Column 2'),
-        'label'       => 'Sub Menu Column 2',
-        'section'     => 'header',
-        'placeholder' => 'Select a menu',
-        'priority' => 30,
-		'choices'     => Kirki\Util\Helper::get_terms( array('taxonomy' => 'nav_menu') ),
-    ]
-);
-new \Kirki\Field\Select(
-    [
-        'settings'    => sanitize_underscores('Sub Menu Column 3'),
-        'label'       => 'Sub Menu Column 3',
-        'section'     => 'header',
-        'placeholder' => 'Select a menu',
-        'priority' => 40,
-		'choices'     => Kirki\Util\Helper::get_terms( array('taxonomy' => 'nav_menu') ),
-    ]
-);
-new \Kirki\Field\Repeater(
-    [
-        'settings'    => sanitize_underscores('Sub Menu Right Item'),
-        'label'       => 'Sub Menu Right Item',
-        'section'     => 'header',
-        'fields'      => [
-            'image'   => [
-                'type'        => 'image',
-                'label'       => 'Image',
-                'default'     => '',
-                'choices'     => [
-                    'save_as' => 'id',
-                ],
-            ],
-            'text'   => [
-                'type'        => 'textarea',
-                'label'       => 'Text',
-                'default'     => '',
-            ],
-            'desc'   => [
-                'type'        => 'textarea',
-                'label'       => 'Text',
-                'default'     => '',
-            ],
-        ],
-        'priority' => 50,
-    ]
-);
+// new \Kirki\Field\Select(
+//     [
+//         'settings'    => sanitize_underscores('Sub Menu Column 1'),
+//         'label'       => 'Sub Menu Column 1',
+//         'section'     => 'header',
+//         'placeholder' => 'Select a menu',
+//         'priority' => 20,
+// 		'choices'     => Kirki\Util\Helper::get_terms( array('taxonomy' => 'nav_menu') ),
+//     ]
+// );
+// new \Kirki\Field\Select(
+//     [
+//         'settings'    => sanitize_underscores('Sub Menu Column 2'),
+//         'label'       => 'Sub Menu Column 2',
+//         'section'     => 'header',
+//         'placeholder' => 'Select a menu',
+//         'priority' => 30,
+// 		'choices'     => Kirki\Util\Helper::get_terms( array('taxonomy' => 'nav_menu') ),
+//     ]
+// );
+// new \Kirki\Field\Select(
+//     [
+//         'settings'    => sanitize_underscores('Sub Menu Column 3'),
+//         'label'       => 'Sub Menu Column 3',
+//         'section'     => 'header',
+//         'placeholder' => 'Select a menu',
+//         'priority' => 40,
+// 		'choices'     => Kirki\Util\Helper::get_terms( array('taxonomy' => 'nav_menu') ),
+//     ]
+// );
+// new \Kirki\Field\Repeater(
+//     [
+//         'settings'    => sanitize_underscores('Sub Menu Right Item'),
+//         'label'       => 'Sub Menu Right Item',
+//         'section'     => 'header',
+//         'fields'      => [
+//             'image'   => [
+//                 'type'        => 'image',
+//                 'label'       => 'Image',
+//                 'default'     => '',
+//                 'choices'     => [
+//                     'save_as' => 'id',
+//                 ],
+//             ],
+//             'text'   => [
+//                 'type'        => 'textarea',
+//                 'label'       => 'Text',
+//                 'default'     => '',
+//             ],
+//             'desc'   => [
+//                 'type'        => 'textarea',
+//                 'label'       => 'Text',
+//                 'default'     => '',
+//             ],
+//         ],
+//         'priority' => 50,
+//     ]
+// );
 new \Kirki\Field\Text(
     [
         'settings'    => sanitize_underscores('Copyright'),
@@ -129,6 +130,18 @@ new \Kirki\Field\Text(
         'priority' => 10,
     ]
 );
+new \Kirki\Field\Text(
+    [
+        'settings'    => sanitize_underscores('Countdown Title'),
+        'label'       => 'Countdown Title',
+        'section'         => 'footer',
+        'default'         => '',
+        'priority' => 15,
+    ]
+);
+
+
+	
 new \Kirki\Field\Date(
     [
         'settings'    => sanitize_underscores('Countdown Sale'),
@@ -234,6 +247,16 @@ new \Kirki\Field\Textarea(
         'priority' => 30,
     ]
 );
+new \Kirki\Field\Text(
+    [
+        'settings'    => sanitize_underscores('Minicart Add Custom Text'),
+        'label'       => 'Minicart Add Custom Text',
+		'description' => 'Add %s to text to show shipping amount of Singapore zone name',
+        'section'     => 'cart',
+        'default'         => '',
+        'priority' => 40,
+    ]
+);
 new \Kirki\Field\Image(
     [
         'settings'    => sanitize_underscores('Image Login'),
@@ -246,6 +269,48 @@ new \Kirki\Field\Image(
         ],
     ]
 );
+new \Kirki\Field\Text(
+    [
+        'settings'    => sanitize_underscores('Register Description'),
+        'label'       => 'Register Description',
+        'section'         => 'login',
+        'default'         => '',
+        'priority' => 20,
+    ]
+);
+
+new \Kirki\Field\Repeater(
+    [
+        'settings'    => sanitize_underscores('Register Icon List'),
+        'label'       => 'Register Icon List',
+        'section'     => 'login',
+		'row_label'    => [
+			'type'  => 'field',
+			'field' => 'title',
+		],
+		
+		'button_label' => 'Add Action',
+        'fields'      => [
+            'icon'   => [
+                'type'        => 'image',
+                'label'       => 'Image',
+                'default'     => '',
+                'choices'     => [
+                    'save_as' => 'id',
+                ],
+            ],
+            'title'   => [
+                'type'        => 'text',
+                'label'       => 'Title',
+                'default'     => '',
+            ],
+        ],
+        'priority' => 30,
+    ]
+);
+
+
+
 new \Kirki\Field\Image(
     [
         'settings'    => sanitize_underscores('Blog Page Banner'),
@@ -300,5 +365,59 @@ new \Kirki\Field\Repeater(
             ],
         ],
         'priority' => 10,
+    ]
+);
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => sanitize_underscores('Welcome Popup'),
+		'label'       => 'Welcome Popup',
+		'section'     => 'general',
+		'priority' => 8,
+		'transport'   => 'postMessage',
+		'default'     => true,
+		'choices'         => [
+			'on'  => 'Enabled',
+			'off' => 'Disabled',
+		],
+	]
+);
+new \Kirki\Field\Number(
+	[
+		'settings' => sanitize_underscores('Popup Day'),
+		'label'    => 'Popup Reopen after days number?',
+		'section'  => 'general',
+		'priority' => 9,
+		'choices'  => [
+			'min'  => 1,
+			'step' => 1,
+		],
+	]
+);
+new \Kirki\Field\Image(
+    [
+        'settings'    => sanitize_underscores('Welcome Popup Image'),
+        'label'       => 'Welcome Popup Image',
+        'section'     => 'general',
+        'default'     => '',
+        'priority' => 10,
+    ]
+);
+new \Kirki\Field\Text(
+    [
+        'settings'    => sanitize_underscores('Welcome Popup Title'),
+        'label'       => 'Welcome Popup Title',
+        'section'     => 'general',
+        'default'         => '',
+        'priority' => 20,
+    ]
+);
+new \Kirki\Field\Textarea(
+    [
+        'settings'    => sanitize_underscores('Welcome Popup Desc'),
+        'label'       => 'Welcome Popup Description',
+        'section'     => 'general',
+        'default'         => '',
+        'priority' => 30,
     ]
 );

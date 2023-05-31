@@ -13,7 +13,8 @@ jQuery(function ($) {
 		let dformat = yith_ywpar_general.birthday_date_format.replace('yy', 'yyyy');
 		var instance = new dtsel.DTS('input[name="yith_birthday"]', {
 			dateFormat: dformat,
-		});
+			localization:yith_ywpar_general.datepicker
+		} );
 	}
 
 	if ($('input[name="yith_birthday"]').length > 0) {
@@ -167,3 +168,55 @@ jQuery(function ($) {
 
 	});
 });
+
+
+window.addEventListener("DOMContentLoaded", () => {
+	const tabs = document.querySelectorAll('[role="tab"]');
+	const tabList = document.querySelector('[role="tablist"]');
+
+	if ( ! tabs.length ) {
+		return;
+	} 
+
+	// Add a click event handler to each tab
+	tabs.forEach((tab) => {
+		tab.addEventListener("click", function(e) {
+			var sel = new CustomEvent("ywpar_my_points_tab_clicked", {
+				"data": e
+			  });
+			
+			  document.dispatchEvent(sel);
+		});
+	});
+
+	// Enable arrow navigation between tabs in the tab list
+	let tabFocus = 0;
+
+	tabList.addEventListener("keydown", (e) => {
+		if (e.keyCode === 13){
+			e.target.click();
+		}
+		// Move right
+		if (e.keyCode === 39 || e.keyCode === 37) {
+			tabs[tabFocus].setAttribute("tabindex", -1);
+			if (e.keyCode === 39) {
+				tabFocus++;
+				// If we're at the end, go to the start
+				if (tabFocus >= tabs.length) {
+					tabFocus = 0;
+				}
+				// Move left
+			} else if (e.keyCode === 37) {
+				tabFocus--;
+				// If we're at the start, move to the end
+				if (tabFocus < 0) {
+					tabFocus = tabs.length - 1;
+				}
+			}
+
+			tabs[tabFocus].setAttribute("tabindex", 0);
+			tabs[tabFocus].focus();
+		}
+	});
+});
+

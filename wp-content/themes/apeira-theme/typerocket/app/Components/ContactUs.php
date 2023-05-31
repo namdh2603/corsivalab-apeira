@@ -38,18 +38,17 @@ class ContactUs extends Component
 	{
 		$bg_color = $data['bg_color'];
 ?>
-		<section class="section-<?php echo $info['component_id']; ?>" data-id="<?php echo $info['component_id']; ?>" style="<?php echo (!empty($bg_color) ? 'background-color:' . $bg_color . ';' : ''); ?>;background-image: url('<?php echo get_attachment($data['img'])['src']; ?>');">
+		<section class="section-<?php echo $info['component_id']; ?>" data-id="<?php echo $info['component_id']; ?>" style="<?php echo (!empty($bg_color) ? 'background-color:' . $bg_color . ';' : ''); ?>;background-image: url('<?php echo (!empty($data['img']))?wp_get_attachment_image_url($data['img'], 'full'):""; ?>');">
 			<div class="container">
 				<div class="row align-items-center">
-					<div class="col-12 col-sm-6 col-md-6 col-lg-6">
+					<div class="col-12 col-sm-12 col-md-12 col-lg-6 mb-md-5">
 						<?php if (!empty($data['img'])) : ?>
 							<div class="img-full">
-								<img src="<?php echo get_attachment($data['img'])['src']; ?>" class="w-100" alt="img" />
+								<?php echo wp_get_attachment_image($data['img'], 'full', "", array( "class" => "w-100" )); ?>
 							</div>
-							
 						<?php endif; ?>
 					</div>
-					<div class="col-12 col-sm-6 col-md-6 col-lg-5 offset-lg-1">
+					<div class="col-12 col-sm-12 col-md-12 col-lg-5 offset-lg-1">
 						<div class="head-section text-start">
 							<?php if (!empty($data['sub_title'])) : ?><div class="sub-title"><?php echo $data['sub_title']; ?></div><?php endif; ?>
 							<?php if (!empty($data['title'])) : ?><div class="title"><?php echo $data['title']; ?></div><?php endif; ?>
@@ -58,7 +57,7 @@ class ContactUs extends Component
 							<?php if (!empty($data['list'])) {
 								echo '<div class="social-footer-section d-flex align-items-center"><ul class="social-list">';
 								foreach ($data['list'] as $item) {
-									echo '<li><a href="' . $item['social_link'] . '"><img src="' . get_attachment($item['social_img'])['src'] . '" /></a></li>';
+									echo '<li><a href="' . $item['social_link'] . '">'.wp_get_attachment_image($item['social_img'], 'thumbnail' ).'</a></li>';
 								}
 								echo '</ul></div>';
 							} ?>

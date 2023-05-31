@@ -166,7 +166,7 @@ if ( ! class_exists( 'Woo_Variation_Swatches_Product_Page' ) ) {
 
 					$params['woo_variation_swatches_ajax_variation_threshold_min'] = apply_filters( 'woocommerce_ajax_variation_threshold', 30, $product );
 					$params['woo_variation_swatches_ajax_variation_threshold_max'] = $this->get_variation_threshold_max( $product );
-					$params['woo_variation_swatches_total_children']               = count( $product->get_children() );
+					$params['woo_variation_swatches_total_children']               = $product ?? count( $product->get_children() );
 				}
 			}
 

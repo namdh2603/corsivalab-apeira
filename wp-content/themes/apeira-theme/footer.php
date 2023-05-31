@@ -45,10 +45,12 @@
         </div>
     </div>
 </footer>
-
-
 <?php
+wp_cookies_popup();
+
+
 $date =  get_theme_mod(sanitize_underscores('Countdown Sale'));
+$sale_title =  get_theme_mod(sanitize_underscores('Countdown Title'));
 $sale_icon =  get_theme_mod(sanitize_underscores('Countdown Sale Icon'));
 $time=strtotime($date);
 $day=date("d",$time);
@@ -57,8 +59,12 @@ $month=date("m",$time);
 
 if (!empty($date)) { ?>
     <div class="countdown-fixed">
-        <img src="<?php echo get_attachment($sale_icon)['src']; ?>" />
-        <div id="headline">Countdown to sale time</div>
+		<div class="countdown-close">
+<!-- 			<i class="fa-solid fa-xmark"></i> -->
+			<i class="fa fa-close"></i>
+		</div>
+		<?php echo wp_get_attachment_image($sale_icon, 'full'); ?>
+        <div id="headline"><?php echo $sale_title; ?></div>
         <div id="countdown">
             <ul>
                 <li><span id="days"></span>days</li>
@@ -66,8 +72,11 @@ if (!empty($date)) { ?>
                 <li><span id="hours"></span>Hours</li>
                 <span class="separator">:</span>
                 <li><span id="minutes"></span>Minutes</li>
+                <span class="separator">:</span>
+                <li><span id="seconds"></span>Seconds</li>
             </ul>
         </div>
+        
     </div>
 <?php }
 ?>
@@ -103,7 +112,7 @@ if (!empty($date)) { ?>
                 document.getElementById("days").innerText = Math.floor(distance / (day)),
                     document.getElementById("hours").innerText = Math.floor((distance % (day)) / (hour)),
                     document.getElementById("minutes").innerText = Math.floor((distance % (hour)) / (minute));
-                    // document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
+                    document.getElementById("seconds").innerText = Math.floor((distance % (minute)) / second);
 
                 //do something later when date is reached
                 if (distance < 0) {

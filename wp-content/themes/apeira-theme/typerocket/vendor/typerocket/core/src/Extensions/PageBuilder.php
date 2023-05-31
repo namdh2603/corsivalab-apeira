@@ -19,7 +19,7 @@ class PageBuilder
     public const FIELD_NAME = 'builder';
     protected $showStatus = true;
 
-    public function __construct($post_types = ['page'], $field_name = null)
+    public function __construct($post_types = ['page','menu_blocks'], $field_name = null)
     {
         if(!Config::env('TYPEROCKET_PAGE_BUILDER', true)) {
             return;

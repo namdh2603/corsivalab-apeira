@@ -28,7 +28,7 @@ class SocialList extends Component
 			<?php if (!empty($data['list'])) {
 				echo '<div class="social-footer-section d-flex align-items-center"><ul class="social-list">';
 				foreach ($data['list'] as $item) {
-					echo '<li><a href="' . $item['btn_link'] . '">' . get_attachment($item['img'])['src'] . '</a></li>';
+					echo '<li><a href="' . $item['btn_link'] . '">' . wp_get_attachment_image($item['img'], 'full') . '</a></li>';
 				}
 				echo '</ul></div>';
 			} ?>

@@ -179,7 +179,7 @@ jQuery(function ($) {
 			var $message_reward_container = $('#yith-par-message-reward-cart');
 
 			if ($message_reward_container.length === 0) {
-				var $coupon_form = $('.woocommerce-form-coupon');
+				var $coupon_form = $( yith_ywpar_general.default_container );
 				$coupon_form.after('<div id="yith-par-message-reward-cart" style="display:none" class="woocommerce-cart-notice woocommerce-cart-notice-minimum-amount woocommerce-info"></div>');
 			}
 
@@ -263,6 +263,7 @@ jQuery(function ($) {
 		let dformat = yith_ywpar_general.birthday_date_format.replace('yy', 'yyyy');
 		var instance = new dtsel.DTS('input[name="yith_birthday"]', {
 			dateFormat: dformat,
+			localization:yith_ywpar_general.datepicker
 		});
 	}
 

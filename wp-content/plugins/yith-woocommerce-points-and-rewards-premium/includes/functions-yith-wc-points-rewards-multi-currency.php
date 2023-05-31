@@ -190,7 +190,7 @@ if ( class_exists( 'WOOCS_STARTER' ) ) {
 		 */
 		function ywpar_woocs_convert_price( $price, $currency = '' )  {
 			global $WOOCS; //phpcs:ignore
-			if ( $WOOCS->is_multiple_allowed || ! $WOOCS ) { //phpcs:ignore
+			if ( ! $WOOCS || $WOOCS->is_multiple_allowed ) { //phpcs:ignore
 				return $price;
 			}
 			$currencies = $WOOCS->get_currencies(); //phpcs:ignore

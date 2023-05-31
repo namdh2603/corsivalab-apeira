@@ -49,7 +49,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Assets' ) ) {
 
 			if ( is_admin() ) {
 				add_action( 'admin_enqueue_scripts', array( $this, 'register_admin_scripts' ), 11 );
-				add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ),11 );
+				add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ), 11 );
 			} else {
 				add_action( 'wp_enqueue_scripts', array( $this, 'register_frontend_scripts' ), 11 );
 				add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_scripts' ), 11 );
@@ -99,16 +99,16 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Assets' ) ) {
 		public function enqueue_admin_scripts() {
 
 			if ( ywpar_check_valid_admin_page( YITH_WC_Points_Rewards_Post_Types::$banner ) ||
-				ywpar_check_valid_admin_page( YITH_WC_Points_Rewards_Post_Types::$level_badge ) ) {
+			     ywpar_check_valid_admin_page( YITH_WC_Points_Rewards_Post_Types::$level_badge ) ) {
 				wp_enqueue_media();
 			}
 
 			if ( ywpar_check_valid_admin_page( YITH_WC_Points_Rewards_Post_Types::$banner ) ||
-				ywpar_check_valid_admin_page( YITH_WC_Points_Rewards_Post_Types::$redeeming_rule ) ||
-				ywpar_check_valid_admin_page( YITH_WC_Points_Rewards_Post_Types::$earning_rule ) ||
-				ywpar_check_valid_admin_page( YITH_WC_Points_Rewards_Post_Types::$level_badge ) ||
-				ywpar_check_valid_admin_page( 'post' ) ||
-				ywpar_check_valid_admin_page( 'page' ) ) {
+			     ywpar_check_valid_admin_page( YITH_WC_Points_Rewards_Post_Types::$redeeming_rule ) ||
+			     ywpar_check_valid_admin_page( YITH_WC_Points_Rewards_Post_Types::$earning_rule ) ||
+			     ywpar_check_valid_admin_page( YITH_WC_Points_Rewards_Post_Types::$level_badge ) ||
+			     ywpar_check_valid_admin_page( 'post' ) ||
+			     ywpar_check_valid_admin_page( 'page' ) ) {
 				wp_enqueue_style( 'yith_ywpar_backend' );
 				wp_enqueue_script( 'yith_ywpar_panel' );
 				wp_enqueue_style( 'yith-ywpar-gutenberg' );
@@ -167,7 +167,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Assets' ) ) {
 
 			wp_enqueue_style( 'ywpar_frontend' );
 
-
+			global $wp_locale;
 
 			$script_params = array(
 				'ajax_url'             => admin_url( 'admin-ajax' ) . '.php',
@@ -177,6 +177,12 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Assets' ) ) {
 				'reward_message_type'  => ( 'default' === ywpar_get_option( 'enabled_rewards_cart_message_layout_style' ) ) ? 'default-layout' : 'custom-layout',
 				'birthday_date_format' => ywpar_get_option( 'birthday_date_format' ),
 				'discount_value_nonce' => wp_create_nonce( 'calc_discount_value' ),
+				'default_container'    => apply_filters( 'ywpar_default_container', '.woocommerce-form-coupon' ), // APPLY_FILTERS: ywpar_default_container | change container class to hook the reward message | @param string $class default .woocommerce-form-coupon;
+				'datepicker'           => array(
+					'weekdays'     => array_values( $wp_locale->weekday_abbrev ),
+					'months'       => array_values( $wp_locale->month ),
+					'months_short' => array_values( $wp_locale->month_abbrev ),
+				),
 			);
 
 			wp_localize_script( 'ywpar_frontend', 'yith_ywpar_general', $script_params );
@@ -184,6 +190,11 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Assets' ) ) {
 			$script_params = array(
 				'ajax_url'             => admin_url( 'admin-ajax' ) . '.php',
 				'birthday_date_format' => ywpar_get_option( 'birthday_date_format' ),
+				'datepicker'           => array(
+					'weekdays'     => array_values( $wp_locale->weekday_abbrev ),
+					'months'       => array_values( $wp_locale->month ),
+					'months_short' => array_values( $wp_locale->month_abbrev ),
+				),
 			);
 
 			wp_localize_script( 'ywpar_frontend_my_account', 'yith_ywpar_general', $script_params );

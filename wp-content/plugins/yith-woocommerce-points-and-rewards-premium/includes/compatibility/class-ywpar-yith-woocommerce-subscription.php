@@ -127,7 +127,6 @@ if ( ! class_exists( 'YWPAR_YITH_WooCommerce_Subscription' ) ) {
 			if ( ! empty( $order_items ) ) {
 				foreach ( $order_items as $order_item ) {
 					if( $order_item->get_id() === $subscription_order_item ){
-						error_log( print_r( $order_item->get_meta( '_ywpar_total_points' ) , 1) );
 						$renew_points = (int) $order_item->get_meta( '_ywpar_total_points' );
 					}
 				}

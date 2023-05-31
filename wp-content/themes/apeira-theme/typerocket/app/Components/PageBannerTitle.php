@@ -27,7 +27,7 @@ class PageBannerTitle extends Component
 	{
 ?>
 		<?php if (!empty($data['img'])) : ?>
-			<section class="section-<?php echo $info['component_id']; ?> section-padding" data-id="<?php echo $info['component_id']; ?>" style="background-image: url('<?php echo get_attachment($data['img'])['src']; ?>'); background-size:cover; background-position: center center;">
+			<section class="section-<?php echo $info['component_id']; ?> section-padding" data-id="<?php echo $info['component_id']; ?>" style="background-image: url('<?php echo (!empty($data['img']))?wp_get_attachment_image_url($data['img'], 'full'):""; ?>'); background-size:cover; background-position: center center;">
 				<div class="head-section">
 					<?php if (!empty($data['title'])) : ?><div class="title"><?php echo $data['title']; ?></div><?php endif; ?>
 				</div>

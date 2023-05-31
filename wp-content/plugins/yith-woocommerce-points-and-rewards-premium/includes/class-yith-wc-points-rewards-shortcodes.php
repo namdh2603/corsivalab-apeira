@@ -55,8 +55,44 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Shortcodes' ) ) {
 
 			add_shortcode( 'yith_ywpar_points', array( $this, 'get_current_customer_points' ) );
 			add_shortcode( 'yith_ywpar_points_list', array( $this, 'get_current_customer_history' ) );
+
+			add_shortcode( 'ywpar_referral_link', array( $this, 'get_referral_link' ) );
 		}
 
+		/**
+		 * Return referral url for specified or current user
+		 *
+		 * @param array $atts Attributes.
+		 *
+		 * @return string
+		 * @since  3.20.0
+		 */		
+		public function get_referral_link( $atts ) {
+			$atts = shortcode_atts( array(
+				'user_id'  => 0,
+				'title'    => esc_html__( 'Share to Earn', 'yith-woocommerce-points-and-rewards' ),
+				'subtitle' => esc_html__( 'Your referral link', 'yith-woocommerce-points-and-rewards' ),
+			), $atts );
+
+			$content = '';
+
+			$userd_id = 'auto' === $atts['user_id'] ? get_current_user_id() : ( (int)$atts['user_id'] > 0 ? $atts['user_id'] : 0 );
+
+			if ( $userd_id ) {
+				wp_enqueue_style( 'yith-plugin-fw-icon-font' );
+				wp_enqueue_script( 'ywpar_frontend_my_account' );
+				ob_start();
+				echo '<div id="ywpar_referral_link_sc">';
+				echo !empty( $atts['title'] ) ? '<p>' . esc_html( $atts['title'] ) . '</p>' : '';
+				echo !empty( $atts['subtitle'] ) ? '<span>' . esc_html( $atts['subtitle'] ) . '</span>' : '';
+				YITH_WC_Points_Rewards_Referral::print_user_referral_field( $userd_id );
+				echo '</div>';
+				$content = ob_get_clean(); 
+			}
+
+			return $content;
+
+		}
 		/**
 		 * Return the message for single product page
 		 *

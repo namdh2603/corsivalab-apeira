@@ -24,7 +24,7 @@ if ( isset( $value['list'] ) ) :
 
 		if ( $repeat_last && $size > $index ) {
 			$class_repeat = ( $repeat_last && $size > $index ) ? 'hide' : '';
-			$repeat = 0;
+			$repeat       = 0;
 		}
 
 		$current_name = $field['name'] . '[list][' . $index . ']';
@@ -33,7 +33,7 @@ if ( isset( $value['list'] ) ) :
 		$points       = ( isset( $element['points'] ) ) ? $element['points'] : '';
 		$number       = ( isset( $element['number'] ) ) ? $element['number'] : '';
 		$multiple     = isset( $multiple ) ? $multiple : 1;
-		$show_repeat = isset( $show_repeat ) ? $show_repeat : 1;
+		$show_repeat  = isset( $show_repeat ) ? $show_repeat : 1;
 		?>
 		<div id="<?php echo esc_attr( $field['id'] ); ?>-container" data-index="<?php echo esc_attr( $index ); ?>"
 			class="yit_options rm_option rm_input rm_text extrapoint-options">
@@ -75,7 +75,7 @@ if ( isset( $value['list'] ) ) :
 		<span class="ywpar-add-row"><?php esc_html_e( '+ Add rule', 'yith-woocommerce-points-and-rewards' ); ?></span>
 		<div class="clear"></div>
 	<?php endif; ?>
-	<?php
+		<?php
 	endforeach;
 endif;
 ?>

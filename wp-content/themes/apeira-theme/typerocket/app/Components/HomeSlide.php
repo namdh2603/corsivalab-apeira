@@ -41,7 +41,10 @@ class HomeSlide extends Component
 						foreach ($data['list'] as $item) {
 						?>
 							<div class="swiper-slide">
-								<img src="<?php echo get_attachment($item['img'])['src']; ?>" class="w-100" alt="img" />
+								<?php if (!empty($item['img'])) :
+							$img = wp_get_attachment_image($item['img'], 'full', "", array( "class" => "w-100" ));
+							echo $img;
+							endif; ?>
 								<div class="swiper-caption">
 									<div class="row">
 										<div class="col-12 col-lg-4 mx-auto">

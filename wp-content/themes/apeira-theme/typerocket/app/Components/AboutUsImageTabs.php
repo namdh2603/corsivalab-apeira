@@ -41,7 +41,7 @@ class AboutUsImageTabs extends Component
 							$i++; ?>
 							<div class="nav-item col-4" role="presentation">
 								<div class="nav-link <?php echo ($i == 1) ? 'active' : ''; ?>" id="pills-<?php echo $info['component_id'] . $i; ?>-tab" data-bs-toggle="pill" data-bs-target="#pills-<?php echo $info['component_id'] . $i; ?>">
-									<img src="<?php echo get_attachment($item['img'])['src']; ?>" />
+									<?php if (!empty($item['img'])) : echo wp_get_attachment_image($item['img'], 'full'); endif; ?>
 									<div class="tab-title">
 										<?php echo $item['img_title']; ?>
 									</div>

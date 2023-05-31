@@ -98,14 +98,14 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Referral' ) ) {
          *
 		 * @return void
 		 */
-		public function init(  ) {
-			self::$referral_var_name    = apply_filters( 'ywpar_referral_var_name', self::$referral_var_name );
+		public function init( ) {
+			$var_name    = apply_filters( 'ywpar_referral_var_name', self::$referral_var_name );
 			$this->referral_cookie_name = apply_filters( 'ywpar_referral_cookie_name', $this->referral_cookie_name );
 			$this->referral_cookie_exp  = apply_filters( 'ywpar_referral_cookie_exp', $this->referral_cookie_exp );
 
 
-			if ( ! empty( $_REQUEST[ self::$referral_var_name ] ) ) { //phpcs:ignore
-				$customer = ywpar_get_customer( sanitize_text_field( wp_unslash( $_REQUEST[ self::$referral_var_name ] ) ) ); //phpcs:ignore
+			if ( ! empty( $_REQUEST[ $var_name ] ) ) { //phpcs:ignore
+				$customer = ywpar_get_customer( sanitize_text_field( wp_unslash( $_REQUEST[ $var_name ] ) ) ); //phpcs:ignore
 				$current_user_id = ywpar_get_current_customer_id();
 				if ( $customer && $customer->is_enabled() && $current_user_id !== $customer->get_id() ) {
 					$this->set_referral_cookie();
@@ -147,7 +147,8 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Referral' ) ) {
 		 * @author Armando Liccardo
 		 */
 		public function set_referral_cookie() {
-			$token = sanitize_text_field( wp_unslash( $_REQUEST[ self::$referral_var_name ] ) ); //phpcs:ignore
+			$var_name    = apply_filters( 'ywpar_referral_var_name', self::$referral_var_name );
+			$token = sanitize_text_field( wp_unslash( $_REQUEST[ $var_name ] ) ); //phpcs:ignore
 			// sets cookie for referrer id.
 			setcookie( $this->referral_cookie_name, $token, time() + intval( $this->referral_cookie_exp ), COOKIEPATH, COOKIE_DOMAIN, wc_site_is_https() && is_ssl(), true );
 		}
@@ -352,7 +353,8 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Referral' ) ) {
 		 */
 		public static function get_referral_link( $user_id ) {
 			global $sitepress;
-			$referral_link = add_query_arg( self::$referral_var_name, $user_id, get_bloginfo( 'wpurl' ) );
+			$var_name    = apply_filters( 'ywpar_referral_var_name', self::$referral_var_name );
+			$referral_link = add_query_arg( $var_name, $user_id, get_bloginfo( 'wpurl' ) );
 
 			if ( $sitepress ) {
 				$referral_link = apply_filters( 'wpml_permalink', $referral_link );
@@ -374,6 +376,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Referral' ) ) {
 			<div id="ywpar-copy-to-clipboard-wrapper">
 
 			<div class="ywpar-copy-to-clipboard_field-wrap">
+                <label for="ywpar_referral_user_link" class="screen-reader-text"><?php echo esc_html__('Get the referral link', 'yith-woocommerce-points-and-rewards'); ?></label>
 				<input type="text"
 						id="ywpar_referral_user_link"
 						class="ywpar-copy-to-clipboard__field"

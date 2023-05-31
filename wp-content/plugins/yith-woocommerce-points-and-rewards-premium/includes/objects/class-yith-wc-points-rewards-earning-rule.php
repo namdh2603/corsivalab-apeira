@@ -546,6 +546,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Earning_Rule' ) ) {
 				}
 			} else {
 				$roles_enabled = ywpar_get_option( 'user_role_enabled' );
+
 				if ( is_array( $current_user_type ) ) {
 					$rule_role_enabled = array_intersect( $current_user_type, $roles_enabled );
 					if ( in_array( 'levels', $current_user_type, true ) ) {

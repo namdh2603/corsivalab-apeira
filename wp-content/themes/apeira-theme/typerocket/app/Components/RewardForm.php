@@ -40,7 +40,7 @@ class RewardForm extends Component
 			<div class="container">
 				<div class="row">
 					<div class="col-12 col-sm-5 col-md-5 col-lg-5">
-						<img src="<?php echo get_attachment($data['img'])['src']; ?>" class="w-100" alt="img" />
+					<?php if (!empty($data['img'])) : echo wp_get_attachment_image($data['img'], 'full', "", array( "class" => "w-100" )); endif; ?>
 					</div>
 					<div class="col-12 col-sm-6 col-md-6 col-lg-6 offset-lg-1">
 						<div class="head-section">
@@ -53,7 +53,7 @@ class RewardForm extends Component
 								<?php if (!empty($data['list'])) { ?>
 									<?php foreach ($data['list'] as $item) { ?>
 										<div class="col-4">
-											<img src="<?php echo get_attachment($item['img'])['src']; ?>" class="w-100" alt="img" />
+											<?php if (!empty($item['img'])) : echo wp_get_attachment_image($item['img'], 'medium', "", array( "class" => "w-100" )); endif; ?>
 											<?php if (!empty($item['title'])) : ?>
 												<div class='icons-title'><?php echo $item['title']; ?></div>
 											<?php endif; ?>

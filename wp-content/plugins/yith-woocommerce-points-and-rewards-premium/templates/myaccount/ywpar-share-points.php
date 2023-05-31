@@ -15,7 +15,7 @@ $points   = empty( $points ) ? 0 : $points;
 $plural   = ywpar_get_option( 'points_label_plural' );
 
 ?>
-<div id="share_points" class="ywpar_tabcontent">
+<div id="share_points" class="ywpar_tabcontent" role="tabpanel" tabindex="0" aria-labelledby="share_points-tab">
 
 	<h3><?php echo esc_html_x( 'Convert points in a coupon code', 'My account title on tab to share points ', 'yith-woocommerce-points-and-rewards' ); ?></h3>
 	<p><?php echo esc_html_x( 'Do you want to share your points? Create a coupon code and share it so it can be used', 'Description of share points My account tab', 'yith-woocommerce-points-and-rewards' ); ?></p>
@@ -28,7 +28,10 @@ $plural   = ywpar_get_option( 'points_label_plural' );
 	$shared_coupons      = array_filter( $customer->get_shared_coupons() );
 
 	?>
-	<?php if ( 0 === $min_value_to_share || 0 === $points ) : ; ?>
+	<?php
+	if ( 0 === $min_value_to_share || 0 === $points ) :
+		;
+		?>
 		<span
 			class="error show"><?php echo esc_html_x( 'At the moment you don\'t have enough points to convert.', 'Error message on My account share points tab', 'yith-woocommerce-points-and-rewards' ); ?></span>
 	<?php elseif ( $min_value_to_share > 0 && $points < $min_value_to_share ) : ?>
@@ -49,6 +52,7 @@ $plural   = ywpar_get_option( 'points_label_plural' );
 			<input type="hidden" id="ywpar-share-points__max"
 				value="<?php echo esc_attr( $share_usable_points ); ?>">
 			<span><?php echo esc_html_x( 'Convert', 'part of a sentence on My account page share points tab', 'yith-woocommerce-points-and-rewards' ); ?></span>
+			<label class="screen-reader-text" for="ywpar_share_points_to_share"><?php echo esc_html( 'Enter the points to share', 'yith-woocommerce-points-and-rewards' ); ?></label>
 			<input type="number" step="1" min="<?php echo $min_value_to_share; ?>"
 				max="<?php echo esc_attr( $share_usable_points ); ?>" id="ywpar_share_points_to_share"
 				name="ywpar_share_points_to_share" value="<?php echo esc_attr( $share_usable_points ); ?>">

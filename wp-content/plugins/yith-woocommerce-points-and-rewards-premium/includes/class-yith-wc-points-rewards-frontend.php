@@ -566,7 +566,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Frontend' ) ) {
 				$message = str_replace( '{max_percentual_discount}', $max_percentage_discount . '%', $message );
 				$message = str_replace( '{points}', '<strong>' . $max_points_formatted . '</strong>', $message );
 
-				$message .= ' <a class="ywpar-button-message ywpar-button-percentage-discount">' . ywpar_get_option( 'label_apply_discounts' ) . '</a>';
+				$message .= ' <a title="' . esc_attr( ywpar_get_option( 'label_apply_discounts' ) ) . '" href="#" class="ywpar-button-message ywpar-button-percentage-discount">' . ywpar_get_option( 'label_apply_discounts' ) . '</a>';
 				$message .= '<div class="ywpar_apply_discounts_container"><form class="ywpar_apply_discounts" method="post">' . wp_nonce_field( 'ywpar_apply_discounts', 'ywpar_input_points_nonce' ) . '
                                      <input type="hidden" name="ywpar_points_max" value="' . $max_points . '">
                                      <input type="hidden" name="ywpar_max_discount" value="' . $max_discount_2 . '">
@@ -630,13 +630,14 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Frontend' ) ) {
 				$message                 = str_replace( '{points_label}', $plural, $message );
 				$message                 = str_replace( '{max_discount}', wc_price( apply_filters( 'ywpar_max_discount_redeem_message', $max_discount, 'custom-layout' ) ), $message );
 				$message                 = str_replace( '{points}', $max_points_formatted, $message );
-				$message                .= ' <a class="ywpar-button-message">' . ywpar_get_option( 'label_apply_discounts' ) . '</a>';
+				$message                .= ' <a class="ywpar-button-message"  href="#" title="' . ywpar_get_option( 'label_apply_discounts' ) . '">' . ywpar_get_option( 'label_apply_discounts' ) . '</a>';
 				$message                .= '<div class="clear"></div><div class="ywpar_apply_discounts_container"><form class="ywpar_apply_discounts" method="post">' . wp_nonce_field( 'ywpar_apply_discounts', 'ywpar_input_points_nonce' ) . '
                                     <input type="hidden" name="ywpar_points_max" value="' . $max_points . '">
                                     <input type="hidden" name="ywpar_max_discount" value="' . $max_discount_2 . '">
                                     <input type="hidden" name="ywpar_rate_method" value="fixed">
                                     ' . $before_ywpar_points_max . '
                                     <p class="form-row form-row-first">
+                                    	<label for="ywpar-points-max" class="screen-reader-text">'. __("Enter points to use","yith-woocommerce-points-and-rewards") .'</label>
                                         <input type="text" min="' . $minimum_points_to_redeem . '" name="ywpar_input_points" class="input-text"  id="ywpar-points-max" value="' . $max_points . '">
                                         <input type="hidden" name="ywpar_input_points_check" id="ywpar_input_points_check" value="0">
                                     </p>
@@ -654,7 +655,7 @@ if ( ! class_exists( 'YITH_WC_Points_Rewards_Frontend' ) ) {
 				$message  = str_replace( '{max_discount}', wc_price( $max_discount ), $message );
 				$message  = str_replace( '{max_percentual_discount}', $max_percentage_discount . '%', $message );
 				$message  = str_replace( '{points}', $max_points_formatted, $message );
-				$message .= ' <a class="ywpar-button-message ywpar-button-percentage-discount">' . ywpar_get_option( 'label_apply_discounts' ) . '</a>';
+				$message .= ' <a class="ywpar-button-message ywpar-button-percentage-discount" href="#" title="' . esc_attr( ywpar_get_option( 'label_apply_discounts' ) ) . '">' . ywpar_get_option( 'label_apply_discounts' ) . '</a>';
 				$message .= '<div class="ywpar_apply_discounts_container"><form class="ywpar_apply_discounts" method="post">' . wp_nonce_field( 'ywpar_apply_discounts', 'ywpar_input_points_nonce' ) . '
                                      <input type="hidden" name="ywpar_points_max" value="' . $max_points . '">
                                      <input type="hidden" name="ywpar_max_discount" value="' . $max_discount_2 . '">
